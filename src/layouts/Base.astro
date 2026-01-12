@@ -1,0 +1,271 @@
+---
+interface Props {
+  title: string;
+  description?: string;
+}
+
+const { title, description = "I help businesses find the big problem they actually solve." } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={description} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;700&family=Inter:wght@400;500&display=swap" rel="stylesheet" />
+    <title>{title} — Dave Thackeray</title>
+  </head>
+  <body>
+    <header>
+      <a href="/" class="logo">Dave Thackeray</a>
+      <nav>
+        <a href="/work">Work</a>
+        <a href="/services">Services</a>
+        <a href="/play">Insights</a>
+        <a href="/about">About</a>
+      </nav>
+      <a href="mailto:dave@wordandmouth.com" class="cta-header">Let's Talk</a>
+    </header>
+    
+    <main>
+      <slot />
+    </main>
+    
+    <footer>
+      <div class="footer-grid">
+        <div class="footer-col">
+          <h4>Industries Served</h4>
+          <a href="/industries/saas">SaaS & Software</a>
+          <a href="/industries/agency">Agencies</a>
+          <a href="/industries/media">Media & Publishing</a>
+          <a href="/industries/fintech">Fintech</a>
+          <a href="/industries/ecommerce">E-commerce</a>
+          <a href="/industries/professional">Professional Services</a>
+          <a href="/industries/health">Health & Wellness</a>
+          <a href="/industries/education">Education</a>
+        </div>
+        <div class="footer-col">
+          <h4>Explore</h4>
+          <a href="/work">Case Studies</a>
+          <a href="/services">How We Work</a>
+          <a href="/play">Insights</a>
+          <a href="/about">About Dave</a>
+        </div>
+        <div class="footer-col">
+          <h4>Connect</h4>
+          <a href="https://linkedin.com/in/davethackeray" target="_blank">LinkedIn</a>
+          <a href="https://medium.com/@davethackeray" target="_blank">Medium</a>
+          <a href="mailto:dave@wordandmouth.com">Email</a>
+        </div>
+      </div>
+      <p class="footer-copyright">© 2026 Word & Mouth. Get your story straight.</p>
+    </footer>
+  </body>
+</html>
+
+<style is:global>
+  :root {
+    --bg: #0a0a0a;
+    --text: #fafafa;
+    --accent: #ff6b35;
+    --muted: #888;
+    --border: #222;
+  }
+  
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: 'Inter', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    min-height: 100vh;
+  }
+  
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+  
+  header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    padding: 1.5rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;
+    background: rgba(10, 10, 10, 0.95);
+    backdrop-filter: blur(8px);
+  }
+  
+  .logo {
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 700;
+    font-size: 1rem;
+  }
+  
+  nav {
+    display: flex;
+    gap: 2rem;
+  }
+  
+  nav a {
+    color: var(--muted);
+    font-size: 0.9rem;
+    transition: color 0.2s;
+  }
+  
+  nav a:hover {
+    color: var(--text);
+  }
+  
+  .cta-header {
+    background: var(--accent);
+    color: #000;
+    padding: 0.6rem 1.2rem;
+    font-weight: 600;
+    font-size: 0.85rem;
+    transition: transform 0.2s;
+  }
+  
+  .cta-header:hover {
+    transform: scale(1.02);
+  }
+  
+  main {
+    min-height: 100vh;
+  }
+  
+  footer {
+    padding: 3rem 2rem;
+    text-align: center;
+    color: var(--muted);
+    font-size: 0.85rem;
+    border-top: 1px solid var(--border);
+  }
+  
+  .footer-links {
+    margin-bottom: 1rem;
+  }
+  
+  .footer-links a {
+    margin: 0 1rem;
+    transition: color 0.2s;
+  }
+  
+  .footer-links a:hover {
+    color: var(--accent);
+  }
+  
+  /* Utility classes */
+  .section {
+    padding: 5rem 2rem;
+    max-width: 900px;
+    margin: 0 auto;
+    border-top: 1px solid var(--border);
+  }
+  
+  .section-label {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 0.85rem;
+    color: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 2.5rem;
+  }
+  
+  h1, h2, h3 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+  }
+  
+  .highlight {
+    color: var(--accent);
+  }
+  
+  .cta-button {
+    display: inline-block;
+    background: var(--accent);
+    color: #000;
+    padding: 1rem 2rem;
+    font-weight: 700;
+    font-size: 1rem;
+    font-family: 'Space Grotesk', sans-serif;
+    border: none;
+    cursor: pointer;
+    transition: transform 0.2s;
+  }
+  
+  .cta-button:hover {
+    transform: scale(1.02);
+  }
+  
+  @media (max-width: 768px) {
+    header {
+      padding: 1rem;
+    }
+    
+    nav {
+      display: none;
+    }
+    
+    .section {
+      padding: 3rem 1.5rem;
+    }
+
+    .footer-grid {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+      text-align: center;
+    }
+  }
+
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 3rem;
+    margin-bottom: 2rem;
+  }
+
+  .footer-col {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .footer-col h4 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--muted);
+    margin-bottom: 0.5rem;
+  }
+
+  .footer-col a {
+    font-size: 0.9rem;
+    color: #aaa;
+    transition: color 0.2s;
+  }
+
+  .footer-col a:hover {
+    color: var(--accent);
+  }
+
+  .footer-copyright {
+    font-size: 0.8rem;
+    color: var(--muted);
+    padding-top: 2rem;
+    border-top: 1px solid var(--border);
+  }
+</style>

@@ -1,0 +1,448 @@
+---
+import Base from '../layouts/Base.astro';
+---
+
+<Base title="How We Work" description="Three ways to work together — Coach, Collaborate, or Done For You">
+  <section class="hero-services">
+    <h1>How We Work</h1>
+    <p class="hero-subtitle">
+      Thirty years of journalism, strategy, and building things — applied to your challenge.
+      <br />Choose how deep you want to go.
+    </p>
+  </section>
+
+  <section class="section tiers-section">
+    <div class="tiers-grid">
+      
+      <!-- Coach (DIY) -->
+      <article class="tier-card">
+        <div class="tier-badge">DIY</div>
+        <h2>Coach</h2>
+        <p class="tier-tagline">You do it. I guide you.</p>
+        <div class="tier-price">
+          <span class="price-amount">From €2,500</span>
+          <span class="price-alt">/ £2,000</span>
+        </div>
+        <ul class="tier-features">
+          <li>4× 90-minute strategy sessions</li>
+          <li>Frameworks and templates</li>
+          <li>Audit + feedback on your work</li>
+          <li>Async support between sessions</li>
+        </ul>
+        <p class="tier-best">Best for founders who learn by doing</p>
+        <div class="tier-credential">
+          <span class="credential-badge">🏆</span>
+          <span>Award-winning executive coach</span>
+        </div>
+      </article>
+
+      <!-- Collaborate (DIWY) -->
+      <article class="tier-card featured">
+        <div class="tier-badge">DIWY</div>
+        <h2>Collaborate</h2>
+        <p class="tier-tagline">We build it together.</p>
+        <div class="tier-price">
+          <span class="price-amount">From €7,500</span>
+          <span class="price-alt">/ £6,000</span>
+        </div>
+        <ul class="tier-features">
+          <li>Joint working sessions</li>
+          <li>You learn while we build</li>
+          <li>Real-time strategy + execution</li>
+          <li>Capability transfer included</li>
+        </ul>
+        <p class="tier-best">Best for teams building internal capability</p>
+        <div class="tier-popular">Most Popular</div>
+      </article>
+
+      <!-- Done For You (DIFY) -->
+      <article class="tier-card">
+        <div class="tier-badge">DIFY</div>
+        <h2>Done For You</h2>
+        <p class="tier-tagline">You brief. I deliver.</p>
+        <div class="tier-price">
+          <span class="price-amount">From €15,000</span>
+          <span class="price-alt">/ £12,000</span>
+        </div>
+        <ul class="tier-features">
+          <li>Full strategy + execution</li>
+          <li>Complete deliverables</li>
+          <li>Minimal time investment from you</li>
+          <li>Fast turnaround</li>
+        </ul>
+        <p class="tier-best">Best for busy leaders who need results</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="section services-by-tenet">
+    <h2 class="section-label">What Can We Work On?</h2>
+    <div class="services-grid">
+      
+      <div class="service-row">
+        <div class="service-tenet">
+          <a href="/story">Story</a>
+        </div>
+        <div class="service-offerings">
+          <span class="offering coach">Messaging frameworks</span>
+          <span class="offering collab">Co-create positioning</span>
+          <span class="offering dify">Full brand narrative</span>
+        </div>
+      </div>
+
+      <div class="service-row">
+        <div class="service-tenet">
+          <a href="/clarity">Clarity</a>
+        </div>
+        <div class="service-offerings">
+          <span class="offering coach">Clarity workshops</span>
+          <span class="offering collab">Documentation sprints</span>
+          <span class="offering dify">Complete clarity system</span>
+        </div>
+      </div>
+
+      <div class="service-row">
+        <div class="service-tenet">
+          <a href="/insight">Insight</a>
+        </div>
+        <div class="service-offerings">
+          <span class="offering coach">Analysis frameworks</span>
+          <span class="offering collab">Research partnership</span>
+          <span class="offering dify">Full insight report</span>
+        </div>
+      </div>
+
+      <div class="service-row">
+        <div class="service-tenet">
+          <a href="/ai">AI</a>
+        </div>
+        <div class="service-offerings">
+          <span class="offering coach">Prompt coaching</span>
+          <span class="offering collab">Build AI capability</span>
+          <span class="offering dify">Delivered AI solution</span>
+        </div>
+      </div>
+
+      <div class="service-row">
+        <div class="service-tenet">
+          <a href="/growth">Growth</a>
+        </div>
+        <div class="service-offerings">
+          <span class="offering coach">Strategy coaching</span>
+          <span class="offering collab">Growth sprint partner</span>
+          <span class="offering dify">Full growth execution</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="section retainer-section">
+    <div class="retainer-card">
+      <h2>Ongoing Advisory</h2>
+      <p>For leaders who want a strategic sparring partner on speed dial.</p>
+      <div class="retainer-price">
+        <span class="price-amount">€2,000/month</span>
+        <span class="price-alt">/ £1,600/month</span>
+      </div>
+      <ul class="retainer-features">
+        <li>4 hours of calls per month</li>
+        <li>Unlimited async via email/voice notes</li>
+        <li>Priority response (24h)</li>
+        <li>Cancel anytime</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="section cta-section">
+    <h2>Not sure which is right for you?</h2>
+    <p>Take a 2-minute quiz to get a personalized recommendation.</p>
+    <a href="/quiz" class="cta-button">Find Your Fit →</a>
+    <p class="cta-alt">Or just <a href="mailto:dave@wordandmouth.com">email me</a> and tell me what's going on.</p>
+  </section>
+</Base>
+
+<style>
+  .hero-services {
+    padding: 10rem 2rem 4rem;
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .hero-services h1 {
+    font-size: clamp(2.5rem, 6vw, 4rem);
+    margin-bottom: 1rem;
+  }
+
+  .hero-subtitle {
+    font-size: 1.2rem;
+    color: var(--muted);
+    line-height: 1.6;
+  }
+
+  .tiers-section {
+    padding-top: 2rem;
+  }
+
+  .tiers-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .tier-card {
+    background: #111;
+    border: 1px solid #222;
+    padding: 2.5rem 2rem;
+    position: relative;
+    transition: all 0.3s;
+  }
+
+  .tier-card:hover {
+    border-color: #444;
+    transform: translateY(-4px);
+  }
+
+  .tier-card.featured {
+    border-color: var(--accent);
+    background: linear-gradient(180deg, rgba(255,107,53,0.08) 0%, #111 100%);
+  }
+
+  .tier-badge {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: #222;
+    color: var(--muted);
+    padding: 0.25rem 0.6rem;
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+  }
+
+  .tier-card.featured .tier-badge {
+    background: var(--accent);
+    color: #000;
+  }
+
+  .tier-card h2 {
+    font-size: 1.8rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .tier-tagline {
+    color: var(--muted);
+    font-style: italic;
+    margin-bottom: 1.5rem;
+  }
+
+  .tier-price {
+    margin-bottom: 1.5rem;
+  }
+
+  .price-amount {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--accent);
+  }
+
+  .price-alt {
+    color: var(--muted);
+    font-size: 1rem;
+    margin-left: 0.5rem;
+  }
+
+  .tier-features {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 1.5rem 0;
+  }
+
+  .tier-features li {
+    padding: 0.5rem 0;
+    padding-left: 1.5rem;
+    position: relative;
+    color: var(--text);
+  }
+
+  .tier-features li::before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    color: var(--accent);
+  }
+
+  .tier-best {
+    font-size: 0.85rem;
+    color: var(--muted);
+    font-style: italic;
+    padding-top: 1rem;
+    border-top: 1px solid #222;
+  }
+
+  .tier-credential {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: 1rem;
+    font-size: 0.85rem;
+    color: var(--muted);
+  }
+
+  .credential-badge {
+    font-size: 1.2rem;
+  }
+
+  .tier-popular {
+    position: absolute;
+    top: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--accent);
+    color: #000;
+    padding: 0.25rem 1rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  /* Services by Tenet */
+  .services-grid {
+    max-width: 900px;
+  }
+
+  .service-row {
+    display: grid;
+    grid-template-columns: 120px 1fr;
+    gap: 2rem;
+    padding: 1.5rem 0;
+    border-bottom: 1px solid #222;
+    align-items: center;
+  }
+
+  .service-tenet a {
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 600;
+    color: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-size: 0.9rem;
+  }
+
+  .service-offerings {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+  }
+
+  .offering {
+    padding: 0.4rem 0.8rem;
+    font-size: 0.85rem;
+    border-radius: 2px;
+  }
+
+  .offering.coach {
+    background: rgba(76, 175, 80, 0.15);
+    color: #4CAF50;
+  }
+
+  .offering.collab {
+    background: rgba(33, 150, 243, 0.15);
+    color: #2196F3;
+  }
+
+  .offering.dify {
+    background: rgba(255, 107, 53, 0.15);
+    color: var(--accent);
+  }
+
+  /* Retainer */
+  .retainer-section {
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .retainer-card {
+    background: linear-gradient(135deg, #1a1a1a 0%, #111 100%);
+    border: 1px solid #333;
+    padding: 3rem;
+    text-align: center;
+  }
+
+  .retainer-card h2 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .retainer-card > p {
+    color: var(--muted);
+    margin-bottom: 1.5rem;
+  }
+
+  .retainer-price {
+    margin-bottom: 1.5rem;
+  }
+
+  .retainer-features {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    text-align: left;
+    max-width: 300px;
+    margin: 0 auto;
+  }
+
+  .retainer-features li {
+    padding: 0.5rem 0;
+    padding-left: 1.5rem;
+    position: relative;
+  }
+
+  .retainer-features li::before {
+    content: "→";
+    position: absolute;
+    left: 0;
+    color: var(--accent);
+  }
+
+  /* CTA */
+  .cta-section {
+    text-align: center;
+  }
+
+  .cta-section h2 {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .cta-section > p {
+    color: var(--muted);
+    margin-bottom: 2rem;
+  }
+
+  .cta-alt {
+    margin-top: 1.5rem;
+    font-size: 0.9rem;
+  }
+
+  .cta-alt a {
+    color: var(--accent);
+  }
+
+  @media (max-width: 600px) {
+    .service-row {
+      grid-template-columns: 1fr;
+      gap: 0.75rem;
+    }
+
+    .tiers-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
+</Base>

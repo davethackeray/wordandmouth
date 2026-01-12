@@ -1,0 +1,337 @@
+---
+import Base from '../layouts/Base.astro';
+---
+
+<Base title="Where Are You?" description="Find your starting point on the journey from OK to Great">
+  <section class="hero-diagnostic">
+    <h1>Where are <span class="highlight">you</span>?</h1>
+    <p>Every organisation is somewhere on the journey from OK to Great. Find your starting point.</p>
+  </section>
+  
+  <!-- The Journey Spectrum -->
+  <section class="section spectrum-section">
+    <div class="spectrum">
+      <div class="spectrum-line"></div>
+      
+      <div class="spectrum-node" data-tenet="story">
+        <div class="node-marker">1</div>
+        <div class="node-content">
+          <h3>Story</h3>
+          <p class="node-pain">"We're losing to dumber competitors"</p>
+          <p class="node-state">You have a great product but can't articulate why people should care.</p>
+        </div>
+      </div>
+      
+      <div class="spectrum-node" data-tenet="clarity">
+        <div class="node-marker">2</div>
+        <div class="node-content">
+          <h3>Clarity</h3>
+          <p class="node-pain">"Our product is great but nobody gets it"</p>
+          <p class="node-state">You can tell the story, but it's too complex. Simplification needed.</p>
+        </div>
+      </div>
+      
+      <div class="spectrum-node" data-tenet="insight">
+        <div class="node-marker">3</div>
+        <div class="node-content">
+          <h3>Insight</h3>
+          <p class="node-pain">"We have data everywhere but no insight"</p>
+          <p class="node-state">The message is clear internally. Now you need competitive intelligence.</p>
+        </div>
+      </div>
+      
+      <div class="spectrum-node" data-tenet="ai">
+        <div class="node-marker">4</div>
+        <div class="node-content">
+          <h3>AI</h3>
+          <p class="node-pain">"We know we should use AI but don't know how"</p>
+          <p class="node-state">You're operationally solid. Time to leverage technology for advantage.</p>
+        </div>
+      </div>
+      
+      <div class="spectrum-node" data-tenet="growth">
+        <div class="node-marker">5</div>
+        <div class="node-content">
+          <h3>Growth</h3>
+          <p class="node-pain">"We're doing fine but could be doing better"</p>
+          <p class="node-state">Everything works. Now it's about optimization and scale.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- How They Connect -->
+  <section class="section connections-section">
+    <h2 class="section-label">How They Connect</h2>
+    <div class="connection-text">
+      <p>
+        These aren't rigid stages — organisations often work on multiple tenets simultaneously. 
+        But there's a natural progression:
+      </p>
+      <ul>
+        <li><strong>Story</strong> answers "Why do we exist?"</li>
+        <li><strong>Clarity</strong> answers "How do we explain it?"</li>
+        <li><strong>Insight</strong> answers "What's happening around us?"</li>
+        <li><strong>AI</strong> answers "How do we work smarter?"</li>
+        <li><strong>Growth</strong> answers "How do we get from OK to Great?"</li>
+      </ul>
+      <p>
+        Each builds on the last. You can't effectively deploy AI without clarity. 
+        You can't achieve clarity without story. And sustainable growth requires all four.
+      </p>
+    </div>
+  </section>
+  
+  <!-- Quick Diagnostic -->
+  <section class="section diagnostic-section">
+    <h2 class="section-label">Quick Check</h2>
+    <div class="diagnostic">
+      <div class="diagnostic-question">
+        <p>Which statement sounds most like your Monday morning?</p>
+      </div>
+      <div class="diagnostic-options">
+        <a href="/story" class="diagnostic-option">
+          <span class="option-icon">📖</span>
+          <span class="option-text">"Why do they keep choosing the competition?"</span>
+        </a>
+        <a href="/clarity" class="diagnostic-option">
+          <span class="option-icon">🔍</span>
+          <span class="option-text">"Why can't we explain what we do simply?"</span>
+        </a>
+        <a href="/insight" class="diagnostic-option">
+          <span class="option-icon">💡</span>
+          <span class="option-text">"We have all this data but what does it mean?"</span>
+        </a>
+        <a href="/ai" class="diagnostic-option">
+          <span class="option-icon">🤖</span>
+          <span class="option-text">"Everyone's talking about AI but we're stuck"</span>
+        </a>
+        <a href="/growth" class="diagnostic-option">
+          <span class="option-icon">📈</span>
+          <span class="option-text">"Things are fine but we should be doing better"</span>
+        </a>
+      </div>
+    </div>
+  </section>
+  
+  <!-- CTA -->
+  <section class="section cta-section">
+    <h2>Not sure where to start?</h2>
+    <p>Let's have a conversation. 30 minutes to find your biggest lever.</p>
+    <a href="mailto:dave@wordandmouth.com" class="cta-button">Book a Call</a>
+  </section>
+</Base>
+
+<style>
+  .hero-diagnostic {
+    padding: 10rem 2rem 4rem;
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
+  }
+  
+  .hero-diagnostic h1 {
+    font-size: clamp(2.5rem, 6vw, 4rem);
+    margin-bottom: 1rem;
+  }
+  
+  .hero-diagnostic p {
+    color: var(--muted);
+    font-size: 1.2rem;
+    max-width: 500px;
+    margin: 0 auto;
+  }
+  
+  .spectrum-section {
+    padding-bottom: 2rem;
+  }
+  
+  .spectrum {
+    position: relative;
+    max-width: 700px;
+    margin: 0 auto;
+  }
+  
+  .spectrum-line {
+    position: absolute;
+    left: 24px;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: linear-gradient(to bottom, var(--accent), var(--border));
+  }
+  
+  .spectrum-node {
+    display: flex;
+    gap: 1.5rem;
+    padding: 1.5rem 0;
+    cursor: pointer;
+    transition: transform 0.2s;
+  }
+  
+  .spectrum-node:hover {
+    transform: translateX(8px);
+  }
+  
+  .node-marker {
+    width: 50px;
+    height: 50px;
+    background: var(--bg);
+    border: 2px solid var(--accent);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 700;
+    font-size: 1.2rem;
+    color: var(--accent);
+    flex-shrink: 0;
+    z-index: 1;
+    transition: all 0.2s;
+  }
+  
+  .spectrum-node:hover .node-marker {
+    background: var(--accent);
+    color: #000;
+  }
+  
+  .node-content {
+    padding-top: 0.5rem;
+  }
+  
+  .node-content h3 {
+    font-size: 1.3rem;
+    margin-bottom: 0.25rem;
+  }
+  
+  .node-pain {
+    color: var(--accent);
+    font-size: 0.95rem;
+    font-style: italic;
+    margin-bottom: 0.5rem;
+  }
+  
+  .node-state {
+    color: var(--muted);
+    font-size: 0.9rem;
+    line-height: 1.5;
+  }
+  
+  .connection-text {
+    max-width: 600px;
+  }
+  
+  .connection-text p {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    margin-bottom: 1.5rem;
+  }
+  
+  .connection-text ul {
+    margin: 1.5rem 0;
+    padding-left: 0;
+    list-style: none;
+  }
+  
+  .connection-text li {
+    margin-bottom: 0.75rem;
+    padding-left: 1.5rem;
+    position: relative;
+  }
+  
+  .connection-text li::before {
+    content: '→';
+    position: absolute;
+    left: 0;
+    color: var(--accent);
+  }
+  
+  .connection-text strong {
+    color: var(--accent);
+  }
+  
+  .diagnostic {
+    background: #111;
+    padding: 2rem;
+  }
+  
+  .diagnostic-question {
+    margin-bottom: 1.5rem;
+  }
+  
+  .diagnostic-question p {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1.2rem;
+    font-weight: 600;
+  }
+  
+  .diagnostic-options {
+    display: grid;
+    gap: 0.75rem;
+  }
+  
+  .diagnostic-option {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem 1.5rem;
+    background: var(--bg);
+    border-left: 3px solid transparent;
+    transition: all 0.2s;
+  }
+  
+  .diagnostic-option:hover {
+    border-left-color: var(--accent);
+    background: #0f0f0f;
+  }
+  
+  .option-icon {
+    font-size: 1.5rem;
+  }
+  
+  .option-text {
+    font-size: 0.95rem;
+    color: var(--muted);
+  }
+  
+  .diagnostic-option:hover .option-text {
+    color: var(--text);
+  }
+  
+  .cta-section {
+    text-align: center;
+  }
+  
+  .cta-section h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+  
+  .cta-section p {
+    color: var(--muted);
+    margin-bottom: 2rem;
+  }
+  
+  @media (max-width: 600px) {
+    .spectrum-node {
+      gap: 1rem;
+    }
+    
+    .node-marker {
+      width: 40px;
+      height: 40px;
+      font-size: 1rem;
+    }
+  }
+</style>
+
+<script>
+  // Make nodes clickable
+  document.querySelectorAll('.spectrum-node').forEach(node => {
+    node.addEventListener('click', () => {
+      const tenet = node.dataset.tenet;
+      window.location.href = `/${tenet}`;
+    });
+  });
+</script>

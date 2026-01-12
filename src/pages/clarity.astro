@@ -1,0 +1,160 @@
+---
+import Base from '../layouts/Base.astro';
+---
+
+<Base title="Clarity" description="You're selling features, not solutions. Let's flip that.">
+  <section class="hero-small">
+    <span class="tenet-label">Core Tenet</span>
+    <h1>"Our product is great but <span class="highlight">nobody gets it</span>"</h1>
+    <p class="hero-answer">You're selling features, not solutions. Let's flip that.</p>
+  </section>
+  
+  <section class="section">
+    <h2 class="section-label">The Problem</h2>
+    <div class="problem-text">
+      <p>
+        Your team can explain your product in 47 different ways. None of them are simple.
+        You've got feature matrices, capability decks, and comparison charts — but clients still don't understand why they need you.
+      </p>
+      <p>
+        Complex doesn't have to mean complicated. The most valuable things can be explained simply.
+      </p>
+    </div>
+  </section>
+  
+  <section class="section">
+    <h2 class="section-label">How I Help</h2>
+    <div class="approach">
+      <div class="approach-item">
+        <h3>Find the Essence</h3>
+        <p>Strip away the jargon. Find the one thing you really do for clients. Make it impossible to misunderstand.</p>
+      </div>
+      <div class="approach-item">
+        <h3>Create Depth Layers</h3>
+        <p>Not everyone needs the same level of detail. I create skim/read/audit layers so executives get the headline and analysts get the proof.</p>
+      </div>
+      <div class="approach-item">
+        <h3>Test for Clarity</h3>
+        <p>If your mother can't explain it, it's not clear enough. I test messaging until it's stupidly obvious.</p>
+      </div>
+    </div>
+  </section>
+  
+  <section class="section">
+    <h2 class="section-label">Related Work</h2>
+    <div class="related-work">
+      <a href="/work#the-stack" class="work-link">
+        <span class="work-title">The Stack</span>
+        <span class="work-desc">70 pages → 3 depth layers</span>
+      </a>
+      <a href="/work#freed-reads" class="work-link">
+        <span class="work-title">Freed Reads</span>
+        <span class="work-desc">Making public domain books accessible</span>
+      </a>
+    </div>
+  </section>
+  
+  <section class="section cta-section">
+    <h2>Ready to simplify?</h2>
+    <a href="mailto:dave@wordandmouth.com" class="cta-button">Let's Talk</a>
+  </section>
+</Base>
+
+<style>
+  .hero-small {
+    padding: 10rem 2rem 4rem;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+  
+  .tenet-label {
+    display: inline-block;
+    background: rgba(255, 107, 53, 0.15);
+    color: var(--accent);
+    padding: 0.4rem 0.8rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 1.5rem;
+  }
+  
+  .hero-small h1 {
+    font-size: clamp(1.8rem, 4vw, 2.5rem);
+    margin-bottom: 1rem;
+    color: var(--muted);
+  }
+  
+  .hero-answer {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    font-weight: 700;
+    color: var(--text);
+  }
+  
+  .problem-text p {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+    max-width: 700px;
+  }
+  
+  .approach {
+    display: grid;
+    gap: 2rem;
+  }
+  
+  .approach-item {
+    padding: 1.5rem;
+    border-left: 3px solid var(--accent);
+    background: #111;
+  }
+  
+  .approach-item h3 {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .approach-item p {
+    color: var(--muted);
+    line-height: 1.6;
+  }
+  
+  .related-work {
+    display: grid;
+    gap: 1rem;
+  }
+  
+  .work-link {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem;
+    background: #111;
+    border-left: 3px solid transparent;
+    transition: border-color 0.2s;
+  }
+  
+  .work-link:hover {
+    border-left-color: var(--accent);
+  }
+  
+  .work-title {
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 700;
+  }
+  
+  .work-desc {
+    color: var(--muted);
+    font-size: 0.9rem;
+  }
+  
+  .cta-section {
+    text-align: center;
+  }
+  
+  .cta-section h2 {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+  }
+</style>

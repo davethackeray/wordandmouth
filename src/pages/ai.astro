@@ -1,0 +1,292 @@
+---
+import Base from '../layouts/Base.astro';
+---
+
+<Base title="AI" description="I'll show you how to use AI — and build the first prototype. In weeks.">
+  <section class="hero-small">
+    <span class="tenet-label">Core Tenet</span>
+    <h1>"We know we should use AI but <span class="highlight">don't know how</span>"</h1>
+    <p class="hero-answer">I'll show you — and build the first prototype. In weeks.</p>
+  </section>
+  
+  <section class="section">
+    <h2 class="section-label">The Problem</h2>
+    <div class="problem-text">
+      <p>
+        Everyone's talking about AI. Your board wants an "AI strategy." 
+        Your competitors claim to be "AI-native." And you're stuck wondering where to even start.
+      </p>
+      <p>
+        Most AI initiatives fail because they start with technology instead of problems. 
+        I start with your actual business challenges, then figure out what AI can realistically solve.
+      </p>
+    </div>
+  </section>
+  
+  <section class="section">
+    <h2 class="section-label">How I Help</h2>
+    <div class="approach">
+      <div class="approach-item">
+        <h3>Identify Real Opportunities</h3>
+        <p>Not everything needs AI. I find the 20% of use cases that will deliver 80% of the value — and tell you honestly when AI isn't the answer.</p>
+      </div>
+      <div class="approach-item">
+        <h3>Build Working Prototypes</h3>
+        <p>I don't just advise. I work with AI agents as my construction crew, shipping working prototypes in weeks — not consultancy timelines.</p>
+      </div>
+      <div class="approach-item">
+        <h3>Transfer Knowledge</h3>
+        <p>The goal isn't to make you dependent on me. It's to help your team understand what's possible and how to think about AI pragmatically.</p>
+      </div>
+    </div>
+  </section>
+  
+  <section class="section">
+    <h2 class="section-label">Track Record</h2>
+    <div class="stats">
+      <div class="stat">
+        <span class="stat-number">12</span>
+        <span class="stat-label">AI products shipped in 4 months</span>
+      </div>
+      <div class="stat">
+        <span class="stat-number">3</span>
+        <span class="stat-label">weeks average prototype time</span>
+      </div>
+    </div>
+  </section>
+  
+  <section class="section">
+    <h2 class="section-label">Related Work</h2>
+    <div class="related-work">
+      <a href="/work#the-stack" class="work-link">
+        <span class="work-title">The Stack</span>
+        <span class="work-desc">AI-synthesised investigative journalism</span>
+      </a>
+      <a href="/work#slice-os" class="work-link">
+        <span class="work-title">Slice OS</span>
+        <span class="work-desc">Pizza truck operations platform</span>
+      </a>
+      <a href="/work#zeitgeist" class="work-link">
+        <span class="work-title">Zeitgeist</span>
+        <span class="work-desc">Real-time cultural intelligence</span>
+      </a>
+    </div>
+  </section>
+  
+  <!-- From the River -->
+  <section class="section">
+    <h2 class="section-label">From the River</h2>
+    <p class="river-intro">Podcast episodes and articles on this topic:</p>
+    <div class="river-items">
+      <a href="https://podcasts.apple.com/us/podcast/10x-your-ai-results-with-this-ultimate-context-engineering/id1770010162" target="_blank" class="river-link">
+        <span class="river-icon">🎙️</span>
+        <div>
+          <strong>10x your AI results with context engineering</strong>
+          <span>The single most important skill for getting great output</span>
+        </div>
+      </a>
+      <a href="https://podcasts.apple.com/us/podcast/does-ai-work/id1770010162?i=1000728592863" target="_blank" class="river-link">
+        <span class="river-icon">🎙️</span>
+        <div>
+          <strong>Does AI work?</strong>
+          <span>OpenAI's research on LLMs in organisations — tested</span>
+        </div>
+      </a>
+      <a href="https://podcasts.apple.com/us/podcast/im-working-on-the-zeitgeist/id1770010162?i=1000724729646" target="_blank" class="river-link">
+        <span class="river-icon">🎙️</span>
+        <div>
+          <strong>I'm working on the Zeitgeist</strong>
+          <span>Building a business intelligence platform with AI</span>
+        </div>
+      </a>
+      <a href="/play" class="river-link">
+        <span class="river-icon">📝</span>
+        <div>
+          <strong>Chain of thought prompting</strong>
+          <span>The technique that changed everything</span>
+        </div>
+      </a>
+    </div>
+    <a href="/play" class="river-more">See all AI content in The River →</a>
+  </section>
+  
+  <section class="section cta-section">
+    <h2>Ready to build something?</h2>
+    <a href="mailto:dave@wordandmouth.com" class="cta-button">Let's Talk</a>
+  </section>
+</Base>
+
+<style>
+  .hero-small {
+    padding: 10rem 2rem 4rem;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+  
+  .tenet-label {
+    display: inline-block;
+    background: rgba(255, 107, 53, 0.15);
+    color: var(--accent);
+    padding: 0.4rem 0.8rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 1.5rem;
+  }
+  
+  .hero-small h1 {
+    font-size: clamp(1.8rem, 4vw, 2.5rem);
+    margin-bottom: 1rem;
+    color: var(--muted);
+  }
+  
+  .hero-answer {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    font-weight: 700;
+    color: var(--text);
+  }
+  
+  .problem-text p {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+    max-width: 700px;
+  }
+  
+  .approach {
+    display: grid;
+    gap: 2rem;
+  }
+  
+  .approach-item {
+    padding: 1.5rem;
+    border-left: 3px solid var(--accent);
+    background: #111;
+  }
+  
+  .approach-item h3 {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .approach-item p {
+    color: var(--muted);
+    line-height: 1.6;
+  }
+  
+  .stats {
+    display: flex;
+    gap: 3rem;
+    flex-wrap: wrap;
+  }
+  
+  .stat-number {
+    display: block;
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--accent);
+    line-height: 1;
+  }
+  
+  .stat-label {
+    font-size: 0.9rem;
+    color: var(--muted);
+  }
+  
+  .related-work {
+    display: grid;
+    gap: 1rem;
+  }
+  
+  .work-link {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem;
+    background: #111;
+    border-left: 3px solid transparent;
+    transition: border-color 0.2s;
+  }
+  
+  .work-link:hover {
+    border-left-color: var(--accent);
+  }
+  
+  .work-title {
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 700;
+  }
+  
+  .work-desc {
+    color: var(--muted);
+    font-size: 0.9rem;
+  }
+  
+  .cta-section {
+    text-align: center;
+  }
+  
+  .cta-section h2 {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+  }
+  
+  .river-intro {
+    color: var(--muted);
+    margin-bottom: 1.5rem;
+  }
+  
+  .river-items {
+    display: grid;
+    gap: 0.75rem;
+  }
+  
+  .river-link {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1.25rem;
+    background: #111;
+    border-left: 3px solid transparent;
+    transition: all 0.2s;
+  }
+  
+  .river-link:hover {
+    border-left-color: var(--accent);
+    background: #0f0f0f;
+  }
+  
+  .river-icon {
+    font-size: 1.5rem;
+  }
+  
+  .river-link div {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+  
+  .river-link strong {
+    font-family: 'Space Grotesk', sans-serif;
+  }
+  
+  .river-link span {
+    color: var(--muted);
+    font-size: 0.85rem;
+  }
+  
+  .river-more {
+    display: inline-block;
+    margin-top: 1rem;
+    color: var(--accent);
+    font-weight: 600;
+    font-size: 0.9rem;
+  }
+  
+  .river-more:hover {
+    text-decoration: underline;
+  }
+</style>

@@ -1,0 +1,164 @@
+---
+import Base from '../layouts/Base.astro';
+---
+
+<Base title="Story" description="Your story isn't landing. Let's fix that.">
+  <section class="hero-small">
+    <span class="tenet-label">Core Tenet</span>
+    <h1>"We're losing deals to <span class="highlight">dumber competitors</span>"</h1>
+    <p class="hero-answer">Your story isn't landing. Let's fix that.</p>
+  </section>
+  
+  <section class="section">
+    <h2 class="section-label">The Problem</h2>
+    <div class="problem-text">
+      <p>
+        You have a better product. Better people. Better track record.
+        But somehow, clients choose competitors who seem... inferior.
+      </p>
+      <p>
+        The issue isn't your solution. It's your story.
+      </p>
+      <p>
+        You're selling features when clients buy outcomes. You're explaining what you do 
+        instead of what problem you solve. You're speaking your language, not theirs.
+      </p>
+    </div>
+  </section>
+  
+  <section class="section">
+    <h2 class="section-label">How I Help</h2>
+    <div class="approach">
+      <div class="approach-item">
+        <h3>Find Your Big Problem</h3>
+        <p>Every business was created to solve a problem. Most have forgotten what it is. I find it through research with your customers and colleagues.</p>
+      </div>
+      <div class="approach-item">
+        <h3>Craft Your Solution Story</h3>
+        <p>Turn your big problem into a narrative so clear that everyone — sales, board, customers — finally gets it.</p>
+      </div>
+      <div class="approach-item">
+        <h3>Embed It Everywhere</h3>
+        <p>Your story should permeate pitches, website, sales decks, even internal comms. Consistency creates clarity.</p>
+      </div>
+    </div>
+  </section>
+  
+  <section class="section">
+    <h2 class="section-label">Related Work</h2>
+    <div class="related-work">
+      <a href="/work#the-stack" class="work-link">
+        <span class="work-title">The Stack</span>
+        <span class="work-desc">Investigative journalism with depth layers</span>
+      </a>
+      <a href="/work#data-detectives" class="work-link">
+        <span class="work-title">Data Detectives</span>
+        <span class="work-desc">Business fable on breaking silos</span>
+      </a>
+    </div>
+  </section>
+  
+  <section class="section cta-section">
+    <h2>Ready to get your story straight?</h2>
+    <a href="mailto:dave@wordandmouth.com" class="cta-button">Let's Talk</a>
+  </section>
+</Base>
+
+<style>
+  .hero-small {
+    padding: 10rem 2rem 4rem;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+  
+  .tenet-label {
+    display: inline-block;
+    background: rgba(255, 107, 53, 0.15);
+    color: var(--accent);
+    padding: 0.4rem 0.8rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 1.5rem;
+  }
+  
+  .hero-small h1 {
+    font-size: clamp(1.8rem, 4vw, 2.5rem);
+    margin-bottom: 1rem;
+    color: var(--muted);
+  }
+  
+  .hero-answer {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    font-weight: 700;
+    color: var(--text);
+  }
+  
+  .problem-text p {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+    max-width: 700px;
+  }
+  
+  .approach {
+    display: grid;
+    gap: 2rem;
+  }
+  
+  .approach-item {
+    padding: 1.5rem;
+    border-left: 3px solid var(--accent);
+    background: #111;
+  }
+  
+  .approach-item h3 {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .approach-item p {
+    color: var(--muted);
+    line-height: 1.6;
+  }
+  
+  .related-work {
+    display: grid;
+    gap: 1rem;
+  }
+  
+  .work-link {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem;
+    background: #111;
+    border-left: 3px solid transparent;
+    transition: border-color 0.2s;
+  }
+  
+  .work-link:hover {
+    border-left-color: var(--accent);
+  }
+  
+  .work-title {
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 700;
+  }
+  
+  .work-desc {
+    color: var(--muted);
+    font-size: 0.9rem;
+  }
+  
+  .cta-section {
+    text-align: center;
+  }
+  
+  .cta-section h2 {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+  }
+</style>

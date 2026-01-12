@@ -1,0 +1,192 @@
+# Content Management Guide
+# Machine-readable taxonomy for Word And Mouth content
+
+---
+version: "1.0"
+last_updated: "2026-01-12"
+
+# Tenets (Core Pillars)
+tenets:
+  - id: story
+    label: "Story"
+    description: "Messaging, positioning, narrative"
+    keywords: ["messaging", "positioning", "brand story", "value proposition", "pitch", "narrative"]
+  
+  - id: clarity
+    label: "Clarity"
+    description: "Simplifying complexity, documentation"
+    keywords: ["simplify", "complexity", "documentation", "processes", "alignment"]
+  
+  - id: insight
+    label: "Insight"
+    description: "Pattern detection, synthesis, analysis"
+    keywords: ["patterns", "data", "analysis", "synthesis", "research", "trends"]
+  
+  - id: ai
+    label: "AI"
+    description: "AI strategy, implementation, products"
+    keywords: ["ai", "automation", "prompts", "llm", "machine learning", "agents"]
+  
+  - id: growth
+    label: "Growth"
+    description: "Scaling, optimization, strategy"
+    keywords: ["growth", "scale", "revenue", "optimization", "strategy"]
+
+# Industries (Sectors)
+industries:
+  - id: saas
+    label: "SaaS & Software"
+    icon: "💻"
+    hub_url: "/industries/saas"
+  
+  - id: agency
+    label: "Agencies & Consultancies"
+    icon: "🎨"
+    hub_url: "/industries/agency"
+  
+  - id: media
+    label: "Media & Publishing"
+    icon: "📰"
+    hub_url: "/industries/media"
+  
+  - id: fintech
+    label: "Fintech & Financial Services"
+    icon: "💳"
+    hub_url: "/industries/fintech"
+  
+  - id: ecommerce
+    label: "E-commerce & DTC"
+    icon: "🛒"
+    hub_url: "/industries/ecommerce"
+  
+  - id: professional
+    label: "Professional Services"
+    icon: "⚖️"
+    hub_url: "/industries/professional"
+  
+  - id: health
+    label: "Health & Wellness"
+    icon: "🏥"
+    hub_url: "/industries/health"
+  
+  - id: education
+    label: "Education & Training"
+    icon: "🎓"
+    hub_url: "/industries/education"
+
+# Content Types
+content_types:
+  - id: case-study
+    label: "Case Study"
+    location: "/case-studies/"
+    description: "Project deep-dives with outcomes"
+  
+  - id: insight
+    label: "Insight"
+    location: "/play/"
+    description: "Blog posts, articles, opinions"
+  
+  - id: podcast
+    label: "Podcast"
+    location: "/play/"
+    description: "Audio content and episodes"
+  
+  - id: video
+    label: "Video"
+    location: "/play/"
+    description: "Video content and recordings"
+  
+  - id: tool
+    label: "Tool/Resource"
+    location: "/play/"
+    description: "Downloadable resources, templates"
+
+# Content Entry Template
+# Use this structure for daily journal entries
+content_template:
+  required_fields:
+    - title: "string"
+    - date: "YYYY-MM-DD"
+    - type: "content_type_id"
+    - tenets: ["tenet_id", "..."]  # 1-3 tenets
+  
+  optional_fields:
+    - industries: ["industry_id", "..."]  # 0-3 industries
+    - summary: "string (1-2 sentences)"
+    - link_external: "url"
+    - link_internal: "/path"
+    - featured: true/false
+    - draft: true/false
+
+# Example Entry
+example_entry:
+  title: "Why Your SaaS Pitch is Failing"
+  date: "2026-01-12"
+  type: "insight"
+  tenets: ["story", "clarity"]
+  industries: ["saas"]
+  summary: "Most SaaS founders lead with features. Here's why that's costing you deals."
+  link_internal: "/play/saas-pitch-failing"
+  featured: false
+
+# Matching Rules
+# How content routes to pages
+routing_rules:
+  homepage_featured:
+    - featured: true
+    - limit: 3
+    - order: "date DESC"
+  
+  industry_hub:
+    - filter_by: "industries contains [page.industry]"
+    - order: "date DESC"
+    - limit: 6
+  
+  tenet_page:
+    - filter_by: "tenets contains [page.tenet]"
+    - order: "date DESC"
+    - limit: 10
+  
+  insights_page:
+    - filter_by: "type in [insight, podcast, video, tool]"
+    - order: "date DESC"
+    - paginate: 12
+
+# Publishing Workflow
+workflow:
+  1_capture:
+    description: "Daily journal captures idea, observation, or content"
+    action: "Add entry with required fields + draft: true"
+  
+  2_tag:
+    description: "Apply tenets and industries"
+    action: "Review keywords, assign 1-3 tenets and 0-3 industries"
+  
+  3_develop:
+    description: "Expand into full content piece"
+    action: "Write summary, add link when published"
+  
+  4_publish:
+    description: "Make live on site"
+    action: "Set draft: false, optionally set featured: true"
+
+# Auto-routing Examples
+auto_routing_examples:
+  - content:
+      title: "AI agents for creative agencies"
+      tenets: ["ai"]
+      industries: ["agency"]
+    appears_on:
+      - "/play/ (insights feed)"
+      - "/ai (tenet page)"
+      - "/industries/agency (hub page)"
+  
+  - content:
+      title: "How The Stack reinvents news"
+      tenets: ["story", "ai"]
+      industries: ["media"]
+    appears_on:
+      - "/play/"
+      - "/story"
+      - "/ai"
+      - "/industries/media"

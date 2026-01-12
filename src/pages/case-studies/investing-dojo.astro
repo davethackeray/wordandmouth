@@ -1,0 +1,267 @@
+---
+import Base from '../../layouts/Base.astro';
+---
+
+<Base title="Investing Dojo — Case Study" description="AI-powered investment education with a belt-graded curriculum">
+  <section class="hero-case">
+    <a href="/work" class="back-link">← Work</a>
+    <div class="case-tenets">
+      <span class="tenet">AI</span>
+      <span class="tenet">Clarity</span>
+      <span class="tenet">Growth</span>
+    </div>
+    <h1>Investing Dojo</h1>
+    <p class="case-tagline">Master the markets — from White Belt to Black Belt</p>
+  </section>
+  
+  <section class="section">
+    <h2 class="section-label">The Problem</h2>
+    <div class="case-content">
+      <p>
+        Financial education is broken. It's either too complex (written by experts for experts) 
+        or too simplistic (get-rich-quick nonsense). There's no middle ground that respects 
+        intelligence while meeting people where they are.
+      </p>
+      <p>
+        Podcasts are exploding with investment wisdom, but who has time to listen to hours 
+        of content? The insights exist — they're just trapped in audio format.
+      </p>
+    </div>
+  </section>
+  
+  <section class="section">
+    <h2 class="section-label">The Approach</h2>
+    <div class="case-content">
+      <h3>1. Belt-Graded Curriculum</h3>
+      <p>Borrowed from martial arts — start at White Belt, progress through Yellow, Orange, Green, Blue, Brown, to Black Belt mastery. Each belt unlocks more advanced concepts. Clear progression, no overwhelm.</p>
+      
+      <h3>2. AI-Powered Content Pipeline</h3>
+      <p>Financial podcasts get automatically transcribed, summarised, and transformed into readable articles. Key insights extracted, jargon decoded, actionable takeaways highlighted.</p>
+      
+      <h3>3. Gamification Without Gimmicks</h3>
+      <p>The belt system isn't just decoration — it's a genuine learning pathway. Users can track their progress and see what's ahead without feeling lost in an ocean of content.</p>
+    </div>
+  </section>
+  
+  <section class="section">
+    <h2 class="section-label">The Build</h2>
+    <div class="case-content">
+      <ul>
+        <li><strong>Automated ingestion</strong> — Podcasts transcribed and processed daily</li>
+        <li><strong>AI summarisation</strong> — Long episodes → digestible 5-min reads</li>
+        <li><strong>Belt taxonomy</strong> — Content tagged by difficulty level</li>
+        <li><strong>Progressive disclosure</strong> — Start simple, go deep when ready</li>
+      </ul>
+    </div>
+  </section>
+  
+  <section class="section">
+    <h2 class="section-label">The Outcome</h2>
+    <div class="case-outcome">
+      <div class="outcome-stat">
+        <span class="outcome-number">401</span>
+        <span class="outcome-label">articles published</span>
+      </div>
+      <div class="outcome-stat">
+        <span class="outcome-number">8</span>
+        <span class="outcome-label">belt levels</span>
+      </div>
+      <div class="outcome-stat">
+        <span class="outcome-number">Live</span>
+        <span class="outcome-label">in production</span>
+      </div>
+    </div>
+    <p class="outcome-text">A complete investment education platform that meets learners where they are and takes them as far as they want to go.</p>
+  </section>
+  
+  <section class="section">
+    <h2 class="section-label">Visit</h2>
+    <div class="demo-box">
+      <a href="https://investingdojo.co/" target="_blank" class="cta-button">investingdojo.co ↗</a>
+    </div>
+  </section>
+  
+  <section class="section related-section">
+    <h2 class="section-label">Related Content</h2>
+    <div class="related-items">
+      <a href="/play" class="related-link">
+        <span class="related-icon">🎙️</span>
+        <div>
+          <strong>10x your AI results with context engineering</strong>
+          <span>The technique behind the content pipeline</span>
+        </div>
+      </a>
+      <a href="/ai" class="related-link">
+        <span class="related-icon">→</span>
+        <div>
+          <strong>AI Tenet</strong>
+          <span>More about how I build with AI</span>
+        </div>
+      </a>
+    </div>
+  </section>
+  
+  <section class="section cta-section">
+    <h2>Got content chaos that needs taming?</h2>
+    <a href="mailto:dave@wordandmouth.com" class="cta-button">Let's Talk</a>
+  </section>
+</Base>
+
+<style>
+  .hero-case {
+    padding: 10rem 2rem 4rem;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+  
+  .back-link {
+    display: inline-block;
+    color: var(--muted);
+    font-size: 0.9rem;
+    margin-bottom: 1.5rem;
+    transition: color 0.2s;
+  }
+  
+  .back-link:hover {
+    color: var(--accent);
+  }
+  
+  .case-tenets {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+  }
+  
+  .tenet {
+    background: rgba(255, 107, 53, 0.15);
+    color: var(--accent);
+    padding: 0.25rem 0.6rem;
+    font-size: 0.7rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+  
+  .hero-case h1 {
+    font-size: clamp(2rem, 5vw, 3rem);
+    margin-bottom: 0.5rem;
+  }
+  
+  .case-tagline {
+    color: var(--muted);
+    font-size: 1.2rem;
+  }
+  
+  .case-content {
+    max-width: 700px;
+  }
+  
+  .case-content p {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    margin-bottom: 1.5rem;
+  }
+  
+  .case-content h3 {
+    font-size: 1.2rem;
+    margin: 2rem 0 0.75rem;
+  }
+  
+  .case-content ul {
+    margin: 1rem 0;
+    padding-left: 1.5rem;
+  }
+  
+  .case-content li {
+    margin-bottom: 0.75rem;
+    line-height: 1.6;
+  }
+  
+  .case-content strong {
+    color: var(--accent);
+  }
+  
+  .case-outcome {
+    display: flex;
+    gap: 3rem;
+    flex-wrap: wrap;
+    margin-bottom: 2rem;
+  }
+  
+  .outcome-stat {
+    text-align: center;
+  }
+  
+  .outcome-number {
+    display: block;
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--accent);
+    line-height: 1;
+  }
+  
+  .outcome-label {
+    font-size: 0.85rem;
+    color: var(--muted);
+  }
+  
+  .outcome-text {
+    font-size: 1.1rem;
+    color: var(--muted);
+    max-width: 600px;
+  }
+  
+  .demo-box {
+    background: #111;
+    padding: 2rem;
+    text-align: center;
+  }
+  
+  .related-section {
+    border-top: none;
+  }
+  
+  .related-items {
+    display: grid;
+    gap: 1rem;
+  }
+  
+  .related-link {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    background: #111;
+    padding: 1.5rem;
+    border-left: 3px solid transparent;
+    transition: all 0.2s;
+  }
+  
+  .related-link:hover {
+    border-left-color: var(--accent);
+  }
+  
+  .related-icon {
+    font-size: 1.5rem;
+  }
+  
+  .related-link strong {
+    display: block;
+    font-family: 'Space Grotesk', sans-serif;
+    color: var(--text);
+  }
+  
+  .related-link span {
+    color: var(--muted);
+    font-size: 0.85rem;
+  }
+  
+  .cta-section {
+    text-align: center;
+  }
+  
+  .cta-section h2 {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+  }
+</style>

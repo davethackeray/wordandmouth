@@ -1,0 +1,146 @@
+---
+import Base from '../layouts/Base.astro';
+---
+
+<Base title="Growth" description="Let's find the big problem you're actually solving.">
+  <section class="hero-small">
+    <span class="tenet-label">Core Tenet</span>
+    <h1>"We're doing fine but <span class="highlight">should be doing better</span>"</h1>
+    <p class="hero-answer">You're right. Let's find the big problem you're actually solving.</p>
+  </section>
+  
+  <section class="section">
+    <h2 class="section-label">The Problem</h2>
+    <div class="problem-text">
+      <p>
+        You're not in crisis. Revenue is okay. Team is stable. But you have this nagging feeling 
+        that you're leaving opportunity on the table.
+      </p>
+      <p>
+        The issue isn't execution. It's focus. You're trying to be everything to everyone 
+        instead of being the obvious choice for someone specific.
+      </p>
+    </div>
+  </section>
+  
+  <section class="section">
+    <h2 class="section-label">How I Help</h2>
+    <div class="approach">
+      <div class="approach-item">
+        <h3>Find Your Highest Priority Problem</h3>
+        <p>Through deep research with customers and colleagues, I identify the biggest, most profitable problem you're uniquely positioned to solve.</p>
+      </div>
+      <div class="approach-item">
+        <h3>Align Everyone Around It</h3>
+        <p>Growth stalls when different teams are solving different problems. I create the narrative that unites sales, product, marketing, and leadership.</p>
+      </div>
+      <div class="approach-item">
+        <h3>Build the Proof</h3>
+        <p>Vision without evidence is just hope. I help you create the case studies, data, and demonstrations that make your value undeniable.</p>
+      </div>
+    </div>
+  </section>
+  
+  <section class="section">
+    <h2 class="section-label">The Framework</h2>
+    <div class="framework">
+      <p>This approach is based on my <strong>Storyselling</strong> methodology, documented in my book <em>Solved to Sold</em>.</p>
+      <p>The core idea: clients want solutions, not products. The businesses that win are the ones who've identified their Highest Priority Problem and built everything around solving it.</p>
+    </div>
+  </section>
+  
+  <section class="section cta-section">
+    <h2>Ready to find your focus?</h2>
+    <a href="mailto:dave@wordandmouth.com" class="cta-button">Let's Talk</a>
+  </section>
+</Base>
+
+<style>
+  .hero-small {
+    padding: 10rem 2rem 4rem;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+  
+  .tenet-label {
+    display: inline-block;
+    background: rgba(255, 107, 53, 0.15);
+    color: var(--accent);
+    padding: 0.4rem 0.8rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 1.5rem;
+  }
+  
+  .hero-small h1 {
+    font-size: clamp(1.8rem, 4vw, 2.5rem);
+    margin-bottom: 1rem;
+    color: var(--muted);
+  }
+  
+  .hero-answer {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    font-weight: 700;
+    color: var(--text);
+  }
+  
+  .problem-text p {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+    max-width: 700px;
+  }
+  
+  .approach {
+    display: grid;
+    gap: 2rem;
+  }
+  
+  .approach-item {
+    padding: 1.5rem;
+    border-left: 3px solid var(--accent);
+    background: #111;
+  }
+  
+  .approach-item h3 {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .approach-item p {
+    color: var(--muted);
+    line-height: 1.6;
+  }
+  
+  .framework {
+    background: #111;
+    padding: 2rem;
+    border-left: 3px solid var(--accent);
+  }
+  
+  .framework p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+  }
+  
+  .framework strong {
+    color: var(--accent);
+  }
+  
+  .framework em {
+    font-style: italic;
+  }
+  
+  .cta-section {
+    text-align: center;
+  }
+  
+  .cta-section h2 {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+  }
+</style>

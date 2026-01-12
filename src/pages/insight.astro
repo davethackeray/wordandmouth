@@ -1,0 +1,160 @@
+---
+import Base from '../layouts/Base.astro';
+---
+
+<Base title="Insight" description="You need someone to connect the dots. That's me.">
+  <section class="hero-small">
+    <span class="tenet-label">Core Tenet</span>
+    <h1>"We have data everywhere but <span class="highlight">no insight</span>"</h1>
+    <p class="hero-answer">You need someone to connect the dots. That's me.</p>
+  </section>
+  
+  <section class="section">
+    <h2 class="section-label">The Problem</h2>
+    <div class="problem-text">
+      <p>
+        You're drowning in dashboards. Every team has their own truth. 
+        The data exists, but nobody's connecting it into anything actionable.
+      </p>
+      <p>
+        Insight isn't about having more data. It's about triangulating across sources to find patterns nobody else sees.
+      </p>
+    </div>
+  </section>
+  
+  <section class="section">
+    <h2 class="section-label">How I Help</h2>
+    <div class="approach">
+      <div class="approach-item">
+        <h3>Research from Multiple Angles</h3>
+        <p>I pull from sources you'd never think to check. Competitors, adjacent industries, academic research, social signals. Then I synthesise.</p>
+      </div>
+      <div class="approach-item">
+        <h3>Find Hidden Patterns</h3>
+        <p>The best insights come from connecting dots across domains. I specialise in cross-pollination — seeing how a trend in hospitality might predict a shift in fintech.</p>
+      </div>
+      <div class="approach-item">
+        <h3>Make It Actionable</h3>
+        <p>Insight without action is trivia. Every research output comes with clear recommendations you can execute Monday morning.</p>
+      </div>
+    </div>
+  </section>
+  
+  <section class="section">
+    <h2 class="section-label">Related Work</h2>
+    <div class="related-work">
+      <a href="/work#zeitgeist" class="work-link">
+        <span class="work-title">Zeitgeist</span>
+        <span class="work-desc">Real-time cultural intelligence from 10 sources</span>
+      </a>
+      <a href="/work#ai-insight-engine" class="work-link">
+        <span class="work-title">AI Insight Engine</span>
+        <span class="work-desc">Personal second brain architecture</span>
+      </a>
+    </div>
+  </section>
+  
+  <section class="section cta-section">
+    <h2>Ready to connect the dots?</h2>
+    <a href="mailto:dave@wordandmouth.com" class="cta-button">Let's Talk</a>
+  </section>
+</Base>
+
+<style>
+  .hero-small {
+    padding: 10rem 2rem 4rem;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+  
+  .tenet-label {
+    display: inline-block;
+    background: rgba(255, 107, 53, 0.15);
+    color: var(--accent);
+    padding: 0.4rem 0.8rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 1.5rem;
+  }
+  
+  .hero-small h1 {
+    font-size: clamp(1.8rem, 4vw, 2.5rem);
+    margin-bottom: 1rem;
+    color: var(--muted);
+  }
+  
+  .hero-answer {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    font-weight: 700;
+    color: var(--text);
+  }
+  
+  .problem-text p {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+    max-width: 700px;
+  }
+  
+  .approach {
+    display: grid;
+    gap: 2rem;
+  }
+  
+  .approach-item {
+    padding: 1.5rem;
+    border-left: 3px solid var(--accent);
+    background: #111;
+  }
+  
+  .approach-item h3 {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .approach-item p {
+    color: var(--muted);
+    line-height: 1.6;
+  }
+  
+  .related-work {
+    display: grid;
+    gap: 1rem;
+  }
+  
+  .work-link {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem;
+    background: #111;
+    border-left: 3px solid transparent;
+    transition: border-color 0.2s;
+  }
+  
+  .work-link:hover {
+    border-left-color: var(--accent);
+  }
+  
+  .work-title {
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 700;
+  }
+  
+  .work-desc {
+    color: var(--muted);
+    font-size: 0.9rem;
+  }
+  
+  .cta-section {
+    text-align: center;
+  }
+  
+  .cta-section h2 {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+  }
+</style>

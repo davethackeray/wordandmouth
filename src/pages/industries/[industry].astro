@@ -1,0 +1,321 @@
+---
+// Industry hub pages - dynamic routing
+export function getStaticPaths() {
+  return [
+    { params: { industry: 'saas' }, props: { name: 'SaaS & Software', icon: '💻', 
+      description: 'Helping software companies tell clearer stories and build smarter products',
+      challenges: ['Messaging that differentiates from competitors', 'Complex products no one understands', 'AI features that actually deliver value'],
+      cases: ['investing-dojo', 'scroll'],
+      tenets: ['story', 'ai', 'clarity']
+    }},
+    { params: { industry: 'agency' }, props: { name: 'Agencies & Consultancies', icon: '🎨',
+      description: 'Helping agencies build AI capability and sharpen their positioning',
+      challenges: ['Clients asking about AI with no clear answer', 'Differentiating in a crowded market', 'Building internal capability'],
+      cases: ['the-stack', 'scroll'],
+      tenets: ['ai', 'story', 'growth']
+    }},
+    { params: { industry: 'media' }, props: { name: 'Media & Publishing', icon: '📰',
+      description: 'New formats, AI-powered content, and stories that cut through',
+      challenges: ['Attention fragmentation', 'AI disruption of content models', 'Finding new revenue streams'],
+      cases: ['the-stack', 'scroll', 'investing-dojo'],
+      tenets: ['story', 'ai', 'insight']
+    }},
+    { params: { industry: 'fintech' }, props: { name: 'Fintech & Financial Services', icon: '💳',
+      description: 'Clarity for complex products and AI that builds trust',
+      challenges: ['Explaining complex products simply', 'Data overload without insight', 'Building AI users trust'],
+      cases: ['investing-dojo', 'data-detectives'],
+      tenets: ['clarity', 'insight', 'ai']
+    }},
+    { params: { industry: 'ecommerce' }, props: { name: 'E-commerce & DTC', icon: '🛒',
+      description: 'Growth strategies and brand stories that convert',
+      challenges: ['Plateauing growth', 'Commodity competition', 'Standing out in a crowded market'],
+      cases: ['slice-os', 'scroll'],
+      tenets: ['growth', 'story', 'ai']
+    }},
+    { params: { industry: 'professional' }, props: { name: 'Professional Services', icon: '⚖️',
+      description: 'Clarity systems and stories that win business',
+      challenges: ['Complex service offerings', 'Partner alignment on messaging', 'Data silos across practices'],
+      cases: ['data-detectives', 'investing-dojo'],
+      tenets: ['clarity', 'story', 'insight']
+    }},
+    { params: { industry: 'health' }, props: { name: 'Health & Wellness', icon: '🏥',
+      description: 'Clear communication and AI that serves patients',
+      challenges: ['Complex information made accessible', 'Building trust through transparency', 'AI that respects privacy'],
+      cases: ['club-dadvice'],
+      tenets: ['clarity', 'ai', 'story']
+    }},
+    { params: { industry: 'education' }, props: { name: 'Education & Training', icon: '🎓',
+      description: 'Learning experiences that stick and scale',
+      challenges: ['Engagement and retention', 'Scaling personalized learning', 'Demonstrating outcomes'],
+      cases: ['data-detectives', 'investing-dojo', 'club-dadvice'],
+      tenets: ['story', 'clarity', 'ai']
+    }},
+  ];
+}
+
+const { industry } = Astro.params;
+const { name, icon, description, challenges, cases, tenets } = Astro.props;
+
+import Base from '../../layouts/Base.astro';
+
+const caseData: Record<string, { title: string; tagline: string }> = {
+  'the-stack': { title: 'The Stack', tagline: 'AI-powered news format' },
+  'scroll': { title: 'Scroll', tagline: 'Social network for readers' },
+  'investing-dojo': { title: 'Investing Dojo', tagline: 'AI investment education' },
+  'data-detectives': { title: 'Data Detectives', tagline: 'Business fable on data clarity' },
+  'slice-os': { title: 'Slice OS', tagline: 'Pizza truck operations' },
+  'club-dadvice': { title: 'Club Dadvice', tagline: 'Parenting content platform' },
+};
+
+const tenetsData: Record<string, { name: string; desc: string }> = {
+  'story': { name: 'Story', desc: 'Messaging that lands' },
+  'clarity': { name: 'Clarity', desc: 'Simplify the complex' },
+  'insight': { name: 'Insight', desc: 'Find patterns' },
+  'ai': { name: 'AI', desc: 'Build real capability' },
+  'growth': { name: 'Growth', desc: 'Unlock the next level' },
+};
+---
+
+<Base title={`${name} — Word And Mouth`} description={description}>
+  <section class="hero-industry">
+    <a href="/" class="back-link">← Home</a>
+    <span class="industry-icon">{icon}</span>
+    <h1>{name}</h1>
+    <p class="industry-tagline">{description}</p>
+  </section>
+
+  <section class="section">
+    <h2 class="section-label">Common Challenges</h2>
+    <div class="challenges">
+      {challenges.map((c: string) => (
+        <div class="challenge">
+          <span class="challenge-bullet">→</span>
+          <span>{c}</span>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <section class="section">
+    <h2 class="section-label">Relevant Expertise</h2>
+    <div class="tenets-row">
+      {tenets.map((t: string) => (
+        <a href={`/${t}`} class="tenet-chip">
+          <strong>{tenetsData[t].name}</strong>
+          <span>{tenetsData[t].desc}</span>
+        </a>
+      ))}
+    </div>
+  </section>
+
+  <section class="section">
+    <h2 class="section-label">Related Case Studies</h2>
+    <div class="cases-grid">
+      {cases.map((c: string) => (
+        <a href={`/case-studies/${c}`} class="case-card">
+          <strong>{caseData[c]?.title || c}</strong>
+          <span>{caseData[c]?.tagline || ''}</span>
+        </a>
+      ))}
+    </div>
+  </section>
+
+  <section class="section">
+    <h2 class="section-label">How We Can Work Together</h2>
+    <div class="tiers-mini">
+      <div class="tier-mini">
+        <strong>Coach</strong>
+        <span>Frameworks + guidance</span>
+        <span class="tier-price">From €2,500</span>
+      </div>
+      <div class="tier-mini">
+        <strong>Collaborate</strong>
+        <span>Build it together</span>
+        <span class="tier-price">From €7,500</span>
+      </div>
+      <div class="tier-mini">
+        <strong>Done For You</strong>
+        <span>Full delivery</span>
+        <span class="tier-price">From €15,000</span>
+      </div>
+    </div>
+    <p class="tier-cta">
+      <a href="/services">See full pricing and options →</a>
+    </p>
+  </section>
+
+  <section class="section cta-section">
+    <h2>Ready to talk about {name.toLowerCase()}?</h2>
+    <p>30 minutes. No pitch. Just clarity on what's possible.</p>
+    <a href={`mailto:dave@wordandmouth.com?subject=${encodeURIComponent(name + ' — Let\'s talk')}`} class="cta-button">Book a Call</a>
+  </section>
+</Base>
+
+<style>
+  .hero-industry {
+    padding: 10rem 2rem 4rem;
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .back-link {
+    display: inline-block;
+    color: var(--muted);
+    font-size: 0.9rem;
+    margin-bottom: 2rem;
+  }
+
+  .industry-icon {
+    font-size: 4rem;
+    display: block;
+    margin-bottom: 1rem;
+  }
+
+  .hero-industry h1 {
+    font-size: clamp(2rem, 5vw, 3rem);
+    margin-bottom: 1rem;
+  }
+
+  .industry-tagline {
+    font-size: 1.2rem;
+    color: var(--muted);
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .challenges {
+    display: grid;
+    gap: 1rem;
+    max-width: 600px;
+  }
+
+  .challenge {
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+  }
+
+  .challenge-bullet {
+    color: var(--accent);
+    font-weight: bold;
+  }
+
+  .tenets-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  .tenet-chip {
+    display: flex;
+    flex-direction: column;
+    background: #111;
+    padding: 1.25rem 1.5rem;
+    border: 1px solid #333;
+    transition: border-color 0.2s;
+  }
+
+  .tenet-chip:hover {
+    border-color: var(--accent);
+  }
+
+  .tenet-chip strong {
+    color: var(--accent);
+    font-size: 1rem;
+  }
+
+  .tenet-chip span {
+    font-size: 0.85rem;
+    color: var(--muted);
+  }
+
+  .cases-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1rem;
+  }
+
+  .case-card {
+    display: flex;
+    flex-direction: column;
+    background: #111;
+    padding: 1.5rem;
+    border: 1px solid #333;
+    transition: border-color 0.2s;
+  }
+
+  .case-card:hover {
+    border-color: var(--accent);
+  }
+
+  .case-card strong {
+    font-size: 1.1rem;
+    margin-bottom: 0.25rem;
+  }
+
+  .case-card span {
+    font-size: 0.85rem;
+    color: var(--muted);
+  }
+
+  .tiers-mini {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    max-width: 700px;
+  }
+
+  .tier-mini {
+    background: #111;
+    padding: 1.25rem;
+    text-align: center;
+    border: 1px solid #333;
+  }
+
+  .tier-mini strong {
+    display: block;
+    font-size: 1rem;
+    margin-bottom: 0.25rem;
+  }
+
+  .tier-mini span {
+    display: block;
+    font-size: 0.8rem;
+    color: var(--muted);
+  }
+
+  .tier-price {
+    color: var(--accent) !important;
+    font-weight: 600;
+    margin-top: 0.5rem;
+  }
+
+  .tier-cta {
+    margin-top: 1.5rem;
+  }
+
+  .tier-cta a {
+    color: var(--accent);
+  }
+
+  .cta-section {
+    text-align: center;
+  }
+
+  .cta-section h2 {
+    font-size: 1.8rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .cta-section p {
+    color: var(--muted);
+    margin-bottom: 2rem;
+  }
+
+  @media (max-width: 600px) {
+    .tiers-mini {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

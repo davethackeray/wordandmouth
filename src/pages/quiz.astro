@@ -1,0 +1,536 @@
+---
+import Base from '../layouts/Base.astro';
+---
+
+<Base title="Find Your Fit" description="A 2-minute quiz to find exactly what you need">
+  <section class="quiz-container">
+    
+    <!-- Intro Screen -->
+    <div class="quiz-screen active" data-screen="intro">
+      <h1>Let's find exactly what you need</h1>
+      <p class="quiz-intro">Answer 4 quick questions and I'll show you the most relevant work, content, and options for your situation.</p>
+      <button class="quiz-start" onclick="startQuiz()">Start →</button>
+      <p class="quiz-skip"><a href="/services">Skip to services</a></p>
+    </div>
+
+    <!-- Q1: Situation -->
+    <div class="quiz-screen" data-screen="q1">
+      <div class="quiz-progress">1 of 4</div>
+      <h2>What's your situation?</h2>
+      <div class="quiz-options">
+        <button class="quiz-option" onclick="selectOption('situation', 'ceiling')">
+          <span class="option-icon">📈</span>
+          <span class="option-text">We're doing OK but hit a ceiling</span>
+        </button>
+        <button class="quiz-option" onclick="selectOption('situation', 'problem')">
+          <span class="option-icon">🎯</span>
+          <span class="option-text">We have a specific problem to solve</span>
+        </button>
+        <button class="quiz-option" onclick="selectOption('situation', 'exploring')">
+          <span class="option-icon">🔮</span>
+          <span class="option-text">We're exploring what's possible</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Q2: Challenge -->
+    <div class="quiz-screen" data-screen="q2">
+      <div class="quiz-progress">2 of 4</div>
+      <h2>What's your biggest challenge?</h2>
+      <div class="quiz-options">
+        <button class="quiz-option" onclick="selectOption('tenet', 'story')">
+          <span class="option-icon">📖</span>
+          <span class="option-text">Nobody understands what we do</span>
+          <span class="option-hint">Story & Messaging</span>
+        </button>
+        <button class="quiz-option" onclick="selectOption('tenet', 'clarity')">
+          <span class="option-icon">💡</span>
+          <span class="option-text">We're drowning in complexity</span>
+          <span class="option-hint">Clarity & Simplification</span>
+        </button>
+        <button class="quiz-option" onclick="selectOption('tenet', 'insight')">
+          <span class="option-icon">🔍</span>
+          <span class="option-text">We can't see patterns in our data</span>
+          <span class="option-hint">Insight & Analysis</span>
+        </button>
+        <button class="quiz-option" onclick="selectOption('tenet', 'ai')">
+          <span class="option-icon">🤖</span>
+          <span class="option-text">We need to figure out AI</span>
+          <span class="option-hint">AI Strategy & Implementation</span>
+        </button>
+        <button class="quiz-option" onclick="selectOption('tenet', 'growth')">
+          <span class="option-icon">🚀</span>
+          <span class="option-text">We've optimised everything we know</span>
+          <span class="option-hint">Growth Strategy</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Q3: Industry -->
+    <div class="quiz-screen" data-screen="q3">
+      <div class="quiz-progress">3 of 4</div>
+      <h2>What's your sector?</h2>
+      <div class="quiz-options industry-grid">
+        <button class="quiz-option small" onclick="selectOption('industry', 'saas')">
+          <span class="option-icon">💻</span>
+          <span class="option-text">SaaS & Software</span>
+        </button>
+        <button class="quiz-option small" onclick="selectOption('industry', 'agency')">
+          <span class="option-icon">🎨</span>
+          <span class="option-text">Agency</span>
+        </button>
+        <button class="quiz-option small" onclick="selectOption('industry', 'media')">
+          <span class="option-icon">📰</span>
+          <span class="option-text">Media & Publishing</span>
+        </button>
+        <button class="quiz-option small" onclick="selectOption('industry', 'fintech')">
+          <span class="option-icon">💳</span>
+          <span class="option-text">Fintech</span>
+        </button>
+        <button class="quiz-option small" onclick="selectOption('industry', 'ecommerce')">
+          <span class="option-icon">🛒</span>
+          <span class="option-text">E-commerce</span>
+        </button>
+        <button class="quiz-option small" onclick="selectOption('industry', 'professional')">
+          <span class="option-icon">⚖️</span>
+          <span class="option-text">Professional Services</span>
+        </button>
+        <button class="quiz-option small" onclick="selectOption('industry', 'health')">
+          <span class="option-icon">🏥</span>
+          <span class="option-text">Health & Wellness</span>
+        </button>
+        <button class="quiz-option small" onclick="selectOption('industry', 'education')">
+          <span class="option-icon">🎓</span>
+          <span class="option-text">Education</span>
+        </button>
+        <button class="quiz-option small" onclick="selectOption('industry', 'other')">
+          <span class="option-icon">🔮</span>
+          <span class="option-text">Something Else</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Q4: Work Style -->
+    <div class="quiz-screen" data-screen="q4">
+      <div class="quiz-progress">4 of 4</div>
+      <h2>How do you prefer to work?</h2>
+      <div class="quiz-options">
+        <button class="quiz-option" onclick="selectOption('tier', 'coach')">
+          <span class="option-icon">🎯</span>
+          <span class="option-text">Give me the frameworks, I'll do it</span>
+          <span class="option-hint">Coach — From €2,500</span>
+        </button>
+        <button class="quiz-option" onclick="selectOption('tier', 'collaborate')">
+          <span class="option-icon">🤝</span>
+          <span class="option-text">Work alongside me so I learn</span>
+          <span class="option-hint">Collaborate — From €7,500</span>
+        </button>
+        <button class="quiz-option" onclick="selectOption('tier', 'dify')">
+          <span class="option-icon">✨</span>
+          <span class="option-text">Just get it done for me</span>
+          <span class="option-hint">Done For You — From €15,000</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Results Screen -->
+    <div class="quiz-screen" data-screen="results">
+      <h2>Here's what I'd recommend</h2>
+      
+      <div class="results-summary" id="resultsSummary">
+        <!-- Populated by JS -->
+      </div>
+
+      <div class="results-section">
+        <h3>Your Tenet</h3>
+        <div class="result-tenet" id="resultTenet">
+          <!-- Populated by JS -->
+        </div>
+      </div>
+
+      <div class="results-section">
+        <h3>Relevant Case Studies</h3>
+        <div class="result-cases" id="resultCases">
+          <!-- Populated by JS -->
+        </div>
+      </div>
+
+      <div class="results-section">
+        <h3>Your Investment</h3>
+        <div class="result-tier" id="resultTier">
+          <!-- Populated by JS -->
+        </div>
+      </div>
+
+      <div class="results-cta">
+        <a href="mailto:dave@wordandmouth.com" class="cta-button" id="resultCTA">Let's Talk About This →</a>
+        <p class="cta-alt">Or <a href="/services">see all options</a></p>
+      </div>
+    </div>
+
+  </section>
+</Base>
+
+<script is:inline>
+  const answers = {};
+  
+  const tenetsData = {
+    story: { name: 'Story', url: '/story', description: 'Help people understand and remember what you do' },
+    clarity: { name: 'Clarity', url: '/clarity', description: 'Cut through complexity to find what matters' },
+    insight: { name: 'Insight', url: '/insight', description: 'Find patterns and meaning in your data' },
+    ai: { name: 'AI', url: '/ai', description: 'Build real AI capability that delivers results' },
+    growth: { name: 'Growth', url: '/growth', description: 'Unlock the next level of performance' }
+  };
+
+  const tiersData = {
+    coach: { name: 'Coach', price: 'From €2,500 / £2,000', description: 'Frameworks and guidance while you execute' },
+    collaborate: { name: 'Collaborate', price: 'From €7,500 / £6,000', description: 'We build it together — you learn while we work' },
+    dify: { name: 'Done For You', price: 'From €15,000 / £12,000', description: 'Full delivery with minimal time from you' }
+  };
+
+  const caseStudies = {
+    story: [
+      { title: 'The Stack', url: '/case-studies/the-stack', industry: ['media'] },
+      { title: 'Data Detectives', url: '/case-studies/data-detectives', industry: ['professional', 'fintech'] },
+      { title: 'Scroll', url: '/case-studies/scroll', industry: ['media', 'saas'] }
+    ],
+    clarity: [
+      { title: 'Investing Dojo', url: '/case-studies/investing-dojo', industry: ['fintech', 'education'] },
+      { title: 'Club Dadvice', url: '/case-studies/club-dadvice', industry: ['media', 'education'] },
+      { title: 'Staying in Europe', url: '/case-studies/staying-in-europe', industry: ['other'] }
+    ],
+    insight: [
+      { title: 'The Stack', url: '/case-studies/the-stack', industry: ['media'] },
+      { title: 'Zeitgeist', url: '#', industry: ['any'] }
+    ],
+    ai: [
+      { title: 'Investing Dojo', url: '/case-studies/investing-dojo', industry: ['fintech', 'education'] },
+      { title: 'Scroll', url: '/case-studies/scroll', industry: ['media', 'saas'] },
+      { title: 'Club Dadvice', url: '/case-studies/club-dadvice', industry: ['media', 'education'] }
+    ],
+    growth: [
+      { title: 'Slice OS', url: '/case-studies/slice-os', industry: ['other'] },
+      { title: 'Investing Dojo', url: '/case-studies/investing-dojo', industry: ['fintech', 'education'] },
+      { title: 'Scroll', url: '/case-studies/scroll', industry: ['media', 'saas'] }
+    ]
+  };
+
+  function startQuiz() {
+    showScreen('q1');
+  }
+
+  function selectOption(key, value) {
+    answers[key] = value;
+    
+    const screenMap = {
+      situation: 'q2',
+      tenet: 'q3',
+      industry: 'q4',
+      tier: 'results'
+    };
+    
+    if (key === 'tier') {
+      showResults();
+    } else {
+      showScreen(screenMap[key]);
+    }
+  }
+
+  function showScreen(screenId) {
+    document.querySelectorAll('.quiz-screen').forEach(s => s.classList.remove('active'));
+    document.querySelector(`[data-screen="${screenId}"]`).classList.add('active');
+  }
+
+  function showResults() {
+    showScreen('results');
+    
+    const tenet = tenetsData[answers.tenet];
+    const tier = tiersData[answers.tier];
+    const cases = caseStudies[answers.tenet] || [];
+    
+    // Filter cases by industry when possible
+    let relevantCases = cases.filter(c => 
+      c.industry.includes(answers.industry) || c.industry.includes('any')
+    );
+    if (relevantCases.length === 0) relevantCases = cases.slice(0, 2);
+    
+    // Summary
+    document.getElementById('resultsSummary').innerHTML = `
+      <p>Based on your answers, I'd focus on <strong>${tenet.name}</strong> 
+      with a <strong>${tier.name}</strong> engagement.</p>
+    `;
+    
+    // Tenet
+    document.getElementById('resultTenet').innerHTML = `
+      <a href="${tenet.url}" class="tenet-result">
+        <span class="tenet-name">${tenet.name}</span>
+        <span class="tenet-desc">${tenet.description}</span>
+      </a>
+    `;
+    
+    // Cases
+    document.getElementById('resultCases').innerHTML = relevantCases.map(c => `
+      <a href="${c.url}" class="case-result">${c.title}</a>
+    `).join('');
+    
+    // Tier
+    document.getElementById('resultTier').innerHTML = `
+      <div class="tier-result">
+        <span class="tier-name">${tier.name}</span>
+        <span class="tier-price">${tier.price}</span>
+        <span class="tier-desc">${tier.description}</span>
+      </div>
+    `;
+    
+    // Update CTA
+    const ctaSubject = encodeURIComponent(`${tenet.name} + ${tier.name} — Let's talk`);
+    document.getElementById('resultCTA').href = `mailto:dave@wordandmouth.com?subject=${ctaSubject}`;
+  }
+</script>
+
+<style>
+  .quiz-container {
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 8rem 2rem 4rem;
+    min-height: 80vh;
+  }
+
+  .quiz-screen {
+    display: none;
+    animation: fadeIn 0.3s ease;
+  }
+
+  .quiz-screen.active {
+    display: block;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .quiz-container h1 {
+    font-size: clamp(2rem, 5vw, 3rem);
+    margin-bottom: 1rem;
+    text-align: center;
+  }
+
+  .quiz-container h2 {
+    font-size: 1.8rem;
+    margin-bottom: 2rem;
+  }
+
+  .quiz-intro {
+    font-size: 1.1rem;
+    color: var(--muted);
+    text-align: center;
+    margin-bottom: 2rem;
+    line-height: 1.6;
+  }
+
+  .quiz-start {
+    display: block;
+    margin: 0 auto;
+    background: var(--accent);
+    color: #000;
+    border: none;
+    padding: 1rem 3rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.2s;
+  }
+
+  .quiz-start:hover {
+    transform: scale(1.05);
+  }
+
+  .quiz-skip {
+    text-align: center;
+    margin-top: 1.5rem;
+    font-size: 0.9rem;
+  }
+
+  .quiz-skip a {
+    color: var(--muted);
+  }
+
+  .quiz-progress {
+    font-size: 0.85rem;
+    color: var(--muted);
+    margin-bottom: 1rem;
+  }
+
+  .quiz-options {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .quiz-options.industry-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.75rem;
+  }
+
+  .quiz-option {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.25rem;
+    background: #111;
+    border: 1px solid #333;
+    padding: 1.25rem 1.5rem;
+    cursor: pointer;
+    transition: all 0.2s;
+    text-align: left;
+  }
+
+  .quiz-option:hover {
+    border-color: var(--accent);
+    background: #1a1a1a;
+  }
+
+  .quiz-option.small {
+    padding: 1rem;
+    align-items: center;
+    text-align: center;
+  }
+
+  .option-icon {
+    font-size: 1.5rem;
+    margin-bottom: 0.25rem;
+  }
+
+  .option-text {
+    font-weight: 500;
+    color: var(--text);
+  }
+
+  .option-hint {
+    font-size: 0.8rem;
+    color: var(--muted);
+  }
+
+  /* Results */
+  .results-summary {
+    background: #111;
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+    border-left: 3px solid var(--accent);
+  }
+
+  .results-summary p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+  }
+
+  .results-summary strong {
+    color: var(--accent);
+  }
+
+  .results-section {
+    margin-bottom: 2rem;
+  }
+
+  .results-section h3 {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--muted);
+    margin-bottom: 1rem;
+  }
+
+  .tenet-result {
+    display: block;
+    background: #111;
+    padding: 1.5rem;
+    border-left: 3px solid transparent;
+    transition: border-color 0.2s;
+  }
+
+  .tenet-result:hover {
+    border-left-color: var(--accent);
+  }
+
+  .tenet-name {
+    display: block;
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--accent);
+    margin-bottom: 0.25rem;
+  }
+
+  .tenet-desc {
+    color: var(--muted);
+    font-size: 0.95rem;
+  }
+
+  .result-cases {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+  }
+
+  .case-result {
+    background: #111;
+    padding: 0.75rem 1.25rem;
+    border: 1px solid #333;
+    font-size: 0.9rem;
+    transition: border-color 0.2s;
+  }
+
+  .case-result:hover {
+    border-color: var(--accent);
+  }
+
+  .tier-result {
+    background: #111;
+    padding: 1.5rem;
+    border: 1px solid #333;
+  }
+
+  .tier-name {
+    display: block;
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 0.25rem;
+  }
+
+  .tier-price {
+    display: block;
+    color: var(--accent);
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+  }
+
+  .tier-desc {
+    color: var(--muted);
+    font-size: 0.9rem;
+  }
+
+  .results-cta {
+    text-align: center;
+    padding-top: 2rem;
+    border-top: 1px solid #222;
+  }
+
+  .cta-alt {
+    margin-top: 1rem;
+    font-size: 0.9rem;
+    color: var(--muted);
+  }
+
+  .cta-alt a {
+    color: var(--accent);
+  }
+
+  @media (max-width: 600px) {
+    .quiz-options.industry-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+</style>

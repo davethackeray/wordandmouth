@@ -1,0 +1,196 @@
+---
+import Base from '../../layouts/Base.astro';
+---
+
+<Base title="Data Detectives — Case Study" description="A business fable on breaking silos">
+  <section class="hero-case">
+    <a href="/work" class="back-link">← Work</a>
+    <div class="case-tenets">
+      <span class="tenet">Story</span>
+      <span class="tenet">Clarity</span>
+    </div>
+    <h1>Data Detectives</h1>
+    <p class="case-tagline">A business fable on breaking silos</p>
+  </section>
+  
+  <section class="section">
+    <h2 class="section-label">The Problem</h2>
+    <div class="case-content">
+      <p>
+        Data integration is dry. Important, but dry. Nobody wants to read another whitepaper about "breaking down silos" or "enabling data-driven decision making."
+      </p>
+      <p>
+        Yet every growing organisation faces the same challenge: information trapped in departmental fiefdoms, guarded by people who see sharing as surrendering power.
+      </p>
+      <p>
+        How do you teach complex organisational change in a way people actually want to read?
+      </p>
+    </div>
+  </section>
+  
+  <section class="section">
+    <h2 class="section-label">The Approach</h2>
+    <div class="case-content">
+      <h3>Tell It as a Story</h3>
+      <p>Instead of a business book with bullet points and frameworks, I wrote a business fable. Real characters with real motivations. Politics, personalities, and breakthroughs.</p>
+      
+      <h3>Make the Technical Human</h3>
+      <p>Every technical concept is explained through character interactions. Data architecture becomes Tom's wall map with wooden figurines. Change management becomes Oliver navigating personalities.</p>
+      
+      <h3>Ground It in Reality</h3>
+      <p>The scenarios, challenges, and solutions are based on real transformations. The Pembroke Paton story is fiction, but the lessons are drawn from actual experience.</p>
+    </div>
+  </section>
+  
+  <section class="section">
+    <h2 class="section-label">The Cast</h2>
+    <div class="case-content">
+      <ul>
+        <li><strong>Tom Bennett</strong> — The stoic project manager who maps politics as carefully as systems</li>
+        <li><strong>Emma Carter</strong> — The business analyst who speaks seven languages (including Partner)</li>
+        <li><strong>Lisa Martinez</strong> — The skeptical architect whose approval everyone craves</li>
+        <li><strong>Jake Thompson</strong> — The AI architect who speaks entirely in analogies</li>
+        <li><strong>Sarah Patel</strong> — The Managing Partner who made a bold promise without knowing if it was possible</li>
+      </ul>
+    </div>
+  </section>
+  
+  <section class="section">
+    <h2 class="section-label">The Outcome</h2>
+    <div class="case-outcome">
+      <div class="outcome-stat">
+        <span class="outcome-number">6,800+</span>
+        <span class="outcome-label">lines written</span>
+      </div>
+      <div class="outcome-stat">
+        <span class="outcome-number">20</span>
+        <span class="outcome-label">chapters</span>
+      </div>
+      <div class="outcome-stat">
+        <span class="outcome-number">5</span>
+        <span class="outcome-label">parts</span>
+      </div>
+    </div>
+    <p class="outcome-text">A complete business fable that teaches data integration through character-driven narrative. The Phoenix Project meets accounting firms.</p>
+  </section>
+  
+  <section class="section cta-section">
+    <h2>Want to make complex ideas accessible?</h2>
+    <a href="mailto:dave@wordandmouth.com" class="cta-button">Let's Talk</a>
+  </section>
+</Base>
+
+<style>
+  .hero-case {
+    padding: 10rem 2rem 4rem;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+  
+  .back-link {
+    display: inline-block;
+    color: var(--muted);
+    font-size: 0.9rem;
+    margin-bottom: 1.5rem;
+    transition: color 0.2s;
+  }
+  
+  .back-link:hover {
+    color: var(--accent);
+  }
+  
+  .case-tenets {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+  }
+  
+  .tenet {
+    background: rgba(255, 107, 53, 0.15);
+    color: var(--accent);
+    padding: 0.25rem 0.6rem;
+    font-size: 0.7rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+  
+  .hero-case h1 {
+    font-size: clamp(2rem, 5vw, 3rem);
+    margin-bottom: 0.5rem;
+  }
+  
+  .case-tagline {
+    color: var(--muted);
+    font-size: 1.2rem;
+  }
+  
+  .case-content {
+    max-width: 700px;
+  }
+  
+  .case-content p {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    margin-bottom: 1.5rem;
+  }
+  
+  .case-content h3 {
+    font-size: 1.2rem;
+    margin: 2rem 0 0.75rem;
+  }
+  
+  .case-content ul {
+    margin: 1rem 0;
+    padding-left: 1.5rem;
+  }
+  
+  .case-content li {
+    margin-bottom: 0.75rem;
+    line-height: 1.6;
+  }
+  
+  .case-content strong {
+    color: var(--accent);
+  }
+  
+  .case-outcome {
+    display: flex;
+    gap: 3rem;
+    flex-wrap: wrap;
+    margin-bottom: 2rem;
+  }
+  
+  .outcome-stat {
+    text-align: center;
+  }
+  
+  .outcome-number {
+    display: block;
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--accent);
+    line-height: 1;
+  }
+  
+  .outcome-label {
+    font-size: 0.85rem;
+    color: var(--muted);
+  }
+  
+  .outcome-text {
+    font-size: 1.1rem;
+    color: var(--muted);
+    max-width: 600px;
+  }
+  
+  .cta-section {
+    text-align: center;
+  }
+  
+  .cta-section h2 {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+  }
+</style>

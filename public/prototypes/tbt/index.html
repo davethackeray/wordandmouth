@@ -1,0 +1,756 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>tbt — Cognitive Acceleration for Infants</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;700&family=Inter:wght@400;500&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --bg: #0a0a0a;
+            --text: #fafafa;
+            --accent: #ff6b35;
+            --muted: #888;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            min-height: 100vh;
+        }
+
+        /* Header */
+        header {
+            padding: 1.5rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #222;
+        }
+
+        .logo {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--accent);
+        }
+
+        .tagline {
+            color: var(--muted);
+            font-size: 0.9rem;
+        }
+
+        /* Main Container */
+        main {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        /* Controls Panel */
+        .controls {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+            padding: 1.5rem;
+            background: #111;
+            border: 1px solid #333;
+        }
+
+        .control-group label {
+            display: block;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--muted);
+            margin-bottom: 0.5rem;
+        }
+
+        .control-group select,
+        .control-group input {
+            width: 100%;
+            padding: 0.75rem;
+            background: #0a0a0a;
+            border: 1px solid #444;
+            color: var(--text);
+            font-size: 1rem;
+            font-family: inherit;
+        }
+
+        .btn {
+            padding: 1rem 2rem;
+            background: var(--accent);
+            color: #000;
+            border: none;
+            font-weight: 700;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+
+        .btn:hover {
+            transform: scale(1.02);
+        }
+
+        .btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        .btn.secondary {
+            background: #333;
+            color: var(--text);
+        }
+
+        /* Flashcard Display */
+        .flashcard-container {
+            aspect-ratio: 1;
+            max-height: 70vh;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #fff;
+            border: 4px solid #333;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .flashcard {
+            text-align: center;
+            opacity: 0;
+            animation: flashIn 0.1s ease forwards;
+        }
+
+        @keyframes flashIn {
+            0% {
+                opacity: 0;
+                transform: scale(0.95);
+            }
+
+            50% {
+                opacity: 1;
+            }
+
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .flashcard img {
+            max-width: 80%;
+            max-height: 60%;
+            object-fit: contain;
+        }
+
+        .flashcard-word {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: clamp(2rem, 6vw, 5rem);
+            font-weight: 700;
+            margin-top: 1rem;
+            letter-spacing: 0.02em;
+            padding: 0 1rem;
+            max-width: 100%;
+        }
+
+        /* Synesthetic colors for letters */
+        .syn-a {
+            color: #FF0000;
+        }
+
+        .syn-b {
+            color: #0000FF;
+        }
+
+        .syn-c {
+            color: #FFD700;
+        }
+
+        .syn-d {
+            color: #8B4513;
+        }
+
+        .syn-e {
+            color: #008000;
+        }
+
+        .syn-f {
+            color: #FF69B4;
+        }
+
+        .syn-g {
+            color: #FFA500;
+        }
+
+        .syn-h {
+            color: #800080;
+        }
+
+        .syn-i {
+            color: #444444;
+        }
+
+        .syn-j {
+            color: #00CED1;
+        }
+
+        .syn-k {
+            color: #8B0000;
+        }
+
+        .syn-l {
+            color: #32CD32;
+        }
+
+        .syn-m {
+            color: #4169E1;
+        }
+
+        .syn-n {
+            color: #FF4500;
+        }
+
+        .syn-o {
+            color: #1a1a1a;
+        }
+
+        .syn-p {
+            color: #9932CC;
+        }
+
+        .syn-q {
+            color: #20B2AA;
+        }
+
+        .syn-r {
+            color: #DC143C;
+        }
+
+        .syn-s {
+            color: #DAA520;
+        }
+
+        .syn-t {
+            color: #2F4F4F;
+        }
+
+        .syn-u {
+            color: #00008B;
+        }
+
+        .syn-v {
+            color: #9400D3;
+        }
+
+        .syn-w {
+            color: #556B2F;
+        }
+
+        .syn-x {
+            color: #696969;
+        }
+
+        .syn-y {
+            color: #FFFF00;
+        }
+
+        .syn-z {
+            color: #000000;
+        }
+
+        /* Progress Bar */
+        .progress-container {
+            margin-top: 1rem;
+            text-align: center;
+        }
+
+        .progress-bar {
+            height: 4px;
+            background: #333;
+            margin-bottom: 0.5rem;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: var(--accent);
+            transition: width 0.1s linear;
+        }
+
+        .progress-text {
+            color: var(--muted);
+            font-size: 0.85rem;
+        }
+
+        /* Mode Indicator */
+        .mode-indicator {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            padding: 0.5rem 1rem;
+            background: var(--accent);
+            color: #000;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        /* Stats Panel */
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .stat {
+            background: #111;
+            padding: 1.25rem;
+            text-align: center;
+            border: 1px solid #333;
+        }
+
+        .stat-value {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--accent);
+        }
+
+        .stat-label {
+            font-size: 0.75rem;
+            color: var(--muted);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        /* Feature Cards */
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-top: 3rem;
+        }
+
+        .feature {
+            background: #111;
+            padding: 1.5rem;
+            border: 1px solid #333;
+        }
+
+        .feature h3 {
+            color: var(--accent);
+            font-size: 1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .feature p {
+            color: var(--muted);
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+
+        /* Curriculum Grid */
+        .curriculum-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .curriculum-item {
+            background: #111;
+            padding: 1.25rem;
+            text-align: center;
+            border: 1px solid #333;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .curriculum-item:hover {
+            border-color: var(--accent);
+        }
+
+        .curriculum-item.active {
+            border-color: var(--accent);
+            background: rgba(255, 107, 53, 0.1);
+        }
+
+        .curriculum-icon {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .curriculum-name {
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        .curriculum-count {
+            font-size: 0.75rem;
+            color: var(--muted);
+        }
+
+        /* Idle State */
+        .idle-state {
+            text-align: center;
+            padding: 4rem 2rem;
+            color: var(--muted);
+        }
+
+        .idle-state h2 {
+            color: var(--text);
+            margin-bottom: 1rem;
+        }
+
+        @media (max-width: 768px) {
+            .stats {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .controls {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div>
+            <div class="logo">tbt</div>
+            <div class="tagline">Cognitive Acceleration System</div>
+        </div>
+        <div class="tagline">Doman + Shichida + AI</div>
+    </header>
+
+    <main>
+        <!-- Controls -->
+        <div class="controls">
+            <div class="control-group">
+                <label>Category</label>
+                <select id="categorySelect">
+                    <option value="animals">Animals</option>
+                    <option value="instruments">Musical Instruments</option>
+                    <option value="geography">World Geography</option>
+                    <option value="art">Famous Paintings</option>
+                    <option value="anatomy">Human Anatomy</option>
+                </select>
+            </div>
+            <div class="control-group">
+                <label>Flash Speed</label>
+                <select id="speedSelect">
+                    <option value="1000">Normal (1.0s)</option>
+                    <option value="750">Fast (0.75s)</option>
+                    <option value="500" selected>Turbo (0.5s) - Shichida</option>
+                    <option value="300">Ultra (0.3s)</option>
+                </select>
+            </div>
+            <div class="control-group">
+                <label>Display Mode</label>
+                <select id="modeSelect">
+                    <option value="image-word">Image + Word</option>
+                    <option value="word-only">Word Only (Reading)</option>
+                    <option value="image-only">Image Only</option>
+                </select>
+            </div>
+            <div class="control-group" style="display: flex; align-items: flex-end; gap: 0.5rem;">
+                <button class="btn" id="startBtn" onclick="startSession()">Start Session</button>
+                <button class="btn secondary" id="stopBtn" onclick="stopSession()" disabled>Stop</button>
+            </div>
+        </div>
+
+        <!-- Flashcard Display -->
+        <div class="flashcard-container" id="flashcardContainer">
+            <div class="idle-state" id="idleState">
+                <h2>Ready for Input Session</h2>
+                <p>Select a category and press Start to begin flashing Bits of Intelligence.</p>
+                <p style="margin-top: 1rem; font-size: 0.85rem;">
+                    Based on the Glenn Doman Method and Makoto Shichida's high-speed right-brain training.
+                </p>
+            </div>
+            <div id="flashcard" class="flashcard" style="display: none;"></div>
+            <div class="mode-indicator" id="modeIndicator" style="display: none;">TURBO MODE</div>
+        </div>
+
+        <!-- Progress -->
+        <div class="progress-container" id="progressContainer" style="display: none;">
+            <div class="progress-bar">
+                <div class="progress-fill" id="progressFill"></div>
+            </div>
+            <div class="progress-text" id="progressText">0 / 10 cards</div>
+        </div>
+
+        <!-- Stats -->
+        <div class="stats">
+            <div class="stat">
+                <div class="stat-value" id="cardsShown">0</div>
+                <div class="stat-label">Cards Shown</div>
+            </div>
+            <div class="stat">
+                <div class="stat-value" id="sessionTime">0:00</div>
+                <div class="stat-label">Session Time</div>
+            </div>
+            <div class="stat">
+                <div class="stat-value" id="flashSpeed">0.5s</div>
+                <div class="stat-label">Flash Speed</div>
+            </div>
+            <div class="stat">
+                <div class="stat-value" id="totalBits">50</div>
+                <div class="stat-label">Bits Available</div>
+            </div>
+        </div>
+
+        <!-- Curriculum Preview -->
+        <h2 style="margin-top: 3rem; margin-bottom: 1rem;">Encyclopedic Categories</h2>
+        <div class="curriculum-grid">
+            <div class="curriculum-item active" onclick="selectCategory('animals')">
+                <div class="curriculum-icon">🦁</div>
+                <div class="curriculum-name">Animals</div>
+                <div class="curriculum-count">10 bits</div>
+            </div>
+            <div class="curriculum-item" onclick="selectCategory('instruments')">
+                <div class="curriculum-icon">🎹</div>
+                <div class="curriculum-name">Instruments</div>
+                <div class="curriculum-count">10 bits</div>
+            </div>
+            <div class="curriculum-item" onclick="selectCategory('geography')">
+                <div class="curriculum-icon">🌍</div>
+                <div class="curriculum-name">Geography</div>
+                <div class="curriculum-count">10 bits</div>
+            </div>
+            <div class="curriculum-item" onclick="selectCategory('art')">
+                <div class="curriculum-icon">🎨</div>
+                <div class="curriculum-name">Famous Art</div>
+                <div class="curriculum-count">10 bits</div>
+            </div>
+            <div class="curriculum-item" onclick="selectCategory('anatomy')">
+                <div class="curriculum-icon">🫀</div>
+                <div class="curriculum-name">Anatomy</div>
+                <div class="curriculum-count">10 bits</div>
+            </div>
+        </div>
+
+        <!-- Features -->
+        <div class="features">
+            <div class="feature">
+                <h3>🧠 Right-Brain Flashing</h3>
+                <p>Sub-second flash speeds bypass analytical processing, enabling direct deposit into long-term memory
+                    via the Shichida Method.</p>
+            </div>
+            <div class="feature">
+                <h3>🎨 Artificial Synesthesia</h3>
+                <p>Each letter is color-coded using the most common grapheme-color associations, creating additional
+                    memory retrieval cues.</p>
+            </div>
+            <div class="feature">
+                <h3>📚 Doman Bits of Intelligence</h3>
+                <p>Precise, discrete, unambiguous images following Glenn Doman's specifications for optimal neurological
+                    registration.</p>
+            </div>
+            <div class="feature">
+                <h3>🤖 AI-Generated Content</h3>
+                <p>Unlimited encyclopedic knowledge generated on-demand using LLMs and diffusion models for fresh,
+                    personalized learning.</p>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        // Synesthetic color map
+        const synColors = {
+            'a': 'syn-a', 'b': 'syn-b', 'c': 'syn-c', 'd': 'syn-d', 'e': 'syn-e',
+            'f': 'syn-f', 'g': 'syn-g', 'h': 'syn-h', 'i': 'syn-i', 'j': 'syn-j',
+            'k': 'syn-k', 'l': 'syn-l', 'm': 'syn-m', 'n': 'syn-n', 'o': 'syn-o',
+            'p': 'syn-p', 'q': 'syn-q', 'r': 'syn-r', 's': 'syn-s', 't': 'syn-t',
+            'u': 'syn-u', 'v': 'syn-v', 'w': 'syn-w', 'x': 'syn-x', 'y': 'syn-y',
+            'z': 'syn-z'
+        };
+
+        // Demo content (Bits of Intelligence)
+        const curriculum = {
+            animals: [
+                { word: 'Lion', emoji: '🦁' },
+                { word: 'Elephant', emoji: '🐘' },
+                { word: 'Giraffe', emoji: '🦒' },
+                { word: 'Penguin', emoji: '🐧' },
+                { word: 'Dolphin', emoji: '🐬' },
+                { word: 'Eagle', emoji: '🦅' },
+                { word: 'Butterfly', emoji: '🦋' },
+                { word: 'Octopus', emoji: '🐙' },
+                { word: 'Kangaroo', emoji: '🦘' },
+                { word: 'Peacock', emoji: '🦚' }
+            ],
+            instruments: [
+                { word: 'Piano', emoji: '🎹' },
+                { word: 'Violin', emoji: '🎻' },
+                { word: 'Guitar', emoji: '🎸' },
+                { word: 'Drums', emoji: '🥁' },
+                { word: 'Trumpet', emoji: '🎺' },
+                { word: 'Saxophone', emoji: '🎷' },
+                { word: 'Harp', emoji: '🪕' },
+                { word: 'Flute', emoji: '🪈' },
+                { word: 'Accordion', emoji: '🪗' },
+                { word: 'Maracas', emoji: '🪇' }
+            ],
+            geography: [
+                { word: 'France', emoji: '🇫🇷' },
+                { word: 'Japan', emoji: '🇯🇵' },
+                { word: 'Brazil', emoji: '🇧🇷' },
+                { word: 'Australia', emoji: '🇦🇺' },
+                { word: 'Egypt', emoji: '🇪🇬' },
+                { word: 'Canada', emoji: '🇨🇦' },
+                { word: 'India', emoji: '🇮🇳' },
+                { word: 'Italy', emoji: '🇮🇹' },
+                { word: 'Kenya', emoji: '🇰🇪' },
+                { word: 'Mexico', emoji: '🇲🇽' }
+            ],
+            art: [
+                { word: 'Mona Lisa', emoji: '🖼️' },
+                { word: 'Starry Night', emoji: '🌙' },
+                { word: 'The Scream', emoji: '😱' },
+                { word: 'Girl with Pearl', emoji: '👩' },
+                { word: 'The Kiss', emoji: '💋' },
+                { word: 'Water Lilies', emoji: '🪷' },
+                { word: 'Guernica', emoji: '🎨' },
+                { word: 'Birth of Venus', emoji: '🐚' },
+                { word: 'The Thinker', emoji: '🤔' },
+                { word: 'David', emoji: '🗿' }
+            ],
+            anatomy: [
+                { word: 'Heart', emoji: '❤️' },
+                { word: 'Brain', emoji: '🧠' },
+                { word: 'Lungs', emoji: '🫁' },
+                { word: 'Skeleton', emoji: '🦴' },
+                { word: 'Muscle', emoji: '💪' },
+                { word: 'Eye', emoji: '👁️' },
+                { word: 'Ear', emoji: '👂' },
+                { word: 'Stomach', emoji: '🫃' },
+                { word: 'Kidney', emoji: '🫘' },
+                { word: 'Liver', emoji: '🫀' }
+            ]
+        };
+
+        let currentCategory = 'animals';
+        let currentIndex = 0;
+        let isRunning = false;
+        let intervalId = null;
+        let startTime = null;
+        let cardsShownCount = 0;
+
+        function renderSynestheticWord(word) {
+            return word.split('').map(char => {
+                const lc = char.toLowerCase();
+                const colorClass = synColors[lc] || '';
+                return `<span class="${colorClass}">${char}</span>`;
+            }).join('');
+        }
+
+        function selectCategory(cat) {
+            currentCategory = cat;
+            document.getElementById('categorySelect').value = cat;
+            document.querySelectorAll('.curriculum-item').forEach(el => el.classList.remove('active'));
+            event.currentTarget.classList.add('active');
+        }
+
+        function startSession() {
+            const speed = parseInt(document.getElementById('speedSelect').value);
+            const mode = document.getElementById('modeSelect').value;
+            const bits = curriculum[currentCategory];
+
+            currentIndex = 0;
+            cardsShownCount = 0;
+            isRunning = true;
+            startTime = Date.now();
+
+            document.getElementById('idleState').style.display = 'none';
+            document.getElementById('flashcard').style.display = 'block';
+            document.getElementById('modeIndicator').style.display = speed <= 500 ? 'block' : 'none';
+            document.getElementById('progressContainer').style.display = 'block';
+            document.getElementById('startBtn').disabled = true;
+            document.getElementById('stopBtn').disabled = false;
+            document.getElementById('flashSpeed').textContent = (speed / 1000).toFixed(2) + 's';
+
+            function showCard() {
+                if (!isRunning || currentIndex >= bits.length) {
+                    stopSession();
+                    return;
+                }
+
+                const bit = bits[currentIndex];
+                const flashcard = document.getElementById('flashcard');
+
+                let content = '';
+                if (mode === 'image-word' || mode === 'image-only') {
+                    content += `<div style="font-size: 8rem;">${bit.emoji}</div>`;
+                }
+                if (mode === 'image-word' || mode === 'word-only') {
+                    content += `<div class="flashcard-word">${renderSynestheticWord(bit.word)}</div>`;
+                }
+
+                flashcard.innerHTML = content;
+                flashcard.style.animation = 'none';
+                flashcard.offsetHeight; // Trigger reflow
+                flashcard.style.animation = 'flashIn 0.1s ease forwards';
+
+                // Update stats
+                cardsShownCount++;
+                document.getElementById('cardsShown').textContent = cardsShownCount;
+                document.getElementById('progressFill').style.width = ((currentIndex + 1) / bits.length * 100) + '%';
+                document.getElementById('progressText').textContent = `${currentIndex + 1} / ${bits.length} cards`;
+
+                currentIndex++;
+            }
+
+            showCard();
+            intervalId = setInterval(showCard, speed);
+
+            // Update timer
+            const timerInterval = setInterval(() => {
+                if (!isRunning) {
+                    clearInterval(timerInterval);
+                    return;
+                }
+                const elapsed = Math.floor((Date.now() - startTime) / 1000);
+                const mins = Math.floor(elapsed / 60);
+                const secs = elapsed % 60;
+                document.getElementById('sessionTime').textContent = `${mins}:${secs.toString().padStart(2, '0')}`;
+            }, 1000);
+        }
+
+        function stopSession() {
+            isRunning = false;
+            if (intervalId) clearInterval(intervalId);
+
+            document.getElementById('flashcard').innerHTML = `
+        <div style="text-align: center; padding: 2rem;">
+          <div style="font-size: 4rem; margin-bottom: 1rem;">✅</div>
+          <h2 style="color: #333;">Session Complete!</h2>
+          <p style="color: #666;">${cardsShownCount} Bits of Intelligence shown</p>
+        </div>
+      `;
+
+            document.getElementById('modeIndicator').style.display = 'none';
+            document.getElementById('startBtn').disabled = false;
+            document.getElementById('stopBtn').disabled = true;
+        }
+
+        // Initialize
+        document.getElementById('totalBits').textContent =
+            Object.values(curriculum).reduce((sum, arr) => sum + arr.length, 0);
+    </script>
+</body>
+
+</html>
