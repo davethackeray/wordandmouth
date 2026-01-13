@@ -89,6 +89,15 @@ import Base from '../../layouts/Base.astro';
     </div>
   </section>
   
+  <section class="section related-section">
+    <h2 class="section-label">The Business Lessons</h2>
+    <div class="related-box">
+      <p>This case study shows the <em>format</em>. Want the business insights?</p>
+      <a href="/play/the-15m-paradox/" class="related-link">Read: The £15M Paradox →</a>
+      <p class="related-sub">6 mental models and 8 Monday-morning actions from the Times Radio investigation.</p>
+    </div>
+  </section>
+  
   <section class="section cta-section">
     <h2>Got a complex story that needs telling?</h2>
     <a href="mailto:dave@wordandmouth.com" class="cta-button">Let's Talk</a>
@@ -210,6 +219,31 @@ import Base from '../../layouts/Base.astro';
     margin-top: 1rem;
     color: var(--muted);
     font-size: 0.85rem;
+  }
+  
+  .related-box {
+    background: #111;
+    padding: 2rem;
+    border-left: 3px solid var(--accent);
+  }
+  
+  .related-box p {
+    margin-bottom: 0.75rem;
+    color: #ccc;
+  }
+  
+  .related-link {
+    display: inline-block;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--accent);
+    margin-bottom: 0.5rem;
+  }
+  
+  .related-sub {
+    font-size: 0.9rem !important;
+    color: var(--muted) !important;
+    margin-bottom: 0 !important;
   }
   
   .cta-section {

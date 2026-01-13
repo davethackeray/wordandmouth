@@ -107,6 +107,11 @@ const { title, description = "I help businesses find the big problem they actual
     backdrop-filter: blur(8px);
   }
   
+  /* Header inner constraint for wide screens */
+  header > * {
+    flex-shrink: 0;
+  }
+  
   .logo {
     font-family: 'Space Grotesk', sans-serif;
     font-weight: 700;
@@ -119,7 +124,7 @@ const { title, description = "I help businesses find the big problem they actual
   }
   
   nav a {
-    color: var(--muted);
+    color: #bbb;
     font-size: 0.9rem;
     transition: color 0.2s;
   }

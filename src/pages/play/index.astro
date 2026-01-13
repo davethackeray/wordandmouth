@@ -3,7 +3,7 @@ import Base from '../../layouts/Base.astro';
 
 // Real content from AI Today podcast and Medium archive
 const content = [
-  // Featured Article
+  // Featured Articles
   {
     type: 'blog',
     title: "The trivial matters more than you think",
@@ -12,6 +12,15 @@ const content = [
     date: '2026-01-13',
     readTime: '8 min',
     url: '/play/trivial-catastrophe/'
+  },
+  {
+    type: 'blog',
+    title: "The £15M Paradox",
+    reason: "A radio station that loses money on purpose — and why it's genius",
+    tenet: 'Insight',
+    date: '2026-01-13',
+    readTime: '10 min',
+    url: '/play/the-15m-paradox/'
   },
   // AI Today Podcast Episodes
   {
@@ -162,23 +171,26 @@ const typeLabels = {
   <!-- The River -->
   <section class="river-section">
     <div class="river">
-      {content.map((item) => (
-        <a href={item.url} target="_blank" class="river-item" data-type={item.type} data-tenet={item.tenet}>
-          <div class="item-meta">
-            <span class="type-icon" title={typeLabels[item.type]}>{typeIcons[item.type]}</span>
-            <span class="tenet-tag">{item.tenet}</span>
-            <span class="item-date">{item.date}</span>
-          </div>
-          <h2 class="item-title">{item.title}</h2>
-          <p class="item-reason">{item.reason}</p>
-          <div class="item-footer">
-            <span class="item-duration">
-              {item.type === 'blog' ? item.readTime : item.duration}
-            </span>
-            <span class="item-action">{typeLabels[item.type]} →</span>
-          </div>
-        </a>
-      ))}
+      {content.map((item) => {
+        const isExternal = item.url.startsWith('http');
+        return (
+          <a href={item.url} target={isExternal ? "_blank" : undefined} rel={isExternal ? "noopener" : undefined} class="river-item" data-type={item.type} data-tenet={item.tenet}>
+            <div class="item-meta">
+              <span class="type-icon" title={typeLabels[item.type]}>{typeIcons[item.type]}</span>
+              <span class="tenet-tag">{item.tenet}</span>
+              <span class="item-date">{item.date}</span>
+            </div>
+            <h2 class="item-title">{item.title}</h2>
+            <p class="item-reason">{item.reason}</p>
+            <div class="item-footer">
+              <span class="item-duration">
+                {item.type === 'blog' ? item.readTime : item.duration}
+              </span>
+              <span class="item-action">{typeLabels[item.type]} →</span>
+            </div>
+          </a>
+        );
+      })}
     </div>
     
     <div class="river-empty" style="display: none;">
