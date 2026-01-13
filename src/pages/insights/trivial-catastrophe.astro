@@ -1,5 +1,11 @@
 ---
 import Base from '../../layouts/Base.astro';
+import SeriesBanner from '../../components/SeriesBanner.astro';
+
+const seriesArticles = [
+  { title: "The Trivial Matters More Than You Think", slug: "trivial-catastrophe", current: true },
+  { title: "The £15M Paradox", slug: "the-15m-paradox", current: false },
+];
 ---
 
 <Base title="The Trivial Matters More Than You Think" description="How absurdly simple errors cause catastrophic business failures — and what this means for you">
@@ -14,6 +20,12 @@ import Base from '../../layouts/Base.astro';
       <h1>The Trivial Matters More Than You Think</h1>
       <p class="article-subtitle">How a missing comma cost $5 million, a typo crashed Wall Street, and what this means for your business</p>
     </section>
+    
+    <SeriesBanner
+      seriesName="Signal from Noise"
+      seriesSlug="signal-from-noise"
+      articles={seriesArticles}
+    />
     
     <section class="article-body">
       

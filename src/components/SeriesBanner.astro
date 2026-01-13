@@ -1,0 +1,139 @@
+---
+/**
+ * SeriesBanner - Displays rabbit hole context at top of linked articles
+ * 
+ * Usage:
+ * <SeriesBanner 
+ *   seriesName="Kitchen Confidence"
+ *   seriesSlug="kitchen-confidence"
+ *   articles={[
+ *     { title: "The Peloton for Home Cooking", slug: "peloton-home-cooking", current: true },
+ *     { title: "Pantry Tetris Algorithm", slug: "pantry-tetris", current: false },
+ *   ]}
+ * />
+ */
+
+interface Article {
+  title: string;
+  slug: string;
+  current?: boolean;
+}
+
+interface Props {
+  seriesName: string;
+  seriesSlug: string;
+  articles: Article[];
+}
+
+const { seriesName, seriesSlug, articles } = Astro.props;
+---
+
+<aside class="series-banner">
+  <div class="series-header">
+    <span class="series-icon">📚</span>
+    <span class="series-label">Part of:</span>
+    <a href={`/rabbit-holes/${seriesSlug}/`} class="series-name">{seriesName}</a>
+  </div>
+  <nav class="series-nav" aria-label="Series navigation">
+    <ul class="series-list">
+      {articles.map((article, index) => (
+        <li class={`series-item ${article.current ? 'current' : ''}`}>
+          <span class="series-connector">{index === articles.length - 1 ? '└─' : '├─'}</span>
+          {article.current ? (
+            <span class="series-current-title">{article.title} <em>← You are here</em></span>
+          ) : (
+            <a href={`/insights/${article.slug}/`} class="series-link">{article.title}</a>
+          )}
+        </li>
+      ))}
+    </ul>
+  </nav>
+</aside>
+
+<style>
+  .series-banner {
+    background: linear-gradient(135deg, rgba(255, 107, 53, 0.08) 0%, rgba(255, 107, 53, 0.02) 100%);
+    border: 1px solid rgba(255, 107, 53, 0.2);
+    border-radius: 8px;
+    padding: 1.25rem 1.5rem;
+    margin-bottom: 2rem;
+  }
+
+  .series-header {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .series-icon {
+    font-size: 1.2rem;
+  }
+
+  .series-label {
+    color: var(--muted);
+    font-size: 0.85rem;
+  }
+
+  .series-name {
+    color: var(--accent);
+    font-weight: 600;
+    font-family: 'Space Grotesk', sans-serif;
+    text-decoration: none;
+    transition: opacity 0.2s;
+  }
+
+  .series-name:hover {
+    opacity: 0.8;
+  }
+
+  .series-nav {
+    padding-left: 0.5rem;
+  }
+
+  .series-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .series-item {
+    display: flex;
+    align-items: baseline;
+    gap: 0.5rem;
+    font-size: 0.9rem;
+    line-height: 1.8;
+  }
+
+  .series-connector {
+    font-family: monospace;
+    color: var(--muted);
+    flex-shrink: 0;
+  }
+
+  .series-link {
+    color: var(--text);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .series-link:hover {
+    color: var(--accent);
+  }
+
+  .series-current-title {
+    color: var(--accent);
+    font-weight: 500;
+  }
+
+  .series-current-title em {
+    font-weight: 400;
+    font-style: normal;
+    color: var(--muted);
+    font-size: 0.85em;
+  }
+
+  .current .series-connector {
+    color: var(--accent);
+  }
+</style>

@@ -1,5 +1,11 @@
 ---
 import Base from '../../layouts/Base.astro';
+import SeriesBanner from '../../components/SeriesBanner.astro';
+
+const seriesArticles = [
+  { title: "The Trivial Matters More Than You Think", slug: "trivial-catastrophe", current: false },
+  { title: "The £15M Paradox", slug: "the-15m-paradox", current: true },
+];
 ---
 
 <Base title="The £15M Paradox" description="A radio station that loses money on purpose — and why it's genius">
@@ -15,6 +21,12 @@ import Base from '../../layouts/Base.astro';
       <h1>The £15M Paradox</h1>
       <p class="article-subtitle">A radio station that loses money on purpose — and why it's genius</p>
     </section>
+    
+    <SeriesBanner
+      seriesName="Signal from Noise"
+      seriesSlug="signal-from-noise"
+      articles={seriesArticles}
+    />
     
     <section class="article-body">
       
