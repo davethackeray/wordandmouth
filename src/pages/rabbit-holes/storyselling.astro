@@ -134,6 +134,15 @@ import Base from '../../layouts/Base.astro';
       </div>
     </section>
 
+    <section class="section endorsement-section">
+      <div class="endorsement-box">
+        <blockquote>
+          "He finds the essence of a brand and makes it simple to understand."
+        </blockquote>
+        <cite>— <strong>Ben Gross</strong>, Director, Electric Circus Digital</cite>
+      </div>
+    </section>
+
     <section class="section">
       <h2 class="section-label">Storyselling in Action</h2>
       <div class="example-box">
@@ -511,5 +520,36 @@ import Base from '../../layouts/Base.astro';
 
   .related-links a:hover {
     opacity: 0.8;
+  }
+
+  .endorsement-section {
+    border-top: none;
+    padding: 2rem;
+  }
+
+  .endorsement-box {
+    background: linear-gradient(135deg, rgba(255, 107, 53, 0.08) 0%, rgba(255, 107, 53, 0.02) 100%);
+    border-left: 3px solid var(--accent);
+    padding: 2rem;
+    text-align: center;
+  }
+
+  .endorsement-box blockquote {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1.3rem;
+    line-height: 1.5;
+    margin: 0 0 1rem 0;
+    font-style: italic;
+    color: var(--text);
+  }
+
+  .endorsement-box cite {
+    color: var(--muted);
+    font-size: 0.9rem;
+    font-style: normal;
+  }
+
+  .endorsement-box cite strong {
+    color: var(--text);
   }
 </style>
