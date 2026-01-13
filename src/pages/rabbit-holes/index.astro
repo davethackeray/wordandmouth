@@ -1,0 +1,284 @@
+---
+import Base from '../../layouts/Base.astro';
+---
+
+<Base title="Rabbit Holes" description="Deep-dive methodologies that power my work">
+  <section class="hero-small">
+    <h1>Rabbit <span class="highlight">Holes</span></h1>
+    <p>The methodologies behind the work. Deep dives into how I solve problems.</p>
+  </section>
+  
+  <section class="section intro-section">
+    <p class="intro-text">
+      Every project I build follows a methodology that's been refined across dozens of engagements. 
+      These rabbit holes show you <strong>how</strong> I work — not just what I've built.
+    </p>
+    <p class="intro-sub">
+      Each one connects to a core tenet and contains multiple projects as proof.
+    </p>
+  </section>
+  
+  <section class="section">
+    <div class="rabbit-grid">
+      
+      <!-- Signal from Noise (Clarity Tenet) -->
+      <article class="rabbit-card featured">
+        <div class="rabbit-header">
+          <div class="rabbit-status">
+            <span class="status-dot active"></span>
+            <span>Active Research</span>
+          </div>
+          <a href="/clarity/" class="tenet-badge">Clarity Tenet →</a>
+        </div>
+        <h2>Signal from Noise</h2>
+        <p class="rabbit-subtitle">Turning overwhelming sources into accessible, actionable insight</p>
+        <p class="rabbit-description">
+          75,000 books. Hours of podcasts. Scattered content everywhere. The methodology: 
+          systematic curation, AI enrichment, and progressive disclosure. The result: 
+          people actually find what they need.
+        </p>
+        <div class="rabbit-projects">
+          <span class="projects-label">Projects inside:</span>
+          <div class="project-chips">
+            <span class="chip">Freed Reads</span>
+            <span class="chip">Investing Dojo</span>
+            <span class="chip">Club Dadvice</span>
+          </div>
+        </div>
+        <div class="rabbit-meta">
+          <span>Addresses: "We're drowning in content"</span>
+        </div>
+        <a href="/rabbit-holes/signal-from-noise/" class="rabbit-link">Explore the methodology →</a>
+      </article>
+      
+      <!-- Building Intelligence (AI Tenet) - Coming Soon -->
+      <article class="rabbit-card coming-soon">
+        <div class="rabbit-header">
+          <div class="rabbit-status">
+            <span class="status-dot"></span>
+            <span>Coming Soon</span>
+          </div>
+          <a href="/ai/" class="tenet-badge">AI Tenet →</a>
+        </div>
+        <h2>Building Intelligence</h2>
+        <p class="rabbit-subtitle">Creating AI pipelines that generate insight at scale</p>
+        <p class="rabbit-description">
+          Not just using AI — building repeatable systems that your team can own. 
+          From prompt engineering to fine-tuning, the full capability stack.
+        </p>
+        <div class="rabbit-projects">
+          <span class="projects-label">Will include:</span>
+          <div class="project-chips">
+            <span class="chip muted">Content Pipelines</span>
+            <span class="chip muted">Knowledge Graphs</span>
+            <span class="chip muted">Context Engineering</span>
+          </div>
+        </div>
+      </article>
+      
+      <!-- The Insight Layer (Insight Tenet) - Coming Soon -->
+      <article class="rabbit-card coming-soon">
+        <div class="rabbit-header">
+          <div class="rabbit-status">
+            <span class="status-dot"></span>
+            <span>Coming Soon</span>
+          </div>
+          <a href="/insight/" class="tenet-badge">Insight Tenet →</a>
+        </div>
+        <h2>The Insight Layer</h2>
+        <p class="rabbit-subtitle">Synthesizing across sources to surface what matters</p>
+        <p class="rabbit-description">
+          You're data-rich and insight-poor. Multiple dashboards, no clarity. 
+          The methodology for finding patterns that inform decisions.
+        </p>
+        <div class="rabbit-projects">
+          <span class="projects-label">Will include:</span>
+          <div class="project-chips">
+            <span class="chip muted">Zeitgeist</span>
+            <span class="chip muted">The Stack</span>
+            <span class="chip muted">Research Synthesis</span>
+          </div>
+        </div>
+      </article>
+      
+    </div>
+  </section>
+  
+  <section class="section cta-section">
+    <h2>Want to go deeper on a methodology?</h2>
+    <p>I'm always refining how I work. Let's talk about your problem.</p>
+    <a href="mailto:dave@wordandmouth.com" class="cta-button">Start a Conversation</a>
+  </section>
+</Base>
+
+<style>
+  .hero-small {
+    padding: 10rem 2rem 4rem;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+  
+  .hero-small h1 {
+    font-size: clamp(2rem, 5vw, 3rem);
+    margin-bottom: 1rem;
+  }
+  
+  .hero-small p {
+    color: var(--muted);
+    font-size: 1.2rem;
+  }
+  
+  .intro-section {
+    border-top: none;
+    padding-top: 0;
+  }
+  
+  .intro-text {
+    font-size: 1.2rem;
+    color: #ccc;
+    max-width: 700px;
+    line-height: 1.7;
+    margin-bottom: 0.5rem;
+  }
+  
+  .intro-sub {
+    color: var(--muted);
+    font-size: 1rem;
+  }
+  
+  .rabbit-grid {
+    display: grid;
+    gap: 2rem;
+  }
+  
+  .rabbit-card {
+    background: #111;
+    padding: 2.5rem;
+    border-left: 3px solid var(--border);
+    position: relative;
+  }
+  
+  .rabbit-card.featured {
+    border-left-color: var(--accent);
+  }
+  
+  .rabbit-card.coming-soon {
+    opacity: 0.7;
+  }
+  
+  .rabbit-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+  }
+  
+  .rabbit-status {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.8rem;
+    color: var(--muted);
+  }
+  
+  .status-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--muted);
+  }
+  
+  .status-dot.active {
+    background: #22c55e;
+    box-shadow: 0 0 8px rgba(34, 197, 94, 0.5);
+  }
+  
+  .tenet-badge {
+    font-size: 0.75rem;
+    color: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+  
+  .rabbit-card h2 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .rabbit-subtitle {
+    color: #ccc;
+    font-size: 1rem;
+    margin-bottom: 1rem;
+    font-style: italic;
+  }
+  
+  .rabbit-description {
+    color: var(--muted);
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+  }
+  
+  .rabbit-projects {
+    margin-bottom: 1rem;
+  }
+  
+  .projects-label {
+    font-size: 0.8rem;
+    color: var(--muted);
+    display: block;
+    margin-bottom: 0.5rem;
+  }
+  
+  .project-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+  
+  .chip {
+    background: rgba(255, 107, 53, 0.15);
+    color: var(--accent);
+    padding: 0.3rem 0.75rem;
+    font-size: 0.8rem;
+    font-weight: 500;
+  }
+  
+  .chip.muted {
+    background: #1a1a1a;
+    color: var(--muted);
+  }
+  
+  .rabbit-meta {
+    font-size: 0.85rem;
+    color: var(--muted);
+    padding-top: 1rem;
+    border-top: 1px solid var(--border);
+    margin-bottom: 1rem;
+  }
+  
+  .rabbit-link {
+    display: inline-block;
+    color: var(--accent);
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: transform 0.2s;
+  }
+  
+  .rabbit-link:hover {
+    transform: translateX(4px);
+  }
+  
+  .cta-section {
+    text-align: center;
+  }
+  
+  .cta-section h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+  
+  .cta-section p {
+    color: var(--muted);
+    margin-bottom: 2rem;
+  }
+</style>
