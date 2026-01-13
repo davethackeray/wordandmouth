@@ -3,7 +3,37 @@ import Base from '../layouts/Base.astro';
 ---
 
 <Base title="You're doing OK. But you don't know how to do great">
-  <!-- Matchmaker Section (vanishes after completion) -->
+  <!-- Hero Section -->
+  <section class="hero">
+    <h1>
+      You're doing OK.<br/>
+      But you don't know how to do <span class="highlight">great</span>.
+    </h1>
+    <p class="hero-sub">
+      Every business was created to solve a big problem.
+    </p>
+    <p class="hero-sub-small">
+      But most have forgotten what it is. So they sell products instead of solutions. 
+      They talk about features instead of outcomes. And they wonder why growth stalls.
+    </p>
+    
+    <div class="proof">
+      <div class="proof-item">
+        <span class="proof-number">30</span>
+        <span class="proof-label">years getting stories straight</span>
+      </div>
+      <div class="proof-item">
+        <span class="proof-number">680+</span>
+        <span class="proof-label">leaders helped find clarity</span>
+      </div>
+      <div class="proof-item">
+        <span class="proof-number">12</span>
+        <span class="proof-label">AI products shipped in 4 months</span>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Matchmaker Section (now below hero) -->
   <section class="matchmaker-section" id="matchmaker">
     <div class="matchmaker-container">
       
@@ -102,36 +132,6 @@ import Base from '../layouts/Base.astro';
         </div>
       </div>
 
-    </div>
-  </section>
-
-  <!-- Hero Section -->
-  <section class="hero">
-    <h1>
-      You're doing OK.<br/>
-      But you don't know how to do <span class="highlight">great</span>.
-    </h1>
-    <p class="hero-sub">
-      Every business was created to solve a big problem.
-    </p>
-    <p class="hero-sub-small">
-      But most have forgotten what it is. So they sell products instead of solutions. 
-      They talk about features instead of outcomes. And they wonder why growth stalls.
-    </p>
-    
-    <div class="proof">
-      <div class="proof-item">
-        <span class="proof-number">30</span>
-        <span class="proof-label">years getting stories straight</span>
-      </div>
-      <div class="proof-item">
-        <span class="proof-number">680+</span>
-        <span class="proof-label">leaders helped find clarity</span>
-      </div>
-      <div class="proof-item">
-        <span class="proof-number">12</span>
-        <span class="proof-label">AI products shipped in 4 months</span>
-      </div>
     </div>
   </section>
   
