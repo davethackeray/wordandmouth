@@ -84,8 +84,18 @@ import Base from '../layouts/Base.astro';
           <a href="/story">Story</a>
         </div>
         <div class="service-offerings">
-          <span class="offering coach">Messaging frameworks</span>
-          <span class="offering collab">Co-create positioning</span>
+          <div class="service-offering-wrapper">
+            <span class="offering coach">Messaging frameworks</span>
+            <a href="/rabbit-holes/storytelling-frameworks" class="proof-link" title="See the STAR Framework">
+              <span class="proof-icon">↗</span> See the framework
+            </a>
+          </div>
+          <div class="service-offering-wrapper">
+            <span class="offering collab">Co-create positioning</span>
+            <a href="/work/the-stack" class="proof-link" title="See The Stack case study">
+              <span class="proof-icon">↗</span> See a case study
+            </a>
+          </div>
           <span class="offering dify">Full brand narrative</span>
         </div>
       </div>
@@ -96,7 +106,12 @@ import Base from '../layouts/Base.astro';
         </div>
         <div class="service-offerings">
           <span class="offering coach">Clarity workshops</span>
-          <span class="offering collab">Documentation sprints</span>
+          <div class="service-offering-wrapper">
+            <span class="offering collab">Documentation sprints</span>
+            <a href="/rabbit-holes/kitchen-confidence" class="proof-link" title="See Kitchen Confidence">
+              <span class="proof-icon">↗</span> See example
+            </a>
+          </div>
           <span class="offering dify">Complete clarity system</span>
         </div>
       </div>
@@ -106,7 +121,12 @@ import Base from '../layouts/Base.astro';
           <a href="/insight">Insight</a>
         </div>
         <div class="service-offerings">
-          <span class="offering coach">Analysis frameworks</span>
+          <div class="service-offering-wrapper">
+            <span class="offering coach">Analysis frameworks</span>
+            <a href="/insights/greenhouse" class="proof-link" title="See The Greenhouse">
+              <span class="proof-icon">↗</span> See The Greenhouse
+            </a>
+          </div>
           <span class="offering collab">Research partnership</span>
           <span class="offering dify">Full insight report</span>
         </div>
@@ -117,7 +137,12 @@ import Base from '../layouts/Base.astro';
           <a href="/ai">AI</a>
         </div>
         <div class="service-offerings">
-          <span class="offering coach">Prompt coaching</span>
+          <div class="service-offering-wrapper">
+            <span class="offering coach">Prompt coaching</span>
+            <a href="/rabbit-holes/signal-from-noise" class="proof-link" title="See Signal from Noise">
+              <span class="proof-icon">↗</span> See technique
+            </a>
+          </div>
           <span class="offering collab">Build AI capability</span>
           <span class="offering dify">Delivered AI solution</span>
         </div>
@@ -359,6 +384,38 @@ import Base from '../layouts/Base.astro';
   .offering.dify {
     background: rgba(255, 107, 53, 0.15);
     color: var(--accent);
+  }
+
+  .service-offering-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+  }
+
+  .proof-link {
+    font-size: 0.75rem;
+    color: var(--muted);
+    text-decoration: none;
+    border: 1px solid #333;
+    padding: 0.1rem 0.4rem;
+    border-radius: 2px;
+    opacity: 0.7;
+    transition: all 0.2s;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.2rem;
+  }
+
+  .proof-link:hover {
+    opacity: 1;
+    border-color: var(--accent);
+    color: var(--accent);
+    transform: translateX(2px);
+  }
+
+  .proof-icon {
+    font-size: 0.7em;
   }
 
   /* Retainer */

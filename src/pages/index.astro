@@ -218,19 +218,34 @@ import Base from '../layouts/Base.astro';
   const matchAnswers = {};
   
   const tenetsData = {
-    story: { name: 'Story', url: '/story', desc: 'Help people understand what you do' },
-    clarity: { name: 'Clarity', url: '/clarity', desc: 'Cut through complexity' },
-    insight: { name: 'Insight', url: '/insight', desc: 'Find patterns in your data' },
-    ai: { name: 'AI', url: '/ai', desc: 'Build real AI capability' },
-    growth: { name: 'Growth', url: '/growth', desc: 'Unlock the next level' }
+    story: { name: 'Story', url: '/story', desc: 'Help people understand what you do', proof: 'framework' },
+    clarity: { name: 'Clarity', url: '/clarity', desc: 'Cut through complexity', proof: 'tool' },
+    insight: { name: 'Insight', url: '/insight', desc: 'Find patterns in your data', proof: 'feature' },
+    ai: { name: 'AI', url: '/ai', desc: 'Build real AI capability', proof: 'technique' },
+    growth: { name: 'Growth', url: '/growth', desc: 'Unlock the next level', proof: 'strategy' }
   };
 
   const caseStudies = {
-    story: [{ title: 'The Stack', url: '/case-studies/the-stack' }, { title: 'Scroll', url: '/case-studies/scroll' }],
-    clarity: [{ title: 'Investing Dojo', url: '/case-studies/investing-dojo' }, { title: 'Club Dadvice', url: '/case-studies/club-dadvice' }],
-    insight: [{ title: 'The Stack', url: '/case-studies/the-stack' }],
-    ai: [{ title: 'Scroll', url: '/case-studies/scroll' }, { title: 'Investing Dojo', url: '/case-studies/investing-dojo' }],
-    growth: [{ title: 'Slice OS', url: '/case-studies/slice-os' }, { title: 'Investing Dojo', url: '/case-studies/investing-dojo' }]
+    story: [
+      { title: 'STAR Framework', url: '/rabbit-holes/storytelling-frameworks', label: 'See the framework' },
+      { title: 'The Stack', url: '/work/the-stack', label: 'See the case study' }
+    ],
+    clarity: [
+      { title: 'Kitchen Confidence', url: '/rabbit-holes/kitchen-confidence', label: 'See the example' },
+      { title: 'Club Dadvice', url: '/case-studies/club-dadvice', label: 'See the result' }
+    ],
+    insight: [
+      { title: 'The Greenhouse', url: '/insights/greenhouse', label: 'Try the tool' },
+      { title: 'The Stack', url: '/work/the-stack', label: 'See the analysis' }
+    ],
+    ai: [
+      { title: 'Signal from Noise', url: '/rabbit-holes/signal-from-noise', label: 'See the technique' },
+      { title: 'Scroll', url: '/case-studies/scroll', label: 'See the build' }
+    ],
+    growth: [
+      { title: 'The Greenhouse', url: '/insights/greenhouse', label: 'See the flagship' },
+      { title: 'Slice OS', url: '/case-studies/slice-os', label: 'See the scale' }
+    ]
   };
 
   // Check if already completed
@@ -293,7 +308,7 @@ import Base from '../layouts/Base.astro';
         </div>
         <div class="pers-cases">
           <span class="pers-label">Relevant work:</span>
-          ${cases.map(c => `<a href="${c.url}" class="pers-case">${c.title}</a>`).join('')}
+          ${cases.map(c => `<a href="${c.url}" class="pers-case">${c.label || c.title} ↗</a>`).join('')}
         </div>
         <div class="pers-actions">
           <a href="/services" class="pers-link">See pricing →</a>
