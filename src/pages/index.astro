@@ -303,21 +303,38 @@ import FeaturedInsights from '../components/FeaturedInsights.astro';
     const cases = caseStudies[data.tenet] || [];
     
     content.innerHTML = `
-      <div class="pers-recommendation">
-        <div class="pers-tenet">
-          <a href="${tenet.url}">
-            <strong>${tenet.name}</strong>
-            <span>${tenet.desc}</span>
-          </a>
+      <div class="pers-header">
+        <span class="pers-sub">Your Recommendation</span>
+        <button onclick="resetMatch()" class="pers-reset" title="Start Over">↺ Start Over</button>
+      </div>
+      
+      <div class="pers-grid">
+        <!-- Main Tenet Hero -->
+        <div class="pers-hero">
+          <div class="pers-badge">Focus Area: ${tenet.name}</div>
+          <h3 class="pers-title">${tenet.desc}</h3>
+          <p class="pers-proof">Method: The ${tenet.proof}</p>
+          <a href="${tenet.url}" class="pers-cta-primary">Explore ${tenet.name} →</a>
         </div>
-        <div class="pers-cases">
-          <span class="pers-label">Relevant work:</span>
-          ${cases.map(c => `<a href="${c.url}" class="pers-case">${c.label || c.title} ↗</a>`).join('')}
-        </div>
-        <div class="pers-actions">
-          <a href="/services" class="pers-link">See pricing →</a>
-          <a href="/industries/${data.industry || 'saas'}" class="pers-link">Work in your sector →</a>
-          <button onclick="resetMatch()" class="pers-reset">Start over</button>
+
+        <!-- Recommended Actions -->
+        <div class="pers-secondary">
+          <span class="pers-label">Recommended Resources</span>
+          <div class="pers-cards">
+            ${cases.map(c => `
+              <a href="${c.url}" class="pers-card">
+                <span class="pers-card-arrow">↗</span>
+                <span class="pers-card-title">${c.title}</span>
+                <span class="pers-card-label">${c.label}</span>
+              </a>
+            `).join('')}
+          </div>
+          
+          <div class="pers-links">
+            <a href="/services" class="pers-link-item">See pricing</a>
+            <span class="sep">•</span>
+            <a href="/industries/${data.industry || 'saas'}" class="pers-link-item">Work in ${data.industry || 'SaaS'}</a>
+          </div>
         </div>
       </div>
     `;
@@ -497,77 +514,190 @@ import FeaturedInsights from '../components/FeaturedInsights.astro';
     color: var(--muted);
   }
 
-  /* Personalized Results */
+  /* Personalized Results (Redesign) */
   .personalized-section {
-    background: #0a0a0a;
+    background: #080808;
     border: 1px solid #222;
-    margin: 2rem auto;
+    margin: 4rem auto;
     max-width: 900px;
+    border-radius: 12px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+    overflow: hidden;
+    position: relative;
+  }
+  
+  .personalized-section::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; height: 1px;
+    background: linear-gradient(90deg, transparent, var(--accent), transparent);
+    opacity: 0.5;
   }
 
-  .pers-recommendation {
-    display: grid;
-    gap: 1.5rem;
+  .personalized-content {
+    padding: 2.5rem;
   }
 
-  .pers-tenet a {
-    display: block;
-    padding: 1rem;
-    background: #111;
-    border-left: 3px solid var(--accent);
-  }
-
-  .pers-tenet strong {
-    display: block;
-    font-size: 1.2rem;
-    color: var(--accent);
-  }
-
-  .pers-tenet span {
-    color: var(--muted);
-  }
-
-  .pers-cases {
+  .pers-header {
     display: flex;
-    flex-wrap: wrap;
-    gap: 0.75rem;
+    justify-content: space-between;
     align-items: center;
+    margin-bottom: 2rem;
+    border-bottom: 1px solid #222;
+    padding-bottom: 1rem;
   }
 
-  .pers-label {
+  .pers-sub {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
     color: var(--muted);
-    font-size: 0.85rem;
-  }
-
-  .pers-case {
-    background: #111;
-    padding: 0.5rem 1rem;
-    border: 1px solid #333;
-    font-size: 0.9rem;
-  }
-
-  .pers-case:hover {
-    border-color: var(--accent);
-  }
-
-  .pers-actions {
-    display: flex;
-    gap: 1rem;
-    flex-wrap: wrap;
-  }
-
-  .pers-link {
-    color: var(--accent);
-    font-size: 0.9rem;
   }
 
   .pers-reset {
     background: none;
     border: none;
-    color: var(--muted);
+    color: #555;
     font-size: 0.85rem;
     cursor: pointer;
+    transition: color 0.2s;
+  }
+  
+  .pers-reset:hover {
+    color: var(--accent);
+  }
+
+  .pers-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+  }
+
+  @media (max-width: 768px) {
+    .pers-grid {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+  }
+
+  .pers-hero {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .pers-badge {
+    color: var(--accent);
+    font-size: 0.9rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
+  }
+
+  .pers-title {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 2rem;
+    line-height: 1.2;
+    color: #fff;
+    margin-bottom: 0.5rem;
+  }
+  
+  .pers-proof {
+    color: #888;
+    font-size: 1rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .pers-cta-primary {
+    display: inline-block;
+    background: #fff;
+    color: #000;
+    padding: 0.8rem 1.5rem;
+    font-weight: 600;
+    text-decoration: none;
+    border-radius: 4px;
+    align-self: start;
+    transition: transform 0.2s, background 0.2s;
+  }
+
+  .pers-cta-primary:hover {
+    transform: translateY(-2px);
+    background: var(--accent);
+  }
+
+  .pers-label {
+    display: block;
+    font-size: 0.8rem;
+    color: #666;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .pers-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .pers-card {
+    display: flex;
+    align-items: center;
+    background: #111;
+    border: 1px solid #222;
+    padding: 1rem;
+    text-decoration: none;
+    border-radius: 6px;
+    transition: all 0.2s;
+  }
+
+  .pers-card:hover {
+    border-color: var(--accent);
+    background: #161616;
+    transform: translateX(5px);
+  }
+  
+  .pers-card-arrow {
+    color: var(--accent);
+    margin-right: 0.75rem;
+    font-size: 1.1rem;
+  }
+
+  .pers-card-title {
+    color: #e0e0e0;
+    font-weight: 500;
+    margin-right: auto;
+  }
+  
+  .pers-card-label {
+    font-size: 0.75rem;
+    color: #666;
+    background: #000;
+    padding: 0.2rem 0.5rem;
+    border-radius: 4px;
+  }
+
+  .pers-links {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: 0.9rem;
+  }
+
+  .pers-link-item {
+    color: #666;
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  
+  .pers-link-item:hover {
+    color: #fff;
     text-decoration: underline;
+  }
+  
+  .sep {
+    color: #333;
   }
   
   /* Scenarios */
