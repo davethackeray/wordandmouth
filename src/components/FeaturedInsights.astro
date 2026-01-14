@@ -1,0 +1,167 @@
+---
+---
+
+<section class="featured-insights-section">
+  <div class="container">
+    <div class="section-header">
+      <span class="label">Our Thinking</span>
+      <h2>Models for the Modern Age</h2>
+      <p>We share our strongest thinking before we sell our services. These are the models guiding our work right now.</p>
+    </div>
+
+    <div class="insights-grid">
+      
+      <!-- Card 1: System (Priya) -->
+      <a href="/rabbit-holes/building-intelligence/" class="insight-card featured">
+        <div class="card-meta">
+          <span class="tag">System</span>
+          <span class="date">New Release</span>
+        </div>
+        <h3>The Door Mouse Who Saved the World</h3>
+        <p>How to build an internal intelligence agency ("Room 40") that turns raw data into courageous action.</p>
+        <div class="card-footer">
+          <span class="link-text">Explore the system →</span>
+        </div>
+      </a>
+
+      <!-- Card 2: Tools (Marcus/Sarah) -->
+      <a href="/insights/greenhouse/" class="insight-card">
+        <div class="card-meta">
+          <span class="tag">Culture</span>
+          <span class="date">Interactive Tool</span>
+        </div>
+        <h3>The Greenhouse</h3>
+        <p>A suite of diagnostic tools to measure psychological safety and pilot cultural change in 90 days.</p>
+        <div class="card-footer">
+          <span class="link-text">Use the tools →</span>
+        </div>
+      </a>
+
+      <!-- Card 3: Clarity (Emma) -->
+      <a href="/rabbit-holes/signal-from-noise/" class="insight-card">
+        <div class="card-meta">
+          <span class="tag">Clarity</span>
+          <span class="date">Methodology</span>
+        </div>
+        <h3>Signal From Noise</h3>
+        <p>How to stop drowning in content and start curating wisdom. The antidote to the Golden Age of Noise.</p>
+        <div class="card-footer">
+          <span class="link-text">Read the theory →</span>
+        </div>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<style>
+  .featured-insights-section {
+    padding: 6rem 2rem;
+    border-top: 1px solid #1a1a1a;
+    background: #0a0a0a;
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .section-header {
+    margin-bottom: 4rem;
+    max-width: 600px;
+  }
+
+  .label {
+    display: inline-block;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--accent);
+    margin-bottom: 1rem;
+  }
+
+  h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    font-family: 'Space Grotesk', sans-serif;
+  }
+
+  p {
+    color: var(--muted);
+    font-size: 1.1rem;
+    line-height: 1.6;
+  }
+
+  .insights-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+  }
+
+  .insight-card {
+    display: flex;
+    flex-direction: column;
+    background: #111;
+    padding: 2rem;
+    text-decoration: none;
+    border-left: 1px solid #333;
+    transition: all 0.3s ease;
+    height: 100%;
+  }
+
+  .insight-card:hover {
+    transform: translateY(-5px);
+    border-left-color: var(--accent);
+    background: #161616;
+  }
+
+  .insight-card.featured {
+    border-left: 3px solid var(--accent);
+    background: linear-gradient(135deg, rgba(255, 107, 53, 0.05) 0%, #111 50%);
+  }
+
+  .card-meta {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1.5rem;
+    font-size: 0.8rem;
+  }
+
+  .tag {
+    color: var(--accent);
+    text-transform: uppercase;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+  }
+
+  .date {
+    color: #666;
+  }
+
+  h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: #fff;
+    font-weight: 500;
+  }
+
+  .insight-card p {
+    font-size: 0.95rem;
+    color: #aaa;
+    margin-bottom: 2rem;
+    flex-grow: 1;
+  }
+
+  .link-text {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #fff;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .insight-card:hover .link-text {
+    color: var(--accent);
+  }
+</style>
