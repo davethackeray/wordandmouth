@@ -144,6 +144,52 @@ const typeLabels = {
   podcast: 'Listen',
   video: 'Watch'
 };
+
+// Rabbit Holes for "Go Deeper" cards
+const rabbitHoles = [
+  {
+    name: 'Signal from Noise',
+    description: 'The methodology for turning overwhelm into accessible insight',
+    tenets: ['Clarity'],
+    url: '/rabbit-holes/signal-from-noise/',
+    status: 'live'
+  },
+  {
+    name: 'Storyselling',
+    description: 'Creating solution stories that unite clients and colleagues',
+    tenets: ['Story', 'Clarity'],
+    url: '/rabbit-holes/storyselling/',
+    status: 'live'
+  },
+  {
+    name: 'The STAR Framework',
+    description: 'Cosmic storytelling principles that bypass cynicism through awe',
+    tenets: ['Story', 'Insight', 'Growth'],
+    url: '/rabbit-holes/storytelling-frameworks/',
+    status: 'live'
+  },
+  {
+    name: 'Kitchen Confidence',
+    description: 'Making cooking accessible through community, AI, and open data',
+    tenets: ['Clarity', 'Insight'],
+    url: '/rabbit-holes/kitchen-confidence/',
+    status: 'live'
+  },
+  {
+    name: 'Building Intelligence',
+    description: 'Creating AI pipelines that generate insight at scale',
+    tenets: ['AI'],
+    url: '/rabbit-holes/',
+    status: 'coming'
+  },
+  {
+    name: 'The Insight Layer',
+    description: 'Synthesizing across sources to surface what matters',
+    tenets: ['Insight'],
+    url: '/rabbit-holes/',
+    status: 'coming'
+  }
+];
 ---
 
 <Base title="Play" description="Ideas, insights, and explorations — AI Today podcast + 16 years of writing">
@@ -171,24 +217,46 @@ const typeLabels = {
   <!-- The River -->
   <section class="river-section">
     <div class="river">
-      {content.map((item) => {
+      {content.map((item, index) => {
         const isExternal = item.url.startsWith('http');
+        
+        // Insert "Go Deeper" card after every 4th item
+        const showRabbitHoleCard = (index + 1) % 4 === 0;
+        const rabbitHoleIndex = Math.floor(index / 4) % rabbitHoles.length;
+        const rabbitHole = rabbitHoles[rabbitHoleIndex];
+        
         return (
-          <a href={item.url} target={isExternal ? "_blank" : undefined} rel={isExternal ? "noopener" : undefined} class="river-item" data-type={item.type} data-tenet={item.tenet}>
-            <div class="item-meta">
-              <span class="type-icon" title={typeLabels[item.type]}>{typeIcons[item.type]}</span>
-              <span class="tenet-tag">{item.tenet}</span>
-              <span class="item-date">{item.date}</span>
-            </div>
-            <h2 class="item-title">{item.title}</h2>
-            <p class="item-reason">{item.reason}</p>
-            <div class="item-footer">
-              <span class="item-duration">
-                {item.type === 'blog' ? item.readTime : item.duration}
-              </span>
-              <span class="item-action">{typeLabels[item.type]} →</span>
-            </div>
-          </a>
+          <>
+            <a href={item.url} target={isExternal ? "_blank" : undefined} rel={isExternal ? "noopener" : undefined} class="river-item" data-type={item.type} data-tenet={item.tenet}>
+              <div class="item-meta">
+                <span class="type-icon" title={typeLabels[item.type]}>{typeIcons[item.type]}</span>
+                <span class="tenet-tag">{item.tenet}</span>
+                <span class="item-date">{item.date}</span>
+              </div>
+              <h2 class="item-title">{item.title}</h2>
+              <p class="item-reason">{item.reason}</p>
+              <div class="item-footer">
+                <span class="item-duration">
+                  {item.type === 'blog' ? item.readTime : item.duration}
+                </span>
+                <span class="item-action">{typeLabels[item.type]} →</span>
+              </div>
+            </a>
+            
+            {showRabbitHoleCard && (
+              <a href={rabbitHole.url} class={`go-deeper-card ${rabbitHole.status === 'coming' ? 'coming-soon' : ''}`} data-tenets={rabbitHole.tenets.join(',')}>
+                <div class="go-deeper-header">
+                  <span class="go-deeper-icon">🐇</span>
+                  <span class="go-deeper-label">Go Deeper<span class="vv">*</span></span>
+                </div>
+                <h3 class="go-deeper-title">{rabbitHole.name}</h3>
+                <p class="go-deeper-desc">{rabbitHole.description}</p>
+                {rabbitHole.status === 'coming' && <span class="coming-badge">Coming Soon</span>}
+                {rabbitHole.status === 'live' && <span class="go-deeper-action">Explore →</span>}
+                <p class="go-deeper-asterisk"><span class="vv">*</span> there's more here</p>
+              </a>
+            )}
+          </>
         );
       })}
     </div>
@@ -426,6 +494,88 @@ const typeLabels = {
     display: none;
   }
   
+  /* Go Deeper Cards */
+  .go-deeper-card {
+    display: block;
+    background: linear-gradient(135deg, rgba(255, 107, 53, 0.08) 0%, rgba(255, 107, 53, 0.02) 100%);
+    padding: 1.5rem 2rem;
+    border-left: 3px solid var(--accent);
+    position: relative;
+    text-decoration: none;
+    color: inherit;
+    transition: all 0.2s;
+  }
+  
+  .go-deeper-card:hover {
+    background: linear-gradient(135deg, rgba(255, 107, 53, 0.12) 0%, rgba(255, 107, 53, 0.04) 100%);
+  }
+  
+  .go-deeper-card.coming-soon {
+    opacity: 0.7;
+    border-left-color: var(--muted);
+  }
+  
+  .go-deeper-card.hidden {
+    display: none;
+  }
+  
+  .go-deeper-header {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 0.75rem;
+  }
+  
+  .go-deeper-icon {
+    font-size: 1.2rem;
+  }
+  
+  .go-deeper-label {
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--accent);
+  }
+  
+  .go-deeper-title {
+    font-size: 1.2rem;
+    font-family: 'Space Grotesk', sans-serif;
+    margin-bottom: 0.5rem;
+  }
+  
+  .go-deeper-desc {
+    color: var(--muted);
+    font-size: 0.9rem;
+    line-height: 1.5;
+    margin-bottom: 0.75rem;
+  }
+  
+  .go-deeper-action {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--accent);
+  }
+  
+  .coming-badge {
+    display: inline-block;
+    font-size: 0.7rem;
+    background: var(--border);
+    color: var(--muted);
+    padding: 0.25rem 0.5rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+  
+  .go-deeper-asterisk {
+    font-size: 0.8rem;
+    color: var(--muted);
+    font-style: italic;
+    margin-top: 0.75rem;
+    margin-bottom: 0;
+  }
+  
   .more-section {
     border-top: none;
   }
@@ -521,6 +671,23 @@ const typeLabels = {
           visibleCount++;
         } else {
           item.classList.add('hidden');
+        }
+      });
+      
+      // Also filter Go Deeper cards by tenet
+      const goDeepCards = document.querySelectorAll('.go-deeper-card');
+      goDeepCards.forEach(card => {
+        if (!activeTenet) {
+          // Show all cards when no tenet filter
+          card.classList.remove('hidden');
+        } else {
+          // Show only cards that match the active tenet
+          const cardTenets = card.dataset.tenets ? card.dataset.tenets.split(',') : [];
+          if (cardTenets.includes(activeTenet)) {
+            card.classList.remove('hidden');
+          } else {
+            card.classList.add('hidden');
+          }
         }
       });
       

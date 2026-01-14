@@ -1,0 +1,758 @@
+---
+import Base from '../../layouts/Base.astro';
+---
+
+<Base title="Why the most expensive person in your organisation isn't the CEO" description="The business case for human-centric management — with the evidence to prove it.">
+  
+  <!-- Hero -->
+  <section class="greenhouse-hero">
+    <div class="hero-content">
+      <span class="hero-label">The Greenhouse</span>
+      <h1>Why the most expensive person in your organisation isn't the CEO</h1>
+      <p class="hero-sub">
+        Harvard data proves your high-performers might be bankrupting you. 
+        This is the business case for being human — and the 90-day pilot to prove it works.
+      </p>
+    </div>
+  </section>
+
+  <!-- The Hook -->
+  <section class="section">
+    <div class="content-block">
+      <p class="lead">
+        What if I told you that avoiding a toxic hire is worth <strong>2.3x more</strong> than finding a superstar?
+      </p>
+      <p>
+        That psychological safety creates a <strong>36% revenue swing</strong>? That your "brilliant jerks" are costing you $12,489 each, every year, in people they drive away?
+      </p>
+      <p>
+        These aren't soft HR initiatives. These are hard commercial strategies. And the data is irrefutable.
+      </p>
+    </div>
+  </section>
+
+  <!-- The Evidence -->
+  <section class="section evidence-section">
+    <h2 class="section-label">The evidence</h2>
+    
+    <div class="evidence-grid">
+      <div class="evidence-card">
+        <span class="evidence-number">$12,489</span>
+        <span class="evidence-label">The cost of a toxic worker (induced turnover)</span>
+        <span class="evidence-compare">vs $5,303 value of a superstar</span>
+        <span class="evidence-source">Housman & Minor, Harvard Business School</span>
+      </div>
+      
+      <div class="evidence-card">
+        <span class="evidence-number">36%</span>
+        <span class="evidence-label">Revenue swing from psychological safety</span>
+        <span class="evidence-compare">+17% for safe teams, -19% for unsafe</span>
+        <span class="evidence-source">Google Project Aristotle</span>
+      </div>
+      
+      <div class="evidence-card">
+        <span class="evidence-number">$250M</span>
+        <span class="evidence-label">Additional annual revenue at Sears</span>
+        <span class="evidence-compare">From 5-point employee attitude improvement</span>
+        <span class="evidence-source">Sears TPI Model</span>
+      </div>
+      
+      <div class="evidence-card">
+        <span class="evidence-number">2.85×</span>
+        <span class="evidence-label">More likely Nobel laureates have artistic hobbies</span>
+        <span class="evidence-compare">Breadth drives breakthrough</span>
+        <span class="evidence-source">Root-Bernstein Research</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- The Paradox -->
+  <section class="section">
+    <h2 class="section-label">The paradox</h2>
+    <div class="content-block">
+      <p class="lead">
+        Toxic workers are often <strong>more productive</strong> than average. That's the trap.
+      </p>
+      <p>
+        On a standard performance dashboard, they look like your best investment. They close deals, ship code, hit targets. But they're a negative-carry asset — their individual gains are offset by the teammates they drive away.
+      </p>
+      <p>
+        The question isn't "Who are our top performers?"
+      </p>
+      <p class="callout">
+        The question is: <strong>"Who's driving our best people to quit?"</strong>
+      </p>
+    </div>
+  </section>
+
+  <!-- The Three Pillars -->
+  <section class="section pillars-section">
+    <h2 class="section-label">The three pillars</h2>
+    
+    <div class="pillars-grid">
+      <div class="pillar">
+        <span class="pillar-number">1</span>
+        <h3>Hire for attitude, train for skill</h3>
+        <p>Get the right people with the right attitude and they can learn anything. Get the wrong people with the right skills and they'll erode the commercial success you built.</p>
+      </div>
+      
+      <div class="pillar">
+        <span class="pillar-number">2</span>
+        <h3>Listen radically</h3>
+        <p>Understand what your people need. Replay it back so you're convinced you understand what must be done. Then do whatever you can — intelligently — to give them the environment to thrive.</p>
+      </div>
+      
+      <div class="pillar">
+        <span class="pillar-number">3</span>
+        <h3>Empower the frontline</h3>
+        <p>Give them the tools, the budget, and the permission to solve problems without asking. Ritz-Carlton gives every employee $2,000 per guest. Their turnover dropped from 51% to 23%.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- The Tool: Manifesto Generator -->
+  <section class="section tool-section" id="manifesto-generator">
+    <h2 class="section-label">Build your manifesto of permissions</h2>
+    <p class="tool-intro">
+      The first step to cultural change is making it official. Customise this manifesto, download it, sign it, and put it on the wall. This is how you signal that the rules have changed.
+    </p>
+    
+    <div class="manifesto-builder">
+      <div class="manifesto-preview" id="manifestoPreview">
+        <div class="manifesto-header">
+          <h3>A manifesto of permissions</h3>
+          <p class="manifesto-to">To: <span id="audiencePreview">All Colleagues</span></p>
+          <p class="manifesto-from">From: <span id="signerPreview">Leadership</span></p>
+          <p class="manifesto-date">Date: <span id="datePreview"></span></p>
+        </div>
+        
+        <p class="manifesto-intro">
+          For too long, we have operated on a default setting of "wait for permission." This slows us down, stifles your creativity, and erodes our commercial edge.
+        </p>
+        <p class="manifesto-intro">
+          Effective immediately, we are flipping the default. As a member of this team, you officially have:
+        </p>
+        
+        <div class="permissions-list">
+          <div class="permission active" data-permission="truth">
+            <strong>1. Permission to speak the truth</strong>
+            <p>If a process is broken, say it. If a deadline is unrealistic, flag it. If leadership is wrong, challenge it. Silence is not polite; it is dangerous.</p>
+          </div>
+          
+          <div class="permission active" data-permission="solve">
+            <strong>2. Permission to solve the problem</strong>
+            <p>If a client is unhappy, fix it. You have the training, the budget, and the judgment. Do not escalate a problem you have the capacity to solve.</p>
+          </div>
+          
+          <div class="permission active" data-permission="disconnect">
+            <strong>3. Permission to disconnect</strong>
+            <p>We pay you for your output, not your stamina. You have permission to rest when tired and turn off notifications when deep-working.</p>
+          </div>
+          
+          <div class="permission active" data-permission="dontknow">
+            <strong>4. Permission to say "I don't know"</strong>
+            <p>Admitting ignorance is the first step to learning. Blurring the truth to save face is a problem; saying "I don't know, but I will find out" is a badge of honour.</p>
+          </div>
+          
+          <div class="permission active" data-permission="bypass">
+            <strong>5. Permission to bypass bureaucracy</strong>
+            <p>If a rule exists solely to tick a box and it prevents you from delivering value, you have permission to question that rule.</p>
+          </div>
+          
+          <div class="permission active" data-permission="grow">
+            <strong>6. Permission to grow (or go)</strong>
+            <p>You have permission to outgrow your role. If you feel stagnant, tell us. And if your journey takes you elsewhere, you have permission to leave with our blessing.</p>
+          </div>
+        </div>
+        
+        <div class="manifesto-signature">
+          <p>Signed,</p>
+          <p class="signature-line" id="signatureLine">_____________________</p>
+          <p class="signature-name" id="signatureName">The Leadership Team</p>
+        </div>
+      </div>
+      
+      <div class="manifesto-controls">
+        <h4>Customise your manifesto</h4>
+        
+        <label>Who is this for?</label>
+        <input type="text" id="audienceInput" value="All Colleagues" placeholder="e.g., The Product Team" />
+        
+        <label>Who is signing?</label>
+        <input type="text" id="signerInput" value="Leadership" placeholder="e.g., The CEO" />
+        
+        <label>Your name (for signature)</label>
+        <input type="text" id="signatureInput" value="The Leadership Team" placeholder="e.g., Jane Smith, CEO" />
+        
+        <div class="permissions-toggles">
+          <label>Include these permissions:</label>
+          <div class="toggle-group">
+            <label><input type="checkbox" data-target="truth" checked /> Speak the truth</label>
+            <label><input type="checkbox" data-target="solve" checked /> Solve the problem</label>
+            <label><input type="checkbox" data-target="disconnect" checked /> Disconnect</label>
+            <label><input type="checkbox" data-target="dontknow" checked /> Say "I don't know"</label>
+            <label><input type="checkbox" data-target="bypass" checked /> Bypass bureaucracy</label>
+            <label><input type="checkbox" data-target="grow" checked /> Grow (or go)</label>
+          </div>
+        </div>
+        
+        <button class="download-btn" id="downloadBtn">
+          <span>📄</span> Download as PDF
+        </button>
+        <p class="download-note">Print it. Sign it. Put it on the wall.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- The Pilot -->
+  <section class="section pilot-section">
+    <h2 class="section-label">The 90-day pilot</h2>
+    <div class="content-block">
+      <p class="lead">
+        We don't ask you to transform the whole business. We ask you to run an experiment.
+      </p>
+      <p>
+        Take one team. Apply The Greenhouse. Document the results. Let them prove what's possible.
+      </p>
+    </div>
+    
+    <div class="pilot-phases">
+      <div class="phase">
+        <span class="phase-label">Week -1</span>
+        <h4>Baseline</h4>
+        <p>Time audit, pulse survey, commercial metrics. We measure the pain before we fix it.</p>
+      </div>
+      
+      <div class="phase">
+        <span class="phase-label">Days 1-30</span>
+        <h4>The reset</h4>
+        <p>Manifesto kick-off, "Stupid Rule Bonfire," listening tour. We create psychological safety.</p>
+      </div>
+      
+      <div class="phase">
+        <span class="phase-label">Days 31-60</span>
+        <h4>The empowerment</h4>
+        <p>Agency budgets, "Blocks & Blockers" check-ins, first recruitment test. We give them power.</p>
+      </div>
+      
+      <div class="phase">
+        <span class="phase-label">Days 61-90</span>
+        <h4>The acceleration</h4>
+        <p>Alignment sessions, storytelling synthesis, results comparison. We prove the model.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="section cta-section">
+    <h2>Ready to run The Greenhouse?</h2>
+    <p>Let's find your most expensive person — and turn them into your best investment.</p>
+    <a href="mailto:dave@wordandmouth.com?subject=The%20Greenhouse%20Pilot" class="cta-button">Start the Conversation →</a>
+  </section>
+
+</Base>
+
+<style>
+  .greenhouse-hero {
+    padding: 10rem 2rem 4rem;
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .hero-label {
+    display: inline-block;
+    background: rgba(76, 175, 80, 0.15);
+    color: #4CAF50;
+    padding: 0.4rem 1rem;
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 1.5rem;
+  }
+
+  .greenhouse-hero h1 {
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    line-height: 1.2;
+    margin-bottom: 1.5rem;
+  }
+
+  .hero-sub {
+    font-size: 1.2rem;
+    color: var(--muted);
+    max-width: 700px;
+    margin: 0 auto;
+    line-height: 1.6;
+  }
+
+  .section {
+    padding: 4rem 2rem;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .section-label {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--accent);
+    margin-bottom: 2rem;
+  }
+
+  .content-block {
+    max-width: 700px;
+  }
+
+  .content-block p {
+    font-size: 1.15rem;
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+  }
+
+  .lead {
+    font-size: 1.4rem !important;
+    font-weight: 500;
+  }
+
+  .callout {
+    font-size: 1.5rem !important;
+    padding: 1.5rem;
+    border-left: 4px solid var(--accent);
+    background: rgba(255, 107, 53, 0.05);
+    margin: 2rem 0;
+  }
+
+  /* Evidence Grid */
+  .evidence-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .evidence-card {
+    background: #111;
+    border: 1px solid #222;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .evidence-number {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--accent);
+  }
+
+  .evidence-label {
+    font-size: 0.95rem;
+    color: var(--text);
+  }
+
+  .evidence-compare {
+    font-size: 0.8rem;
+    color: var(--muted);
+  }
+
+  .evidence-source {
+    font-size: 0.7rem;
+    color: #555;
+    margin-top: auto;
+    padding-top: 1rem;
+    border-top: 1px solid #222;
+  }
+
+  /* Pillars */
+  .pillars-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+  }
+
+  .pillar {
+    position: relative;
+    padding-left: 3.5rem;
+  }
+
+  .pillar-number {
+    position: absolute;
+    left: 0;
+    top: 0;
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--accent);
+    opacity: 0.5;
+  }
+
+  .pillar h3 {
+    font-size: 1.2rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .pillar p {
+    color: var(--muted);
+    line-height: 1.6;
+  }
+
+  /* Manifesto Tool */
+  .tool-section {
+    background: #0a0a0a;
+    padding: 4rem 2rem;
+    max-width: 100%;
+    margin: 4rem 0;
+  }
+
+  .tool-section .section-label,
+  .tool-section .tool-intro {
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .tool-intro {
+    color: var(--muted);
+    margin-bottom: 3rem;
+    font-size: 1.1rem;
+  }
+
+  .manifesto-builder {
+    display: grid;
+    grid-template-columns: 1fr 320px;
+    gap: 3rem;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .manifesto-preview {
+    background: #fff;
+    color: #111;
+    padding: 3rem;
+    font-family: 'Georgia', serif;
+    line-height: 1.6;
+  }
+
+  .manifesto-header {
+    margin-bottom: 2rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 2px solid #111;
+  }
+
+  .manifesto-header h3 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .manifesto-header p {
+    margin: 0.3rem 0;
+    font-size: 0.9rem;
+  }
+
+  .manifesto-intro {
+    margin-bottom: 1rem;
+  }
+
+  .permissions-list {
+    margin: 2rem 0;
+  }
+
+  .permission {
+    margin-bottom: 1.5rem;
+    padding-left: 1rem;
+    border-left: 3px solid #111;
+    transition: opacity 0.3s;
+  }
+
+  .permission:not(.active) {
+    opacity: 0.2;
+  }
+
+  .permission strong {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-family: 'Space Grotesk', sans-serif;
+  }
+
+  .permission p {
+    font-size: 0.9rem;
+    margin: 0;
+  }
+
+  .manifesto-signature {
+    margin-top: 3rem;
+    padding-top: 2rem;
+    border-top: 1px solid #ccc;
+  }
+
+  .signature-line {
+    font-size: 1.5rem;
+    margin: 1rem 0 0.5rem;
+  }
+
+  .signature-name {
+    font-weight: 600;
+  }
+
+  /* Controls */
+  .manifesto-controls {
+    background: #111;
+    border: 1px solid #222;
+    padding: 2rem;
+  }
+
+  .manifesto-controls h4 {
+    margin-bottom: 1.5rem;
+    font-size: 1rem;
+  }
+
+  .manifesto-controls label {
+    display: block;
+    font-size: 0.85rem;
+    color: var(--muted);
+    margin-bottom: 0.5rem;
+    margin-top: 1rem;
+  }
+
+  .manifesto-controls input[type="text"] {
+    width: 100%;
+    padding: 0.75rem;
+    background: #0a0a0a;
+    border: 1px solid #333;
+    color: var(--text);
+    font-size: 0.95rem;
+  }
+
+  .manifesto-controls input[type="text"]:focus {
+    outline: none;
+    border-color: var(--accent);
+  }
+
+  .permissions-toggles {
+    margin-top: 1.5rem;
+  }
+
+  .toggle-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+  }
+
+  .toggle-group label {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.85rem;
+    cursor: pointer;
+    margin: 0;
+  }
+
+  .toggle-group input[type="checkbox"] {
+    accent-color: var(--accent);
+  }
+
+  .download-btn {
+    width: 100%;
+    margin-top: 2rem;
+    padding: 1rem;
+    background: var(--accent);
+    color: #000;
+    border: none;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    transition: all 0.2s;
+  }
+
+  .download-btn:hover {
+    background: #ff8a50;
+    transform: translateY(-2px);
+  }
+
+  .download-note {
+    font-size: 0.8rem;
+    color: var(--muted);
+    text-align: center;
+    margin-top: 0.75rem;
+  }
+
+  /* Pilot Phases */
+  .pilot-phases {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+    margin-top: 3rem;
+  }
+
+  .phase {
+    background: #111;
+    border: 1px solid #222;
+    padding: 1.5rem;
+  }
+
+  .phase-label {
+    display: inline-block;
+    background: rgba(255, 107, 53, 0.15);
+    color: var(--accent);
+    padding: 0.25rem 0.5rem;
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    margin-bottom: 0.75rem;
+  }
+
+  .phase h4 {
+    margin-bottom: 0.5rem;
+    font-size: 1rem;
+  }
+
+  .phase p {
+    font-size: 0.85rem;
+    color: var(--muted);
+    margin: 0;
+    line-height: 1.5;
+  }
+
+  /* CTA */
+  .cta-section {
+    text-align: center;
+    padding: 6rem 2rem;
+    border-top: 1px solid #222;
+  }
+
+  .cta-section h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+
+  .cta-section p {
+    color: var(--muted);
+    margin-bottom: 2rem;
+  }
+
+  .cta-button {
+    display: inline-block;
+    background: var(--accent);
+    color: #000;
+    padding: 1rem 2.5rem;
+    font-weight: 600;
+    font-size: 1.1rem;
+    text-decoration: none;
+    transition: all 0.2s;
+  }
+
+  .cta-button:hover {
+    background: #ff8a50;
+    transform: translateY(-2px);
+  }
+
+  @media (max-width: 900px) {
+    .manifesto-builder {
+      grid-template-columns: 1fr;
+    }
+
+    .manifesto-controls {
+      order: -1;
+    }
+  }
+</style>
+
+<script>
+  // Set today's date
+  document.getElementById('datePreview').textContent = new Date().toLocaleDateString('en-GB', {
+    day: 'numeric',
+    month: 'long',
+    year: 'numeric'
+  });
+
+  // Live preview updates
+  document.getElementById('audienceInput').addEventListener('input', (e) => {
+    document.getElementById('audiencePreview').textContent = e.target.value || 'All Colleagues';
+  });
+
+  document.getElementById('signerInput').addEventListener('input', (e) => {
+    document.getElementById('signerPreview').textContent = e.target.value || 'Leadership';
+  });
+
+  document.getElementById('signatureInput').addEventListener('input', (e) => {
+    document.getElementById('signatureName').textContent = e.target.value || 'The Leadership Team';
+  });
+
+  // Permission toggles
+  document.querySelectorAll('.toggle-group input[type="checkbox"]').forEach(checkbox => {
+    checkbox.addEventListener('change', (e) => {
+      const target = e.target.dataset.target;
+      const permission = document.querySelector(`.permission[data-permission="${target}"]`);
+      if (permission) {
+        permission.classList.toggle('active', e.target.checked);
+      }
+    });
+  });
+
+  // Download functionality
+  document.getElementById('downloadBtn').addEventListener('click', () => {
+    const manifestoHTML = document.getElementById('manifestoPreview').innerHTML;
+    const audience = document.getElementById('audienceInput').value || 'All Colleagues';
+    const signer = document.getElementById('signerInput').value || 'Leadership';
+    const signatureName = document.getElementById('signatureInput').value || 'The Leadership Team';
+    
+    // Create printable version
+    const printWindow = window.open('', '_blank');
+    printWindow.document.write(`
+      <!DOCTYPE html>
+      <html>
+      <head>
+        <title>Manifesto of Permissions</title>
+        <style>
+          body {
+            font-family: Georgia, serif;
+            max-width: 700px;
+            margin: 2rem auto;
+            padding: 2rem;
+            line-height: 1.6;
+          }
+          h3 {
+            font-family: 'Arial', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            border-bottom: 2px solid #000;
+            padding-bottom: 1rem;
+          }
+          .permission {
+            margin: 1.5rem 0;
+            padding-left: 1rem;
+            border-left: 3px solid #000;
+          }
+          .permission:not(.active) {
+            display: none;
+          }
+          .signature-line {
+            margin-top: 3rem;
+            border-top: 1px solid #ccc;
+            padding-top: 2rem;
+          }
+          @media print {
+            body { margin: 0; padding: 1.5rem; }
+          }
+        </style>
+      </head>
+      <body>
+        ${manifestoHTML}
+      </body>
+      </html>
+    `);
+    printWindow.document.close();
+    printWindow.print();
+  });
+</script>
+</Base>
