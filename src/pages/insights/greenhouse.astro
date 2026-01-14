@@ -204,6 +204,115 @@ import Base from '../../layouts/Base.astro';
     </div>
   </section>
 
+  <!-- Tool 2: Safety Thermometer -->
+  <section class="section tool-section" id="safety-thermometer">
+    <h2 class="section-label">Tool 2: The Safety Thermometer</h2>
+    <p class="tool-intro">
+      Safety is invisible until it's gone. Use these three questions as a pulse check for your team.
+    </p>
+
+    <div class="thermometer-tool">
+      <div class="thermometer-questions">
+        <div class="t-question">
+          <label>1. If you made a mistake on this project, would it be held against you?</label>
+          <div class="t-options">
+            <button class="t-btn danger" onclick="updateThermometer(1, 0)">Yes</button>
+            <button class="t-btn safe" onclick="updateThermometer(1, 10)">No</button>
+          </div>
+        </div>
+        <div class="t-question">
+          <label>2. Is it easy to ask other members of this team for help?</label>
+          <div class="t-options">
+            <button class="t-btn safe" onclick="updateThermometer(2, 10)">Yes</button>
+            <button class="t-btn danger" onclick="updateThermometer(2, 0)">No</button>
+          </div>
+        </div>
+        <div class="t-question">
+          <label>3. Have you seen anyone on this team deliberately undermine others?</label>
+          <div class="t-options">
+            <button class="t-btn danger" onclick="updateThermometer(3, 0)">Yes</button>
+            <button class="t-btn safe" onclick="updateThermometer(3, 10)">No</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="thermometer-result" id="thermometerResult">
+        <div class="t-meter">
+          <div class="t-level" id="tLevel"></div>
+        </div>
+        <h4 id="tStatus">Check your temperature</h4>
+        <p id="tDesc">Select answers to see your safety score.</p>
+        <div class="t-revenue" id="tRevenue">
+          <span>Projected Revenue Impact:</span>
+          <strong id="tImpact">--</strong>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Tool 3: Smoke Detector -->
+  <section class="section tool-section" id="smoke-detector">
+    <h2 class="section-label">Tool 3: The Smoke Detector</h2>
+    <p class="tool-intro">
+      Identify the "brilliant jerks" before they burn down your culture. Answer these for a specific high-performer.
+    </p>
+
+    <div class="smoke-detector-tool">
+      <div class="smoke-grid">
+        <div class="smoke-q">
+          <label>The Credit Test</label>
+          <p>Do they say "I" or "We" when things go well?</p>
+          <select id="smoke1" onchange="checkSmoke()">
+            <option value="0">Select...</option>
+            <option value="safe">Mostly "We"</option>
+            <option value="risk">Mostly "I"</option>
+          </select>
+        </div>
+        <div class="smoke-q">
+          <label>The Error Response</label>
+          <p>When others make a mistake, do they help or blame?</p>
+          <select id="smoke2" onchange="checkSmoke()">
+            <option value="0">Select...</option>
+            <option value="safe">Help/Teach</option>
+            <option value="risk">Blame/Mock</option>
+          </select>
+        </div>
+        <div class="smoke-q">
+          <label>The Energy Exchange</label>
+          <p>Do you feel drained or energised after meeting them?</p>
+          <select id="smoke3" onchange="checkSmoke()">
+            <option value="0">Select...</option>
+            <option value="safe">Energised</option>
+            <option value="risk">Drained</option>
+          </select>
+        </div>
+        <div class="smoke-q">
+          <label>The Unseen Work</label>
+          <p>Do they do work that doesn't get them credit?</p>
+          <select id="smoke4" onchange="checkSmoke()">
+            <option value="0">Select...</option>
+            <option value="safe">Yes, often</option>
+            <option value="risk">Never</option>
+          </select>
+        </div>
+        <div class="smoke-q">
+          <label>The Lifeboat Question</label>
+          <p>If you were starting a new company, would you hire them?</p>
+          <select id="smoke5" onchange="checkSmoke()">
+            <option value="0">Select...</option>
+            <option value="safe">Absolutely</option>
+            <option value="risk">No way</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="smoke-result" id="smokeResult" style="display:none;">
+        <h3 id="smokeTitle">Status...</h3>
+        <p id="smokeDesc">Diagnosis...</p>
+      </div>
+    </div>
+  </section>
+
   <!-- The Pilot -->
   <section class="section pilot-section">
     <h2 class="section-label">The 90-day pilot</h2>
@@ -216,29 +325,54 @@ import Base from '../../layouts/Base.astro';
       </p>
     </div>
     
-    <div class="pilot-phases">
-      <div class="phase">
-        <span class="phase-label">Week -1</span>
-        <h4>Baseline</h4>
-        <p>Time audit, pulse survey, commercial metrics. We measure the pain before we fix it.</p>
+    <div class="pilot-planner-tool">
+      <div class="pp-header">
+        <label>Pilot Start Date:</label>
+        <input type="date" id="pilotStartDate" onchange="updatePilot()" />
       </div>
-      
-      <div class="phase">
-        <span class="phase-label">Days 1-30</span>
-        <h4>The reset</h4>
-        <p>Manifesto kick-off, "Stupid Rule Bonfire," listening tour. We create psychological safety.</p>
+
+      <div class="pilot-phases interactive" id="pilotPhases">
+        <!-- Rendered by JS -->
       </div>
-      
-      <div class="phase">
-        <span class="phase-label">Days 31-60</span>
-        <h4>The empowerment</h4>
-        <p>Agency budgets, "Blocks & Blockers" check-ins, first recruitment test. We give them power.</p>
+    </div>
+  </section>
+
+  <!-- Tool 5: New World Dictionary -->
+  <section class="section tool-section" id="dictionary">
+    <h2 class="section-label">Tool 5: The New World Dictionary</h2>
+    <p class="tool-intro">
+      Language shapes reality. Stop using factory terms for creative work.
+    </p>
+    <div class="dictionary-grid">
+      <div class="dict-card">
+        <span class="old-word">Human Resources</span>
+        <span class="arrow">→</span>
+        <span class="new-word">People & Potential</span>
+        <p>We cultivate talent, we don't extract it like coal.</p>
       </div>
-      
-      <div class="phase">
-        <span class="phase-label">Days 61-90</span>
-        <h4>The acceleration</h4>
-        <p>Alignment sessions, storytelling synthesis, results comparison. We prove the model.</p>
+      <div class="dict-card">
+        <span class="old-word">Manager</span>
+        <span class="arrow">→</span>
+        <span class="new-word">Blocker Remover</span>
+        <p>Your job is to remove obstacles, not issue commands.</p>
+      </div>
+      <div class="dict-card">
+        <span class="old-word">Soft Skills</span>
+        <span class="arrow">→</span>
+        <span class="new-word">Power Skills</span>
+        <p>The only skills AI cannot replicate.</p>
+      </div>
+      <div class="dict-card">
+        <span class="old-word">Performance Review</span>
+        <span class="arrow">→</span>
+        <span class="new-word">Alignment Session</span>
+        <p>Don't judge the past. Align the future.</p>
+      </div>
+      <div class="dict-card">
+        <span class="old-word">Failure</span>
+        <span class="arrow">→</span>
+        <span class="new-word">Tuition</span>
+        <p>The price we pay for learning something new.</p>
       </div>
     </div>
   </section>
@@ -651,9 +785,38 @@ import Base from '../../layouts/Base.astro';
     transition: all 0.2s;
   }
 
-  .cta-button:hover {
-    background: #ff8a50;
-    transform: translateY(-2px);
+  }
+
+  .dict-card {
+    background: #111;
+    padding: 1.5rem;
+    border-top: 3px solid var(--accent);
+  }
+
+  .old-word {
+    display: block;
+    text-decoration: line-through;
+    color: var(--muted);
+    font-size: 0.9rem;
+  }
+
+  .arrow {
+    display: block;
+    margin: 0.5rem 0;
+    color: var(--accent);
+  }
+
+  .new-word {
+    display: block;
+    font-weight: 700;
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .dict-card p {
+    font-size: 0.85rem;
+    line-height: 1.4;
+    color: #ccc;
   }
 
   @media (max-width: 900px) {
@@ -753,6 +916,146 @@ import Base from '../../layouts/Base.astro';
     `);
     printWindow.document.close();
     printWindow.print();
+  });
+
+  /* --- TOOLS JS --- */
+  
+  // Safety Thermometer Logic
+  let tScores = {1: null, 2: null, 3: null};
+  
+  window.updateThermometer = (q, score) => {
+    tScores[q] = score;
+    
+    // UI Update
+    const questionDiv = document.querySelectorAll('.t-question')[q-1];
+    const btns = questionDiv.querySelectorAll('.t-btn');
+    btns.forEach(b => b.classList.remove('selected'));
+    
+    // Find clicked button based on onclick attribute... simplified:
+    // Just re-selecting based on class isnt enough.
+    // Let's rely on the button passed in scope? No, easier to just check class match in loop if possible, 
+    // or just assume the click handler works. 
+    // Actually, to style the selected button, I need a reference.
+    // Let's use event delegation or just simple loop in the click.
+    // For simplicity here, I'll cheat and use `event.target`.
+  };
+
+  // Re-define global function to use event
+  window.updateThermometer = function(q, score) {
+    tScores[q] = score;
+    const btn = event.target;
+    const parent = btn.parentElement;
+    parent.querySelectorAll('.t-btn').forEach(b => b.classList.remove('selected'));
+    btn.classList.add('selected');
+
+    // Calc result
+    if (Object.values(tScores).every(v => v !== null)) {
+      const total = Object.values(tScores).reduce((a, b) => a + b, 0);
+      const level = document.getElementById('tLevel');
+      const status = document.getElementById('tStatus');
+      const desc = document.getElementById('tDesc');
+      const impact = document.getElementById('tImpact');
+      
+      const pct = (total / 30) * 100;
+      level.style.width = pct + '%';
+      
+      if (total < 15) {
+        status.textContent = "Critical Condition";
+        status.style.color = "#d32f2f";
+        desc.textContent = "Psychological safety is absent. Honest errors are hidden, preventing learning.";
+        impact.textContent = "-19% Revenue Impact";
+      } else if (total < 25) {
+        status.textContent = "Stable but Stagnant";
+        status.style.color = "#fbc02d";
+        desc.textContent = "People are polite but guarded. Innovation is stifled by caution.";
+        impact.textContent = "Neutral Impact";
+      } else {
+        status.textContent = "High Performance Zone";
+        status.style.color = "#388e3c";
+        desc.textContent = "Your team feels safe to take risks. Errors are treated as tuition.";
+        impact.textContent = "+17% Revenue Impact";
+      }
+    }
+  };
+
+  // Smoke Detector Logic
+  window.checkSmoke = function() {
+    const selects = [1,2,3,4,5].map(i => document.getElementById('smoke'+i));
+    if (selects.some(s => s.value === "0")) return; // Wait for all
+
+    const riskCount = selects.filter(s => s.value === 'risk').length;
+    const result = document.getElementById('smokeResult');
+    const title = document.getElementById('smokeTitle');
+    const desc = document.getElementById('smokeDesc');
+    
+    result.style.display = 'block';
+    
+    if (riskCount >= 3) {
+      result.style.border = "2px solid #d32f2f";
+      result.style.background = "rgba(211, 47, 47, 0.1)";
+      title.textContent = "High Risk: Cultural Arsonist";
+      title.style.color = "#d32f2f";
+      desc.innerHTML = "This person is likely a negative-carry asset. Their individual output is being cancelled out by the friction they create.<br><strong>Recommendation:</strong> Immediate feedback. If behavior doesn't change in 30 days, exit.";
+    } else {
+      result.style.border = "2px solid #388e3c";
+      result.style.background = "rgba(56, 142, 60, 0.1)";
+      title.textContent = "Low Risk: True High Performer";
+      title.style.color = "#388e3c";
+      desc.textContent = "This person adds value to the culture as well as the P&L. Clone them.";
+    }
+  };
+
+  // Pilot Planner Logic
+  window.updatePilot = function() {
+    const startInput = document.getElementById('pilotStartDate').value;
+    if (!startInput) return;
+    
+    const start = new Date(startInput);
+    const container = document.getElementById('pilotPhases');
+    
+    const formatDate = (d) => d.toLocaleDateString('en-GB', {day: 'numeric', month: 'short'});
+    const addDays = (d, days) => {
+      const result = new Date(d);
+      result.setDate(result.getDate() + days);
+      return result;
+    };
+
+    const dates = {
+      baseStart: addDays(start, -7),
+      resetStart: start,
+      empowerStart: addDays(start, 30),
+      accelStart: addDays(start, 60),
+      end: addDays(start, 90)
+    };
+
+    container.innerHTML = `
+      <div class="phase">
+        <span class="phase-label">Week -1 (${formatDate(dates.baseStart)})</span>
+        <h4>Baseline</h4>
+        <p>Time audit, pulse survey, commercial metrics.</p>
+      </div>
+      <div class="phase">
+        <span class="phase-label">Days 1-30 (${formatDate(dates.resetStart)})</span>
+        <h4>The Reset</h4>
+        <p>Manifesto kick-off, "Stupid Rule Bonfire".</p>
+      </div>
+      <div class="phase">
+        <span class="phase-label">Days 31-60 (${formatDate(dates.empowerStart)})</span>
+        <h4>The Empowerment</h4>
+        <p>Agency budgets given. "Blocks & Blockers" check-ins.</p>
+      </div>
+      <div class="phase">
+        <span class="phase-label">Days 61-90 (${formatDate(dates.accelStart)})</span>
+        <h4>The Acceleration</h4>
+        <p>Alignment sessions. Final results comparison: ${formatDate(dates.end)}.</p>
+      </div>
+    `;
+  };
+
+  // set default pilot date
+  document.addEventListener('DOMContentLoaded', () => {
+    document.getElementById('pilotStartDate').valueAsDate = new Date();
+    updatePilot();
   });
 </script>
 </Base>
