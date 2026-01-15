@@ -14,63 +14,63 @@ import Base from '../layouts/Base.astro';
   <section class="section tiers-section">
     <div class="tiers-grid">
       
-      <!-- Coach (DIY) -->
+      <!-- Discovery -->
       <article class="tier-card">
-        <div class="tier-badge">DIY</div>
-        <h2>Coach</h2>
-        <p class="tier-tagline">You do it. I guide you.</p>
+        <div class="tier-badge">Step 1</div>
+        <h2>Discovery</h2>
+        <p class="tier-tagline">Find the problem worth solving.</p>
         <div class="tier-price">
           <span class="price-amount">From €2,500</span>
           <span class="price-alt">/ £2,000</span>
         </div>
         <ul class="tier-features">
           <li>4× 90-minute strategy sessions</li>
-          <li>Frameworks and templates</li>
-          <li>Audit + feedback on your work</li>
+          <li>Strategic audit + gap analysis</li>
+          <li>Documented action plan</li>
           <li>Async support between sessions</li>
         </ul>
-        <p class="tier-best">Best for founders who learn by doing</p>
+        <p class="tier-best">Best for: Finding the messaging leak costing you deals</p>
         <div class="tier-credential">
           <span class="credential-badge">🏆</span>
           <span>Award-winning executive coach</span>
         </div>
       </article>
 
-      <!-- Collaborate (DIWY) -->
+      <!-- Sprint -->
       <article class="tier-card featured">
-        <div class="tier-badge">DIWY</div>
-        <h2>Collaborate</h2>
-        <p class="tier-tagline">We build it together.</p>
+        <div class="tier-badge">Step 2</div>
+        <h2>Sprint</h2>
+        <p class="tier-tagline">Build something real in 4 weeks.</p>
         <div class="tier-price">
           <span class="price-amount">From €7,500</span>
           <span class="price-alt">/ £6,000</span>
         </div>
         <ul class="tier-features">
-          <li>Joint working sessions</li>
-          <li>You learn while we build</li>
-          <li>Real-time strategy + execution</li>
-          <li>Capability transfer included</li>
+          <li>4-week intensive engagement</li>
+          <li>Working prototype delivered</li>
+          <li>Team capability transfer</li>
+          <li>Documented playbooks</li>
         </ul>
-        <p class="tier-best">Best for teams building internal capability</p>
+        <p class="tier-best">Best for: Launching an AI tool that saves 10+ hours/week</p>
         <div class="tier-popular">Most Popular</div>
       </article>
 
-      <!-- Done For You (DIFY) -->
+      <!-- Embedded -->
       <article class="tier-card">
-        <div class="tier-badge">DIFY</div>
-        <h2>Done For You</h2>
-        <p class="tier-tagline">You brief. I deliver.</p>
+        <div class="tier-badge">Ongoing</div>
+        <h2>Embedded</h2>
+        <p class="tier-tagline">Your Fractional <a href="/insights/cco/" class="tier-link">Chief Clarity Officer</a>.</p>
         <div class="tier-price">
           <span class="price-amount">From €15,000</span>
-          <span class="price-alt">/ £12,000</span>
+          <span class="price-alt">/ £12,000/month</span>
         </div>
         <ul class="tier-features">
-          <li>Full strategy + execution</li>
-          <li>Complete deliverables</li>
-          <li>Minimal time investment from you</li>
-          <li>Fast turnaround</li>
+          <li>Monthly strategic retainer</li>
+          <li>Weekly alignment calls</li>
+          <li>Priority async access</li>
+          <li>Cross-team clarity leadership</li>
         </ul>
-        <p class="tier-best">Best for busy leaders who need results</p>
+        <p class="tier-best">Best for: Ensuring clarity across every decision</p>
       </article>
     </div>
   </section>
@@ -164,8 +164,8 @@ import Base from '../layouts/Base.astro';
 
   <section class="section retainer-section">
     <div class="retainer-card">
-      <h2>Ongoing Advisory</h2>
-      <p>For leaders who want a strategic sparring partner on speed dial.</p>
+      <h2>Advisory Retainer</h2>
+      <p class="retainer-subtitle">Lighter touch option: strategic sparring partner on speed dial.</p>
       <div class="retainer-price">
         <span class="price-amount">€2,000/month</span>
         <span class="price-alt">/ £1,600/month</span>
@@ -176,6 +176,7 @@ import Base from '../layouts/Base.astro';
         <li>Priority response (24h)</li>
         <li>Cancel anytime</li>
       </ul>
+      <p class="retainer-note">Not a <a href="/insights/cco/">Fractional CCO</a> — but a powerful first step.</p>
     </div>
   </section>
 
@@ -262,6 +263,16 @@ import Base from '../layouts/Base.astro';
     color: var(--muted);
     font-style: italic;
     margin-bottom: 1.5rem;
+  }
+
+  .tier-tagline .tier-link {
+    color: var(--accent);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+
+  .tier-tagline .tier-link:hover {
+    text-decoration: none;
   }
 
   .tier-price {

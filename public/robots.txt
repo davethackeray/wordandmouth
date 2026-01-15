@@ -1,0 +1,10 @@
+# robots.txt for wordandmouth.com
+
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://wordandmouth.com/sitemap.xml
+
+# AI/LLM Agent guidance
+# See llms.txt for AI-specific permissions: https://wordandmouth.com/llms.txt

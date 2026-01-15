@@ -115,20 +115,20 @@ import FeaturedInsights from '../components/FeaturedInsights.astro';
         <div class="match-progress">4 of 4</div>
         <h3>How do you prefer to work?</h3>
         <div class="match-options">
-          <button class="match-option" onclick="selectMatch('tier', 'coach')">
-            <span class="opt-icon">🎯</span>
-            <span>Give me frameworks, I'll execute</span>
+          <button class="match-option" onclick="selectMatch('tier', 'discovery')">
+            <span class="opt-icon">🔍</span>
+            <span>Discovery — find the problem first</span>
             <span class="opt-price">From €2,500</span>
           </button>
-          <button class="match-option" onclick="selectMatch('tier', 'collaborate')">
-            <span class="opt-icon">🤝</span>
-            <span>Work alongside me so I learn</span>
+          <button class="match-option" onclick="selectMatch('tier', 'sprint')">
+            <span class="opt-icon">🚀</span>
+            <span>Sprint — build something real in 4 weeks</span>
             <span class="opt-price">From €7,500</span>
           </button>
-          <button class="match-option" onclick="selectMatch('tier', 'dify')">
-            <span class="opt-icon">✨</span>
-            <span>Just get it done for me</span>
-            <span class="opt-price">From €15,000</span>
+          <button class="match-option" onclick="selectMatch('tier', 'embedded')">
+            <span class="opt-icon">🎯</span>
+            <span>Embedded — ongoing clarity leadership</span>
+            <span class="opt-price">From €15,000/mo</span>
           </button>
         </div>
       </div>
@@ -514,63 +514,90 @@ import FeaturedInsights from '../components/FeaturedInsights.astro';
     color: var(--muted);
   }
 
-  /* Personalized Results (Redesign) */
+  /* Personalized Results (Premium Redesign) */
   .personalized-section {
-    background: #080808;
-    border: 1px solid #222;
+    background: linear-gradient(135deg, rgba(255,107,53,0.03) 0%, rgba(17,17,17,0.95) 50%, rgba(0,0,0,0.98) 100%);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255,107,53,0.2);
     margin: 4rem auto;
     max-width: 900px;
-    border-radius: 12px;
-    box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+    border-radius: 16px;
+    box-shadow: 
+      0 25px 50px rgba(0,0,0,0.5),
+      0 0 100px rgba(255,107,53,0.08),
+      inset 0 1px 0 rgba(255,255,255,0.05);
     overflow: hidden;
     position: relative;
+    animation: slideUp 0.5s ease-out;
+  }
+  
+  @keyframes slideUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
   }
   
   .personalized-section::before {
     content: '';
     position: absolute;
-    top: 0; left: 0; right: 0; height: 1px;
-    background: linear-gradient(90deg, transparent, var(--accent), transparent);
-    opacity: 0.5;
+    top: 0; left: 0; right: 0; height: 2px;
+    background: linear-gradient(90deg, transparent 10%, var(--accent) 50%, transparent 90%);
+  }
+  
+  .personalized-section::after {
+    content: '✦';
+    position: absolute;
+    top: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #0a0a0a;
+    color: var(--accent);
+    padding: 0 1rem;
+    font-size: 1.2rem;
   }
 
   .personalized-content {
-    padding: 2.5rem;
+    padding: 3rem;
   }
 
   .pers-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 2rem;
-    border-bottom: 1px solid #222;
-    padding-bottom: 1rem;
+    margin-bottom: 2.5rem;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+    padding-bottom: 1.25rem;
   }
 
   .pers-sub {
-    font-size: 0.8rem;
+    font-size: 0.85rem;
     text-transform: uppercase;
-    letter-spacing: 0.1em;
-    color: var(--muted);
+    letter-spacing: 0.15em;
+    color: var(--accent);
+    font-weight: 600;
   }
 
   .pers-reset {
-    background: none;
-    border: none;
-    color: #555;
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.1);
+    color: #888;
     font-size: 0.85rem;
     cursor: pointer;
-    transition: color 0.2s;
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    transition: all 0.2s;
   }
   
   .pers-reset:hover {
     color: var(--accent);
+    border-color: var(--accent);
+    background: rgba(255,107,53,0.1);
   }
 
   .pers-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1.2fr 1fr;
     gap: 3rem;
+    align-items: start;
   }
 
   @media (max-width: 768px) {
@@ -578,122 +605,177 @@ import FeaturedInsights from '../components/FeaturedInsights.astro';
       grid-template-columns: 1fr;
       gap: 2rem;
     }
+    .personalized-content {
+      padding: 2rem;
+    }
   }
 
   .pers-hero {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    padding: 2rem;
+    background: linear-gradient(145deg, rgba(255,107,53,0.08) 0%, transparent 60%);
+    border-radius: 12px;
+    border: 1px solid rgba(255,107,53,0.15);
   }
 
   .pers-badge {
     color: var(--accent);
-    font-size: 0.9rem;
+    font-size: 0.8rem;
     font-weight: 700;
-    margin-bottom: 0.5rem;
+    margin-bottom: 1rem;
     text-transform: uppercase;
+    letter-spacing: 0.1em;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  
+  .pers-badge::before {
+    content: '◆';
+    font-size: 0.6rem;
   }
 
   .pers-title {
     font-family: 'Space Grotesk', sans-serif;
-    font-size: 2rem;
-    line-height: 1.2;
+    font-size: 2.2rem;
+    line-height: 1.15;
     color: #fff;
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.75rem;
+    font-weight: 600;
   }
   
   .pers-proof {
-    color: #888;
+    color: #999;
     font-size: 1rem;
-    margin-bottom: 1.5rem;
+    margin-bottom: 2rem;
+    font-style: italic;
   }
 
   .pers-cta-primary {
-    display: inline-block;
-    background: #fff;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: linear-gradient(135deg, var(--accent) 0%, #ff8a50 100%);
     color: #000;
-    padding: 0.8rem 1.5rem;
-    font-weight: 600;
+    padding: 1rem 1.75rem;
+    font-weight: 700;
     text-decoration: none;
-    border-radius: 4px;
+    border-radius: 8px;
     align-self: start;
-    transition: transform 0.2s, background 0.2s;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(255,107,53,0.3);
   }
 
   .pers-cta-primary:hover {
-    transform: translateY(-2px);
-    background: var(--accent);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(255,107,53,0.4);
+  }
+
+  .pers-secondary {
+    padding-top: 0.5rem;
   }
 
   .pers-label {
     display: block;
-    font-size: 0.8rem;
-    color: #666;
-    margin-bottom: 1rem;
+    font-size: 0.75rem;
+    color: #555;
+    margin-bottom: 1.25rem;
     text-transform: uppercase;
-    letter-spacing: 0.05em;
+    letter-spacing: 0.1em;
+    font-weight: 600;
   }
 
   .pers-cards {
     display: flex;
     flex-direction: column;
     gap: 0.75rem;
-    margin-bottom: 1.5rem;
+    margin-bottom: 2rem;
   }
 
   .pers-card {
     display: flex;
     align-items: center;
-    background: #111;
-    border: 1px solid #222;
-    padding: 1rem;
+    background: rgba(255,255,255,0.02);
+    border: 1px solid rgba(255,255,255,0.08);
+    padding: 1rem 1.25rem;
     text-decoration: none;
-    border-radius: 6px;
-    transition: all 0.2s;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .pers-card::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 3px;
+    background: var(--accent);
+    opacity: 0;
+    transition: opacity 0.3s;
   }
 
   .pers-card:hover {
-    border-color: var(--accent);
-    background: #161616;
-    transform: translateX(5px);
+    border-color: rgba(255,107,53,0.4);
+    background: rgba(255,107,53,0.05);
+    transform: translateX(8px);
+  }
+  
+  .pers-card:hover::before {
+    opacity: 1;
   }
   
   .pers-card-arrow {
     color: var(--accent);
-    margin-right: 0.75rem;
-    font-size: 1.1rem;
+    margin-right: 1rem;
+    font-size: 1.2rem;
+    transition: transform 0.3s;
+  }
+  
+  .pers-card:hover .pers-card-arrow {
+    transform: translateX(3px);
   }
 
   .pers-card-title {
-    color: #e0e0e0;
-    font-weight: 500;
+    color: #e8e8e8;
+    font-weight: 600;
     margin-right: auto;
+    font-size: 1rem;
   }
   
   .pers-card-label {
-    font-size: 0.75rem;
-    color: #666;
-    background: #000;
-    padding: 0.2rem 0.5rem;
-    border-radius: 4px;
+    font-size: 0.7rem;
+    color: #888;
+    background: rgba(0,0,0,0.4);
+    padding: 0.3rem 0.6rem;
+    border-radius: 12px;
+    border: 1px solid rgba(255,255,255,0.05);
   }
 
   .pers-links {
     display: flex;
     align-items: center;
-    gap: 0.75rem;
+    gap: 1rem;
     font-size: 0.9rem;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(255,255,255,0.05);
   }
 
   .pers-link-item {
-    color: #666;
+    color: #777;
     text-decoration: none;
-    transition: color 0.2s;
+    transition: all 0.2s;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
   }
   
   .pers-link-item:hover {
-    color: #fff;
-    text-decoration: underline;
+    color: var(--accent);
   }
   
   .sep {
