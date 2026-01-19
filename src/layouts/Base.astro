@@ -30,15 +30,62 @@ const { title, description = "I help businesses find the big problem they actual
   <body>
     <header>
       <a href="/" class="logo">word and mouth<span class="logo-star">*</span></a>
-      <nav>
+      <nav class="nav-desktop">
         <a href="/work">Work</a>
         <a href="/services">Services</a>
         <a href="/beleaf">BeLeaf</a>
         <a href="/insights">Insights</a>
         <a href="/about">About</a>
       </nav>
+      <button class="hamburger" id="hamburger" aria-label="Open menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
       <a href="mailto:dave@wordandmouth.com" class="cta-header">Let's Talk</a>
     </header>
+    
+    <!-- Mobile nav drawer -->
+    <div class="mobile-nav" id="mobile-nav">
+      <button class="close-nav" id="close-nav" aria-label="Close menu">X</button>
+      <nav>
+        <a href="/work">Work</a>
+        <a href="/services">Services</a>
+        <a href="/beleaf">BeLeaf</a>
+        <a href="/insights">Insights</a>
+        <a href="/about">About</a>
+        <a href="mailto:dave@wordandmouth.com" class="mobile-cta">Let's Talk</a>
+      </nav>
+    </div>
+    <div class="nav-overlay" id="nav-overlay"></div>
+    
+    <script>
+      const hamburger = document.getElementById('hamburger');
+      const closeNav = document.getElementById('close-nav');
+      const mobileNav = document.getElementById('mobile-nav');
+      const overlay = document.getElementById('nav-overlay');
+      
+      function openNav() {
+        mobileNav.classList.add('open');
+        overlay.classList.add('open');
+        document.body.style.overflow = 'hidden';
+      }
+      
+      function closeNavFunc() {
+        mobileNav.classList.remove('open');
+        overlay.classList.remove('open');
+        document.body.style.overflow = '';
+      }
+      
+      hamburger.addEventListener('click', openNav);
+      closeNav.addEventListener('click', closeNavFunc);
+      overlay.addEventListener('click', closeNavFunc);
+      
+      // Close on link click
+      mobileNav.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', closeNavFunc);
+      });
+    </script>
     
     <main>
       <slot />
@@ -249,12 +296,119 @@ const { title, description = "I help businesses find the big problem they actual
     transform: scale(1.02);
   }
   
+  /* Hamburger button - hidden on desktop */
+  .hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    width: 30px;
+    height: 30px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+  }
+  
+  .hamburger span {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background: var(--text);
+    transition: all 0.3s;
+  }
+  
+  /* Mobile nav drawer */
+  .mobile-nav {
+    position: fixed;
+    top: 0;
+    right: -280px;
+    width: 280px;
+    height: 100vh;
+    background: #111;
+    z-index: 200;
+    transition: right 0.3s ease;
+    padding: 2rem;
+  }
+  
+  .mobile-nav.open {
+    right: 0;
+  }
+  
+  .mobile-nav nav {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin-top: 3rem;
+  }
+  
+  .mobile-nav nav a {
+    font-size: 1.2rem;
+    color: var(--text);
+    font-weight: 500;
+  }
+  
+  .mobile-nav nav a:hover {
+    color: var(--accent);
+  }
+  
+  .mobile-cta {
+    background: var(--accent);
+    color: #000 !important;
+    padding: 0.75rem 1.5rem;
+    text-align: center;
+    font-weight: 600;
+    margin-top: 1rem;
+  }
+  
+  .close-nav {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: none;
+    border: none;
+    color: var(--muted);
+    font-size: 1.5rem;
+    cursor: pointer;
+  }
+  
+  .close-nav:hover {
+    color: var(--text);
+  }
+  
+  /* Overlay */
+  .nav-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: 150;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s;
+  }
+  
+  .nav-overlay.open {
+    opacity: 1;
+    visibility: visible;
+  }
+  
   @media (max-width: 768px) {
     header {
       padding: 1rem;
     }
     
-    nav {
+    .nav-desktop {
+      display: none;
+    }
+    
+    .hamburger {
+      display: flex;
+    }
+    
+    .cta-header {
       display: none;
     }
     
