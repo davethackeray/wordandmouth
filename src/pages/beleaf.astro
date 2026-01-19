@@ -2,12 +2,110 @@
 import Base from '../layouts/Base.astro';
 ---
 
-<Base title="BeLeaf — Our Synthetic Business" description="A fully-realised fictional company for testing, demos, and proving our approaches work">
+<Base title="BeLeaf - Our Synthetic Business" description="A fully-realised fictional company for testing, demos, and proving our approaches work">
   <article class="beleaf-page">
     <section class="hero-beleaf">
-      <div class="beleaf-badge">🌿☕ Synthetic Business</div>
+      <div class="beleaf-logo-mark">
+        <img src="/assets/beleaf-favicon.png" alt="BeLeaf - Coffee Bean and Tea Leaf" />
+      </div>
+      <div class="beleaf-badge">Synthetic Business</div>
       <h1>Meet BeLeaf</h1>
-      <p class="tagline">A mid-size tea & coffee supplier we built to prove our approaches work — before we ever touch your business.</p>
+      <p class="tagline">A mid-size tea & coffee supplier we built to prove our approaches work - before we ever touch your business.</p>
+      <p class="pun-line">"BeLeaf" = "Belief" - because we want you to believe in better beverages.</p>
+    </section>
+
+    <section class="section origin-story">
+      <h2 class="section-label">The Origin Story</h2>
+      <div class="story-content">
+        <div class="story-chapter">
+          <h3>Once Upon a Time... Bean Hunters</h3>
+          <p>
+            BeLeaf wasn't always BeLeaf. It started life as <strong>Bean Hunters</strong> - a fictional 
+            coffee company conceived in 2024 when Dave was experimenting with AI-generated business strategies.
+          </p>
+          <p>
+            The original concept? <em>"The Hunt"</em> - the tireless search for the world's most exceptional 
+            coffee beans. A brand for sophisticated digital nomads and professionals who value craftsmanship 
+            and a good story as much as their caffeine hit.
+          </p>
+        </div>
+
+        <div class="story-chapter friends-chapter">
+          <h3>The Cast of Friends (Legally Distinct)</h3>
+          <p class="story-hook">
+            In a hilariously audacious move, Dave originally "hired" the entire cast of <em>Friends</em> to run the business. 
+            Imagine if they'd really quit Central Perk to start their own roastery!
+          </p>
+          <p>
+            But legal reality intervened. The team was subsequently rebranded with "Not" titles:
+          </p>
+          <div class="not-friends-grid">
+            <div class="not-friend">
+              <span class="role">CEO</span>
+              <span class="name">Definitely Not Gunther</span>
+              <span class="joke">Vision and leadership (finally out from behind the counter)</span>
+            </div>
+            <div class="not-friend">
+              <span class="role">Marketing</span>
+              <span class="name">Not Rachel Green</span>
+              <span class="joke">Branding and social media (fashion sense intact)</span>
+            </div>
+            <div class="not-friend">
+              <span class="role">Operations</span>
+              <span class="name">Definitely Not Monica</span>
+              <span class="joke">Supply chain and quality control (obsessively)</span>
+            </div>
+            <div class="not-friend">
+              <span class="role">Customer Experience</span>
+              <span class="name">Not Phoebe Buffay</span>
+              <span class="joke">Support with "not-quite-mystical" vibes</span>
+            </div>
+            <div class="not-friend">
+              <span class="role">Digital Marketing</span>
+              <span class="name">Not Chandler Bing</span>
+              <span class="joke">SEO and content "scribbles"</span>
+            </div>
+            <div class="not-friend">
+              <span class="role">Sales</span>
+              <span class="name">Not Joey Tribbiani</span>
+              <span class="joke">"How YOU doin'... with our wholesale pricing?"</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="story-chapter evolution-chapter">
+          <h3>Then Came the Chai</h3>
+          <p>
+            The pivot happened when Dave got hooked on chai. Suddenly, a coffee-only company felt limiting.
+            <strong>Bean Hunters</strong> became <strong>BeLeaf</strong> - because leaves cover both tea AND coffee,
+            and the pun was too good to resist.
+          </p>
+          <div class="evolution-visual">
+            <div class="evo-step">
+              <span class="evo-icon">Coffee</span>
+              <span class="evo-label">Bean Hunters (2024)</span>
+            </div>
+            <div class="evo-arrow">+</div>
+            <div class="evo-step">
+              <span class="evo-icon">Tea</span>
+              <span class="evo-label">Chai Obsession</span>
+            </div>
+            <div class="evo-arrow">=</div>
+            <div class="evo-step highlight">
+              <span class="evo-icon">Leaf</span>
+              <span class="evo-label">BeLeaf (2025)</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="story-footnote">
+          <p>
+            <a href="https://medium.com/@DaveThackeray/bean-hunters-marketing-strategy-881550f7e931" target="_blank">
+              Read the original Bean Hunters marketing strategy on Medium
+            </a>
+          </p>
+        </div>
+      </div>
     </section>
 
     <section class="section">
@@ -263,6 +361,150 @@ import Base from '../layouts/Base.astro';
     font-size: 1.2rem;
     max-width: 600px;
     margin: 0 auto;
+  }
+
+  .beleaf-logo-mark {
+    margin-bottom: 1.5rem;
+  }
+
+  .beleaf-logo-mark img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+  }
+
+  .pun-line {
+    color: #4A3728;
+    font-style: italic;
+    font-size: 1rem;
+    margin-top: 1rem;
+  }
+
+  /* Origin Story */
+  .origin-story {
+    background: linear-gradient(180deg, #0a0a0a 0%, #0f0f0f 100%);
+  }
+
+  .story-content {
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+  }
+
+  .story-chapter h3 {
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+    color: var(--text);
+  }
+
+  .story-chapter p {
+    color: var(--muted);
+    line-height: 1.8;
+    margin-bottom: 0.75rem;
+  }
+
+  .story-hook {
+    font-size: 1.1rem;
+    color: var(--text) !important;
+  }
+
+  /* Not Friends Grid */
+  .not-friends-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1rem;
+    margin-top: 1.5rem;
+  }
+
+  .not-friend {
+    background: #111;
+    padding: 1rem;
+    border-left: 3px solid #4A3728;
+  }
+
+  .not-friend .role {
+    display: block;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--accent);
+    margin-bottom: 0.25rem;
+  }
+
+  .not-friend .name {
+    display: block;
+    font-weight: 700;
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .not-friend .joke {
+    display: block;
+    font-size: 0.85rem;
+    color: var(--muted);
+    font-style: italic;
+  }
+
+  /* Evolution Visual */
+  .evolution-visual {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-top: 1.5rem;
+    padding: 1.5rem;
+    background: #111;
+  }
+
+  .evo-step {
+    text-align: center;
+    padding: 1rem;
+  }
+
+  .evo-step .evo-icon {
+    display: block;
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .evo-step .evo-label {
+    font-size: 0.8rem;
+    color: var(--muted);
+  }
+
+  .evo-step.highlight {
+    background: rgba(45, 80, 22, 0.2);
+    border: 1px solid #2D5016;
+  }
+
+  .evo-step.highlight .evo-icon {
+    color: #2D5016;
+  }
+
+  .evo-step.highlight .evo-label {
+    color: var(--text);
+    font-weight: 700;
+  }
+
+  .evo-arrow {
+    font-size: 1.5rem;
+    color: var(--muted);
+  }
+
+  .story-footnote {
+    text-align: center;
+    padding-top: 1rem;
+    border-top: 1px solid #222;
+  }
+
+  .story-footnote a {
+    color: var(--accent);
+    font-weight: 600;
+  }
+
+  .story-footnote a:hover {
+    text-decoration: underline;
   }
 
   .section {
