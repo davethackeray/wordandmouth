@@ -34,121 +34,8 @@ import FeaturedInsights from '../components/FeaturedInsights.astro';
     </div>
   </section>
   
-  <!-- Matchmaker Section (now below hero) -->
-  <section class="matchmaker-section" id="matchmaker">
-    <div class="matchmaker-container">
-      
-      <!-- Intro -->
-      <div class="match-step active" data-step="intro">
-        <h2>Let's find exactly what you need</h2>
-        <p class="match-intro">Answer 4 quick questions and I'll show you the most relevant work for your situation.</p>
-        <button class="match-start" onclick="startMatch()">Get Started →</button>
-      </div>
-
-      <!-- Q1: Situation -->
-      <div class="match-step" data-step="q1">
-        <div class="match-progress">1 of 4</div>
-        <h3>What's your situation?</h3>
-        <div class="match-options">
-          <button class="match-option" onclick="selectMatch('situation', 'ceiling')">
-            <span class="opt-icon">📈</span>
-            <span>We're doing OK but hit a ceiling</span>
-          </button>
-          <button class="match-option" onclick="selectMatch('situation', 'problem')">
-            <span class="opt-icon">🎯</span>
-            <span>We have a specific problem to solve</span>
-          </button>
-          <button class="match-option" onclick="selectMatch('situation', 'exploring')">
-            <span class="opt-icon">🔮</span>
-            <span>We're exploring what's possible</span>
-          </button>
-        </div>
-      </div>
-
-      <!-- Q2: Challenge -->
-      <div class="match-step" data-step="q2">
-        <div class="match-progress">2 of 4</div>
-        <h3>What's your biggest challenge?</h3>
-        <div class="match-options">
-          <button class="match-option" onclick="selectMatch('tenet', 'story')">
-            <span class="opt-icon">📖</span>
-            <span>Nobody understands what we do</span>
-          </button>
-          <button class="match-option" onclick="selectMatch('tenet', 'clarity')">
-            <span class="opt-icon">💡</span>
-            <span>We're drowning in complexity</span>
-          </button>
-          <button class="match-option" onclick="selectMatch('tenet', 'insight')">
-            <span class="opt-icon">🔍</span>
-            <span>We can't see patterns in our data</span>
-          </button>
-          <button class="match-option" onclick="selectMatch('tenet', 'ai')">
-            <span class="opt-icon">🤖</span>
-            <span>We need to figure out AI</span>
-          </button>
-          <button class="match-option" onclick="selectMatch('tenet', 'growth')">
-            <span class="opt-icon">🚀</span>
-            <span>We've optimised everything we know</span>
-          </button>
-        </div>
-      </div>
-
-      <!-- Q3: Industry -->
-      <div class="match-step" data-step="q3">
-        <div class="match-progress">3 of 4</div>
-        <h3>What's your sector?</h3>
-        <div class="match-options industry">
-          <button class="match-option small" onclick="selectMatch('industry', 'saas')">💻 SaaS</button>
-          <button class="match-option small" onclick="selectMatch('industry', 'agency')">🎨 Agency</button>
-          <button class="match-option small" onclick="selectMatch('industry', 'media')">📰 Media</button>
-          <button class="match-option small" onclick="selectMatch('industry', 'fintech')">💳 Fintech</button>
-          <button class="match-option small" onclick="selectMatch('industry', 'ecommerce')">🛒 E-commerce</button>
-          <button class="match-option small" onclick="selectMatch('industry', 'professional')">⚖️ Professional</button>
-          <button class="match-option small" onclick="selectMatch('industry', 'health')">🏥 Health</button>
-          <button class="match-option small" onclick="selectMatch('industry', 'education')">🎓 Education</button>
-          <button class="match-option small" onclick="selectMatch('industry', 'other')">🔮 Other</button>
-        </div>
-      </div>
-
-      <!-- Q4: Work Style -->
-      <div class="match-step" data-step="q4">
-        <div class="match-progress">4 of 4</div>
-        <h3>How do you prefer to work?</h3>
-        <div class="match-options">
-          <button class="match-option" onclick="selectMatch('tier', 'discovery')">
-            <span class="opt-icon">🔍</span>
-            <span>Discovery — find the problem first</span>
-            <span class="opt-price">From €2,500</span>
-          </button>
-          <button class="match-option" onclick="selectMatch('tier', 'sprint')">
-            <span class="opt-icon">🚀</span>
-            <span>Sprint — build something real in 4 weeks</span>
-            <span class="opt-price">From €7,500</span>
-          </button>
-          <button class="match-option" onclick="selectMatch('tier', 'embedded')">
-            <span class="opt-icon">🎯</span>
-            <span>Embedded — ongoing clarity leadership</span>
-            <span class="opt-price">From €15,000/mo</span>
-          </button>
-        </div>
-      </div>
-
-    </div>
-  </section>
-  
-  <!-- Personalized Results (shown after matchmaker completion) -->
-  <section class="section personalized-section" id="personalizedResults" style="display: none;">
-    <h2 class="section-label">Based on your answers</h2>
-    <div class="personalized-content" id="personalizedContent">
-      <!-- Populated by JS -->
-    </div>
-  </section>
-
-  <!-- Featured Insights (Added via Roast) -->
-  <FeaturedInsights />
-  
-  <!-- Scenarios Section -->
-  <section class="section">
+  <!-- Scenarios Section - "Which one sounds like you?" -->
+  <section class="section scenarios-section">
     <h2 class="section-label">Which one sounds like you?</h2>
     
     <div class="scenario-grid">
@@ -166,7 +53,7 @@ import FeaturedInsights from '../components/FeaturedInsights.astro';
       </div>
       <div class="scenario">
         <div class="scenario-before">"We know we should use AI but don't know how"</div>
-        <div class="scenario-after">I'll show you — and build the first prototype. <strong>In weeks.</strong></div>
+        <div class="scenario-after">I'll show you - and build the first prototype. <strong>In weeks.</strong></div>
       </div>
       <div class="scenario">
         <div class="scenario-before">"We're doing fine but we should be doing better"</div>
@@ -176,7 +63,112 @@ import FeaturedInsights from '../components/FeaturedInsights.astro';
     
     <!-- Inline prompt to personalize -->
     <div class="scenario-cta" id="scenarioCTA">
-      <a href="#matchmaker" onclick="resetMatch()">Not sure which fits? Let me help you figure it out →</a>
+      <a href="#matchmaker" onclick="resetMatch()">Not sure which fits? Let me help you figure it out</a>
+    </div>
+  </section>
+
+  <!-- Featured Insights (Our Thinking) -->
+  <FeaturedInsights />
+  
+  <!-- Matchmaker Section -->
+  <section class="matchmaker-section" id="matchmaker">
+    <div class="matchmaker-container">
+      
+      <!-- Intro -->
+      <div class="match-step active" data-step="intro">
+        <h2>Let's find exactly what you need</h2>
+        <p class="match-intro">Answer 4 quick questions and I'll show you the most relevant work for your situation.</p>
+        <button class="match-start" onclick="startMatch()">Get Started</button>
+      </div>
+
+      <!-- Q1: Situation -->
+      <div class="match-step" data-step="q1">
+        <div class="match-progress">1 of 4</div>
+        <h3>What's your situation?</h3>
+        <div class="match-options">
+          <button class="match-option" onclick="selectMatch('situation', 'ceiling')">
+            <span class="opt-icon">Chart</span>
+            <span>We're doing OK but hit a ceiling</span>
+          </button>
+          <button class="match-option" onclick="selectMatch('situation', 'problem')">
+            <span class="opt-icon">Target</span>
+            <span>We have a specific problem to solve</span>
+          </button>
+          <button class="match-option" onclick="selectMatch('situation', 'exploring')">
+            <span class="opt-icon">Crystal</span>
+            <span>We're exploring what's possible</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Q2: Challenge -->
+      <div class="match-step" data-step="q2">
+        <div class="match-progress">2 of 4</div>
+        <h3>What's your biggest challenge?</h3>
+        <div class="match-options">
+          <button class="match-option" onclick="selectMatch('tenet', 'story')">
+            <span class="opt-icon">Book</span>
+            <span>Nobody understands what we do</span>
+          </button>
+          <button class="match-option" onclick="selectMatch('tenet', 'clarity')">
+            <span class="opt-icon">Bulb</span>
+            <span>We're drowning in complexity</span>
+          </button>
+          <button class="match-option" onclick="selectMatch('tenet', 'insight')">
+            <span class="opt-icon">Search</span>
+            <span>We can't see patterns in our data</span>
+          </button>
+          <button class="match-option" onclick="selectMatch('tenet', 'ai')">
+            <span class="opt-icon">Robot</span>
+            <span>We need to figure out AI</span>
+          </button>
+          <button class="match-option" onclick="selectMatch('tenet', 'growth')">
+            <span class="opt-icon">Rocket</span>
+            <span>We've optimised everything we know</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Q3: Industry -->
+      <div class="match-step" data-step="q3">
+        <div class="match-progress">3 of 4</div>
+        <h3>What's your sector?</h3>
+        <div class="match-options industry">
+          <button class="match-option small" onclick="selectMatch('industry', 'saas')">SaaS</button>
+          <button class="match-option small" onclick="selectMatch('industry', 'agency')">Agency</button>
+          <button class="match-option small" onclick="selectMatch('industry', 'media')">Media</button>
+          <button class="match-option small" onclick="selectMatch('industry', 'fintech')">Fintech</button>
+          <button class="match-option small" onclick="selectMatch('industry', 'ecommerce')">E-commerce</button>
+          <button class="match-option small" onclick="selectMatch('industry', 'professional')">Professional</button>
+          <button class="match-option small" onclick="selectMatch('industry', 'health')">Health</button>
+          <button class="match-option small" onclick="selectMatch('industry', 'education')">Education</button>
+          <button class="match-option small" onclick="selectMatch('industry', 'other')">Other</button>
+        </div>
+      </div>
+
+      <!-- Q4: Work Style -->
+      <div class="match-step" data-step="q4">
+        <div class="match-progress">4 of 4</div>
+        <h3>How do you prefer to work?</h3>
+        <div class="match-options">
+          <button class="match-option" onclick="selectMatch('tier', 'discovery')">
+            <span class="opt-icon">Search</span>
+            <span>Discovery - find the problem first</span>
+            <span class="opt-price">From 2,500 EUR</span>
+          </button>
+          <button class="match-option" onclick="selectMatch('tier', 'sprint')">
+            <span class="opt-icon">Rocket</span>
+            <span>Sprint - build something real in 4 weeks</span>
+            <span class="opt-price">From 7,500 EUR</span>
+          </button>
+          <button class="match-option" onclick="selectMatch('tier', 'embedded')">
+            <span class="opt-icon">Target</span>
+            <span>Embedded - ongoing clarity leadership</span>
+            <span class="opt-price">From 15,000 EUR/mo</span>
+          </button>
+        </div>
+      </div>
+
     </div>
   </section>
   

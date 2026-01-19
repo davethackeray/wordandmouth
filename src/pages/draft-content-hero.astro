@@ -1,0 +1,540 @@
+---
+import Base from '../layouts/Base.astro';
+---
+
+<Base title="DRAFT - Content Hero Preview" description="Preview of new homepage Content Hero component">
+  <section class="draft-banner">
+    <span>DRAFT PREVIEW - Content Hero Component</span>
+  </section>
+
+  <!-- CONTENT HERO - The BIG showcase component -->
+  <section class="content-hero">
+    <div class="hero-spotlight">
+      <div class="spotlight-badge">Featured Experience</div>
+      <h1>See What We Build<span class="accent">*</span></h1>
+      <p class="spotlight-sub">Not slides. Not decks. <strong>Working systems.</strong></p>
+      
+      <!-- Main Featured Artifact -->
+      <div class="featured-artifact">
+        <div class="artifact-preview">
+          <div class="artifact-mock">
+            <div class="mock-header">
+              <span class="mock-dot"></span>
+              <span class="mock-dot"></span>
+              <span class="mock-dot"></span>
+              <span class="mock-title">BeLeaf Agentic Dashboard</span>
+            </div>
+            <div class="mock-content">
+              <div class="mock-sidebar">
+                <div class="mock-nav-item active"></div>
+                <div class="mock-nav-item"></div>
+                <div class="mock-nav-item"></div>
+                <div class="mock-nav-item"></div>
+                <div class="mock-nav-item"></div>
+              </div>
+              <div class="mock-main">
+                <div class="mock-chart"></div>
+                <div class="mock-stats">
+                  <div class="mock-stat">
+                    <span class="mock-stat-value">5</span>
+                    <span class="mock-stat-label">Active Agents</span>
+                  </div>
+                  <div class="mock-stat">
+                    <span class="mock-stat-value">847</span>
+                    <span class="mock-stat-label">Hours Saved</span>
+                  </div>
+                  <div class="mock-stat">
+                    <span class="mock-stat-value">23%</span>
+                    <span class="mock-stat-label">Cost Reduction</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="artifact-info">
+          <div class="s-formula-mini">
+            <span class="s-tag speedier">Speedier</span>
+            <span class="s-tag smarter">Smarter</span>
+          </div>
+          <h2>Meet BeLeaf</h2>
+          <p>Our synthetic business with 149 employees, real processes, and real problems. Every AI tool, every framework - we test it here first.</p>
+          <p class="artifact-hook"><em>"If the cast of Friends really did quit the show to start their own roastery..."</em></p>
+          <a href="/beleaf/" class="cta-primary">Explore BeLeaf</a>
+          <a href="/rabbit-holes/agentic-overview/" class="cta-secondary">See the Agentic Demo</a>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Persona Quick-Match -->
+    <div class="persona-strip">
+      <span class="strip-label">Which sounds like you?</span>
+      <div class="persona-buttons">
+        <button class="persona-btn" data-persona="ceo">
+          <span class="persona-icon">C</span>
+          <span class="persona-pain">"Growing but lack clarity"</span>
+        </button>
+        <button class="persona-btn" data-persona="marketing">
+          <span class="persona-icon">M</span>
+          <span class="persona-pain">"Content doesn't convert"</span>
+        </button>
+        <button class="persona-btn" data-persona="sales">
+          <span class="persona-icon">S</span>
+          <span class="persona-pain">"Pitches don't resonate"</span>
+        </button>
+        <button class="persona-btn" data-persona="product">
+          <span class="persona-icon">P</span>
+          <span class="persona-pain">"Should use AI, don't know how"</span>
+        </button>
+        <button class="persona-btn" data-persona="transformation">
+          <span class="persona-icon">T</span>
+          <span class="persona-pain">"Frameworks perfect, people aren't moving"</span>
+        </button>
+      </div>
+    </div>
+    
+    <!-- More Experiences Grid -->
+    <div class="experiences-grid">
+      <span class="grid-label">More to Explore</span>
+      <div class="experience-cards">
+        <a href="/rabbit-holes/agentic-overview/" class="exp-card">
+          <span class="exp-icon">AI</span>
+          <span class="exp-title">Agentic AI Operations</span>
+          <span class="exp-desc">Multi-agent systems in action</span>
+          <span class="s-tag speedier">Speedier</span>
+        </a>
+        <a href="#matchmaker" class="exp-card">
+          <span class="exp-icon">?</span>
+          <span class="exp-title">The Matchmaker</span>
+          <span class="exp-desc">Find what you need in 60 seconds</span>
+          <span class="s-tag simpler">Simpler</span>
+        </a>
+        <a href="/rabbit-holes/" class="exp-card">
+          <span class="exp-icon">Rh</span>
+          <span class="exp-title">Rabbit Holes</span>
+          <span class="exp-desc">Deep dives that actually work</span>
+          <span class="s-tag smarter">Smarter</span>
+        </a>
+        <a href="/services/" class="exp-card">
+          <span class="exp-icon">$</span>
+          <span class="exp-title">How We Work</span>
+          <span class="exp-desc">Discovery, Sprint, Embedded</span>
+          <span class="s-tag smilier">Smilier</span>
+        </a>
+      </div>
+    </div>
+    
+    <!-- S-Formula Banner -->
+    <div class="s-formula-banner">
+      <div class="formula-content">
+        <span class="s-item simpler">Simpler</span>
+        <span class="s-operator">+</span>
+        <span class="s-item smarter">Smarter</span>
+        <span class="s-operator">+</span>
+        <span class="s-item speedier">Speedier</span>
+        <span class="s-operator">=</span>
+        <span class="s-item smilier">Smilier</span>
+      </div>
+      <p class="formula-tagline">The integrated approach to business transformation</p>
+    </div>
+  </section>
+
+</Base>
+
+<style>
+  .draft-banner {
+    background: #ff0;
+    color: #000;
+    text-align: center;
+    padding: 0.5rem;
+    font-weight: 700;
+    font-size: 0.8rem;
+  }
+
+  .content-hero {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 8rem 2rem 4rem;
+  }
+
+  .hero-spotlight {
+    text-align: center;
+    margin-bottom: 4rem;
+  }
+
+  .spotlight-badge {
+    display: inline-block;
+    background: rgba(255, 107, 53, 0.15);
+    color: var(--accent);
+    padding: 0.4rem 1rem;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+  }
+
+  .hero-spotlight h1 {
+    font-size: clamp(2.5rem, 7vw, 4.5rem);
+    font-family: 'Space Grotesk', sans-serif;
+    margin-bottom: 0.5rem;
+  }
+
+  .hero-spotlight .accent {
+    color: var(--accent);
+  }
+
+  .spotlight-sub {
+    font-size: 1.4rem;
+    color: var(--muted);
+    margin-bottom: 3rem;
+  }
+
+  /* Featured Artifact */
+  .featured-artifact {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    gap: 3rem;
+    align-items: center;
+    text-align: left;
+    background: linear-gradient(135deg, rgba(255, 107, 53, 0.05) 0%, transparent 50%);
+    padding: 2rem;
+    border: 1px solid rgba(255, 107, 53, 0.2);
+    border-radius: 16px;
+  }
+
+  @media (max-width: 800px) {
+    .featured-artifact {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  /* Mock Dashboard */
+  .artifact-mock {
+    background: #111;
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid #333;
+  }
+
+  .mock-header {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 0.75rem 1rem;
+    background: #1a1a1a;
+    border-bottom: 1px solid #333;
+  }
+
+  .mock-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #333;
+  }
+
+  .mock-dot:nth-child(1) { background: #ff5f56; }
+  .mock-dot:nth-child(2) { background: #ffbd2e; }
+  .mock-dot:nth-child(3) { background: #27c93f; }
+
+  .mock-title {
+    margin-left: auto;
+    font-size: 0.75rem;
+    color: var(--muted);
+  }
+
+  .mock-content {
+    display: flex;
+    min-height: 200px;
+  }
+
+  .mock-sidebar {
+    width: 50px;
+    background: #0d0d0d;
+    padding: 1rem 0.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .mock-nav-item {
+    height: 8px;
+    background: #222;
+    border-radius: 2px;
+  }
+
+  .mock-nav-item.active {
+    background: var(--accent);
+  }
+
+  .mock-main {
+    flex: 1;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .mock-chart {
+    flex: 1;
+    background: linear-gradient(180deg, rgba(255, 107, 53, 0.2) 0%, transparent 100%);
+    border-radius: 8px;
+    position: relative;
+  }
+
+  .mock-chart::before {
+    content: '';
+    position: absolute;
+    bottom: 20%;
+    left: 10%;
+    right: 10%;
+    height: 2px;
+    background: var(--accent);
+  }
+
+  .mock-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.5rem;
+  }
+
+  .mock-stat {
+    background: #1a1a1a;
+    padding: 0.75rem;
+    text-align: center;
+    border-radius: 6px;
+  }
+
+  .mock-stat-value {
+    display: block;
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--accent);
+  }
+
+  .mock-stat-label {
+    font-size: 0.6rem;
+    color: var(--muted);
+    text-transform: uppercase;
+  }
+
+  /* Artifact Info */
+  .artifact-info h2 {
+    font-size: 2rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .artifact-info p {
+    color: var(--muted);
+    line-height: 1.7;
+    margin-bottom: 0.75rem;
+  }
+
+  .artifact-hook {
+    color: #4A3728 !important;
+    font-size: 0.95rem;
+    margin-bottom: 1.5rem !important;
+  }
+
+  .s-formula-mini {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .s-tag {
+    padding: 0.25rem 0.6rem;
+    font-size: 0.65rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    border-radius: 4px;
+  }
+
+  .s-tag.simpler { background: rgba(33, 150, 243, 0.2); color: #2196F3; }
+  .s-tag.smarter { background: rgba(156, 39, 176, 0.2); color: #9C27B0; }
+  .s-tag.speedier { background: rgba(255, 107, 53, 0.2); color: var(--accent); }
+  .s-tag.smilier { background: rgba(76, 175, 80, 0.2); color: #4CAF50; }
+
+  .cta-primary {
+    display: inline-block;
+    background: var(--accent);
+    color: #000;
+    padding: 0.75rem 1.5rem;
+    font-weight: 700;
+    text-decoration: none;
+    margin-right: 0.75rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .cta-secondary {
+    display: inline-block;
+    color: var(--accent);
+    text-decoration: none;
+    font-weight: 600;
+  }
+
+  /* Persona Strip */
+  .persona-strip {
+    background: #111;
+    padding: 2rem;
+    border-radius: 12px;
+    margin-bottom: 3rem;
+  }
+
+  .strip-label {
+    display: block;
+    text-align: center;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--muted);
+    margin-bottom: 1rem;
+  }
+
+  .persona-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    justify-content: center;
+  }
+
+  .persona-btn {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: #0a0a0a;
+    border: 1px solid #333;
+    color: var(--muted);
+    padding: 0.6rem 1rem;
+    cursor: pointer;
+    transition: all 0.2s;
+    font-size: 0.8rem;
+  }
+
+  .persona-btn:hover {
+    border-color: var(--accent);
+    color: var(--text);
+  }
+
+  .persona-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+    background: var(--accent);
+    color: #000;
+    font-weight: 700;
+    font-size: 0.7rem;
+    border-radius: 4px;
+  }
+
+  /* Experiences Grid */
+  .experiences-grid {
+    margin-bottom: 3rem;
+  }
+
+  .grid-label {
+    display: block;
+    text-align: center;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--muted);
+    margin-bottom: 1.5rem;
+  }
+
+  .experience-cards {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+  }
+
+  @media (max-width: 800px) {
+    .experience-cards {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  .exp-card {
+    background: #111;
+    padding: 1.5rem;
+    text-decoration: none;
+    border: 1px solid #222;
+    transition: all 0.2s;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .exp-card:hover {
+    border-color: var(--accent);
+    transform: translateY(-4px);
+  }
+
+  .exp-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background: #1a1a1a;
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 700;
+    font-size: 0.9rem;
+    color: var(--accent);
+    border-radius: 8px;
+    margin-bottom: 0.5rem;
+  }
+
+  .exp-title {
+    font-weight: 700;
+    color: var(--text);
+  }
+
+  .exp-desc {
+    font-size: 0.8rem;
+    color: var(--muted);
+    flex: 1;
+  }
+
+  /* S-Formula Banner */
+  .s-formula-banner {
+    text-align: center;
+    padding: 3rem 2rem;
+    background: linear-gradient(135deg, rgba(255, 107, 53, 0.08) 0%, transparent 50%);
+    border-radius: 12px;
+  }
+
+  .formula-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-bottom: 1rem;
+  }
+
+  .s-item {
+    padding: 0.6rem 1.2rem;
+    font-weight: 700;
+    font-size: 1.1rem;
+    border-radius: 6px;
+  }
+
+  .s-item.simpler { background: rgba(33, 150, 243, 0.2); color: #2196F3; }
+  .s-item.smarter { background: rgba(156, 39, 176, 0.2); color: #9C27B0; }
+  .s-item.speedier { background: rgba(255, 107, 53, 0.2); color: var(--accent); }
+  .s-item.smilier { background: rgba(76, 175, 80, 0.2); color: #4CAF50; }
+
+  .s-operator {
+    color: var(--muted);
+    font-size: 1.5rem;
+  }
+
+  .formula-tagline {
+    color: var(--muted);
+    font-style: italic;
+  }
+</style>

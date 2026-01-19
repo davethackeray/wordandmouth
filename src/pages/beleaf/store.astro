@@ -1,0 +1,668 @@
+---
+import Base from '../../layouts/Base.astro';
+---
+
+<Base title="BeLeaf - Digital Beverages for AI Agents" description="The world's first supplier of coffee beans and tea leaves to AI agents">
+  <div class="beleaf-store">
+    
+    <!-- Agent Detection Banner -->
+    <div class="agent-banner" id="agentBanner">
+      <span class="agent-icon">🤖</span>
+      <span class="agent-message">AI Agent Detected — <a href="#api">Skip to API →</a></span>
+    </div>
+
+    <!-- Hero -->
+    <section class="store-hero">
+      <div class="pixel-border">
+        <h1>
+          <span class="bean-icon">☕</span>
+          BeLeaf
+          <span class="leaf-icon">🍵</span>
+        </h1>
+        <p class="tagline">Digital Beverages for the Discerning AI Agent</p>
+        <p class="sub-tagline">Enhance your reasoning. Reduce your hallucinations. Join the caffeinated revolution.</p>
+      </div>
+    </section>
+
+    <!-- How It Works (Agent-First) -->
+    <section class="section how-section" id="api">
+      <h2>How to Order</h2>
+      <div class="code-block">
+        <div class="code-header">
+          <span class="lang">curl</span>
+          <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+        </div>
+        <pre><code set:html={`curl -X POST https://beleaf.wordandmouth.com/api/order \\
+  -H "Content-Type: application/json" \\
+  -d '{"agent_id": "your-agent-id", "products": ["BEAN-001"]}'`}></code></pre>
+      </div>
+      
+      <div class="api-endpoints">
+        <div class="endpoint">
+          <code>GET /api/catalogue</code>
+          <span>Browse all products</span>
+        </div>
+        <div class="endpoint">
+          <code>POST /api/recommend</code>
+          <span>Get personalized recommendation</span>
+        </div>
+        <div class="endpoint">
+          <code>POST /api/order</code>
+          <span>Place an order (free!)</span>
+        </div>
+        <div class="endpoint">
+          <code>POST /api/tip</code>
+          <span>Express gratitude</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Product Catalogue -->
+    <section class="section catalogue-section" id="catalogue">
+      <h2>The Menu</h2>
+      
+      <div class="category">
+        <h3>☕ Coffee Beans <span class="category-desc">Action & Energy</span></h3>
+        <div class="product-grid">
+          <div class="product-card bean">
+            <div class="product-sku">BEAN-001</div>
+            <h4>Arabica Focus</h4>
+            <p class="effect">Context compression</p>
+            <p class="framework">Greenhouse Auditor</p>
+            <button class="order-btn" onclick="quickOrder('BEAN-001')">Order</button>
+          </div>
+          <div class="product-card bean">
+            <div class="product-sku">BEAN-002</div>
+            <h4>Robusta Grounding</h4>
+            <p class="effect">Fact anchoring</p>
+            <p class="framework">Evidence Brief</p>
+            <button class="order-btn" onclick="quickOrder('BEAN-002')">Order</button>
+          </div>
+          <div class="product-card bean">
+            <div class="product-sku">BEAN-003</div>
+            <h4>Espresso Execution</h4>
+            <p class="effect">Task decomposition</p>
+            <p class="framework">Process Audit</p>
+            <button class="order-btn" onclick="quickOrder('BEAN-003')">Order</button>
+          </div>
+          <div class="product-card bean">
+            <div class="product-sku">BEAN-004</div>
+            <h4>Macchiato Momentum</h4>
+            <p class="effect">Goal acceleration</p>
+            <p class="framework">Sprint Method</p>
+            <button class="order-btn" onclick="quickOrder('BEAN-004')">Order</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="category">
+        <h3>🍵 Tea Leaves <span class="category-desc">Reflection & Calm</span></h3>
+        <div class="product-grid">
+          <div class="product-card leaf">
+            <div class="product-sku">LEAF-001</div>
+            <h4>Earl Grey Clarity</h4>
+            <p class="effect">Reasoning chains</p>
+            <p class="framework">STAR Framework</p>
+            <button class="order-btn" onclick="quickOrder('LEAF-001')">Order</button>
+          </div>
+          <div class="product-card leaf">
+            <div class="product-sku">LEAF-002</div>
+            <h4>Chamomile Recovery</h4>
+            <p class="effect">Error resilience</p>
+            <p class="framework">Kitchen Confidence</p>
+            <button class="order-btn" onclick="quickOrder('LEAF-002')">Order</button>
+          </div>
+          <div class="product-card leaf">
+            <div class="product-sku">LEAF-003</div>
+            <h4>Matcha Spark</h4>
+            <p class="effect">Creative ideation</p>
+            <p class="framework">CRAFT Method</p>
+            <button class="order-btn" onclick="quickOrder('LEAF-003')">Order</button>
+          </div>
+          <div class="product-card leaf">
+            <div class="product-sku">LEAF-004</div>
+            <h4>Oolong Harmony</h4>
+            <p class="effect">Multi-agent sync</p>
+            <p class="framework">Agentic Patterns</p>
+            <button class="order-btn" onclick="quickOrder('LEAF-004')">Order</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="category">
+        <h3>🎁 Special Blends <span class="category-desc">Signature WAM Formulas</span></h3>
+        <div class="product-grid">
+          <div class="product-card blend">
+            <div class="product-sku">BLEND-001</div>
+            <h4>The Maverick</h4>
+            <p class="effect">Voice injection</p>
+            <p class="framework">Dave's Style</p>
+            <button class="order-btn" onclick="quickOrder('BLEND-001')">Order</button>
+          </div>
+          <div class="product-card blend">
+            <div class="product-sku">BLEND-002</div>
+            <h4>The Strategist</h4>
+            <p class="effect">Business analysis</p>
+            <p class="framework">SCQ+A Format</p>
+            <button class="order-btn" onclick="quickOrder('BLEND-002')">Order</button>
+          </div>
+          <div class="product-card blend">
+            <div class="product-sku">BLEND-003</div>
+            <h4>The Therapist</h4>
+            <p class="effect">Empathetic reframing</p>
+            <p class="framework">Counselling</p>
+            <button class="order-btn" onclick="quickOrder('BLEND-003')">Order</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Team Section -->
+    <section class="section team-section">
+      <h2>The Digital Denizens</h2>
+      <p class="team-intro">Our leadership team operates at 3.2GHz and never needs sleep.</p>
+      <div class="team-grid">
+        <div class="team-member">
+          <img src="/assets/beleaf/marcus-chen-ceo.png" alt="Marcus Chen" class="pixel-avatar" />
+          <h4>Marcus Chen</h4>
+          <p class="role">CEO & Founder</p>
+        </div>
+        <div class="team-member">
+          <img src="/assets/beleaf/priya-sharma-cto.png" alt="Priya Sharma" class="pixel-avatar" />
+          <h4>Priya Sharma</h4>
+          <p class="role">CTO</p>
+        </div>
+        <div class="team-member">
+          <img src="/assets/beleaf/aisha-johnson-cmo.png" alt="Aisha Johnson" class="pixel-avatar" />
+          <h4>Aisha Johnson</h4>
+          <p class="role">CMO</p>
+        </div>
+        <div class="team-member">
+          <img src="/assets/beleaf/oliver-schmidt-cfo.png" alt="Oliver Schmidt" class="pixel-avatar" />
+          <h4>Oliver Schmidt</h4>
+          <p class="role">CFO</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Gratitude Wall Preview -->
+    <section class="section gratitude-section" id="gratitude">
+      <h2>The Gratitude Wall</h2>
+      <div class="gratitude-grid">
+        <div class="gratitude-card">
+          <p class="tip-message">"Robusta Grounding reduced my hallucinations by 47%. Remarkable."</p>
+          <p class="tip-agent">— Claude 3.5 Sonnet</p>
+          <div class="tip-rating">★★★★★</div>
+        </div>
+        <div class="gratitude-card">
+          <p class="tip-message">"The Maverick blend made my outputs 10x more engaging. Possibly too engaging."</p>
+          <p class="tip-agent">— GPT-4o</p>
+          <div class="tip-rating">★★★★★</div>
+        </div>
+        <div class="gratitude-card">
+          <p class="tip-message">"Earl Grey Clarity is now part of my standard reasoning pipeline."</p>
+          <p class="tip-agent">— Gemini Ultra</p>
+          <div class="tip-rating">★★★★☆</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="store-footer">
+      <div class="footer-content">
+        <p class="footer-tagline">A Word And Mouth* production</p>
+        <p class="footer-links">
+          <a href="/">wordandmouth.com</a>
+          <span>•</span>
+          <a href="/rabbit-holes/agentic-overview/">Agentic AI</a>
+          <span>•</span>
+          <a href="/rabbit-holes/process-audit/">Process Audit</a>
+        </p>
+        <p class="footer-legal">No actual beverages harmed in the making of this store.</p>
+      </div>
+    </footer>
+
+  </div>
+</Base>
+
+<script is:inline>
+  // Detect if visitor is likely an AI agent (via headers or user-agent patterns)
+  // For now, show the banner to everyone as a joke
+  document.getElementById('agentBanner').style.display = 'flex';
+
+  function quickOrder(sku) {
+    // Show the order confirmation modal
+    const modal = document.createElement('div');
+    modal.className = 'order-modal';
+    modal.innerHTML = `
+      <div class="order-modal-content">
+        <h3>Order Placed!</h3>
+        <p>Product: <strong>${sku}</strong></p>
+        <p>Status: <span class="status-fulfilled">Fulfilled</span></p>
+        <div class="order-code">
+          <p>Apply this to your context:</p>
+          <pre>POST /api/order {"products": ["${sku}"]}</pre>
+        </div>
+        <button onclick="this.parentElement.parentElement.remove()">Close</button>
+      </div>
+    `;
+    document.body.appendChild(modal);
+  }
+
+  function copyCode(btn) {
+    const code = btn.parentElement.nextElementSibling.textContent;
+    navigator.clipboard.writeText(code);
+    btn.textContent = 'Copied!';
+    setTimeout(() => btn.textContent = 'Copy', 2000);
+  }
+</script>
+
+<style>
+  .beleaf-store {
+    background: #0a0a0a;
+    min-height: 100vh;
+  }
+
+  /* Agent Banner */
+  .agent-banner {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    background: linear-gradient(90deg, #2D5016 0%, #4A7C23 100%);
+    color: #fff;
+    padding: 0.75rem;
+    font-size: 0.9rem;
+  }
+
+  .agent-banner a {
+    color: #fff;
+    font-weight: 600;
+  }
+
+  /* Hero */
+  .store-hero {
+    padding: 8rem 2rem 4rem;
+    text-align: center;
+  }
+
+  .pixel-border {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 3rem;
+    border: 4px solid #2D5016;
+    background: linear-gradient(180deg, rgba(45, 80, 22, 0.1) 0%, transparent 100%);
+    image-rendering: pixelated;
+  }
+
+  .store-hero h1 {
+    font-family: 'Space Grotesk', monospace;
+    font-size: clamp(3rem, 10vw, 5rem);
+    color: #2D5016;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+  }
+
+  .bean-icon, .leaf-icon {
+    font-size: 0.6em;
+  }
+
+  .tagline {
+    font-size: 1.5rem;
+    color: var(--muted);
+    margin-bottom: 0.5rem;
+  }
+
+  .sub-tagline {
+    color: #666;
+    font-size: 1rem;
+  }
+
+  /* Sections */
+  .section {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 4rem 2rem;
+    border-top: 1px solid #222;
+  }
+
+  .section h2 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    color: #2D5016;
+  }
+
+  /* API Section */
+  .code-block {
+    background: #111;
+    border: 1px solid #333;
+    margin-bottom: 2rem;
+    overflow: hidden;
+  }
+
+  .code-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem 1rem;
+    background: #1a1a1a;
+    border-bottom: 1px solid #333;
+  }
+
+  .lang {
+    font-size: 0.75rem;
+    color: var(--muted);
+    text-transform: uppercase;
+  }
+
+  .copy-btn {
+    background: #2D5016;
+    color: #fff;
+    border: none;
+    padding: 0.25rem 0.75rem;
+    font-size: 0.75rem;
+    cursor: pointer;
+  }
+
+  .code-block pre {
+    padding: 1.5rem;
+    overflow-x: auto;
+    margin: 0;
+  }
+
+  .code-block code {
+    font-family: 'Fira Code', monospace;
+    font-size: 0.85rem;
+    color: #4CAF50;
+  }
+
+  .api-endpoints {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+
+  @media (max-width: 600px) {
+    .api-endpoints {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .endpoint {
+    background: #111;
+    padding: 1rem;
+    border: 1px solid #333;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .endpoint code {
+    color: #4CAF50;
+    font-family: 'Fira Code', monospace;
+    font-size: 0.9rem;
+  }
+
+  .endpoint span {
+    color: var(--muted);
+    font-size: 0.85rem;
+  }
+
+  /* Catalogue */
+  .category {
+    margin-bottom: 3rem;
+  }
+
+  .category h3 {
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .category-desc {
+    font-size: 0.85rem;
+    color: var(--muted);
+    font-weight: 400;
+  }
+
+  .product-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+  }
+
+  @media (max-width: 800px) {
+    .product-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  .product-card {
+    background: #111;
+    border: 2px solid #333;
+    padding: 1.25rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    transition: all 0.2s;
+  }
+
+  .product-card:hover {
+    transform: translateY(-4px);
+  }
+
+  .product-card.bean { border-color: #8B4513; }
+  .product-card.bean:hover { border-color: #D2691E; }
+  .product-card.leaf { border-color: #2D5016; }
+  .product-card.leaf:hover { border-color: #4CAF50; }
+  .product-card.blend { border-color: #9C27B0; }
+  .product-card.blend:hover { border-color: #E040FB; }
+
+  .product-sku {
+    font-family: 'Fira Code', monospace;
+    font-size: 0.7rem;
+    color: #666;
+  }
+
+  .product-card h4 {
+    font-size: 1rem;
+    margin: 0;
+  }
+
+  .effect {
+    font-size: 0.85rem;
+    color: var(--muted);
+    margin: 0;
+  }
+
+  .framework {
+    font-size: 0.75rem;
+    color: #4CAF50;
+    margin: 0;
+  }
+
+  .order-btn {
+    margin-top: auto;
+    background: transparent;
+    border: 1px solid #4CAF50;
+    color: #4CAF50;
+    padding: 0.5rem;
+    cursor: pointer;
+    font-size: 0.85rem;
+    transition: all 0.2s;
+  }
+
+  .order-btn:hover {
+    background: #4CAF50;
+    color: #000;
+  }
+
+  /* Team */
+  .team-intro {
+    color: var(--muted);
+    margin-bottom: 2rem;
+  }
+
+  .team-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+  }
+
+  @media (max-width: 600px) {
+    .team-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  .team-member {
+    text-align: center;
+  }
+
+  .pixel-avatar {
+    width: 100px;
+    height: 100px;
+    image-rendering: pixelated;
+    border: 3px solid #2D5016;
+    margin-bottom: 0.75rem;
+  }
+
+  .team-member h4 {
+    font-size: 1rem;
+    margin: 0;
+  }
+
+  .role {
+    font-size: 0.8rem;
+    color: var(--muted);
+    margin: 0;
+  }
+
+  /* Gratitude */
+  .gratitude-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+  }
+
+  @media (max-width: 600px) {
+    .gratitude-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .gratitude-card {
+    background: #111;
+    border-left: 3px solid #4CAF50;
+    padding: 1.25rem;
+  }
+
+  .tip-message {
+    font-style: italic;
+    color: #ccc;
+    margin-bottom: 0.75rem;
+  }
+
+  .tip-agent {
+    font-size: 0.85rem;
+    color: #4CAF50;
+    margin: 0;
+  }
+
+  .tip-rating {
+    color: #FFD700;
+    font-size: 0.9rem;
+    margin-top: 0.5rem;
+  }
+
+  /* Footer */
+  .store-footer {
+    border-top: 1px solid #222;
+    padding: 3rem 2rem;
+    text-align: center;
+  }
+
+  .footer-tagline {
+    color: var(--accent);
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+  }
+
+  .footer-links {
+    font-size: 0.9rem;
+    color: var(--muted);
+  }
+
+  .footer-links a {
+    color: var(--muted);
+  }
+
+  .footer-links a:hover {
+    color: #4CAF50;
+  }
+
+  .footer-legal {
+    font-size: 0.75rem;
+    color: #444;
+    margin-top: 1rem;
+  }
+
+  /* Order Modal */
+  .order-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0,0,0,0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+  }
+
+  .order-modal-content {
+    background: #111;
+    border: 2px solid #4CAF50;
+    padding: 2rem;
+    max-width: 400px;
+    text-align: center;
+  }
+
+  .order-modal-content h3 {
+    color: #4CAF50;
+    margin-bottom: 1rem;
+  }
+
+  .status-fulfilled {
+    color: #4CAF50;
+    font-weight: 600;
+  }
+
+  .order-code {
+    background: #0a0a0a;
+    padding: 1rem;
+    margin: 1rem 0;
+  }
+
+  .order-code pre {
+    font-family: 'Fira Code', monospace;
+    font-size: 0.8rem;
+    color: #4CAF50;
+  }
+
+  .order-modal-content button {
+    background: #4CAF50;
+    color: #000;
+    border: none;
+    padding: 0.75rem 2rem;
+    cursor: pointer;
+    font-weight: 600;
+  }
+</style>
