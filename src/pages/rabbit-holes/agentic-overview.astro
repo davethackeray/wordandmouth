@@ -1,0 +1,798 @@
+---
+import Base from '../../layouts/Base.astro';
+---
+
+<Base title="Agentic AI Operations" description="How multi-agent systems transform business processes — with BeLeaf as the demo">
+  <article class="rabbit-hole">
+    <section class="hero-rabbit">
+      <a href="/rabbit-holes/" class="back-link">← Rabbit Holes</a>
+      <div class="rabbit-tenets">
+        <span class="tenet">AI</span>
+        <span class="tenet">Insight</span>
+      </div>
+      <h1>Agentic AI Operations</h1>
+      <p class="rabbit-tagline">Multi-agent systems that transform manual processes into autonomous, intelligent workflows</p>
+    </section>
+
+    <section class="section">
+      <h2 class="section-label">The Core Insight</h2>
+      <div class="insight-box">
+        <blockquote>
+          "The question isn't 'Will AI replace me?' — it's 'How do I lead a hybrid workforce of humans and synthetic agents?'"
+        </blockquote>
+        <p>
+          By 2026, AI has become infrastructure. But most businesses are still stuck in pilot mode.
+          <strong>Agentic AI</strong> is different — these systems don't just generate content, they
+          <em>execute multi-step workflows</em> autonomously.
+        </p>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2 class="section-label">The Pattern</h2>
+      <div class="pattern-container">
+        <p>The <strong>Converged Multi-Agent Pattern</strong> — practical, enterprise-ready:</p>
+        <div class="pattern-visual">
+          <div class="agent-card plan">
+            <span class="agent-icon">🎯</span>
+            <h4>Plan Agent</h4>
+            <p>Maps the problem, defines data sources, sets goals</p>
+          </div>
+          <div class="flow-arrow">↓</div>
+          <div class="agent-card exec">
+            <span class="agent-icon">⚙️</span>
+            <h4>Execution Agent</h4>
+            <p>Builds scripts, calls APIs, processes data in sandbox</p>
+          </div>
+          <div class="flow-arrow">↓</div>
+          <div class="task-agents">
+            <div class="agent-card task">
+              <span class="agent-icon">📊</span>
+              <h4>Task 1</h4>
+            </div>
+            <div class="agent-card task">
+              <span class="agent-icon">🔄</span>
+              <h4>Task 2</h4>
+            </div>
+            <div class="agent-card task">
+              <span class="agent-icon">📝</span>
+              <h4>Task 3</h4>
+            </div>
+          </div>
+          <p class="task-label">Parallel sub-tasks with isolated execution</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section demo-section">
+      <h2 class="section-label">See It In Action: BeLeaf</h2>
+      <div class="beleaf-intro">
+        <div class="beleaf-logo">🌿☕</div>
+        <h3>Meet BeLeaf</h3>
+        <p>
+          A synthetic tea & coffee supplier we built to demonstrate these patterns.
+          149 employees, £18M revenue, real challenges mapped to real solutions.
+        </p>
+        <a href="/beleaf/" class="inline-link">Explore BeLeaf →</a>
+      </div>
+      
+      <div class="process-selector">
+        <h4>Select a process to see transformation:</h4>
+        <div class="process-tabs" id="process-tabs">
+          <button class="tab active" data-process="inventory">📦 Inventory</button>
+          <button class="tab" data-process="customer">💬 Customer Service</button>
+          <button class="tab" data-process="supply">🚚 Supply Chain</button>
+          <button class="tab" data-process="hr">👥 HR Pipeline</button>
+          <button class="tab" data-process="finance">📊 Finance</button>
+        </div>
+      </div>
+
+      <div class="process-content" id="process-content">
+        <div class="process-panel active" data-panel="inventory">
+          <div class="before-after">
+            <div class="before">
+              <h5>Before</h5>
+              <p>Manual morning counts, spreadsheet updates, gut-feel ordering</p>
+            </div>
+            <div class="after">
+              <h5>After</h5>
+              <p>Real-time monitoring with predictive alerts</p>
+            </div>
+          </div>
+          <div class="metrics">
+            <div class="metric">
+              <span class="metric-value">20-30%</span>
+              <span class="metric-label">reduction in stockouts</span>
+            </div>
+            <div class="metric">
+              <span class="metric-value">50%</span>
+              <span class="metric-label">faster processing</span>
+            </div>
+          </div>
+          <p class="key-person"><strong>Key Person:</strong> Carlos Mendez (VP Ops) — "Everything is manual, we're drowning"</p>
+        </div>
+
+        <div class="process-panel" data-panel="customer">
+          <div class="before-after">
+            <div class="before">
+              <h5>Before</h5>
+              <p>Manual cross-referencing, 24-48hr response times</p>
+            </div>
+            <div class="after">
+              <h5>After</h5>
+              <p>Instant resolution with intelligent escalation</p>
+            </div>
+          </div>
+          <div class="metrics">
+            <div class="metric">
+              <span class="metric-value">40%</span>
+              <span class="metric-label">faster resolution</span>
+            </div>
+            <div class="metric">
+              <span class="metric-value">30%</span>
+              <span class="metric-label">churn reduction</span>
+            </div>
+          </div>
+          <p class="key-person"><strong>Key Person:</strong> Tom Harrison (Head of CX) — "Amazing feedback data, not sure what to do"</p>
+        </div>
+
+        <div class="process-panel" data-panel="supply">
+          <div class="before-after">
+            <div class="before">
+              <h5>Before</h5>
+              <p>Manual coordination with 50+ vendors, reactive rerouting</p>
+            </div>
+            <div class="after">
+              <h5>After</h5>
+              <p>Proactive optimization with route graphing</p>
+            </div>
+          </div>
+          <div class="metrics">
+            <div class="metric">
+              <span class="metric-value">15-25%</span>
+              <span class="metric-label">waste reduction</span>
+            </div>
+            <div class="metric">
+              <span class="metric-value">20%</span>
+              <span class="metric-label">logistics cost cut</span>
+            </div>
+          </div>
+          <p class="key-person"><strong>Key Person:</strong> Anna Kowalski (Procurement) — supply chain volatility pain</p>
+        </div>
+
+        <div class="process-panel" data-panel="hr">
+          <div class="before-after">
+            <div class="before">
+              <h5>Before</h5>
+              <p>8-day onboarding, 40% prospect drop-off, manual screening</p>
+            </div>
+            <div class="after">
+              <h5>After</h5>
+              <p>Automated matching with skill-based filtering</p>
+            </div>
+          </div>
+          <div class="metrics">
+            <div class="metric">
+              <span class="metric-value">50%</span>
+              <span class="metric-label">faster time-to-hire</span>
+            </div>
+            <div class="metric">
+              <span class="metric-value">4 days</span>
+              <span class="metric-label">new onboarding time</span>
+            </div>
+          </div>
+          <p class="key-person"><strong>Key Person:</strong> Ahmed Hassan (Talent) — "Tech hiring in Bristol is brutal"</p>
+        </div>
+
+        <div class="process-panel" data-panel="finance">
+          <div class="before-after">
+            <div class="before">
+              <h5>Before</h5>
+              <p>12-day close, 4 disconnected systems, CFO formatting reports</p>
+            </div>
+            <div class="after">
+              <h5>After</h5>
+              <p>Real-time scenario-based forecasting</p>
+            </div>
+          </div>
+          <div class="metrics">
+            <div class="metric">
+              <span class="metric-value">30%</span>
+              <span class="metric-label">accuracy improvement</span>
+            </div>
+            <div class="metric">
+              <span class="metric-value">5 days</span>
+              <span class="metric-label">new close time</span>
+            </div>
+          </div>
+          <p class="key-person"><strong>Key Person:</strong> James Okonkwo (CFO) — "Close takes 12 days, should take 5"</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2 class="section-label">The Dashboard Concept</h2>
+      <div class="dashboard-mockup">
+        <div class="dashboard-header">
+          <span class="dashboard-title">BeLeaf Agentic AI Dashboard</span>
+          <span class="dashboard-user">Admin: Sarah</span>
+        </div>
+        <div class="dashboard-body">
+          <div class="log-panel">
+            <div class="log-title">LIVE AGENT LOG</div>
+            <div class="log-entry"><span class="time">10:32:14</span> Plan Agent: Mapping query types...</div>
+            <div class="log-entry"><span class="time">10:32:15</span> Exec Agent: Fetching order #BL-2847...</div>
+            <div class="log-entry"><span class="time">10:32:16</span> Task Agent: Status verified - SHIPPED</div>
+            <div class="log-entry success"><span class="time">10:32:17</span> ✓ Query resolved in 4.2 seconds</div>
+          </div>
+          <div class="metrics-row">
+            <div class="dash-metric">
+              <span class="dash-value">247</span>
+              <span class="dash-label">Queries Today</span>
+              <span class="dash-trend up">↑ 23%</span>
+            </div>
+            <div class="dash-metric">
+              <span class="dash-value">4.8s</span>
+              <span class="dash-label">Avg Resolution</span>
+              <span class="dash-trend down">↓ 82%</span>
+            </div>
+            <div class="dash-metric">
+              <span class="dash-value">12</span>
+              <span class="dash-label">Escalations</span>
+              <span class="dash-trend down">↓ 65%</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2 class="section-label">Resources</h2>
+      <div class="resources-grid">
+        <a href="https://medium.com/ai-today/how-to-run-a-hotel-with-agentic-ai-fe09f364e664" target="_blank" class="resource-card">
+          <span class="resource-icon">📖</span>
+          <h4>Original Article</h4>
+          <p>How hotels reap rewards from agentic AI</p>
+        </a>
+        <a href="https://open.substack.com/pub/shrivu/p/building-multi-agent-systems-part-c0c" target="_blank" class="resource-card">
+          <span class="resource-icon">📚</span>
+          <h4>Deep Dive</h4>
+          <p>Building Multi-Agent Systems (Substack)</p>
+        </a>
+        <a href="/beleaf/" class="resource-card">
+          <span class="resource-icon">🌿</span>
+          <h4>BeLeaf</h4>
+          <p>Explore the synthetic business</p>
+        </a>
+      </div>
+    </section>
+
+    <section class="section cta-section">
+      <div class="cta-box">
+        <h3>Ready to transform your processes?</h3>
+        <p>Let's map your workflows and identify where agentic AI can save you time, money, and sanity.</p>
+        <a href="mailto:dave@wordandmouth.com?subject=Agentic%20AI%20Transformation" class="cta-button">Start the Conversation</a>
+      </div>
+    </section>
+
+    <footer class="article-footer">
+      <div class="related-links">
+        <h4>Explore Related</h4>
+        <a href="/ai/">AI Tenet →</a>
+        <a href="/insight/">Insight Tenet →</a>
+        <a href="/rabbit-holes/building-intelligence/">Building Intelligence →</a>
+        <a href="/beleaf/">BeLeaf →</a>
+      </div>
+    </footer>
+  </article>
+</Base>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const tabs = document.querySelectorAll('.tab');
+    const panels = document.querySelectorAll('.process-panel');
+    
+    tabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        const process = tab.dataset.process;
+        
+        tabs.forEach(t => t.classList.remove('active'));
+        tab.classList.add('active');
+        
+        panels.forEach(p => {
+          p.classList.remove('active');
+          if (p.dataset.panel === process) {
+            p.classList.add('active');
+          }
+        });
+      });
+    });
+  });
+</script>
+
+<style>
+  .rabbit-hole {
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .hero-rabbit {
+    padding: 10rem 2rem 4rem;
+  }
+
+  .back-link {
+    display: inline-block;
+    color: var(--muted);
+    font-size: 0.9rem;
+    margin-bottom: 1.5rem;
+    transition: color 0.2s;
+  }
+
+  .back-link:hover {
+    color: var(--accent);
+  }
+
+  .rabbit-tenets {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .tenet {
+    background: rgba(255, 107, 53, 0.15);
+    color: var(--accent);
+    padding: 0.25rem 0.6rem;
+    font-size: 0.7rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .hero-rabbit h1 {
+    font-size: clamp(2rem, 5vw, 3rem);
+    margin-bottom: 1rem;
+  }
+
+  .rabbit-tagline {
+    color: var(--muted);
+    font-size: 1.2rem;
+    max-width: 600px;
+  }
+
+  .section {
+    padding: 3rem 2rem;
+    border-top: 1px solid #222;
+  }
+
+  .section-label {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--accent);
+    margin-bottom: 1.5rem;
+  }
+
+  .insight-box {
+    background: #111;
+    padding: 2rem;
+    border-left: 3px solid var(--accent);
+  }
+
+  .insight-box blockquote {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1.3rem;
+    line-height: 1.4;
+    margin: 0 0 1.5rem 0;
+    color: var(--text);
+  }
+
+  .insight-box p {
+    color: var(--muted);
+    line-height: 1.7;
+  }
+
+  /* Pattern Visual */
+  .pattern-container p {
+    color: var(--muted);
+    margin-bottom: 1.5rem;
+  }
+
+  .pattern-visual {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .agent-card {
+    background: #111;
+    padding: 1rem 1.5rem;
+    text-align: center;
+    min-width: 200px;
+    border-left: 3px solid var(--accent);
+  }
+
+  .agent-card.plan { border-color: #4CAF50; }
+  .agent-card.exec { border-color: #2196F3; }
+  .agent-card.task { border-color: #9C27B0; min-width: auto; padding: 0.75rem 1rem; }
+
+  .agent-icon {
+    font-size: 1.5rem;
+    display: block;
+    margin-bottom: 0.5rem;
+  }
+
+  .agent-card h4 {
+    font-size: 0.9rem;
+    margin-bottom: 0.25rem;
+  }
+
+  .agent-card p {
+    font-size: 0.8rem;
+    color: var(--muted);
+    margin: 0;
+  }
+
+  .flow-arrow {
+    color: var(--accent);
+    font-size: 1.5rem;
+  }
+
+  .task-agents {
+    display: flex;
+    gap: 0.5rem;
+  }
+
+  .task-label {
+    font-size: 0.8rem;
+    color: var(--muted);
+    margin-top: 0.5rem;
+  }
+
+  /* BeLeaf Demo */
+  .beleaf-intro {
+    background: linear-gradient(135deg, rgba(45, 80, 22, 0.2) 0%, rgba(74, 55, 40, 0.2) 100%);
+    padding: 2rem;
+    text-align: center;
+    margin-bottom: 2rem;
+    border: 1px solid #333;
+  }
+
+  .beleaf-logo {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+  }
+
+  .beleaf-intro h3 {
+    margin-bottom: 0.5rem;
+  }
+
+  .beleaf-intro p {
+    color: var(--muted);
+    max-width: 500px;
+    margin: 0 auto 1rem;
+  }
+
+  .inline-link {
+    color: var(--accent);
+    font-weight: 600;
+  }
+
+  /* Process Tabs */
+  .process-selector h4 {
+    color: var(--muted);
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+  }
+
+  .process-tabs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .tab {
+    background: #111;
+    border: 1px solid #333;
+    padding: 0.5rem 1rem;
+    color: var(--muted);
+    cursor: pointer;
+    font-size: 0.85rem;
+    transition: all 0.2s;
+  }
+
+  .tab:hover {
+    border-color: var(--accent);
+    color: var(--text);
+  }
+
+  .tab.active {
+    background: var(--accent);
+    color: #000;
+    border-color: var(--accent);
+  }
+
+  /* Process Panels */
+  .process-panel {
+    display: none;
+    background: #111;
+    padding: 1.5rem;
+  }
+
+  .process-panel.active {
+    display: block;
+  }
+
+  .before-after {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .before, .after {
+    padding: 1rem;
+  }
+
+  .before {
+    background: rgba(244, 67, 54, 0.1);
+    border-left: 3px solid #F44336;
+  }
+
+  .after {
+    background: rgba(76, 175, 80, 0.1);
+    border-left: 3px solid #4CAF50;
+  }
+
+  .before h5, .after h5 {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    margin-bottom: 0.5rem;
+  }
+
+  .before p, .after p {
+    font-size: 0.9rem;
+    color: var(--text);
+    margin: 0;
+  }
+
+  .metrics {
+    display: flex;
+    gap: 2rem;
+    margin-bottom: 1rem;
+  }
+
+  .metric {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .metric-value {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--accent);
+  }
+
+  .metric-label {
+    font-size: 0.8rem;
+    color: var(--muted);
+  }
+
+  .key-person {
+    font-size: 0.85rem;
+    color: var(--muted);
+    font-style: italic;
+  }
+
+  /* Dashboard Mockup */
+  .dashboard-mockup {
+    background: #0a0a0a;
+    border: 1px solid #333;
+    border-radius: 8px;
+    overflow: hidden;
+  }
+
+  .dashboard-header {
+    background: #111;
+    padding: 0.75rem 1rem;
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid #333;
+  }
+
+  .dashboard-title {
+    font-weight: 600;
+    font-size: 0.9rem;
+  }
+
+  .dashboard-user {
+    color: var(--muted);
+    font-size: 0.8rem;
+  }
+
+  .dashboard-body {
+    padding: 1rem;
+  }
+
+  .log-panel {
+    background: #050505;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.75rem;
+  }
+
+  .log-title {
+    color: var(--muted);
+    margin-bottom: 0.5rem;
+    font-size: 0.65rem;
+    letter-spacing: 0.1em;
+  }
+
+  .log-entry {
+    color: var(--muted);
+    margin-bottom: 0.25rem;
+  }
+
+  .log-entry .time {
+    color: #666;
+    margin-right: 0.5rem;
+  }
+
+  .log-entry.success {
+    color: #4CAF50;
+  }
+
+  .metrics-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+  }
+
+  .dash-metric {
+    background: #111;
+    padding: 1rem;
+    text-align: center;
+  }
+
+  .dash-value {
+    display: block;
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+  }
+
+  .dash-label {
+    display: block;
+    font-size: 0.7rem;
+    color: var(--muted);
+    margin-bottom: 0.25rem;
+  }
+
+  .dash-trend {
+    font-size: 0.75rem;
+    font-weight: 600;
+  }
+
+  .dash-trend.up { color: #4CAF50; }
+  .dash-trend.down { color: #4CAF50; }
+
+  /* Resources */
+  .resources-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+  }
+
+  .resource-card {
+    background: #111;
+    padding: 1.5rem;
+    border-left: 3px solid transparent;
+    transition: all 0.2s;
+    text-decoration: none;
+  }
+
+  .resource-card:hover {
+    border-left-color: var(--accent);
+    transform: translateX(4px);
+  }
+
+  .resource-icon {
+    font-size: 1.5rem;
+    display: block;
+    margin-bottom: 0.75rem;
+  }
+
+  .resource-card h4 {
+    color: var(--text);
+    margin-bottom: 0.25rem;
+  }
+
+  .resource-card p {
+    color: var(--muted);
+    font-size: 0.85rem;
+    margin: 0;
+  }
+
+  /* CTA */
+  .cta-box {
+    background: linear-gradient(135deg, #1a1a1a 0%, #0f0f0f 100%);
+    padding: 3rem;
+    text-align: center;
+    border: 1px solid #333;
+  }
+
+  .cta-box h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .cta-box p {
+    color: var(--muted);
+    margin-bottom: 1.5rem;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .cta-button {
+    display: inline-block;
+    background: var(--accent);
+    color: #000;
+    padding: 0.75rem 2rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+
+  .cta-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 20px rgba(255, 107, 53, 0.3);
+  }
+
+  /* Footer */
+  .article-footer {
+    padding: 3rem 2rem;
+    border-top: 1px solid #222;
+  }
+
+  .related-links {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .related-links h4 {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--muted);
+    margin-bottom: 0.5rem;
+  }
+
+  .related-links a {
+    color: var(--accent);
+    font-weight: 600;
+    transition: opacity 0.2s;
+  }
+
+  .related-links a:hover {
+    opacity: 0.8;
+  }
+
+  @media (max-width: 600px) {
+    .before-after {
+      grid-template-columns: 1fr;
+    }
+    
+    .metrics-row {
+      grid-template-columns: 1fr;
+    }
+    
+    .task-agents {
+      flex-direction: column;
+    }
+  }
+</style>
