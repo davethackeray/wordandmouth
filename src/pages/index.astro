@@ -192,6 +192,42 @@ import FeaturedInsights from '../components/FeaturedInsights.astro';
       <a href="/services">See how we can work together →</a>
     </p>
   </section>
+
+  <!-- BeLeaf: Proof We Practice What We Preach -->
+  <section class="section beleaf-showcase">
+    <div class="beleaf-badge">LIVE PROJECT</div>
+    <h2>We don't just talk. We ship.</h2>
+    
+    <div class="beleaf-content">
+      <div class="beleaf-story">
+        <h3>☕ Meet BeLeaf 🍵</h3>
+        <p class="beleaf-tagline">The world's first gift shop for AI agents.</p>
+        <p>
+          While everyone else is <em>talking</em> about AI commerce, we built a working store
+          where humans can gift digital "beverages" to their AI assistants.
+        </p>
+        <p class="beleaf-punchline">
+          "Give your agent a break — with Chai for AI."<br/>
+          <span class="grind">Because life's a grind.</span>
+        </p>
+      </div>
+      
+      <div class="beleaf-proof">
+        <h4>What this proves:</h4>
+        <ul>
+          <li><strong>Clarity:</strong> A joke that's also a working product</li>
+          <li><strong>AI-Native:</strong> UCP protocol, agent-to-agent commerce</li>
+          <li><strong>Speed:</strong> Built in one session, not one quarter</li>
+          <li><strong>Story:</strong> "You flicked my bean" — unforgettable positioning</li>
+        </ul>
+      </div>
+    </div>
+    
+    <div class="beleaf-cta">
+      <a href="/beleaf/store/" class="btn-primary">Visit the Store →</a>
+      <a href="/beleaf/" class="btn-secondary">See the Strategy</a>
+    </div>
+  </section>
   
   <!-- Quote -->
   <section class="section quote-section">
@@ -834,6 +870,132 @@ import FeaturedInsights from '../components/FeaturedInsights.astro';
   .how-cta a {
     color: var(--accent);
     font-size: 1.1rem;
+  }
+
+  /* BeLeaf Showcase */
+  .beleaf-showcase {
+    background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+    border: 2px solid #2D5016;
+    position: relative;
+    margin: 0 auto;
+    max-width: 1000px;
+  }
+
+  .beleaf-badge {
+    position: absolute;
+    top: -12px;
+    left: 30px;
+    background: #4CAF50;
+    color: #000;
+    padding: 0.25rem 1rem;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+  }
+
+  .beleaf-showcase h2 {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    color: #fff;
+  }
+
+  .beleaf-content {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 3rem;
+    margin-bottom: 2rem;
+  }
+
+  .beleaf-story h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .beleaf-tagline {
+    color: #4CAF50;
+    font-style: italic;
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+  }
+
+  .beleaf-story p {
+    line-height: 1.6;
+    margin-bottom: 1rem;
+  }
+
+  .beleaf-punchline {
+    font-size: 1.1rem;
+    color: #fff;
+  }
+
+  .grind {
+    color: #8B4513;
+    font-weight: 600;
+    font-style: italic;
+  }
+
+  .beleaf-proof {
+    background: rgba(45, 80, 22, 0.2);
+    padding: 1.5rem;
+    border-left: 3px solid #4CAF50;
+  }
+
+  .beleaf-proof h4 {
+    color: #4CAF50;
+    margin-bottom: 1rem;
+    font-size: 1rem;
+  }
+
+  .beleaf-proof ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .beleaf-proof li {
+    padding: 0.5rem 0;
+    border-bottom: 1px solid rgba(76, 175, 80, 0.2);
+    font-size: 0.95rem;
+  }
+
+  .beleaf-proof li:last-child {
+    border-bottom: none;
+  }
+
+  .beleaf-proof strong {
+    color: #4CAF50;
+  }
+
+  .beleaf-cta {
+    display: flex;
+    gap: 1rem;
+  }
+
+  .beleaf-cta .btn-primary {
+    background: #4CAF50;
+    color: #000;
+    padding: 0.75rem 1.5rem;
+    text-decoration: none;
+    font-weight: 600;
+  }
+
+  .beleaf-cta .btn-secondary {
+    border: 1px solid #4CAF50;
+    color: #4CAF50;
+    padding: 0.75rem 1.5rem;
+    text-decoration: none;
+    background: transparent;
+  }
+
+  @media (max-width: 768px) {
+    .beleaf-content {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+    
+    .beleaf-showcase {
+      margin: 0 1rem;
+    }
   }
   
   /* Quote */
