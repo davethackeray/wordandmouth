@@ -3,20 +3,40 @@ import Base from '../layouts/Base.astro';
 import FeaturedInsights from '../components/FeaturedInsights.astro';
 ---
 
-<Base title="You're doing OK. But you don't know how to do great">
+<Base title="Listen. Dig. Deliver. — Word And Mouth">
   <!-- Hero Section -->
-  <section class="hero">
-    <h1>
-      You're doing OK.<br/>
-      But you don't know how to do <span class="highlight">great</span>.
-    </h1>
-    <p class="hero-sub">
-      Every business was created to solve a big problem.
-    </p>
-    <p class="hero-sub-small">
-      But most have forgotten what it is. So they sell products instead of solutions. 
-      They talk about features instead of outcomes. And they wonder why growth stalls.
-    </p>
+  <section class="hero hero-new">
+    <div class="hero-content">
+      <div class="hero-text">
+        <h1 class="strike-problem">
+          <span class="strikethrough">problem</span>
+        </h1>
+        
+        <p class="hero-philosophy">
+          Every business is created to solve a big problem.<br/>
+          <span class="hero-pivot">Ours? Yours.</span>
+        </p>
+        
+        <p class="hero-intro">
+          With 30 years in journalism, business strategy, and coaching —<br/>
+          we quickly find where the bodies are buried.<br/>
+          <strong>And bring your business back to life.</strong>
+        </p>
+        
+        <div class="hero-formula">
+          <span class="formula-item">Listen</span>
+          <span class="formula-dot">.</span>
+          <span class="formula-item">Dig</span>
+          <span class="formula-dot">.</span>
+          <span class="formula-item">Deliver</span>
+          <span class="formula-dot">.</span>
+        </div>
+        
+        <div class="hero-cta">
+          <a href="mailto:dave@wordandmouth.com" class="cta-button">Start the Conversation</a>
+        </div>
+      </div>
+    </div>
     
     <div class="proof">
       <div class="proof-item">
@@ -484,44 +504,146 @@ import FeaturedInsights from '../components/FeaturedInsights.astro';
     color: var(--accent);
   }
 
-  /* Hero */
-  .hero {
-    min-height: 60vh;
+  /* Hero - New Design */
+  .hero.hero-new {
+    min-height: 90vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding: 10rem 2rem 4rem;
-    max-width: 900px;
+    padding: 8rem 2rem 4rem;
+    max-width: 1200px;
     margin: 0 auto;
+    background: url('/assets/hero-background.png') center bottom no-repeat;
+    background-size: 100% auto;
+    background-color: #000;
+    position: relative;
   }
-  
-  .hero h1 {
-    font-size: clamp(2.2rem, 7vw, 3.5rem);
-    line-height: 1.15;
-    margin-bottom: 2rem;
+
+  .hero.hero-new::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.3) 50%, rgba(0,0,0,0.9) 100%);
+    pointer-events: none;
   }
-  
-  .hero-sub {
-    font-size: 1.3rem;
+
+  .hero-content {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    gap: 4rem;
+    align-items: center;
+    position: relative;
+    z-index: 1;
+  }
+
+  .hero-text {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .strike-problem {
+    margin: 0;
+  }
+
+  .strikethrough {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: clamp(4rem, 12vw, 8rem);
+    font-weight: 700;
+    color: #fff;
+    text-decoration: line-through;
+    text-decoration-color: #ff4444;
+    text-decoration-thickness: 8px;
+    line-height: 1;
+    display: inline-block;
+  }
+
+  .hero-philosophy {
+    font-size: 1.4rem;
     color: #ccc;
-    max-width: 650px;
-    margin-bottom: 1.5rem;
     line-height: 1.5;
+    margin: 0;
   }
-  
-  .hero-sub-small {
+
+  .hero-pivot {
+    display: block;
+    font-size: 2rem;
+    font-weight: 700;
+    color: #fff;
+    margin-top: 0.5rem;
+  }
+
+  .hero-intro {
     font-size: 1.1rem;
-    color: var(--muted);
-    max-width: 600px;
-    margin-bottom: 3rem;
+    color: #999;
+    line-height: 1.6;
+    margin: 0;
   }
-  
+
+  .hero-intro strong {
+    color: #4CAF50;
+  }
+
+  .hero-formula {
+    display: flex;
+    gap: 0.5rem;
+    align-items: baseline;
+    margin-top: 1rem;
+  }
+
+  .formula-item {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--accent);
+  }
+
+  .formula-dot {
+    font-size: 2rem;
+    color: #666;
+    font-weight: 700;
+  }
+
+  .hero-cta {
+    margin-top: 1rem;
+  }
+
+  .hero-visual {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    z-index: 1;
+  }
+
+  .elixir-bottle {
+    max-width: 300px;
+    filter: drop-shadow(0 0 30px rgba(76, 175, 80, 0.4));
+    animation: float 3s ease-in-out infinite;
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+  }
+
+  .elixir-caption {
+    color: #4CAF50;
+    font-size: 0.9rem;
+    font-style: italic;
+    margin-top: 1rem;
+    text-align: center;
+  }
+
   .proof {
     display: flex;
     flex-wrap: wrap;
     gap: 2.5rem;
     padding-top: 2rem;
     border-top: 1px solid var(--border);
+    position: relative;
+    z-index: 1;
+    margin-top: 3rem;
   }
   
   .proof-item {
@@ -995,6 +1117,35 @@ import FeaturedInsights from '../components/FeaturedInsights.astro';
     
     .beleaf-showcase {
       margin: 0 1rem;
+    }
+
+    /* Strip background theatrics on mobile */
+    .hero.hero-new {
+      background: none;
+      background-color: #000;
+      min-height: auto;
+      padding: 6rem 1.5rem 3rem;
+    }
+
+    .hero.hero-new::before {
+      display: none;
+    }
+
+    .hero-content {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+
+    .strikethrough {
+      font-size: 3rem;
+    }
+
+    .hero-pivot {
+      font-size: 1.5rem;
+    }
+
+    .formula-item, .formula-dot {
+      font-size: 1.5rem;
     }
   }
   
