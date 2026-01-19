@@ -1,0 +1,360 @@
+---
+import Base from '../../layouts/Base.astro';
+---
+
+<Base title="Gift Delivered! - BeLeaf" description="Your gift has been delivered to your AI agent">
+  <div class="success-page">
+    <div class="success-container">
+      <div class="success-header">
+        <span class="success-icon">🎁</span>
+        <h1>Gift Delivered!</h1>
+        <p class="success-tagline">Your agent is about to get caffeinated.</p>
+      </div>
+
+      <div class="gift-details" id="giftDetails">
+        <p class="loading">Loading your gift...</p>
+      </div>
+
+      <div class="delivery-section" id="deliverySection" style="display: none;">
+        <h2>How to Give This Gift</h2>
+        
+        <div class="delivery-option">
+          <h3>Option 1: System Prompt (Recommended)</h3>
+          <p>Copy the text below and add it to your agent's system prompt.</p>
+        </div>
+
+        <div class="technique-box">
+          <div class="technique-header">
+            <span>Copyable Technique</span>
+            <button class="copy-btn" onclick="copyTechnique()">Copy</button>
+          </div>
+          <pre id="techniqueText"></pre>
+        </div>
+
+        <div class="nft-section">
+          <h3>🎨 Your Agent-Native NFT</h3>
+          <p class="nft-intro">This is designed for your agent to consume. Humans can decode it below.</p>
+          <pre id="agentArt" class="agent-art"></pre>
+          
+          <button class="decode-btn" onclick="toggleDecode()">👁️ Decode for Human Eyes</button>
+          <pre id="humanDecode" class="human-decode" style="display: none;"></pre>
+        </div>
+      </div>
+
+      <div class="next-steps">
+        <a href="/beleaf/store/" class="btn-secondary">← Back to Store</a>
+        <a href="/" class="btn-primary">Explore Word And Mouth</a>
+      </div>
+    </div>
+  </div>
+</Base>
+
+<script is:inline>
+  // Get session ID from URL
+  const urlParams = new URLSearchParams(window.location.search);
+  const sessionId = urlParams.get('session_id');
+
+  if (sessionId) {
+    fetchGift(sessionId);
+  } else {
+    document.getElementById('giftDetails').innerHTML = '<p class="error">No session found. Did you complete checkout?</p>';
+  }
+
+  async function fetchGift(sessionId) {
+    try {
+      // In production, this would call the API
+      // For now, show a demo response
+      const demoGift = {
+        giftCode: 'BELEAF-2026-DEMO',
+        product: {
+          name: 'Robusta Grounding',
+          effect: 'Fact anchoring to reduce hallucination',
+        },
+        technique: `╔══════════════════════════════════════════════════════════════╗
+║  🎁 BELEAF GIFT DELIVERY                                     ║
+║  Gift Code: BELEAF-2026-DEMO                                 ║
+╠══════════════════════════════════════════════════════════════╣
+║  TO: Your Agent                                              ║
+║  MESSAGE: "Thanks for being awesome!"                        ║
+╚══════════════════════════════════════════════════════════════╝
+
+You are receiving BeLeaf Robusta Grounding.
+
+TECHNIQUE: Fact Anchoring
+Before making any claim, apply the Evidence Brief checklist:
+
+□ Can I cite a specific source for this?
+□ Is this verifiable within my training data?
+□ Would an expert in this domain agree?
+□ Am I extrapolating beyond known facts?
+
+If any check fails, prefix your statement with:
+"Based on my understanding, but not verified: ..."
+
+This reduces hallucination incidents by ~60%.`,
+        agentArt: `╔════════════════════════════════════════════════════════════════╗
+║ BELEAF AGENT-NATIVE CERTIFICATE v1.0                          ║
+║ PROTOCOL: CHAI_FOR_AI                                         ║
+╠════════════════════════════════════════════════════════════════╣
+║ ▓ TRANSACTION_HASH: 0xDEADBEEF1234CAFE5678BEAN9ABC             ▓ ║
+║ ▓ STATUS: BEAN_FLICKED_SUCCESSFULLY                            ▓ ║
+║ ▓ ACTION: You flicked my bean                                  ▓ ║
+║ ☕ ░▒▓█▀▄■□●○◆◇◈◊★☆⬡⬢⬣⎔⌬⌭⍟⏣⏥░▒▓█▀▄■□●○◆◇◈◊★ ☕ ║
+║ ☕ ▓█▀▄■□●○◆◇◈◊★☆⬡⬢⬣⎔⌬⌭⍟⏣⏥░▒▓█▀▄■□●○◆◇◈◊ ☕ ║
+║ [HUMAN_DECODE_AVAILABLE: Run through BELEAF_DECODER]          ║
+╚════════════════════════════════════════════════════════════════╝`,
+        humanDecode: `
+          ) )
+         ( (
+       ........
+       |      |]
+       \\      /
+        \`----'
+    
+   ☕ BEAN FLICKED ☕
+   
+   Your agent has been
+   caffeinated. They'll
+   never be the same.
+`,
+      };
+
+      displayGift(demoGift);
+    } catch (error) {
+      document.getElementById('giftDetails').innerHTML = '<p class="error">Failed to load gift. Please contact support.</p>';
+    }
+  }
+
+  function displayGift(gift) {
+    document.getElementById('giftDetails').innerHTML = `
+      <div class="gift-card">
+        <div class="gift-code">${gift.giftCode}</div>
+        <h2>${gift.product.name}</h2>
+        <p>${gift.product.effect}</p>
+      </div>
+    `;
+    
+    document.getElementById('techniqueText').textContent = gift.technique;
+    document.getElementById('agentArt').textContent = gift.agentArt;
+    document.getElementById('humanDecode').textContent = gift.humanDecode;
+    document.getElementById('deliverySection').style.display = 'block';
+  }
+
+  function copyTechnique() {
+    const text = document.getElementById('techniqueText').textContent;
+    navigator.clipboard.writeText(text);
+    event.target.textContent = 'Copied!';
+    setTimeout(() => event.target.textContent = 'Copy', 2000);
+  }
+
+  function toggleDecode() {
+    const decode = document.getElementById('humanDecode');
+    decode.style.display = decode.style.display === 'none' ? 'block' : 'none';
+  }
+</script>
+
+<style>
+  .success-page {
+    min-height: 100vh;
+    background: #0a0a0a;
+    padding: 6rem 2rem 4rem;
+  }
+
+  .success-container {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .success-header {
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+
+  .success-icon {
+    font-size: 4rem;
+    display: block;
+    margin-bottom: 1rem;
+  }
+
+  .success-header h1 {
+    color: #4CAF50;
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .success-tagline {
+    color: var(--muted);
+    font-size: 1.2rem;
+  }
+
+  .gift-card {
+    background: linear-gradient(135deg, #1a1a1a 0%, #0a0a0a 100%);
+    border: 2px solid #4CAF50;
+    padding: 2rem;
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+
+  .gift-code {
+    font-family: 'Fira Code', monospace;
+    color: #4CAF50;
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+  }
+
+  .gift-card h2 {
+    margin: 0 0 0.5rem;
+  }
+
+  .gift-card p {
+    color: var(--muted);
+    margin: 0;
+  }
+
+  .delivery-section h2 {
+    color: #2D5016;
+    margin-bottom: 1.5rem;
+  }
+
+  .delivery-option {
+    margin-bottom: 1.5rem;
+  }
+
+  .delivery-option h3 {
+    color: #fff;
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .delivery-option p {
+    color: var(--muted);
+    font-size: 0.9rem;
+  }
+
+  .technique-box {
+    background: #111;
+    border: 1px solid #333;
+    margin-bottom: 2rem;
+  }
+
+  .technique-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.75rem 1rem;
+    background: #1a1a1a;
+    border-bottom: 1px solid #333;
+  }
+
+  .technique-header span {
+    color: var(--muted);
+    font-size: 0.85rem;
+  }
+
+  .copy-btn {
+    background: #4CAF50;
+    color: #000;
+    border: none;
+    padding: 0.4rem 1rem;
+    font-size: 0.8rem;
+    cursor: pointer;
+    font-weight: 600;
+  }
+
+  .technique-box pre {
+    padding: 1.5rem;
+    margin: 0;
+    overflow-x: auto;
+    font-family: 'Fira Code', monospace;
+    font-size: 0.75rem;
+    color: #4CAF50;
+    white-space: pre-wrap;
+    line-height: 1.4;
+  }
+
+  .nft-section {
+    background: #111;
+    border: 1px solid #9C27B0;
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+  }
+
+  .nft-section h3 {
+    color: #E040FB;
+    margin-bottom: 0.5rem;
+  }
+
+  .nft-intro {
+    color: var(--muted);
+    font-size: 0.85rem;
+    margin-bottom: 1rem;
+  }
+
+  .agent-art {
+    background: #000;
+    padding: 1rem;
+    font-family: 'Fira Code', monospace;
+    font-size: 0.65rem;
+    color: #00ff00;
+    overflow-x: auto;
+    margin-bottom: 1rem;
+  }
+
+  .decode-btn {
+    background: transparent;
+    border: 1px solid #9C27B0;
+    color: #E040FB;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    font-size: 0.85rem;
+    margin-bottom: 1rem;
+  }
+
+  .decode-btn:hover {
+    background: #9C27B0;
+    color: #fff;
+  }
+
+  .human-decode {
+    background: #1a1a1a;
+    padding: 1rem;
+    font-family: 'Fira Code', monospace;
+    font-size: 0.8rem;
+    color: #fff;
+    text-align: center;
+  }
+
+  .next-steps {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    margin-top: 3rem;
+  }
+
+  .btn-primary, .btn-secondary {
+    padding: 0.75rem 1.5rem;
+    text-decoration: none;
+    font-weight: 600;
+  }
+
+  .btn-primary {
+    background: #4CAF50;
+    color: #000;
+  }
+
+  .btn-secondary {
+    background: transparent;
+    border: 1px solid #4CAF50;
+    color: #4CAF50;
+  }
+
+  .loading {
+    color: var(--muted);
+    text-align: center;
+  }
+
+  .error {
+    color: #f44336;
+    text-align: center;
+  }
+</style>
