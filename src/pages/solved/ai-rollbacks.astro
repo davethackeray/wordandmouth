@@ -1,0 +1,443 @@
+---
+import Base from '../../layouts/Base.astro';
+---
+
+<Base title="When AI Replacement Goes Wrong | Word And Mouth" description="Klarna, Shopify, Duolingo — and the u-turns nobody talks about. A forensic look at the 2024 AI correction.">
+  <article class="case-study">
+    <section class="case-header">
+      <a href="/solved/" class="back-link">← Back to Solved</a>
+      <div class="case-meta">
+        <span class="problem-tag">Automation Problem</span>
+        <span class="case-date">January 2026</span>
+        <span class="case-time">12 min read</span>
+      </div>
+      <h1>When AI Replacement Goes Wrong</h1>
+      <p class="case-subtitle">Klarna fired 700 people. Shopify's partners called it a "dumpster fire." Duolingo removed the human soul. Then came the u-turns.</p>
+    </section>
+
+    <section class="case-format">
+      <div class="format-card problem-everyone-saw">
+        <span class="format-number">1</span>
+        <h2>The Problem Everyone Saw</h2>
+        <p>"We need to cut costs with AI."</p>
+        <p>In 2024, the mandate was universal: deploy AI to reduce headcount, automate cognitive labor, look modern to investors. Klarna's AI handled the work of 700 agents. Shopify funneled support through bots. Duolingo fired its translators.</p>
+        <p>The metrics were seductive. Costs plummeted. The AI was available 24/7 in 35 languages. Leadership declared victory.</p>
+      </div>
+
+      <div class="format-card problem-actually-there">
+        <span class="format-number">2</span>
+        <h2>The Problem That Was Actually There</h2>
+        <p><strong>Category Error:</strong> They treated Complex problems as Simple ones.</p>
+        
+        <div class="cynefin-box">
+          <h3>The Cynefin Diagnostic</h3>
+          <table class="cynefin-table">
+            <thead>
+              <tr>
+                <th>Domain</th>
+                <th>Example</th>
+                <th>AI Fit</th>
+                <th>What Went Wrong</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Simple</strong></td>
+                <td>Password reset</td>
+                <td class="high">High</td>
+                <td>Nothing — this worked fine</td>
+              </tr>
+              <tr>
+                <td><strong>Complicated</strong></td>
+                <td>API debugging</td>
+                <td class="medium">Medium</td>
+                <td>Shopify's AI hallucinated technical policies</td>
+              </tr>
+              <tr>
+                <td><strong>Complex</strong></td>
+                <td>Calming an angry customer</td>
+                <td class="low">Low</td>
+                <td>Klarna treated financial anxiety as data query</td>
+              </tr>
+              <tr>
+                <td><strong>Chaotic</strong></td>
+                <td>Crisis management</td>
+                <td class="zero">Zero</td>
+                <td>The AI made it worse by looping</td>
+              </tr>
+            </tbody>
+          </table>
+          <p class="cynefin-insight">AI is the engine of average. It produces the most likely, mediocre response. Great service is an outlier — a support agent cracking a joke or bending a rule. These companies "averaged out" their service quality, eliminating the peaks of delight that create loyalty.</p>
+        </div>
+      </div>
+
+      <div class="format-card unexpected-solution">
+        <span class="format-number">3</span>
+        <h2>The Unexpected Solution</h2>
+        <p><strong>The Centaur Model:</strong> Human + AI beats AI alone.</p>
+        
+        <div class="solution-grid">
+          <div class="solution-item">
+            <h4>Klarna's Correction</h4>
+            <p>Scrambled to rehire human agents. The AI now provides the memory (recalling every transaction) while humans provide the conscience (knowing when to bend rules).</p>
+          </div>
+          <div class="solution-item">
+            <h4>The Sort That Should Have Happened</h4>
+            <ul>
+              <li><strong>Simple tasks:</strong> Full automation ✓</li>
+              <li><strong>Complicated tasks:</strong> AI assists, human decides</li>
+              <li><strong>Complex tasks:</strong> Human only, AI banned</li>
+            </ul>
+          </div>
+          <div class="solution-item">
+            <h4>The Feedback Loop They Severed</h4>
+            <p>Support isn't a cost center — it's a signal. By blocking the path between customer pain and product teams, they lost the early warning system.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="format-card what-you-can-steal">
+        <span class="format-number">4</span>
+        <h2>What You Can Steal</h2>
+        
+        <div class="steal-list">
+          <div class="steal-item">
+            <h4>1. Run the Cynefin Sort Before You Automate</h4>
+            <p>Break every role into atomic tasks. Apply the domain test. Only automate Simple. For Complex tasks, design an immediate escalation to humans.</p>
+          </div>
+          
+          <div class="steal-item">
+            <h4>2. The Pre-Mortem</h4>
+            <p>Before launch, gather the team and say: "It's one year from now. Our AI support has been a disaster. Why?" Generate the list of reasons. Build guardrails for each one.</p>
+          </div>
+          
+          <div class="steal-item">
+            <h4>3. Measure Augmentation, Not Deflection</h4>
+            <p>Stop measuring how many tickets the bot "handles." Start measuring how much more value your humans create because the AI is helping them.</p>
+          </div>
+          
+          <div class="steal-item">
+            <h4>4. The Mom Test for AI</h4>
+            <p>Don't ask "Would you like an AI assistant?" (They'll say yes). Ask "Tell me about your last frustrating support experience." The answer reveals whether AI will help or hurt.</p>
+          </div>
+          
+          <div class="steal-item">
+            <h4>5. Keep Humans on Genesis Tasks</h4>
+            <p>Use Wardley Mapping. Automate Commodities (data retrieval). Keep humans on Genesis (cultural nuance, creative problem-solving). Duolingo automated their Genesis — and lost their soul.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="case-verdict">
+      <h2>The Verdict</h2>
+      <p>The path forward is not to rollback AI and return to 2019. It's to advance to a <strong>Human-in-the-Loop architecture</strong> where AI handles the drudgery of the Simple domain, and humans are unleashed to master the nuance of the Complex domain.</p>
+      <blockquote>
+        <p>True innovation is not the replacement of the human; it is the <em>elevation</em> of the human to higher-order problems, supported by the infinite leverage of the machine.</p>
+      </blockquote>
+    </section>
+
+    <section class="case-cta">
+      <h3>Thinking about AI automation?</h3>
+      <p>Don't make the same mistake. Let's run the Cynefin Sort on your operation first.</p>
+      <a href="mailto:dave@wordandmouth.com?subject=AI Automation Audit" class="cta-button">Start the Conversation</a>
+    </section>
+
+    <section class="case-sources">
+      <h4>Sources</h4>
+      <p class="sources-note">This analysis draws on reporting from CX Today, The Economic Times, Reddit community threads, McKinsey, Brookings, and company filings from 2024-2025.</p>
+    </section>
+  </article>
+</Base>
+
+<style>
+  .case-study {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+
+  .case-header {
+    padding: 10rem 0 3rem;
+  }
+
+  .back-link {
+    display: inline-block;
+    color: var(--muted);
+    font-size: 0.9rem;
+    margin-bottom: 2rem;
+    transition: color 0.2s;
+  }
+
+  .back-link:hover {
+    color: var(--accent);
+  }
+
+  .case-meta {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    font-size: 0.85rem;
+    color: var(--muted);
+    flex-wrap: wrap;
+  }
+
+  .problem-tag {
+    background: rgba(255, 107, 53, 0.15);
+    color: var(--accent);
+    padding: 0.25rem 0.6rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.7rem;
+    letter-spacing: 0.05em;
+  }
+
+  .case-header h1 {
+    font-size: clamp(2rem, 5vw, 2.75rem);
+    line-height: 1.15;
+    margin-bottom: 1rem;
+  }
+
+  .case-subtitle {
+    font-size: 1.2rem;
+    color: var(--muted);
+    line-height: 1.5;
+  }
+
+  .case-format {
+    padding: 2rem 0 3rem;
+  }
+
+  .format-card {
+    background: #111;
+    border: 1px solid var(--border);
+    padding: 2rem;
+    margin-bottom: 2rem;
+    position: relative;
+  }
+
+  .format-number {
+    position: absolute;
+    top: -12px;
+    left: 20px;
+    background: var(--accent);
+    color: #000;
+    width: 28px;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 0.9rem;
+  }
+
+  .format-card.problem-everyone-saw {
+    border-left: 3px solid #666;
+  }
+
+  .format-card.problem-actually-there {
+    border-left: 3px solid var(--accent);
+  }
+
+  .format-card.unexpected-solution {
+    border-left: 3px solid #4CAF50;
+  }
+
+  .format-card.what-you-can-steal {
+    border-left: 3px solid #2196F3;
+  }
+
+  .format-card h2 {
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+  }
+
+  .format-card p {
+    font-size: 1rem;
+    line-height: 1.7;
+    color: #ccc;
+    margin-bottom: 1rem;
+  }
+
+  .format-card p:last-child {
+    margin-bottom: 0;
+  }
+
+  .cynefin-box {
+    background: rgba(0,0,0,0.3);
+    padding: 1.5rem;
+    margin-top: 1.5rem;
+  }
+
+  .cynefin-box h3 {
+    font-size: 1rem;
+    color: var(--accent);
+    margin-bottom: 1rem;
+  }
+
+  .cynefin-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.85rem;
+    margin-bottom: 1rem;
+  }
+
+  .cynefin-table th,
+  .cynefin-table td {
+    padding: 0.75rem;
+    text-align: left;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .cynefin-table th {
+    color: var(--muted);
+    font-weight: 400;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .cynefin-table td.high { color: #4CAF50; }
+  .cynefin-table td.medium { color: #FFC107; }
+  .cynefin-table td.low { color: #FF9800; }
+  .cynefin-table td.zero { color: #f44336; }
+
+  .cynefin-insight {
+    font-style: italic;
+    color: var(--muted);
+    font-size: 0.9rem !important;
+    margin: 0 !important;
+  }
+
+  .solution-grid {
+    display: grid;
+    gap: 1.5rem;
+    margin-top: 1rem;
+  }
+
+  .solution-item h4 {
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+    color: #4CAF50;
+  }
+
+  .solution-item p,
+  .solution-item li {
+    font-size: 0.95rem;
+    color: var(--muted);
+    line-height: 1.6;
+  }
+
+  .solution-item ul {
+    margin: 0;
+    padding-left: 1.25rem;
+  }
+
+  .solution-item li {
+    margin-bottom: 0.25rem;
+  }
+
+  .steal-list {
+    display: grid;
+    gap: 1.5rem;
+  }
+
+  .steal-item h4 {
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+    color: #2196F3;
+  }
+
+  .steal-item p {
+    font-size: 0.95rem;
+    color: var(--muted);
+    margin: 0;
+  }
+
+  .case-verdict {
+    padding: 2rem 0;
+    border-top: 1px solid var(--border);
+  }
+
+  .case-verdict h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .case-verdict p {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    margin-bottom: 1.5rem;
+  }
+
+  .case-verdict blockquote {
+    border-left: 3px solid var(--accent);
+    padding-left: 1.5rem;
+    font-style: italic;
+    color: #ccc;
+  }
+
+  .case-verdict blockquote p {
+    font-size: 1.15rem;
+    margin: 0;
+  }
+
+  .case-cta {
+    background: linear-gradient(135deg, #1a1a1a 0%, #0f0f0f 100%);
+    padding: 2.5rem;
+    text-align: center;
+    border: 1px solid var(--border);
+    margin: 2rem 0;
+  }
+
+  .case-cta h3 {
+    font-size: 1.3rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .case-cta p {
+    color: var(--muted);
+    margin-bottom: 1.5rem;
+  }
+
+  .case-sources {
+    padding: 2rem 0;
+    border-top: 1px solid var(--border);
+  }
+
+  .case-sources h4 {
+    font-size: 0.85rem;
+    color: var(--muted);
+    margin-bottom: 0.5rem;
+  }
+
+  .sources-note {
+    font-size: 0.85rem;
+    color: #666;
+  }
+
+  @media (max-width: 768px) {
+    .case-study {
+      padding: 0 1.25rem;
+    }
+
+    .case-header {
+      padding: 8rem 0 2rem;
+    }
+
+    .format-card {
+      padding: 1.5rem;
+    }
+
+    .cynefin-table {
+      font-size: 0.75rem;
+    }
+
+    .cynefin-table th,
+    .cynefin-table td {
+      padding: 0.5rem;
+    }
+  }
+</style>
+</Base>

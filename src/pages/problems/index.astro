@@ -1,0 +1,297 @@
+---
+import Base from '../../layouts/Base.astro';
+---
+
+<Base title="What's Your Problem? | Word And Mouth" description="Every business has a problem they're solving wrong. Let's find yours.">
+  <section class="problems-hero">
+    <div class="hero-content">
+      <h1>What's Your <span class="strike">Problem</span><span class="reveal">Real Problem</span>?</h1>
+      <p class="hero-subtitle">The issue everyone sees is rarely the issue that matters. We find the problem behind the problem.</p>
+    </div>
+  </section>
+
+  <section class="problem-types">
+    <h2>What Are You Struggling With?</h2>
+    
+    <div class="problem-grid">
+      
+      <a href="/problems/narrative/" class="problem-card">
+        <span class="problem-icon">📖</span>
+        <h3>Nobody Understands What We Do</h3>
+        <p>Your product is brilliant. Your pitch deck is polished. But prospects glaze over. Competitors with worse solutions win deals.</p>
+        <span class="problem-tag">Narrative Problem</span>
+      </a>
+      
+      <a href="/problems/complexity/" class="problem-card">
+        <span class="problem-icon">🌊</span>
+        <h3>We're Drowning in Noise</h3>
+        <p>Dashboards everywhere. Data coming out of your ears. But nobody agrees on what the numbers mean or what to do next.</p>
+        <span class="problem-tag">Complexity Problem</span>
+      </a>
+      
+      <a href="/problems/visibility/" class="problem-card">
+        <span class="problem-icon">🔍</span>
+        <h3>We Can't See What's Happening</h3>
+        <p>Information lives in silos. The left hand doesn't know what the right is doing. Opportunities slip through the cracks.</p>
+        <span class="problem-tag">Visibility Problem</span>
+      </a>
+      
+      <a href="/problems/automation/" class="problem-card">
+        <span class="problem-icon">⚙️</span>
+        <h3>We're Doing Too Much Manually</h3>
+        <p>Everyone asks "what are you doing with AI?" and you're winging it. Your competitors claim to be automating everything.</p>
+        <span class="problem-tag">Automation Problem</span>
+      </a>
+      
+      <a href="/problems/direction/" class="problem-card">
+        <span class="problem-icon">🧭</span>
+        <h3>We Don't Know Which Way to Go</h3>
+        <p>Too many opportunities. Limited resources. Every meeting spawns three new initiatives. Nothing gets finished.</p>
+        <span class="problem-tag">Direction Problem</span>
+      </a>
+      
+    </div>
+  </section>
+
+  <section class="methodology-teaser">
+    <div class="teaser-content">
+      <h2>How We Work</h2>
+      <p class="method-formula"><strong>Listen.</strong> We hear what you think the problem is.<br/>
+      <strong>Dig.</strong> We find the problem behind the problem.<br/>
+      <strong>Deliver.</strong> We build the unexpected solution.</p>
+      <a href="/methodology/" class="cta-link">See Our Methodology →</a>
+    </div>
+  </section>
+
+  <section class="solved-teaser">
+    <h2>Problems We've Solved</h2>
+    <p class="section-intro">Real cases where the obvious answer was wrong — and the unexpected solution worked.</p>
+    
+    <div class="solved-preview">
+      <a href="/solved/trivial-catastrophe/" class="solved-card">
+        <span class="solved-tag">Complexity</span>
+        <h3>The £225 Million Typo</h3>
+        <p>How absurdly simple errors cause catastrophic business failures.</p>
+      </a>
+      <a href="/solved/ai-rollbacks/" class="solved-card">
+        <span class="solved-tag">Automation</span>
+        <h3>When AI Replacement Goes Wrong</h3>
+        <p>Klarna, Shopify, Duolingo — and the u-turns nobody talks about.</p>
+      </a>
+      <a href="/solved/room-40/" class="solved-card">
+        <span class="solved-tag">Visibility</span>
+        <h3>The Codebreakers Blocked by Bureaucracy</h3>
+        <p>How eccentric academics saved the world despite their own organisation.</p>
+      </a>
+    </div>
+    
+    <a href="/solved/" class="cta-link">See All Case Studies →</a>
+  </section>
+
+</Base>
+
+<style>
+  .problems-hero {
+    min-height: 60vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 8rem 2rem 4rem;
+    background: linear-gradient(180deg, #0a0a0a 0%, #111 100%);
+  }
+
+  .hero-content h1 {
+    font-size: clamp(2.5rem, 6vw, 4rem);
+    margin-bottom: 1.5rem;
+    line-height: 1.1;
+  }
+
+  .strike {
+    text-decoration: line-through;
+    color: var(--muted);
+    opacity: 0.6;
+  }
+
+  .reveal {
+    color: var(--accent);
+  }
+
+  .hero-subtitle {
+    font-size: 1.25rem;
+    color: var(--muted);
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.6;
+  }
+
+  .problem-types {
+    padding: 4rem 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .problem-types h2 {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 3rem;
+  }
+
+  .problem-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .problem-card {
+    background: #111;
+    border: 1px solid var(--border);
+    padding: 2rem;
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+    color: inherit;
+  }
+
+  .problem-card:hover {
+    border-color: var(--accent);
+    transform: translateY(-4px);
+  }
+
+  .problem-icon {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+
+  .problem-card h3 {
+    font-size: 1.1rem;
+    margin-bottom: 0.75rem;
+    color: var(--text);
+  }
+
+  .problem-card p {
+    font-size: 0.95rem;
+    color: var(--muted);
+    line-height: 1.6;
+    flex-grow: 1;
+  }
+
+  .problem-tag {
+    display: inline-block;
+    margin-top: 1rem;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--accent);
+    font-weight: 600;
+  }
+
+  .methodology-teaser {
+    background: #0f0f0f;
+    padding: 4rem 2rem;
+    text-align: center;
+  }
+
+  .teaser-content {
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .teaser-content h2 {
+    font-size: 1.75rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .method-formula {
+    font-size: 1.1rem;
+    line-height: 2;
+    color: var(--muted);
+    margin-bottom: 2rem;
+  }
+
+  .method-formula strong {
+    color: var(--accent);
+  }
+
+  .solved-teaser {
+    padding: 4rem 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .solved-teaser h2 {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+
+  .section-intro {
+    text-align: center;
+    color: var(--muted);
+    max-width: 600px;
+    margin: 0 auto 3rem;
+  }
+
+  .solved-preview {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+  }
+
+  .solved-card {
+    background: #111;
+    border: 1px solid var(--border);
+    padding: 1.5rem;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    color: inherit;
+  }
+
+  .solved-card:hover {
+    border-color: var(--accent);
+  }
+
+  .solved-tag {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--accent);
+    font-weight: 600;
+  }
+
+  .solved-card h3 {
+    font-size: 1rem;
+    margin: 0.5rem 0;
+  }
+
+  .solved-card p {
+    font-size: 0.9rem;
+    color: var(--muted);
+    margin: 0;
+  }
+
+  .cta-link {
+    display: inline-block;
+    color: var(--accent);
+    font-weight: 600;
+    font-size: 0.95rem;
+  }
+
+  .solved-teaser .cta-link {
+    display: block;
+    text-align: center;
+  }
+
+  @media (max-width: 768px) {
+    .problems-hero {
+      padding: 6rem 1.5rem 3rem;
+    }
+    
+    .problem-types,
+    .solved-teaser {
+      padding: 3rem 1.5rem;
+    }
+  }
+</style>

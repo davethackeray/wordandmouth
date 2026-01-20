@@ -1,0 +1,291 @@
+---
+import Base from '../../layouts/Base.astro';
+
+// Define solved case studies
+// url: if different from /solved/{slug}/, specify full path
+const solvedCases = [
+  {
+    slug: 'trivial-catastrophe',
+    url: '/insights/trivial-catastrophe/',
+    title: 'The Trivial Matters More Than You Think',
+    subtitle: 'How a £225M typo, a missing comma, and zombie code expose the real risks in your business',
+    problem: 'Complexity',
+    status: 'live'
+  },
+  {
+    slug: 'the-15m-paradox',
+    url: '/insights/the-15m-paradox/',
+    title: 'The £15M Paradox',
+    subtitle: 'A radio station that loses money on purpose — and why it\'s genius',
+    problem: 'Business Model',
+    status: 'live'
+  },
+  {
+    slug: 'ai-rollbacks',
+    url: '/solved/ai-rollbacks/',
+    title: 'When AI Replacement Goes Wrong',
+    subtitle: 'Klarna, Shopify, Duolingo — and the u-turns nobody talks about',
+    problem: 'Automation',
+    status: 'live'
+  },
+  {
+    slug: 'room-40',
+    url: '/solved/room-40/',
+    title: 'The Door Mouse Who Saved the World',
+    subtitle: 'How eccentric academics saved the world despite their own organisation',
+    problem: 'Visibility',
+    status: 'live'
+  },
+  {
+    slug: 'suger',
+    url: '/solved/suger/',
+    title: 'Teaching Stone to Fly',
+    subtitle: 'How a medieval abbot invented modern architecture by solving the wrong problem right',
+    problem: 'Innovation',
+    status: 'live'
+  }
+];
+
+const liveCases = solvedCases.filter(c => c.status === 'live');
+const comingCases = solvedCases.filter(c => c.status === 'coming');
+---
+
+<Base title="Solved | Word And Mouth" description="Problems we've fixed — and what you can learn from each one.">
+  <section class="solved-hero">
+    <div class="hero-content">
+      <a href="/problems/" class="back-link">← What's Your Problem?</a>
+      <h1>Problems We've Solved</h1>
+      <p class="hero-subtitle">Real cases where the obvious answer was wrong — and the unexpected solution worked.</p>
+    </div>
+  </section>
+
+  <section class="solved-format">
+    <div class="format-box">
+      <h2>Every Case Study Follows One Structure</h2>
+      <div class="format-steps">
+        <div class="step"><span class="step-num">1</span> The Problem Everyone Saw</div>
+        <div class="step"><span class="step-num">2</span> The Problem That Was Actually There</div>
+        <div class="step"><span class="step-num">3</span> The Unexpected Solution</div>
+        <div class="step"><span class="step-num">4</span> What You Can Steal</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="solved-grid-section">
+    <h2>Case Studies</h2>
+    
+    <div class="solved-grid">
+      {liveCases.map(caseStudy => (
+        <a href={caseStudy.url} class="solved-card">
+          <span class="problem-tag">{caseStudy.problem}</span>
+          <h3>{caseStudy.title}</h3>
+          <p>{caseStudy.subtitle}</p>
+        </a>
+      ))}
+    </div>
+
+    {comingCases.length > 0 && (
+      <>
+        <h3 class="coming-header">Coming Soon</h3>
+        <div class="solved-grid coming">
+          {comingCases.map(caseStudy => (
+            <div class="solved-card coming">
+              <span class="problem-tag">{caseStudy.problem}</span>
+              <h3>{caseStudy.title}</h3>
+              <p>{caseStudy.subtitle}</p>
+            </div>
+          ))}
+        </div>
+      </>
+    )}
+  </section>
+
+  <section class="cta-section">
+    <h2>Got a Problem That Needs Solving?</h2>
+    <p>We find the issue everyone's missing. Then we fix it.</p>
+    <a href="mailto:dave@wordandmouth.com?subject=I've got a problem" class="cta-button">Let's Talk →</a>
+  </section>
+</Base>
+
+<style>
+  .solved-hero {
+    padding: 10rem 2rem 4rem;
+    text-align: center;
+    background: linear-gradient(180deg, #0a0a0a 0%, #111 100%);
+  }
+
+  .back-link {
+    display: inline-block;
+    color: var(--muted);
+    font-size: 0.9rem;
+    margin-bottom: 2rem;
+    transition: color 0.2s;
+  }
+
+  .back-link:hover {
+    color: var(--accent);
+  }
+
+  .solved-hero h1 {
+    font-size: clamp(2rem, 5vw, 3rem);
+    margin-bottom: 1rem;
+  }
+
+  .hero-subtitle {
+    font-size: 1.15rem;
+    color: var(--muted);
+    max-width: 550px;
+    margin: 0 auto;
+  }
+
+  .solved-format {
+    padding: 3rem 2rem;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .format-box {
+    background: #0f0f0f;
+    border: 1px solid var(--border);
+    padding: 2rem;
+    text-align: center;
+  }
+
+  .format-box h2 {
+    font-size: 1.25rem;
+    margin-bottom: 1.5rem;
+    color: var(--accent);
+  }
+
+  .format-steps {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+  }
+
+  .step {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.9rem;
+    color: var(--muted);
+  }
+
+  .step-num {
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--accent);
+    color: #000;
+    font-weight: 700;
+    font-size: 0.75rem;
+  }
+
+  .solved-grid-section {
+    padding: 3rem 2rem;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .solved-grid-section h2 {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+  }
+
+  .coming-header {
+    font-size: 1.1rem;
+    color: var(--muted);
+    margin: 3rem 0 1.5rem;
+    font-weight: 400;
+  }
+
+  .solved-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .solved-card {
+    background: #111;
+    border: 1px solid var(--border);
+    padding: 1.75rem;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    color: inherit;
+  }
+
+  a.solved-card:hover {
+    border-color: var(--accent);
+    transform: translateY(-2px);
+  }
+
+  .solved-card.coming {
+    opacity: 0.5;
+  }
+
+  .problem-tag {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--accent);
+    font-weight: 600;
+  }
+
+  .solved-card h3 {
+    font-size: 1.1rem;
+    margin: 0.75rem 0 0.5rem;
+  }
+
+  .solved-card p {
+    font-size: 0.9rem;
+    color: var(--muted);
+    margin: 0;
+    line-height: 1.5;
+  }
+
+  .cta-section {
+    text-align: center;
+    padding: 4rem 2rem;
+    background: #0a0a0a;
+    margin-top: 2rem;
+  }
+
+  .cta-section h2 {
+    font-size: 1.5rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .cta-section p {
+    color: var(--muted);
+    margin-bottom: 1.5rem;
+  }
+
+  .cta-button {
+    display: inline-block;
+    background: var(--accent);
+    color: #000;
+    padding: 0.75rem 1.5rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.2s;
+  }
+
+  .cta-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(255, 107, 53, 0.3);
+  }
+
+  @media (max-width: 768px) {
+    .solved-hero {
+      padding: 8rem 1.5rem 3rem;
+    }
+
+    .format-steps {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  }
+</style>
