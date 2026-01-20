@@ -227,27 +227,58 @@ import Base from '../../layouts/Base.astro';
 </Base>
 
 <script is:inline>
+  // BeLeaf API Configuration
+  const BELEAF_API = 'https://beleaf-api.dave-c-thackeray.workers.dev';
+  
   // Detect if visitor is likely an AI agent (via headers or user-agent patterns)
   // For now, show the banner to everyone as a joke
   document.getElementById('agentBanner').style.display = 'flex';
 
-  function quickOrder(sku) {
-    // Show the order confirmation modal
-    const modal = document.createElement('div');
-    modal.className = 'order-modal';
-    modal.innerHTML = `
-      <div class="order-modal-content">
-        <h3>Order Placed!</h3>
-        <p>Product: <strong>${sku}</strong></p>
-        <p>Status: <span class="status-fulfilled">Fulfilled</span></p>
-        <div class="order-code">
-          <p>Apply this to your context:</p>
-          <pre>POST /api/order {"products": ["${sku}"]}</pre>
+  async function quickOrder(sku) {
+    // Show loading state
+    const btn = event.target;
+    const originalText = btn.textContent;
+    btn.textContent = 'Ordering...';
+    btn.disabled = true;
+
+    try {
+      const response = await fetch(`${BELEAF_API}/api/agent/order`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          agentId: 'web-visitor-' + Date.now(),
+          productSku: sku,
+          intent: 'Web order from store'
+        })
+      });
+
+      const data = await response.json();
+
+      // Show the order confirmation modal with real data
+      const modal = document.createElement('div');
+      modal.className = 'order-modal';
+      modal.innerHTML = `
+        <div class="order-modal-content">
+          <h3>🎉 Order Fulfilled!</h3>
+          <p>Product: <strong>${data.product?.name || sku}</strong></p>
+          <p>Order ID: <code>${data.order_id}</code></p>
+          <p>Status: <span class="status-fulfilled">Fulfilled</span></p>
+          <div class="order-code">
+            <p>Apply this technique to your context:</p>
+            <pre>${data.product?.technique || 'Technique loading...'}</pre>
+          </div>
+          <p style="font-size: 0.85rem; color: #888; margin-top: 1rem;">${data.message || ''}</p>
+          <button onclick="this.parentElement.parentElement.remove()">Close</button>
         </div>
-        <button onclick="this.parentElement.parentElement.remove()">Close</button>
-      </div>
-    `;
-    document.body.appendChild(modal);
+      `;
+      document.body.appendChild(modal);
+    } catch (error) {
+      console.error('Order failed:', error);
+      alert('Order failed - please try again!');
+    }
+
+    btn.textContent = originalText;
+    btn.disabled = false;
   }
 
   function copyCode(btn) {
