@@ -2,6 +2,7 @@
 import Base from '../../../layouts/Base.astro';
 import fs from 'node:fs/promises';
 import path from 'node:path';
+import { fileURLToPath } from 'node:url';
 
 // Generate static paths for all content files
 export async function getStaticPaths() {
@@ -9,7 +10,10 @@ export async function getStaticPaths() {
   
   // Helper to read directory
   async function readDir(type) {
-    const dirPath = path.join(process.cwd(), '../', type);
+    const currentFile = fileURLToPath(import.meta.url);
+    const projectRoot = path.resolve(path.dirname(currentFile), '../../../../');
+    const dirPath = path.join(projectRoot, type);
+
     try {
       const files = await fs.readdir(dirPath);
       return files.filter(f => f.endsWith('.md')).map(f => ({
@@ -46,7 +50,9 @@ export async function getStaticPaths() {
 }
 
 const { type, filename } = Astro.props;
-const filePath = path.join(process.cwd(), '../', type, filename);
+const currentFile = fileURLToPath(import.meta.url);
+const projectRoot = path.resolve(path.dirname(currentFile), '../../../../');
+const filePath = path.join(projectRoot, type, filename);
 const content = await fs.readFile(filePath, 'utf-8');
 
 // Simple metadata extraction

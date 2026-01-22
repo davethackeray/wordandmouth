@@ -1,11 +1,14 @@
----
 import Base from '../../layouts/Base.astro';
 import fs from 'node:fs/promises';
 import path from 'node:path';
+import { fileURLToPath } from 'node:url';
 
 // Helper to get files from a directory
 async function getPipelineContent(type) {
-  const dirPath = path.join(process.cwd(), '../', type); // Go up one level from wam-site to project root
+  // src/pages/pipeline/index.astro -> ../../../../../ to get to 'ideas' root
+  const currentFile = fileURLToPath(import.meta.url);
+  const projectRoot = path.resolve(path.dirname(currentFile), '../../../../');
+  const dirPath = path.join(projectRoot, type);
   
   try {
     const files = await fs.readdir(dirPath);
@@ -40,7 +43,7 @@ async function getPipelineContent(type) {
     
     return items;
   } catch (e) {
-    console.error(`Error reading ${type} directory:`, e);
+    console.error(`Error reading ${type} directory from ${dirPath}:`, e);
     return [];
   }
 }
@@ -51,56 +54,65 @@ const podcasts = await getPipelineContent('podcast');
 
 <Base title="Content Pipeline | Word And Mouth Admin">
   <main class="pipeline-page">
-    <header class="pipeline-header">
-      <h1>Content Pipeline</h1>
-      <p>Raw drafts and briefs from the vault.</p>
-    </header>
+    <div class="content-wrapper">
+      <header class="pipeline-header">
+        <h1>Content Pipeline</h1>
+        <p>Raw drafts and briefs from the vault.</p>
+      </header>
 
-    <div class="pipeline-grid">
-      <section class="pipeline-column">
-        <h2>
-          <span class="icon">🎙️</span> 
-          Podcasts 
-          <span class="count">{podcasts.length}</span>
-        </h2>
-        <div class="card-list">
-          {podcasts.map(item => (
-            <a href={`/pipeline/podcast/${item.slug}`} class="pipeline-card">
-              <h3>{item.title}</h3>
-              <div class="meta">
-                <span class="filename">{item.filename}</span>
-              </div>
-            </a>
-          ))}
-        </div>
-      </section>
+      <div class="pipeline-grid">
+        <section class="pipeline-column">
+          <h2>
+            <span class="icon">🎙️</span> 
+            Podcasts 
+            <span class="count">{podcasts.length}</span>
+          </h2>
+          <div class="card-list">
+            {podcasts.map(item => (
+              <a href={`/pipeline/podcast/${item.slug}`} class="pipeline-card">
+                <h3>{item.title}</h3>
+                <div class="meta">
+                  <span class="filename">{item.filename}</span>
+                </div>
+              </a>
+            ))}
+          </div>
+        </section>
 
-      <section class="pipeline-column">
-        <h2>
-          <span class="icon">📰</span> 
-          Newsletters 
-          <span class="count">{newsletters.length}</span>
-        </h2>
-        <div class="card-list">
-          {newsletters.map(item => (
-            <a href={`/pipeline/newsletter/${item.slug}`} class="pipeline-card">
-              <h3>{item.title}</h3>
-              <div class="meta">
-                <span class="filename">{item.filename}</span>
-              </div>
-            </a>
-          ))}
-        </div>
-      </section>
+        <section class="pipeline-column">
+          <h2>
+            <span class="icon">📰</span> 
+            Newsletters 
+            <span class="count">{newsletters.length}</span>
+          </h2>
+          <div class="card-list">
+            {newsletters.map(item => (
+              <a href={`/pipeline/newsletter/${item.slug}`} class="pipeline-card">
+                <h3>{item.title}</h3>
+                <div class="meta">
+                  <span class="filename">{item.filename}</span>
+                </div>
+              </a>
+            ))}
+          </div>
+        </section>
+      </div>
     </div>
   </main>
 </Base>
 
 <style>
   .pipeline-page {
-    padding: 8rem 2rem 4rem;
+    /* Ensure content starts well below the fixed header */
+    padding-top: 120px;
+    min-height: 100vh;
+    background: #050505; /* Slightly darker to distinguish from header */
+  }
+
+  .content-wrapper {
     max-width: 1400px;
     margin: 0 auto;
+    padding: 0 2rem 4rem;
   }
 
   .pipeline-header {
