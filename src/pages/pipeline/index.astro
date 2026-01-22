@@ -1,0 +1,188 @@
+---
+import Base from '../../layouts/Base.astro';
+import fs from 'node:fs/promises';
+import path from 'node:path';
+
+// Helper to get files from a directory
+async function getPipelineContent(type) {
+  const dirPath = path.join(process.cwd(), '../', type); // Go up one level from wam-site to project root
+  
+  try {
+    const files = await fs.readdir(dirPath);
+    const contentFiles = files.filter(f => f.endsWith('.md'));
+    
+    const items = await Promise.all(contentFiles.map(async (filename) => {
+      const filePath = path.join(dirPath, filename);
+      const content = await fs.readFile(filePath, 'utf-8');
+      
+      // Extract title: either from frontmatter title: "" or first # Header
+      let title = filename;
+      const frontmatterMatch = content.match(/^title:\s*["']?(.*?)["']?$/m);
+      const headerMatch = content.match(/^#\s+(.*)$/m);
+      
+      if (frontmatterMatch) {
+        title = frontmatterMatch[1];
+      } else if (headerMatch) {
+        title = headerMatch[1];
+      }
+      
+      // Get basic stats
+      const stats = await fs.stat(filePath);
+      
+      return {
+        slug: filename.replace('.md', ''),
+        filename,
+        title,
+        created: stats.birthtime,
+        size: stats.size
+      };
+    }));
+    
+    return items;
+  } catch (e) {
+    console.error(`Error reading ${type} directory:`, e);
+    return [];
+  }
+}
+
+const newsletters = await getPipelineContent('newsletter');
+const podcasts = await getPipelineContent('podcast');
+---
+
+<Base title="Content Pipeline | Word And Mouth Admin">
+  <main class="pipeline-page">
+    <header class="pipeline-header">
+      <h1>Content Pipeline</h1>
+      <p>Raw drafts and briefs from the vault.</p>
+    </header>
+
+    <div class="pipeline-grid">
+      <section class="pipeline-column">
+        <h2>
+          <span class="icon">🎙️</span> 
+          Podcasts 
+          <span class="count">{podcasts.length}</span>
+        </h2>
+        <div class="card-list">
+          {podcasts.map(item => (
+            <a href={`/pipeline/podcast/${item.slug}`} class="pipeline-card">
+              <h3>{item.title}</h3>
+              <div class="meta">
+                <span class="filename">{item.filename}</span>
+              </div>
+            </a>
+          ))}
+        </div>
+      </section>
+
+      <section class="pipeline-column">
+        <h2>
+          <span class="icon">📰</span> 
+          Newsletters 
+          <span class="count">{newsletters.length}</span>
+        </h2>
+        <div class="card-list">
+          {newsletters.map(item => (
+            <a href={`/pipeline/newsletter/${item.slug}`} class="pipeline-card">
+              <h3>{item.title}</h3>
+              <div class="meta">
+                <span class="filename">{item.filename}</span>
+              </div>
+            </a>
+          ))}
+        </div>
+      </section>
+    </div>
+  </main>
+</Base>
+
+<style>
+  .pipeline-page {
+    padding: 8rem 2rem 4rem;
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+
+  .pipeline-header {
+    margin-bottom: 4rem;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 2rem;
+  }
+
+  h1 {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .pipeline-header p {
+    color: var(--muted);
+    font-size: 1.2rem;
+  }
+
+  .pipeline-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 4rem;
+  }
+
+  .pipeline-column h2 {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    color: var(--accent);
+  }
+
+  .count {
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--muted);
+    font-size: 0.9rem;
+    padding: 0.2rem 0.6rem;
+    border-radius: 4px;
+    font-weight: 400;
+  }
+
+  .card-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .pipeline-card {
+    background: #111;
+    border: 1px solid var(--border);
+    padding: 1.5rem;
+    text-decoration: none;
+    color: inherit;
+    transition: all 0.2s ease;
+    display: block;
+  }
+
+  .pipeline-card:hover {
+    border-color: var(--accent);
+    transform: translateX(4px);
+    background: #161616;
+  }
+
+  .pipeline-card h3 {
+    font-size: 1.1rem;
+    margin: 0 0 0.5rem 0;
+    line-height: 1.4;
+  }
+
+  .meta {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.8rem;
+    color: var(--muted);
+    font-family: monospace;
+  }
+
+  @media (max-width: 768px) {
+    .pipeline-grid {
+      grid-template-columns: 1fr;
+      gap: 3rem;
+    }
+  }
+</style>

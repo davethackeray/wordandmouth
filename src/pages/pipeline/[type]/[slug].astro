@@ -1,0 +1,147 @@
+---
+import Base from '../../../layouts/Base.astro';
+import fs from 'node:fs/promises';
+import path from 'node:path';
+
+// Generate static paths for all content files
+export async function getStaticPaths() {
+  const paths = [];
+  
+  // Helper to read directory
+  async function readDir(type) {
+    const dirPath = path.join(process.cwd(), '../', type);
+    try {
+      const files = await fs.readdir(dirPath);
+      return files.filter(f => f.endsWith('.md')).map(f => ({
+        filename: f,
+        slug: f.replace('.md', ''),
+        dirPath
+      }));
+    } catch (e) {
+      console.error(`Error reading ${type}:`, e);
+      return [];
+    }
+  }
+
+  const newsletters = await readDir('newsletter');
+  const podcasts = await readDir('podcast');
+
+  // Add newsletter paths
+  for (const item of newsletters) {
+    paths.push({
+      params: { type: 'newsletter', slug: item.slug },
+      props: { filename: item.filename, type: 'newsletter' }
+    });
+  }
+
+  // Add podcast paths
+  for (const item of podcasts) {
+    paths.push({
+      params: { type: 'podcast', slug: item.slug },
+      props: { filename: item.filename, type: 'podcast' }
+    });
+  }
+
+  return paths;
+}
+
+const { type, filename } = Astro.props;
+const filePath = path.join(process.cwd(), '../', type, filename);
+const content = await fs.readFile(filePath, 'utf-8');
+
+// Simple metadata extraction
+let title = filename;
+const frontmatterMatch = content.match(/^title:\s*["']?(.*?)["']?$/m);
+if (frontmatterMatch) title = frontmatterMatch[1];
+
+// Clean content for display (remove frontmatter if present)
+const displayContent = content.replace(/^---[\s\S]*?---/, '').trim();
+---
+
+<Base title={`${title} | Pipeline Viewer`}>
+  <main class="viewer-page">
+    <div class="viewer-header">
+      <a href="/pipeline" class="back-link">← Back to Pipeline</a>
+      <span class="type-badge">{type}</span>
+      <h1>{title}</h1>
+      <p class="filename">{filename}</p>
+    </div>
+
+    <div class="content-container">
+      <div class="raw-content">
+        {displayContent}
+      </div>
+    </div>
+  </main>
+</Base>
+
+<style>
+  .viewer-page {
+    padding: 8rem 2rem 4rem;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .viewer-header {
+    margin-bottom: 3rem;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 2rem;
+  }
+
+  .back-link {
+    display: inline-block;
+    margin-bottom: 1.5rem;
+    color: var(--muted);
+    font-size: 0.9rem;
+    transition: color 0.2s;
+  }
+
+  .back-link:hover {
+    color: var(--accent);
+  }
+
+  .type-badge {
+    display: inline-block;
+    padding: 0.25rem 0.75rem;
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--muted);
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    border-radius: 4px;
+    margin-bottom: 1rem;
+  }
+
+  h1 {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+    line-height: 1.2;
+  }
+
+  .filename {
+    font-family: monospace;
+    color: var(--muted);
+    font-size: 0.9rem;
+  }
+
+  .content-container {
+    background: #111;
+    border: 1px solid var(--border);
+    padding: 3rem;
+    border-radius: 8px;
+  }
+
+  .raw-content {
+    white-space: pre-wrap;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #ddd;
+  }
+
+  @media (max-width: 768px) {
+    .content-container {
+      padding: 1.5rem;
+    }
+  }
+</style>
