@@ -9,8 +9,9 @@ export async function getStaticPaths() {
   
   // Helper to read directory (robust for CI)
   async function readDir(type) {
-    const projectRoot = path.resolve(process.cwd(), '../');
-    const dirPath = path.join(projectRoot, type);
+    // Now targeting the tracked 'content' directory in wam-site root
+    const projectRoot = process.cwd(); 
+    const dirPath = path.join(projectRoot, 'content', 'pipeline', type);
 
     try {
       const files = await fs.readdir(dirPath);
@@ -53,8 +54,8 @@ export async function getStaticPaths() {
 const { type, filename } = Astro.props;
 let content = '';
 try {
-  const projectRoot = path.resolve(process.cwd(), '../');
-  const filePath = path.join(projectRoot, type, filename);
+  const projectRoot = process.cwd();
+  const filePath = path.join(projectRoot, 'content', 'pipeline', type, filename);
   content = await fs.readFile(filePath, 'utf-8');
 } catch (e) {
   content = 'Error reading content: ' + e.message;
@@ -90,8 +91,8 @@ const displayContent = content.replace(/^---[\s\S]*?---/, '').trim();
 
 <style>
   .viewer-page {
-    /* Ensure content starts well below the fixed header */
-    padding-top: 120px;
+    /* Ensure content starts well below the fixed header (increased to 160px for safety) */
+    padding-top: 160px;
     min-height: 100vh;
     background: #050505;
   }

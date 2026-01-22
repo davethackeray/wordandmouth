@@ -5,10 +5,10 @@ import path from 'node:path';
 
 // Helper to get files from a directory
 async function getPipelineContent(type) {
-  // Use procss.cwd() which usually points to project root in dev, or repo root in CI
-  // We look one level up if we are in 'wam-site' subfolder locally
-  const projectRoot = path.resolve(process.cwd(), '../'); 
-  const dirPath = path.join(projectRoot, type);
+  // src/pages/pipeline/index.astro -> project root
+  // Now targeting the tracked 'content' directory in wam-site root
+  const projectRoot = process.cwd(); 
+  const dirPath = path.join(projectRoot, 'content', 'pipeline', type);
   
   try {
     const files = await fs.readdir(dirPath);
@@ -49,7 +49,7 @@ async function getPipelineContent(type) {
     return items.filter(i => i !== null);
   } catch (e) {
     if (e.code === 'ENOENT') {
-      console.warn(`[Pipeline] Content directory not found: ${dirPath}. (This is expected on CI if content is not in repo)`);
+      console.warn(`[Pipeline] Content directory not found: ${dirPath}.`);
       return [];
     }
     console.error(`Error reading ${type} directory from ${dirPath}:`, e);
@@ -112,10 +112,10 @@ const podcasts = await getPipelineContent('podcast');
 
 <style>
   .pipeline-page {
-    /* Ensure content starts well below the fixed header */
-    padding-top: 120px;
+    /* Ensure content starts well below the fixed header (increased to 160px for safety) */
+    padding-top: 160px;
     min-height: 100vh;
-    background: #050505; /* Slightly darker to distinguish from header */
+    background: #050505;
   }
 
   .content-wrapper {
