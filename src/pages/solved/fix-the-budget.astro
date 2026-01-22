@@ -1,0 +1,517 @@
+---
+import Base from '../../layouts/Base.astro';
+---
+
+<Base title="Fix The Budget! UK Chancellor Simulator | Word And Mouth" description="We built an interactive UK budget simulator to solve democracy's empathy gap. Try being Chancellor of the Exchequer — then see why armchair politicians should sit down.">
+  <article class="case-study">
+    <section class="case-header">
+      <a href="/solved/" class="back-link">← Back to Solved</a>
+      <div class="case-meta">
+        <span class="problem-tag">Democracy Problem</span>
+        <span class="case-date">January 2026</span>
+        <span class="case-time">8 min read</span>
+      </div>
+      <h1>Fix The Budget!</h1>
+      <p class="case-subtitle">Everyone's an armchair Chancellor. We built a simulator that shows why running UK finances is harder than it looks — and why citizen panels might be the answer.</p>
+    </section>
+
+    <section class="hero-demo">
+      <div class="demo-container">
+        <img src="/images/fix-the-budget-dashboard.png" alt="The Sovereign Interface dashboard showing the UK budget with Sankey flow diagram and KPI cards" class="hero-image" />
+        <div class="demo-cta">
+          <a href="https://github.com/davethackeray/fix-the-budget" target="_blank" class="github-link">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+            View on GitHub
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="case-format">
+      <div class="format-card problem-everyone-saw">
+        <span class="format-number">1</span>
+        <h2>The Problem Everyone Saw</h2>
+        <p>"Citizens complain about government spending but don't understand budgets."</p>
+        <p>The UK is full of armchair Chancellors. Social media overflows with hot takes on NHS funding, defence spending, and why "they" can't balance the books. Yet when asked to propose alternatives, the same critics go quiet — or worse, propose arithmetic that doesn't add up.</p>
+        <p>The empathy gap is real: citizens don't feel the weight of the Red Box. They don't understand that cutting one thing affects another, that markets react to fiscal policy, and that every pound has a constituency fighting for it.</p>
+      </div>
+
+      <div class="format-card problem-actually-there">
+        <span class="format-number">2</span>
+        <h2>The Problem That Was Actually There</h2>
+        <p><strong>The Micro-Macro Fallacy:</strong> People apply household budget logic to sovereign finance.</p>
+        
+        <div class="insight-box">
+          <h3>The Three Delusions</h3>
+          <div class="delusion-grid">
+            <div class="delusion-item">
+              <h4>1. The Household Myth</h4>
+              <p>"Government should balance its books like I do." Wrong. A sovereign currency issuer isn't constrained by income the same way. The real constraint is inflation, bond market confidence, and GDP growth.</p>
+            </div>
+            <div class="delusion-item">
+              <h4>2. The Big Numbers Problem</h4>
+              <p>"£100 billion deficit" means nothing to most people. It's too abstract. They can't feel it. They can't see what £1bn cut from Health looks like in their local hospital.</p>
+            </div>
+            <div class="delusion-item">
+              <h4>3. The Empathy Vacuum</h4>
+              <p>Every fiscal decision has winners and losers. Cutting pensions saves money but creates poverty. Raising taxes funds services but suppresses growth. Where's the tool that shows both sides?</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="format-card unexpected-solution">
+        <span class="format-number">3</span>
+        <h2>The Unexpected Solution</h2>
+        <p><strong>A game that makes you feel like the Chancellor.</strong></p>
+        
+        <div class="solution-showcase">
+          <div class="showcase-grid">
+            <div class="showcase-item">
+              <img src="/images/fix-the-budget-onboarding.png" alt="Welcome Chancellor onboarding modal with Red Box icon" />
+              <h4>The Red Box Experience</h4>
+              <p>You don't start with a spreadsheet. You start with drama: "The previous government has fled. The Treasury is yours. Inside this Red Box lies the fate of 67 million people."</p>
+            </div>
+            <div class="showcase-item">
+              <img src="/images/fix-the-budget-active.png" alt="Dashboard showing increased NHS spending and market response" />
+              <h4>Real-Time Consequences</h4>
+              <p>Increase NHS spending by £37bn? The ticker screams "HOSPITALS REJOICE" — but then "MARKETS IN PANIC" as your deficit spikes. The bond vigilantes are watching.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="tech-stack">
+          <h4>What We Built</h4>
+          <ul>
+            <li><strong>Sankey Flow Visualisation:</strong> See exactly where the money comes from and where it goes</li>
+            <li><strong>Fiscal Multipliers:</strong> Cutting infrastructure hurts GDP more than cutting admin</li>
+            <li><strong>Laffer Curve Modelling:</strong> Raise taxes too high and revenue falls as behaviour changes</li>
+            <li><strong>Bond Market Vigilantes:</strong> Run a deficit too large and your borrowing costs spike</li>
+            <li><strong>Live News Ticker:</strong> AI-generated headlines respond to your every decision</li>
+            <li><strong>GOV.UK Mode:</strong> A version built to government design standards — ready for adoption</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="format-card what-you-can-steal">
+        <span class="format-number">4</span>
+        <h2>What You Can Steal</h2>
+        
+        <div class="steal-list">
+          <div class="steal-item">
+            <h4>1. The "Red Box" Onboarding</h4>
+            <p>Don't start with data. Start with drama. Make users feel the weight of their decisions before they touch a single slider. This applies to any complex decision tool — mortgages, investments, business strategy.</p>
+          </div>
+          
+          <div class="steal-item">
+            <h4>2. Empathy Algorithms</h4>
+            <p>Every £1bn cut has a human translation. NHS cuts = 45,000 more on waiting lists. Youth services cuts = £4bn in future social costs. Build the empathy layer into your analytics.</p>
+          </div>
+          
+          <div class="steal-item">
+            <h4>3. Narrative Volatility</h4>
+            <p>Budgets aren't spreadsheets — they're political events. The news ticker makes abstract decisions feel real. Consider how your internal dashboards could generate narrative feedback, not just metrics.</p>
+          </div>
+          
+          <div class="steal-item">
+            <h4>4. Progressive Disclosure</h4>
+            <p>Level 1: Total Tax, Total Spend, Total Borrowing. Level 2: Departments. Level 3: Individual policies. Build mental models before complexity.</p>
+          </div>
+          
+          <div class="steal-item">
+            <h4>5. Citizen Panels as Product</h4>
+            <p>What if the government let citizens "vote" with sliders? Not for policy — but to signal priorities. Like GitHub pull requests for democracy. Participation as engagement engine.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="case-verdict">
+      <h2>The Bigger Picture</h2>
+      <p>This isn't just a budget game. It's a prototype for participatory democracy.</p>
+      <p>When I was a journalist, I hosted community news conferences where readers shaped our editorial agenda. The organisations that thrive in 2026 are the ones that bring their audience into the room — not as observers, but as participants.</p>
+      <blockquote>
+        <p>The closer you get people to the core of the business, the more invested they feel — whether as citizens, customers, or colleagues.</p>
+      </blockquote>
+      <p>Fix The Budget demonstrates what's possible when you treat complex systems not as black boxes to be explained, but as experiences to be felt.</p>
+    </section>
+
+    <section class="case-cta">
+      <h3>Want to build something like this?</h3>
+      <p>We build interactive tools that turn complexity into clarity. Budget simulators, strategy games, diagnostic dashboards — whatever helps your audience understand what you do.</p>
+      <a href="mailto:dave@wordandmouth.com?subject=Interactive Tool Development" class="cta-button">Start the Conversation</a>
+    </section>
+
+    <section class="case-sources">
+      <h4>Resources</h4>
+      <ul class="source-links">
+        <li><a href="https://github.com/davethackeray/fix-the-budget" target="_blank">GitHub Repository</a> — Full source code</li>
+        <li><a href="https://ifs.org.uk/be-chancellor" target="_blank">IFS Be The Chancellor</a> — The original inspiration</li>
+        <li><a href="https://obr.uk/" target="_blank">Office for Budget Responsibility</a> — Where the real numbers come from</li>
+      </ul>
+    </section>
+  </article>
+</Base>
+
+<style>
+  .case-study {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+
+  .case-header {
+    padding: 10rem 0 3rem;
+  }
+
+  .back-link {
+    display: inline-block;
+    color: var(--muted);
+    font-size: 0.9rem;
+    margin-bottom: 2rem;
+    transition: color 0.2s;
+  }
+
+  .back-link:hover {
+    color: var(--accent);
+  }
+
+  .case-meta {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    font-size: 0.85rem;
+    color: var(--muted);
+    flex-wrap: wrap;
+  }
+
+  .problem-tag {
+    background: rgba(255, 107, 53, 0.15);
+    color: var(--accent);
+    padding: 0.25rem 0.6rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.7rem;
+    letter-spacing: 0.05em;
+  }
+
+  .case-header h1 {
+    font-size: clamp(2rem, 5vw, 2.75rem);
+    line-height: 1.15;
+    margin-bottom: 1rem;
+  }
+
+  .case-subtitle {
+    font-size: 1.2rem;
+    color: var(--muted);
+    line-height: 1.5;
+  }
+
+  .hero-demo {
+    margin: 2rem 0 3rem;
+  }
+
+  .demo-container {
+    background: #111;
+    border: 1px solid var(--border);
+    padding: 1rem;
+  }
+
+  .hero-image {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  .demo-cta {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+    justify-content: center;
+  }
+
+  .github-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: #333;
+    color: #fff;
+    padding: 0.75rem 1.25rem;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: background 0.2s;
+  }
+
+  .github-link:hover {
+    background: #444;
+  }
+
+  .case-format {
+    padding: 2rem 0 3rem;
+  }
+
+  .format-card {
+    background: #111;
+    border: 1px solid var(--border);
+    padding: 2rem;
+    margin-bottom: 2rem;
+    position: relative;
+  }
+
+  .format-number {
+    position: absolute;
+    top: -12px;
+    left: 20px;
+    background: var(--accent);
+    color: #000;
+    width: 28px;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 0.9rem;
+  }
+
+  .format-card.problem-everyone-saw {
+    border-left: 3px solid #666;
+  }
+
+  .format-card.problem-actually-there {
+    border-left: 3px solid var(--accent);
+  }
+
+  .format-card.unexpected-solution {
+    border-left: 3px solid #4CAF50;
+  }
+
+  .format-card.what-you-can-steal {
+    border-left: 3px solid #2196F3;
+  }
+
+  .format-card h2 {
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+  }
+
+  .format-card p {
+    font-size: 1rem;
+    line-height: 1.7;
+    color: #ccc;
+    margin-bottom: 1rem;
+  }
+
+  .format-card p:last-child {
+    margin-bottom: 0;
+  }
+
+  .insight-box {
+    background: rgba(0,0,0,0.3);
+    padding: 1.5rem;
+    margin-top: 1.5rem;
+  }
+
+  .insight-box h3 {
+    font-size: 1rem;
+    color: var(--accent);
+    margin-bottom: 1rem;
+  }
+
+  .delusion-grid {
+    display: grid;
+    gap: 1.5rem;
+  }
+
+  .delusion-item h4 {
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+    color: #fff;
+  }
+
+  .delusion-item p {
+    font-size: 0.95rem;
+    color: var(--muted);
+    margin: 0;
+  }
+
+  .solution-showcase {
+    margin: 1.5rem 0;
+  }
+
+  .showcase-grid {
+    display: grid;
+    gap: 1.5rem;
+  }
+
+  @media (min-width: 600px) {
+    .showcase-grid {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  .showcase-item img {
+    width: 100%;
+    height: auto;
+    border: 1px solid var(--border);
+    margin-bottom: 0.75rem;
+  }
+
+  .showcase-item h4 {
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+    color: #4CAF50;
+  }
+
+  .showcase-item p {
+    font-size: 0.9rem;
+    color: var(--muted);
+    margin: 0;
+  }
+
+  .tech-stack {
+    background: rgba(0,0,0,0.3);
+    padding: 1.5rem;
+    margin-top: 1.5rem;
+  }
+
+  .tech-stack h4 {
+    font-size: 1rem;
+    color: #4CAF50;
+    margin-bottom: 1rem;
+  }
+
+  .tech-stack ul {
+    margin: 0;
+    padding-left: 1.25rem;
+  }
+
+  .tech-stack li {
+    font-size: 0.95rem;
+    color: var(--muted);
+    line-height: 1.6;
+    margin-bottom: 0.5rem;
+  }
+
+  .steal-list {
+    display: grid;
+    gap: 1.5rem;
+  }
+
+  .steal-item h4 {
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+    color: #2196F3;
+  }
+
+  .steal-item p {
+    font-size: 0.95rem;
+    color: var(--muted);
+    margin: 0;
+  }
+
+  .case-verdict {
+    padding: 2rem 0;
+    border-top: 1px solid var(--border);
+  }
+
+  .case-verdict h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .case-verdict p {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    margin-bottom: 1.5rem;
+  }
+
+  .case-verdict blockquote {
+    border-left: 3px solid var(--accent);
+    padding-left: 1.5rem;
+    font-style: italic;
+    color: #ccc;
+  }
+
+  .case-verdict blockquote p {
+    font-size: 1.15rem;
+    margin: 0;
+  }
+
+  .case-cta {
+    background: linear-gradient(135deg, #1a1a1a 0%, #0f0f0f 100%);
+    padding: 2.5rem;
+    text-align: center;
+    border: 1px solid var(--border);
+    margin: 2rem 0;
+  }
+
+  .case-cta h3 {
+    font-size: 1.3rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .case-cta p {
+    color: var(--muted);
+    margin-bottom: 1.5rem;
+  }
+
+  .cta-button {
+    display: inline-block;
+    background: var(--accent);
+    color: #000;
+    padding: 0.85rem 1.75rem;
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: transform 0.2s, background 0.2s;
+  }
+
+  .cta-button:hover {
+    transform: translateY(-2px);
+    background: #ff8c5a;
+  }
+
+  .case-sources {
+    padding: 2rem 0;
+    border-top: 1px solid var(--border);
+  }
+
+  .case-sources h4 {
+    font-size: 0.85rem;
+    color: var(--muted);
+    margin-bottom: 1rem;
+  }
+
+  .source-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .source-links li {
+    margin-bottom: 0.5rem;
+  }
+
+  .source-links a {
+    color: var(--accent);
+    font-size: 0.9rem;
+  }
+
+  .source-links a:hover {
+    text-decoration: underline;
+  }
+
+  @media (max-width: 768px) {
+    .case-study {
+      padding: 0 1.25rem;
+    }
+
+    .case-header {
+      padding: 8rem 0 2rem;
+    }
+
+    .format-card {
+      padding: 1.5rem;
+    }
+  }
+</style>
