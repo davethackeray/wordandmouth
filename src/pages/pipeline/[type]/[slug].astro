@@ -2,16 +2,14 @@
 import Base from '../../../layouts/Base.astro';
 import fs from 'node:fs/promises';
 import path from 'node:path';
-import { fileURLToPath } from 'node:url';
 
 // Generate static paths for all content files
 export async function getStaticPaths() {
   const paths = [];
   
-  // Helper to read directory
+  // Helper to read directory (robust for CI)
   async function readDir(type) {
-    const currentFile = fileURLToPath(import.meta.url);
-    const projectRoot = path.resolve(path.dirname(currentFile), '../../../../');
+    const projectRoot = path.resolve(process.cwd(), '../');
     const dirPath = path.join(projectRoot, type);
 
     try {
@@ -22,6 +20,9 @@ export async function getStaticPaths() {
         dirPath
       }));
     } catch (e) {
+      if (e.code === 'ENOENT') {
+        return [];
+      }
       console.error(`Error reading ${type}:`, e);
       return [];
     }
@@ -50,10 +51,14 @@ export async function getStaticPaths() {
 }
 
 const { type, filename } = Astro.props;
-const currentFile = fileURLToPath(import.meta.url);
-const projectRoot = path.resolve(path.dirname(currentFile), '../../../../');
-const filePath = path.join(projectRoot, type, filename);
-const content = await fs.readFile(filePath, 'utf-8');
+let content = '';
+try {
+  const projectRoot = path.resolve(process.cwd(), '../');
+  const filePath = path.join(projectRoot, type, filename);
+  content = await fs.readFile(filePath, 'utf-8');
+} catch (e) {
+  content = 'Error reading content: ' + e.message;
+}
 
 // Simple metadata extraction
 let title = filename;
@@ -66,16 +71,18 @@ const displayContent = content.replace(/^---[\s\S]*?---/, '').trim();
 
 <Base title={`${title} | Pipeline Viewer`}>
   <main class="viewer-page">
-    <div class="viewer-header">
-      <a href="/pipeline" class="back-link">← Back to Pipeline</a>
-      <span class="type-badge">{type}</span>
-      <h1>{title}</h1>
-      <p class="filename">{filename}</p>
-    </div>
+    <div class="content-wrapper">
+      <div class="viewer-header">
+        <a href="/pipeline" class="back-link">← Back to Pipeline</a>
+        <span class="type-badge">{type}</span>
+        <h1>{title}</h1>
+        <p class="filename">{filename}</p>
+      </div>
 
-    <div class="content-container">
-      <div class="raw-content">
-        {displayContent}
+      <div class="content-container">
+        <div class="raw-content">
+          {displayContent}
+        </div>
       </div>
     </div>
   </main>
@@ -83,9 +90,16 @@ const displayContent = content.replace(/^---[\s\S]*?---/, '').trim();
 
 <style>
   .viewer-page {
-    padding: 8rem 2rem 4rem;
+    /* Ensure content starts well below the fixed header */
+    padding-top: 120px;
+    min-height: 100vh;
+    background: #050505;
+  }
+
+  .content-wrapper {
     max-width: 900px;
     margin: 0 auto;
+    padding: 0 2rem 4rem;
   }
 
   .viewer-header {

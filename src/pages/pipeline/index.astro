@@ -1,13 +1,13 @@
+---
 import Base from '../../layouts/Base.astro';
 import fs from 'node:fs/promises';
 import path from 'node:path';
-import { fileURLToPath } from 'node:url';
 
 // Helper to get files from a directory
 async function getPipelineContent(type) {
-  // src/pages/pipeline/index.astro -> ../../../../../ to get to 'ideas' root
-  const currentFile = fileURLToPath(import.meta.url);
-  const projectRoot = path.resolve(path.dirname(currentFile), '../../../../');
+  // Use procss.cwd() which usually points to project root in dev, or repo root in CI
+  // We look one level up if we are in 'wam-site' subfolder locally
+  const projectRoot = path.resolve(process.cwd(), '../'); 
   const dirPath = path.join(projectRoot, type);
   
   try {
@@ -16,33 +16,42 @@ async function getPipelineContent(type) {
     
     const items = await Promise.all(contentFiles.map(async (filename) => {
       const filePath = path.join(dirPath, filename);
-      const content = await fs.readFile(filePath, 'utf-8');
-      
-      // Extract title: either from frontmatter title: "" or first # Header
-      let title = filename;
-      const frontmatterMatch = content.match(/^title:\s*["']?(.*?)["']?$/m);
-      const headerMatch = content.match(/^#\s+(.*)$/m);
-      
-      if (frontmatterMatch) {
-        title = frontmatterMatch[1];
-      } else if (headerMatch) {
-        title = headerMatch[1];
+       // handle file read errors individually
+      try {
+        const content = await fs.readFile(filePath, 'utf-8');
+        
+        // Extract title
+        let title = filename;
+        const frontmatterMatch = content.match(/^title:\s*["']?(.*?)["']?$/m);
+        const headerMatch = content.match(/^#\s+(.*)$/m);
+        
+        if (frontmatterMatch) {
+          title = frontmatterMatch[1];
+        } else if (headerMatch) {
+          title = headerMatch[1];
+        }
+        
+        const stats = await fs.stat(filePath);
+        
+        return {
+          slug: filename.replace('.md', ''),
+          filename,
+          title,
+          created: stats.birthtime,
+          size: stats.size
+        };
+      } catch (e) {
+        console.warn(`Error reading file ${filename}:`, e);
+        return null; // Filter out later
       }
-      
-      // Get basic stats
-      const stats = await fs.stat(filePath);
-      
-      return {
-        slug: filename.replace('.md', ''),
-        filename,
-        title,
-        created: stats.birthtime,
-        size: stats.size
-      };
     }));
     
-    return items;
+    return items.filter(i => i !== null);
   } catch (e) {
+    if (e.code === 'ENOENT') {
+      console.warn(`[Pipeline] Content directory not found: ${dirPath}. (This is expected on CI if content is not in repo)`);
+      return [];
+    }
     console.error(`Error reading ${type} directory from ${dirPath}:`, e);
     return [];
   }
