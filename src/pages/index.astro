@@ -1,1173 +1,453 @@
 ---
 import Base from '../layouts/Base.astro';
-import FeaturedInsights from '../components/FeaturedInsights.astro';
 ---
 
-<Base title="Listen. Dig. Deliver. — Word And Mouth">
-  <!-- Hero Section -->
-  <section class="hero hero-new">
-    <div class="hero-content">
-      <div class="hero-text">
-        <h1 class="strike-problem">
-          <span class="strikethrough">problem</span>
-        </h1>
-        
-        <p class="hero-philosophy">
-          Every business is created to solve a big problem.<br/>
-          <span class="hero-pivot">Ours? Yours.</span>
-        </p>
-        
-        <p class="hero-intro">
-          With 30 years in journalism, business strategy, and coaching —<br/>
-          we quickly find where the bodies are buried.<br/>
-          <strong>And bring your business back to life.</strong>
-        </p>
-        
-        <div class="hero-formula">
-          <span class="formula-item">Listen</span>
-          <span class="formula-dot">.</span>
-          <span class="formula-item">Dig</span>
-          <span class="formula-dot">.</span>
-          <span class="formula-item">Deliver</span>
-          <span class="formula-dot">.</span>
-        </div>
-        
-        <div class="hero-cta">
-          <a href="/problems/" class="cta-button">What's Your Problem?</a>
-        </div>
-      </div>
-    </div>
+<Base title="Dave Thackeray — The Dirty Secret Nobody Says in the Boardroom">
+  <!-- Hero -->
+  <section class="speaker-hero">
+    <p class="hero-label">Keynote Speaker • Podcast Host • The Voice You Can't Miss</p>
     
-    <div class="proof">
-      <div class="proof-item">
-        <span class="proof-number">30</span>
-        <span class="proof-label">years getting stories straight</span>
-      </div>
-      <div class="proof-item">
-        <span class="proof-number">680+</span>
-        <span class="proof-label">leaders helped find clarity</span>
-      </div>
-      <div class="proof-item">
-        <span class="proof-number">12</span>
-        <span class="proof-label">AI products shipped in 4 months</span>
-      </div>
-    </div>
-  </section>
-  
-  <!-- Scenarios Section - "Which one sounds like you?" -->
-  <section class="section scenarios-section">
-    <h2 class="section-label">Which one sounds like you?</h2>
+    <h1>The Dirty Secret Nobody Says in the Boardroom</h1>
     
-    <div class="scenario-grid">
-      <div class="scenario">
-        <div class="scenario-before">"We're losing deals to dumber competitors"</div>
-        <div class="scenario-after">Your story isn't landing. <strong>Let's fix that.</strong></div>
-      </div>
-      <div class="scenario">
-        <div class="scenario-before">"Our product is great but nobody gets it"</div>
-        <div class="scenario-after">You're selling features, not solutions. <strong>Let's flip that.</strong></div>
-      </div>
-      <div class="scenario">
-        <div class="scenario-before">"We have data everywhere but no insight"</div>
-        <div class="scenario-after">You need someone to connect the dots. <strong>That's me.</strong></div>
-      </div>
-      <div class="scenario">
-        <div class="scenario-before">"We know we should use AI but don't know how"</div>
-        <div class="scenario-after">I'll show you - and build the first prototype. <strong>In weeks.</strong></div>
-      </div>
-      <div class="scenario">
-        <div class="scenario-before">"We're doing fine but we should be doing better"</div>
-        <div class="scenario-after">You're right. <strong>Let's find the big problem you're actually solving.</strong></div>
-      </div>
-    </div>
+    <div class="hero-stat">90%</div>
     
-    <!-- Inline prompt to personalize -->
-    <div class="scenario-cta" id="scenarioCTA">
-      <a href="#matchmaker" onclick="resetMatch()">Not sure which fits? Let me help you figure it out</a>
+    <p class="hero-sub">
+      of strategies fail to launch.<br>
+      Not because the plan was wrong.<br>
+      <strong>Because there was no one left to do the work.</strong>
+    </p>
+    
+    <p class="hero-tagline">
+      Dave Thackeray reveals why smart companies get stuck — and what the 12% who succeed do differently.
+    </p>
+    
+    <p class="hero-role">30 years in journalism, strategy & coaching. 680+ leaders helped find clarity.</p>
+    
+    <div class="cta-group">
+      <a href="#book" class="cta-primary">Book Dave for Your Conference</a>
+      <a href="#podcast" class="cta-secondary">Book Dave for Your Podcast</a>
     </div>
   </section>
 
-  <!-- Featured Insights (Our Thinking) -->
-  <FeaturedInsights />
-  
-  <!-- Matchmaker Section -->
-  <section class="matchmaker-section" id="matchmaker">
-    <div class="matchmaker-container">
-      
-      <!-- Intro -->
-      <div class="match-step active" data-step="intro">
-        <h2>Let's find exactly what you need</h2>
-        <p class="match-intro">Answer 4 quick questions and I'll show you the most relevant work for your situation.</p>
-        <button class="match-start" onclick="startMatch()">Get Started</button>
-      </div>
-
-      <!-- Q1: Situation -->
-      <div class="match-step" data-step="q1">
-        <div class="match-progress">1 of 4</div>
-        <h3>What's your situation?</h3>
-        <div class="match-options">
-          <button class="match-option" onclick="selectMatch('situation', 'ceiling')">
-            <span class="opt-icon">Chart</span>
-            <span>We're doing OK but hit a ceiling</span>
-          </button>
-          <button class="match-option" onclick="selectMatch('situation', 'problem')">
-            <span class="opt-icon">Target</span>
-            <span>We have a specific problem to solve</span>
-          </button>
-          <button class="match-option" onclick="selectMatch('situation', 'exploring')">
-            <span class="opt-icon">Crystal</span>
-            <span>We're exploring what's possible</span>
-          </button>
+  <!-- The Truth -->
+  <section class="section truth-section">
+    <p class="section-label">The Research Nobody Wants to Hear</p>
+    <h2>Strategy is a commodity. Execution is the crisis.</h2>
+    
+    <div class="truth-grid">
+      <div class="truth-card">
+        <div class="truth-stat">40%</div>
+        <div class="truth-text">
+          <h3>of strategy value is lost to execution failure</h3>
+          <p>— Bain & Company / Harvard Business Review</p>
         </div>
       </div>
-
-      <!-- Q2: Challenge -->
-      <div class="match-step" data-step="q2">
-        <div class="match-progress">2 of 4</div>
-        <h3>What's your biggest challenge?</h3>
-        <div class="match-options">
-          <button class="match-option" onclick="selectMatch('tenet', 'story')">
-            <span class="opt-icon">Book</span>
-            <span>Nobody understands what we do</span>
-          </button>
-          <button class="match-option" onclick="selectMatch('tenet', 'clarity')">
-            <span class="opt-icon">Bulb</span>
-            <span>We're drowning in complexity</span>
-          </button>
-          <button class="match-option" onclick="selectMatch('tenet', 'insight')">
-            <span class="opt-icon">Search</span>
-            <span>We can't see patterns in our data</span>
-          </button>
-          <button class="match-option" onclick="selectMatch('tenet', 'ai')">
-            <span class="opt-icon">Robot</span>
-            <span>We need to figure out AI</span>
-          </button>
-          <button class="match-option" onclick="selectMatch('tenet', 'growth')">
-            <span class="opt-icon">Rocket</span>
-            <span>We've optimised everything we know</span>
-          </button>
+      <div class="truth-card">
+        <div class="truth-stat">67%</div>
+        <div class="truth-text">
+          <h3>of well-formulated strategies fail to launch</h3>
+          <p>— Harvard Business Review</p>
         </div>
       </div>
-
-      <!-- Q3: Industry -->
-      <div class="match-step" data-step="q3">
-        <div class="match-progress">3 of 4</div>
-        <h3>What's your sector?</h3>
-        <div class="match-options industry">
-          <button class="match-option small" onclick="selectMatch('industry', 'saas')">SaaS</button>
-          <button class="match-option small" onclick="selectMatch('industry', 'agency')">Agency</button>
-          <button class="match-option small" onclick="selectMatch('industry', 'media')">Media</button>
-          <button class="match-option small" onclick="selectMatch('industry', 'fintech')">Fintech</button>
-          <button class="match-option small" onclick="selectMatch('industry', 'ecommerce')">E-commerce</button>
-          <button class="match-option small" onclick="selectMatch('industry', 'professional')">Professional</button>
-          <button class="match-option small" onclick="selectMatch('industry', 'health')">Health</button>
-          <button class="match-option small" onclick="selectMatch('industry', 'education')">Education</button>
-          <button class="match-option small" onclick="selectMatch('industry', 'other')">Other</button>
+      <div class="truth-card">
+        <div class="truth-stat">#1</div>
+        <div class="truth-text">
+          <h3>barrier to reinvention: the strategy-execution gap</h3>
+          <p>— Project Management Institute, 2025</p>
         </div>
       </div>
-
-      <!-- Q4: Work Style -->
-      <div class="match-step" data-step="q4">
-        <div class="match-progress">4 of 4</div>
-        <h3>How do you prefer to work?</h3>
-        <div class="match-options">
-          <button class="match-option" onclick="selectMatch('tier', 'discovery')">
-            <span class="opt-icon">Search</span>
-            <span>Discovery - find the problem first</span>
-            <span class="opt-price">From 2,500 EUR</span>
-          </button>
-          <button class="match-option" onclick="selectMatch('tier', 'sprint')">
-            <span class="opt-icon">Rocket</span>
-            <span>Sprint - build something real in 4 weeks</span>
-            <span class="opt-price">From 7,500 EUR</span>
-          </button>
-          <button class="match-option" onclick="selectMatch('tier', 'embedded')">
-            <span class="opt-icon">Target</span>
-            <span>Embedded - ongoing clarity leadership</span>
-            <span class="opt-price">From 15,000 EUR/mo</span>
-          </button>
-        </div>
-      </div>
-
     </div>
   </section>
-  
-  <!-- How I Work -->
+
+  <!-- What Dave Reveals -->
   <section class="section">
-    <h2 class="section-label">How I work</h2>
-    <p class="how-text">
-      I talk to your customers. Your colleagues. Your competitors' customers.
-    </p>
-    <p class="how-text">
-      I find <strong>the big problem you actually solve</strong> — not the one you think you do.
-    </p>
-    <p class="how-text">
-      Then I turn that into a story so clear, so simple, that everyone — 
-      your sales team, your board, your customers — finally gets it.
-    </p>
-    <p class="how-text">
-      And if that story needs a product to prove it? <strong>I build that too.</strong>
-    </p>
-    <p class="how-cta">
-      <a href="/services">See how we can work together →</a>
-    </p>
+    <p class="section-label">What Dave Reveals On Stage</p>
+    <h2>Your audience will finally understand why they've been stuck — and leave with the one shift that creates momentum</h2>
+    
+    <div class="topics-grid">
+      <div class="topic-card">
+        <p class="topic-type">🔥 Keynote (45-60 min)</p>
+        <h3 class="topic-title">The 90% Reality</h3>
+        <p class="topic-hook">Why most strategies fail — and it's not what you think. The research-backed truth about the execution crisis.</p>
+      </div>
+      <div class="topic-card">
+        <p class="topic-type">💀 Wake-Up Call</p>
+        <h3 class="topic-title">Why Your Best People Are Your Biggest Bottleneck</h3>
+        <p class="topic-hook">The counterintuitive reason high-performers kill transformation — and the "Special Projects" fix.</p>
+      </div>
+      <div class="topic-card">
+        <p class="topic-type">🎯 Framework</p>
+        <h3 class="topic-title">The Problem Behind the Problem</h3>
+        <p class="topic-hook">A framework for finding the real issue when everything looks like a symptom and nothing looks like a cause.</p>
+      </div>
+      <div class="topic-card">
+        <p class="topic-type">⚡ Tactical</p>
+        <h3 class="topic-title">Why I Shipped 12 AI Products While Everyone Else Was "Strategising"</h3>
+        <p class="topic-hook">The Weekend Shipping method. No frameworks. No sprints. Just output.</p>
+      </div>
+      <div class="topic-card">
+        <p class="topic-type">🧠 Methodology</p>
+        <h3 class="topic-title">Signal from Noise</h3>
+        <p class="topic-hook">The journalist's framework I use to cut through chaos and find the story that matters.</p>
+      </div>
+      <div class="topic-card">
+        <p class="topic-type">🎭 Energy Hack</p>
+        <h3 class="topic-title">The Energy That Survives the Screen</h3>
+        <p class="topic-hook">680+ recommendations cite my "contagious enthusiasm." I'll show your audience exactly how to transmit energy anywhere.</p>
+      </div>
+    </div>
   </section>
 
-  <!-- BeLeaf: Proof We Practice What We Preach -->
-  <section class="section beleaf-showcase">
-    <div class="beleaf-badge">LIVE PROJECT</div>
-    <h2>We don't just talk. We ship.</h2>
+  <!-- What People Say -->
+  <section class="section">
+    <p class="section-label">What People Say</p>
+    <h2>"Contagious energy" and practical ideas that actually work</h2>
     
-    <div class="beleaf-content">
-      <div class="beleaf-story">
-        <h3>☕ Meet BeLeaf 🍵</h3>
-        <p class="beleaf-tagline">The world's first gift shop for AI agents.</p>
-        <p>
-          While everyone else is <em>talking</em> about AI commerce, we built a working store
-          where humans can gift digital "beverages" to their AI assistants.
-        </p>
-        <p class="beleaf-punchline">
-          "Give your agent a break — with Chai for AI."<br/>
-          <span class="grind">Because life's a grind.</span>
-        </p>
+    <div class="testimonials">
+      <div class="testimonial">
+        <blockquote>"If you have a content problem and no-one else can help and if you can find him... then you need to hire Dave Thackeray."</blockquote>
+        <cite>— Clare Newman, Business Manager, Michael Page</cite>
       </div>
+      <div class="testimonial">
+        <blockquote>"Dave is a mountain of practical and valuable ideas. The volume and practicality of his ideas... He's a machine!"</blockquote>
+        <cite>— Mary Obi, Vet Doctor & Entrepreneur</cite>
+      </div>
+      <div class="testimonial">
+        <blockquote>"He's a connector of dots — and if everyone could connect dots the way he does we would all live in a utopian society."</blockquote>
+        <cite>— Haleh Moravej, Manchester Met</cite>
+      </div>
+      <div class="testimonial">
+        <blockquote>"For me, it was like therapy. Books, movies, and tips for life."</blockquote>
+        <cite>— Angelica Buitrago, Senior UX Designer</cite>
+      </div>
+    </div>
+  </section>
+
+  <!-- Proof -->
+  <section class="proof-section">
+    <div class="proof-grid">
+      <div class="proof-item">
+        <h3>12</h3>
+        <p>AI products shipped in 4 months</p>
+      </div>
+      <div class="proof-item">
+        <h3>680+</h3>
+        <p>recommendations citing energy & ideas</p>
+      </div>
+      <div class="proof-item">
+        <h3>30</h3>
+        <p>years making the complex simple</p>
+      </div>
+      <div class="proof-item">
+        <h3>100%</h3>
+        <p>focus on action, not just insight</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Podcast Section -->
+  <section class="section" id="podcast">
+    <p class="section-label">Podcast Hosts</p>
+    <h2>Topics that deliver ratings — and takeaways your audience will actually use</h2>
+    
+    <p class="podcast-intro">
+      I bring energy, research-backed insights, and stories that land. No fluff. No theory. Pure value that makes your listeners hit "share."
+    </p>
+    
+    <div class="podcast-cta-box">
+      <p><strong>Ready to book?</strong> I'm available for 30-60 minute conversations on the execution crisis, AI shipping, or the psychology of stuck leaders.</p>
+      <a href="mailto:dave@wordandmouth.com?subject=Podcast%20Guest%20Inquiry" class="cta-primary">Email Dave</a>
+    </div>
+  </section>
+
+  <!-- Final CTA -->
+  <section class="cta-section" id="book">
+    <h2>Get Dave on your stage</h2>
+    <p>Your audience deserves the wake-up call. And the relief of finally understanding why they've been stuck.</p>
+    
+    <div class="cta-group">
+      <a href="mailto:dave@wordandmouth.com?subject=Speaking%20Inquiry" class="cta-primary">Email Dave Directly</a>
+      <a href="#recommend" class="cta-secondary">Recommend Dave to Your Conference</a>
+    </div>
+  </section>
+
+  <!-- Recommend Email Template -->
+  <section class="section" id="recommend">
+    <p class="section-label">Want to Recommend Dave?</p>
+    <h2>Send this to your conference organiser</h2>
+    
+    <div class="email-template">
+      <p class="subject">Subject: Speaker Recommendation: Dave Thackeray — "The 90% Reality"</p>
       
-      <div class="beleaf-proof">
-        <h4>What this proves:</h4>
-        <ul>
-          <li><strong>Clarity:</strong> A joke that's also a working product</li>
-          <li><strong>AI-Native:</strong> UCP protocol, agent-to-agent commerce</li>
-          <li><strong>Speed:</strong> Built in one session, not one quarter</li>
-          <li><strong>Story:</strong> "You flicked my bean" — unforgettable positioning</li>
-        </ul>
-      </div>
+      <p>Hi [Organiser Name],</p>
+      <br>
+      <p>I wanted to recommend a speaker for [Conference Name]: <strong>Dave Thackeray</strong>.</p>
+      <br>
+      <p>Dave has a talk called <strong>"The 90% Reality"</strong> — revealing why 90% of strategies fail to launch, based on research from Bain, McKinsey, and Stanford. But he doesn't just present data. He makes it <em>actionable</em>.</p>
+      <br>
+      <p>His core message: The reason most change initiatives fail isn't strategy or budget — it's that companies try to run transformation with "star players" who are already drowning in day-to-day work. He reveals what the 12% who succeed do differently.</p>
+      <br>
+      <p><strong>Why Dave?</strong></p>
+      <ul>
+        <li>30 years in journalism, strategy, and coaching — he makes the complex simple</li>
+        <li>680+ written recommendations citing his "contagious energy"</li>
+        <li>He's shipped 12 AI products in 4 months — he doesn't just talk, he builds</li>
+        <li>His promise: "Your audience will finally understand why they've been stuck"</li>
+      </ul>
+      <br>
+      <p>Website: <a href="https://wordandmouth.com">wordandmouth.com</a> | Email: <a href="mailto:dave@wordandmouth.com">dave@wordandmouth.com</a></p>
+      <br>
+      <p>I genuinely think he'd be one of the most memorable speakers on the programme.</p>
+      <br>
+      <p>Let me know if you'd like an intro.</p>
+      <br>
+      <p>[Your Name]</p>
     </div>
-    
-    <div class="beleaf-cta">
-      <a href="/beleaf/store/" class="btn-primary">Visit the Store →</a>
-      <a href="/beleaf/" class="btn-secondary">See the Strategy</a>
-    </div>
-  </section>
-  
-  <!-- Quote -->
-  <section class="section quote-section">
-    <blockquote>
-      "If you have a content problem and no-one else can help and if you can find him... 
-      then you need to hire Dave Thackeray."
-    </blockquote>
-    <cite>— Clare Newman, Business Manager, Michael Page</cite>
-  </section>
-  
-  <!-- CTA -->
-  <section class="section cta-section">
-    <h2>Ready to find your big problem?</h2>
-    <p>30 minutes. No pitch. Just clarity on what's holding you back.</p>
-    <a href="mailto:dave@wordandmouth.com" class="cta-button">Book a Call</a>
   </section>
 </Base>
 
-<script is:inline>
-  const matchAnswers = {};
-  
-  const tenetsData = {
-    story: { name: 'Story', url: '/story', desc: 'Help people understand what you do', proof: 'framework' },
-    clarity: { name: 'Clarity', url: '/clarity', desc: 'Cut through complexity', proof: 'tool' },
-    insight: { name: 'Insight', url: '/insight', desc: 'Find patterns in your data', proof: 'feature' },
-    ai: { name: 'AI', url: '/ai', desc: 'Build real AI capability', proof: 'technique' },
-    growth: { name: 'Growth', url: '/growth', desc: 'Unlock the next level', proof: 'strategy' }
-  };
-
-  const caseStudies = {
-    story: [
-      { title: 'STAR Framework', url: '/rabbit-holes/storytelling-frameworks', label: 'See the framework' },
-      { title: 'The Stack', url: '/work/the-stack', label: 'See the case study' }
-    ],
-    clarity: [
-      { title: 'Kitchen Confidence', url: '/rabbit-holes/kitchen-confidence', label: 'See the example' },
-      { title: 'Club Dadvice', url: '/case-studies/club-dadvice', label: 'See the result' }
-    ],
-    insight: [
-      { title: 'The Greenhouse', url: '/insights/greenhouse', label: 'Try the tool' },
-      { title: 'The Door Mouse', url: '/rabbit-holes/building-intelligence', label: 'See the system' }
-    ],
-    ai: [
-      { title: 'Signal from Noise', url: '/rabbit-holes/signal-from-noise', label: 'See the technique' },
-      { title: 'Scroll', url: '/case-studies/scroll', label: 'See the build' }
-    ],
-    growth: [
-      { title: 'The Greenhouse', url: '/insights/greenhouse', label: 'See the flagship' },
-      { title: 'Slice OS', url: '/case-studies/slice-os', label: 'See the scale' }
-    ]
-  };
-
-  // Check if already completed
-  document.addEventListener('DOMContentLoaded', () => {
-    const saved = localStorage.getItem('wam_match');
-    if (saved) {
-      const data = JSON.parse(saved);
-      hideMatchmaker();
-      showPersonalized(data);
-    }
-  });
-
-  function startMatch() {
-    showStep('q1');
-  }
-
-  function selectMatch(key, value) {
-    matchAnswers[key] = value;
-    const next = { situation: 'q2', tenet: 'q3', industry: 'q4' };
-    if (key === 'tier') {
-      completeMatch();
-    } else {
-      showStep(next[key]);
-    }
-  }
-
-  function showStep(step) {
-    document.querySelectorAll('.match-step').forEach(s => s.classList.remove('active'));
-    document.querySelector(`[data-step="${step}"]`).classList.add('active');
-  }
-
-  function completeMatch() {
-    localStorage.setItem('wam_match', JSON.stringify(matchAnswers));
-    hideMatchmaker();
-    showPersonalized(matchAnswers);
-  }
-
-  function hideMatchmaker() {
-    const m = document.getElementById('matchmaker');
-    if (m) m.style.display = 'none';
-    const cta = document.getElementById('scenarioCTA');
-    if (cta) cta.style.display = 'none';
-  }
-
-  function showPersonalized(data) {
-    const section = document.getElementById('personalizedResults');
-    const content = document.getElementById('personalizedContent');
-    if (!section || !content) return;
-    
-    const tenet = tenetsData[data.tenet] || tenetsData.story;
-    const cases = caseStudies[data.tenet] || [];
-    
-    content.innerHTML = `
-      <div class="pers-header">
-        <span class="pers-sub">Your Recommendation</span>
-        <button onclick="resetMatch()" class="pers-reset" title="Start Over">↺ Start Over</button>
-      </div>
-      
-      <div class="pers-grid">
-        <!-- Main Tenet Hero -->
-        <div class="pers-hero">
-          <div class="pers-badge">Focus Area: ${tenet.name}</div>
-          <h3 class="pers-title">${tenet.desc}</h3>
-          <p class="pers-proof">Method: The ${tenet.proof}</p>
-          <a href="${tenet.url}" class="pers-cta-primary">Explore ${tenet.name} →</a>
-        </div>
-
-        <!-- Recommended Actions -->
-        <div class="pers-secondary">
-          <span class="pers-label">Recommended Resources</span>
-          <div class="pers-cards">
-            ${cases.map(c => `
-              <a href="${c.url}" class="pers-card">
-                <span class="pers-card-arrow">↗</span>
-                <span class="pers-card-title">${c.title}</span>
-                <span class="pers-card-label">${c.label}</span>
-              </a>
-            `).join('')}
-          </div>
-          
-          <div class="pers-links">
-            <a href="/services" class="pers-link-item">See pricing</a>
-            <span class="sep">•</span>
-            <a href="/industries/${data.industry || 'saas'}" class="pers-link-item">Work in ${data.industry || 'SaaS'}</a>
-          </div>
-        </div>
-      </div>
-    `;
-    section.style.display = 'block';
-  }
-
-  function resetMatch() {
-    localStorage.removeItem('wam_match');
-    location.reload();
-  }
-</script>
-
 <style>
-  /* Matchmaker */
-  .matchmaker-section {
-    background: linear-gradient(180deg, rgba(255,107,53,0.08) 0%, transparent 100%);
-    padding: 8rem 2rem 4rem;
-  }
-
-  .matchmaker-container {
-    max-width: 700px;
+  /* Hero */
+  .speaker-hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 4rem 2rem;
+    max-width: 900px;
     margin: 0 auto;
-  }
-
-  .match-step {
-    display: none;
-    animation: fadeIn 0.3s ease;
-  }
-
-  .match-step.active {
-    display: block;
-  }
-
-  @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(10px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-
-  .matchmaker-section h2 {
-    font-size: clamp(1.8rem, 4vw, 2.5rem);
-    margin-bottom: 1rem;
     text-align: center;
   }
-
-  .matchmaker-section h3 {
-    font-size: 1.5rem;
+  
+  .hero-label {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: var(--accent);
+    margin-bottom: 2rem;
+  }
+  
+  .speaker-hero h1 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: clamp(2.2rem, 5vw, 3.5rem);
+    font-weight: 700;
+    line-height: 1.15;
     margin-bottom: 1.5rem;
   }
-
-  .match-intro {
-    text-align: center;
+  
+  .hero-stat {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: clamp(4rem, 10vw, 7rem);
+    font-weight: 700;
+    color: var(--accent);
+    line-height: 1;
+    margin: 1rem 0;
+  }
+  
+  .hero-sub {
+    font-size: 1.2rem;
+    color: #ccc;
+    max-width: 600px;
+    margin: 0 auto 1rem;
+  }
+  
+  .hero-sub strong { color: #fff; }
+  
+  .hero-tagline {
+    font-size: 1.5rem;
+    color: #fff;
+    margin: 2rem 0;
+    font-weight: 600;
+  }
+  
+  .hero-role {
+    font-size: 1rem;
     color: var(--muted);
     margin-bottom: 2rem;
-    font-size: 1.1rem;
   }
-
-  .match-start {
-    display: block;
-    margin: 0 auto;
-    background: var(--accent);
-    color: #000;
-    border: none;
-    padding: 1rem 2.5rem;
-    font-size: 1.1rem;
-    font-weight: 600;
-    cursor: pointer;
-  }
-
-  .match-progress {
-    font-size: 0.8rem;
-    color: var(--muted);
-    margin-bottom: 0.5rem;
-  }
-
-  .match-options {
+  
+  .cta-group {
     display: flex;
-    flex-direction: column;
-    gap: 0.75rem;
-  }
-
-  .match-options.industry {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 0.5rem;
-  }
-
-  .match-option {
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-    background: #0a0a0a;
-    border: 1px solid #333;
-    padding: 1rem 1.25rem;
-    cursor: pointer;
-    text-align: left;
-    transition: all 0.2s;
-    color: var(--text);
-  }
-
-  .match-option:hover {
-    border-color: var(--accent);
-    background: #111;
-  }
-
-  .match-option.small {
+    gap: 1rem;
     justify-content: center;
-    text-align: center;
-    padding: 0.75rem;
-    font-size: 0.9rem;
-  }
-
-  .opt-icon {
-    font-size: 1.3rem;
-  }
-
-  .opt-price {
-    margin-left: auto;
-    font-size: 0.8rem;
-    color: var(--accent);
-  }
-
-  /* Hero - New Design */
-  .hero.hero-new {
-    min-height: 90vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    padding: 8rem 2rem 4rem;
-    max-width: 1200px;
-    margin: 0 auto;
-    background: url('/assets/hero-background.png') center bottom no-repeat;
-    background-size: 100% auto;
-    background-color: #000;
-    position: relative;
-  }
-
-  .hero.hero-new::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(180deg, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.4) 40%, rgba(0,0,0,1) 90%, #000 100%);
-    pointer-events: none;
-  }
-
-  .hero-content {
-    display: grid;
-    grid-template-columns: 1.5fr 1fr;
-    gap: 4rem;
-    align-items: center;
-    position: relative;
-    z-index: 1;
-  }
-
-  .hero-text {
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-  }
-
-  .strike-problem {
-    margin: 0;
-  }
-
-  .strikethrough {
-    font-family: 'Space Grotesk', sans-serif;
-    font-size: clamp(4rem, 12vw, 8rem);
-    font-weight: 700;
-    color: #fff;
-    text-decoration: line-through;
-    text-decoration-color: #ff4444;
-    text-decoration-thickness: 8px;
-    line-height: 1;
-    display: inline-block;
-  }
-
-  .hero-philosophy {
-    font-size: 1.4rem;
-    color: #ccc;
-    line-height: 1.5;
-    margin: 0;
-  }
-
-  .hero-pivot {
-    display: block;
-    font-size: 2rem;
-    font-weight: 700;
-    color: #fff;
-    margin-top: 0.5rem;
-  }
-
-  .hero-intro {
-    font-size: 1.1rem;
-    color: #999;
-    line-height: 1.6;
-    margin: 0;
-  }
-
-  .hero-intro strong {
-    color: #4CAF50;
-  }
-
-  .hero-formula {
-    display: flex;
-    gap: 0.5rem;
-    align-items: baseline;
-    margin-top: 1rem;
-  }
-
-  .formula-item {
-    font-family: 'Space Grotesk', sans-serif;
-    font-size: 2rem;
-    font-weight: 700;
-    color: var(--accent);
-  }
-
-  .formula-dot {
-    font-size: 2rem;
-    color: #666;
-    font-weight: 700;
-  }
-
-  .hero-cta {
-    margin-top: 1rem;
-  }
-
-  .hero-visual {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    position: relative;
-    z-index: 1;
-  }
-
-  .elixir-bottle {
-    max-width: 300px;
-    filter: drop-shadow(0 0 30px rgba(76, 175, 80, 0.4));
-    animation: float 3s ease-in-out infinite;
-  }
-
-  @keyframes float {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-10px); }
-  }
-
-  .elixir-caption {
-    color: #4CAF50;
-    font-size: 0.9rem;
-    font-style: italic;
-    margin-top: 1rem;
-    text-align: center;
-  }
-
-  .proof {
-    display: flex;
     flex-wrap: wrap;
-    gap: 2.5rem;
-    padding-top: 2rem;
-    border-top: 1px solid var(--border);
-    position: relative;
-    z-index: 1;
-    margin-top: 3rem;
+    margin-top: 2rem;
   }
   
-  .proof-item {
-    display: flex;
-    flex-direction: column;
-  }
-  
-  .proof-number {
-    font-family: 'Space Grotesk', sans-serif;
-    font-size: 2.5rem;
-    font-weight: 700;
-    color: var(--accent);
-    line-height: 1;
-  }
-  
-  .proof-label {
-    font-size: 0.8rem;
-    color: var(--muted);
-  }
-
-  /* Personalized Results (Premium Redesign) */
-  .personalized-section {
-    background: linear-gradient(135deg, rgba(255,107,53,0.03) 0%, rgba(17,17,17,0.95) 50%, rgba(0,0,0,0.98) 100%);
-    backdrop-filter: blur(20px);
-    border: 1px solid rgba(255,107,53,0.2);
-    margin: 4rem auto;
+  /* Section */
+  .section {
+    padding: 5rem 2rem;
     max-width: 900px;
-    border-radius: 16px;
-    box-shadow: 
-      0 25px 50px rgba(0,0,0,0.5),
-      0 0 100px rgba(255,107,53,0.08),
-      inset 0 1px 0 rgba(255,255,255,0.05);
-    overflow: hidden;
-    position: relative;
-    animation: slideUp 0.5s ease-out;
+    margin: 0 auto;
   }
   
-  @keyframes slideUp {
-    from { opacity: 0; transform: translateY(30px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-  
-  .personalized-section::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0; right: 0; height: 2px;
-    background: linear-gradient(90deg, transparent 10%, var(--accent) 50%, transparent 90%);
-  }
-  
-  .personalized-section::after {
-    content: '✦';
-    position: absolute;
-    top: -12px;
-    left: 50%;
-    transform: translateX(-50%);
-    background: #0a0a0a;
-    color: var(--accent);
-    padding: 0 1rem;
-    font-size: 1.2rem;
-  }
-
-  .personalized-content {
-    padding: 3rem;
-  }
-
-  .pers-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 2.5rem;
-    border-bottom: 1px solid rgba(255,255,255,0.08);
-    padding-bottom: 1.25rem;
-  }
-
-  .pers-sub {
-    font-size: 0.85rem;
+  .section-label {
+    font-size: 0.8rem;
     text-transform: uppercase;
     letter-spacing: 0.15em;
     color: var(--accent);
-    font-weight: 600;
-  }
-
-  .pers-reset {
-    background: rgba(255,255,255,0.05);
-    border: 1px solid rgba(255,255,255,0.1);
-    color: #888;
-    font-size: 0.85rem;
-    cursor: pointer;
-    padding: 0.5rem 1rem;
-    border-radius: 6px;
-    transition: all 0.2s;
-  }
-  
-  .pers-reset:hover {
-    color: var(--accent);
-    border-color: var(--accent);
-    background: rgba(255,107,53,0.1);
-  }
-
-  .pers-grid {
-    display: grid;
-    grid-template-columns: 1.2fr 1fr;
-    gap: 3rem;
-    align-items: start;
-  }
-
-  @media (max-width: 768px) {
-    .pers-grid {
-      grid-template-columns: 1fr;
-      gap: 2rem;
-    }
-    .personalized-content {
-      padding: 2rem;
-    }
-  }
-
-  .pers-hero {
-    display: flex;
-    flex-direction: column;
-    padding: 2rem;
-    background: linear-gradient(145deg, rgba(255,107,53,0.08) 0%, transparent 60%);
-    border-radius: 12px;
-    border: 1px solid rgba(255,107,53,0.15);
-  }
-
-  .pers-badge {
-    color: var(--accent);
-    font-size: 0.8rem;
-    font-weight: 700;
     margin-bottom: 1rem;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
   }
   
-  .pers-badge::before {
-    content: '◆';
-    font-size: 0.6rem;
-  }
-
-  .pers-title {
+  .section h2 {
     font-family: 'Space Grotesk', sans-serif;
-    font-size: 2.2rem;
-    line-height: 1.15;
-    color: #fff;
-    margin-bottom: 0.75rem;
-    font-weight: 600;
-  }
-  
-  .pers-proof {
-    color: #999;
-    font-size: 1rem;
-    margin-bottom: 2rem;
-    font-style: italic;
-  }
-
-  .pers-cta-primary {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    background: linear-gradient(135deg, var(--accent) 0%, #ff8a50 100%);
-    color: #000;
-    padding: 1rem 1.75rem;
-    font-weight: 700;
-    text-decoration: none;
-    border-radius: 8px;
-    align-self: start;
-    font-size: 1rem;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 15px rgba(255,107,53,0.3);
-  }
-
-  .pers-cta-primary:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 8px 25px rgba(255,107,53,0.4);
-  }
-
-  .pers-secondary {
-    padding-top: 0.5rem;
-  }
-
-  .pers-label {
-    display: block;
-    font-size: 0.75rem;
-    color: #555;
-    margin-bottom: 1.25rem;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    font-weight: 600;
-  }
-
-  .pers-cards {
-    display: flex;
-    flex-direction: column;
-    gap: 0.75rem;
-    margin-bottom: 2rem;
-  }
-
-  .pers-card {
-    display: flex;
-    align-items: center;
-    background: rgba(255,255,255,0.02);
-    border: 1px solid rgba(255,255,255,0.08);
-    padding: 1rem 1.25rem;
-    text-decoration: none;
-    border-radius: 10px;
-    transition: all 0.3s ease;
-    position: relative;
-    overflow: hidden;
-  }
-  
-  .pers-card::before {
-    content: '';
-    position: absolute;
-    left: 0;
-    top: 0;
-    bottom: 0;
-    width: 3px;
-    background: var(--accent);
-    opacity: 0;
-    transition: opacity 0.3s;
-  }
-
-  .pers-card:hover {
-    border-color: rgba(255,107,53,0.4);
-    background: rgba(255,107,53,0.05);
-    transform: translateX(8px);
-  }
-  
-  .pers-card:hover::before {
-    opacity: 1;
-  }
-  
-  .pers-card-arrow {
-    color: var(--accent);
-    margin-right: 1rem;
-    font-size: 1.2rem;
-    transition: transform 0.3s;
-  }
-  
-  .pers-card:hover .pers-card-arrow {
-    transform: translateX(3px);
-  }
-
-  .pers-card-title {
-    color: #e8e8e8;
-    font-weight: 600;
-    margin-right: auto;
-    font-size: 1rem;
-  }
-  
-  .pers-card-label {
-    font-size: 0.7rem;
-    color: #888;
-    background: rgba(0,0,0,0.4);
-    padding: 0.3rem 0.6rem;
-    border-radius: 12px;
-    border: 1px solid rgba(255,255,255,0.05);
-  }
-
-  .pers-links {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    font-size: 0.9rem;
-    padding-top: 1rem;
-    border-top: 1px solid rgba(255,255,255,0.05);
-  }
-
-  .pers-link-item {
-    color: #777;
-    text-decoration: none;
-    transition: all 0.2s;
-    display: inline-flex;
-    align-items: center;
-    gap: 0.3rem;
-  }
-  
-  .pers-link-item:hover {
-    color: var(--accent);
-  }
-  
-  .sep {
-    color: #333;
-  }
-  
-  /* Scenarios */
-  .scenario-grid {
-    display: grid;
-    gap: 0;
-  }
-  
-  .scenario {
-    padding: 2rem 0;
-    border-bottom: 1px solid var(--border);
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 2rem;
-    align-items: center;
-  }
-  
-  .scenario-before {
-    font-family: 'Space Grotesk', sans-serif;
-    font-size: 1.2rem;
-    font-weight: 700;
-    color: var(--muted);
-  }
-  
-  .scenario-after {
-    font-size: 1.2rem;
-    color: var(--text);
-  }
-  
-  .scenario-after strong {
-    color: var(--accent);
-    font-weight: 500;
-  }
-
-  .scenario-cta {
-    padding: 2rem 0;
-  }
-
-  .scenario-cta a {
-    color: var(--accent);
-    font-size: 1rem;
-  }
-  
-  /* How */
-  .how-text {
-    font-size: 1.3rem;
-    line-height: 1.5;
+    font-size: clamp(1.6rem, 4vw, 2.2rem);
     margin-bottom: 1.5rem;
-    max-width: 700px;
   }
   
-  .how-text strong {
-    color: var(--accent);
+  /* Truth Section */
+  .truth-section {
+    background: linear-gradient(180deg, transparent 0%, rgba(255,107,53,0.05) 50%, transparent 100%);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    max-width: 100%;
+    padding: 5rem 2rem;
   }
-
-  .how-cta {
+  
+  .truth-section h2,
+  .truth-section .section-label,
+  .truth-grid {
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .truth-grid {
+    display: grid;
+    gap: 1.5rem;
     margin-top: 2rem;
   }
-
-  .how-cta a {
-    color: var(--accent);
-    font-size: 1.1rem;
+  
+  .truth-card {
+    display: flex;
+    gap: 1.5rem;
+    padding: 1.5rem;
+    background: rgba(255,255,255,0.02);
+    border: 1px solid var(--border);
   }
-
-  /* BeLeaf Showcase */
-  .beleaf-showcase {
-    background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
-    border: 2px solid #2D5016;
-    position: relative;
-    margin: 0 auto;
-    max-width: 1000px;
-  }
-
-  .beleaf-badge {
-    position: absolute;
-    top: -12px;
-    left: 30px;
-    background: #4CAF50;
-    color: #000;
-    padding: 0.25rem 1rem;
-    font-size: 0.75rem;
-    font-weight: 700;
-    letter-spacing: 0.1em;
-  }
-
-  .beleaf-showcase h2 {
+  
+  .truth-stat {
+    font-family: 'Space Grotesk', sans-serif;
     font-size: 2rem;
-    margin-bottom: 2rem;
-    color: #fff;
+    font-weight: 700;
+    color: var(--accent);
+    min-width: 80px;
   }
-
-  .beleaf-content {
+  
+  .truth-text h3 { font-size: 1rem; margin-bottom: 0.25rem; }
+  .truth-text p { color: var(--muted); font-size: 0.9rem; }
+  
+  /* Topics */
+  .topics-grid {
     display: grid;
-    grid-template-columns: 1.2fr 1fr;
-    gap: 3rem;
-    margin-bottom: 2rem;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1.25rem;
+    margin-top: 2rem;
   }
-
-  .beleaf-story h3 {
-    font-size: 1.5rem;
+  
+  .topic-card {
+    padding: 1.5rem;
+    background: #111;
+    border: 1px solid var(--border);
+    transition: border-color 0.2s;
+  }
+  
+  .topic-card:hover { border-color: var(--accent); }
+  
+  .topic-type {
+    font-size: 0.75rem;
+    color: var(--accent);
     margin-bottom: 0.5rem;
   }
-
-  .beleaf-tagline {
-    color: #4CAF50;
-    font-style: italic;
-    font-size: 1.1rem;
-    margin-bottom: 1rem;
-  }
-
-  .beleaf-story p {
-    line-height: 1.6;
-    margin-bottom: 1rem;
-  }
-
-  .beleaf-punchline {
-    font-size: 1.1rem;
-    color: #fff;
-  }
-
-  .grind {
-    color: #8B4513;
-    font-weight: 600;
-    font-style: italic;
-  }
-
-  .beleaf-proof {
-    background: rgba(45, 80, 22, 0.2);
-    padding: 1.5rem;
-    border-left: 3px solid #4CAF50;
-  }
-
-  .beleaf-proof h4 {
-    color: #4CAF50;
-    margin-bottom: 1rem;
-    font-size: 1rem;
-  }
-
-  .beleaf-proof ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-  }
-
-  .beleaf-proof li {
-    padding: 0.5rem 0;
-    border-bottom: 1px solid rgba(76, 175, 80, 0.2);
-    font-size: 0.95rem;
-  }
-
-  .beleaf-proof li:last-child {
-    border-bottom: none;
-  }
-
-  .beleaf-proof strong {
-    color: #4CAF50;
-  }
-
-  .beleaf-cta {
-    display: flex;
-    gap: 1rem;
-  }
-
-  .beleaf-cta .btn-primary {
-    background: #4CAF50;
-    color: #000;
-    padding: 0.75rem 1.5rem;
-    text-decoration: none;
-    font-weight: 600;
-  }
-
-  .beleaf-cta .btn-secondary {
-    border: 1px solid #4CAF50;
-    color: #4CAF50;
-    padding: 0.75rem 1.5rem;
-    text-decoration: none;
-    background: transparent;
-  }
-
-  @media (max-width: 768px) {
-    .beleaf-content {
-      grid-template-columns: 1fr;
-      gap: 2rem;
-    }
-    
-    .beleaf-showcase {
-      margin: 0 1rem;
-    }
-
-    /* Strip background theatrics on mobile */
-    .hero.hero-new {
-      background: none;
-      background-color: #000;
-      min-height: auto;
-      padding: 6rem 1.5rem 3rem;
-    }
-
-    .hero.hero-new::before {
-      display: none;
-    }
-
-    .hero-content {
-      grid-template-columns: 1fr;
-      gap: 2rem;
-    }
-
-    .strikethrough {
-      font-size: 3rem;
-    }
-
-    .hero-pivot {
-      font-size: 1.5rem;
-    }
-
-    .formula-item, .formula-dot {
-      font-size: 1.5rem;
-    }
-  }
   
-  /* Quote */
-  .quote-section blockquote {
+  .topic-title {
     font-family: 'Space Grotesk', sans-serif;
-    font-size: 1.6rem;
-    font-weight: 500;
-    line-height: 1.4;
-    margin-bottom: 1.5rem;
-    border-left: 3px solid var(--accent);
-    padding-left: 1.5rem;
+    font-size: 1.15rem;
+    margin-bottom: 0.75rem;
   }
   
-  .quote-section cite {
-    font-style: normal;
+  .topic-hook {
     color: var(--muted);
     font-size: 0.9rem;
   }
   
-  /* CTA */
+  /* Testimonials */
+  .testimonials {
+    display: grid;
+    gap: 1.5rem;
+    margin-top: 2rem;
+  }
+  
+  .testimonial {
+    padding: 1.5rem;
+    background: linear-gradient(135deg, rgba(255,107,53,0.05) 0%, transparent 100%);
+    border-left: 3px solid var(--accent);
+  }
+  
+  .testimonial blockquote {
+    font-size: 1.1rem;
+    font-style: italic;
+    color: #ddd;
+    margin-bottom: 0.75rem;
+  }
+  
+  .testimonial cite {
+    color: var(--muted);
+    font-size: 0.85rem;
+  }
+  
+  /* Proof */
+  .proof-section {
+    background: #111;
+    padding: 4rem 2rem;
+  }
+  
+  .proof-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 2rem;
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
+  }
+  
+  .proof-item h3 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 2.5rem;
+    color: var(--accent);
+  }
+  
+  .proof-item p {
+    color: var(--muted);
+    font-size: 0.85rem;
+  }
+  
+  /* Podcast */
+  .podcast-intro {
+    color: var(--muted);
+    margin-bottom: 2rem;
+  }
+  
+  .podcast-cta-box {
+    background: rgba(255,107,53,0.05);
+    padding: 2rem;
+    border: 1px solid var(--border);
+    text-align: center;
+  }
+  
+  .podcast-cta-box p {
+    margin-bottom: 1rem;
+  }
+  
+  /* CTA Section */
+  .cta-section {
+    text-align: center;
+    padding: 5rem 2rem;
+    background: linear-gradient(180deg, transparent 0%, rgba(255,107,53,0.08) 100%);
+  }
+  
   .cta-section h2 {
+    font-family: 'Space Grotesk', sans-serif;
     font-size: clamp(1.8rem, 4vw, 2.5rem);
     margin-bottom: 1rem;
   }
@@ -1175,21 +455,30 @@ import FeaturedInsights from '../components/FeaturedInsights.astro';
   .cta-section p {
     color: var(--muted);
     margin-bottom: 2rem;
-    font-size: 1.1rem;
   }
   
-  @media (max-width: 768px) {
-    .scenario {
-      grid-template-columns: 1fr;
-      gap: 0.5rem;
-    }
-    
-    .hero {
-      padding: 4rem 1.5rem 3rem;
-    }
-
-    .match-options.industry {
-      grid-template-columns: repeat(2, 1fr);
-    }
+  /* Email Template */
+  .email-template {
+    background: #0f0f0f;
+    padding: 2rem;
+    border: 1px solid var(--border);
+    margin-top: 2rem;
+    font-size: 0.95rem;
+    color: #ccc;
+    line-height: 1.8;
+  }
+  
+  .email-template .subject {
+    color: var(--muted);
+    font-size: 0.85rem;
+    margin-bottom: 1rem;
+  }
+  
+  .email-template ul {
+    margin-left: 1.5rem;
+  }
+  
+  .email-template a {
+    color: var(--accent);
   }
 </style>
