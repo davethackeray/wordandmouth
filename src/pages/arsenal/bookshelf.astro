@@ -17,6 +17,121 @@ import Base from '../../layouts/Base.astro';
     </p>
   </section>
 
+  <!-- The Execution Library - Dave's Picks -->
+  <section class="book-section execution-library">
+    <div class="section-header">
+      <span class="section-icon">🔥</span>
+      <div>
+        <h2>The Execution Library</h2>
+        <p class="section-desc">Dave's essential reads for the execution crisis. Start here if you're stuck between strategy and reality.</p>
+      </div>
+    </div>
+
+    <div class="book-grid">
+      <a href="https://amzn.to/execution-knowing-doing" class="book-card featured">
+        <div class="book-meta">
+          <span class="book-number">★</span>
+          <span class="book-tag">FOUNDATION</span>
+        </div>
+        <h3>The Knowing-Doing Gap</h3>
+        <p class="book-author">Pfeffer & Sutton (Stanford)</p>
+        <p class="book-if"><strong>Read this if:</strong> You know what to do but can't seem to make it happen.</p>
+        <blockquote class="book-quote">
+          "Companies that document best practices but don't implement them have a knowing-doing gap."
+        </blockquote>
+        <div class="book-framework">
+          <span class="framework-label">Key Framework:</span>
+          <span class="framework-name">The gap between knowledge and action — why smart companies fail to execute</span>
+        </div>
+      </a>
+
+      <a href="https://amzn.to/skunk-works" class="book-card featured">
+        <div class="book-meta">
+          <span class="book-number">★</span>
+          <span class="book-tag">SPECIAL PROJECTS</span>
+        </div>
+        <h3>Skunk Works</h3>
+        <p class="book-author">Ben Rich</p>
+        <p class="book-if"><strong>Read this if:</strong> You need to deliver breakthrough results fast, outside the org chart.</p>
+        <blockquote class="book-quote">
+          "Kelly's 14 Rules proved that small teams with autonomy could outperform massive bureaucracies."
+        </blockquote>
+        <div class="book-framework">
+          <span class="framework-label">Key Framework:</span>
+          <span class="framework-name">The Special Projects model — protected capacity, 100% focus, bypasses inertia</span>
+        </div>
+      </a>
+
+      <a href="https://amzn.to/challenger-sale" class="book-card featured">
+        <div class="book-meta">
+          <span class="book-number">★</span>
+          <span class="book-tag">PSYCHOLOGY</span>
+        </div>
+        <h3>The Challenger Sale</h3>
+        <p class="book-author">Dixon & Adamson</p>
+        <p class="book-if"><strong>Read this if:</strong> You need to influence high-performers who resist advice.</p>
+        <blockquote class="book-quote">
+          "The best salespeople don't ask what keeps you up at night. They tell you what should."
+        </blockquote>
+        <div class="book-framework">
+          <span class="framework-label">Key Framework:</span>
+          <span class="framework-name">Rational Drowning + Commercial Teaching — leading with insight, not questions</span>
+        </div>
+      </a>
+
+      <a href="https://amzn.to/antifragile" class="book-card featured">
+        <div class="book-meta">
+          <span class="book-number">★</span>
+          <span class="book-tag">VUCA</span>
+        </div>
+        <h3>Antifragile</h3>
+        <p class="book-author">Nassim Nicholas Taleb</p>
+        <p class="book-if"><strong>Read this if:</strong> You're trying to plan in a world that won't sit still.</p>
+        <blockquote class="book-quote">
+          "Some things benefit from shocks; they thrive and grow when exposed to volatility."
+        </blockquote>
+        <div class="book-framework">
+          <span class="framework-label">Key Framework:</span>
+          <span class="framework-name">Antifragility — designing systems that get stronger under stress</span>
+        </div>
+      </a>
+
+      <a href="https://amzn.to/essentialism" class="book-card featured">
+        <div class="book-meta">
+          <span class="book-number">★</span>
+          <span class="book-tag">FOCUS</span>
+        </div>
+        <h3>Essentialism</h3>
+        <p class="book-author">Greg McKeown</p>
+        <p class="book-if"><strong>Read this if:</strong> You're doing too many things and making progress on none.</p>
+        <blockquote class="book-quote">
+          "If you don't prioritize your life, someone else will."
+        </blockquote>
+        <div class="book-framework">
+          <span class="framework-label">Key Framework:</span>
+          <span class="framework-name">The disciplined pursuit of less — saying no to everything but the vital few</span>
+        </div>
+      </a>
+
+      <a href="https://amzn.to/team-of-teams" class="book-card featured">
+        <div class="book-meta">
+          <span class="book-number">★</span>
+          <span class="book-tag">EXECUTION</span>
+        </div>
+        <h3>Team of Teams</h3>
+        <p class="book-author">General Stanley McChrystal</p>
+        <p class="book-if"><strong>Read this if:</strong> Your organisation is too slow to respond to reality.</p>
+        <blockquote class="book-quote">
+          "In complex environments, speed of adaptation beats quality of planning."
+        </blockquote>
+        <div class="book-framework">
+          <span class="framework-label">Key Framework:</span>
+          <span class="framework-name">Shared consciousness + Empowered execution — networks over hierarchies</span>
+        </div>
+      </a>
+    </div>
+  </section>
+
   <!-- Systems Architects -->
   <section class="book-section">
     <div class="section-header">
@@ -453,6 +568,15 @@ import Base from '../../layouts/Base.astro';
   .book-card.wildcard {
     border-color: #ff4444;
     background: rgba(255,68,68,0.05);
+  }
+
+  .book-card.featured {
+    border-color: var(--accent);
+    background: linear-gradient(135deg, rgba(255,107,53,0.08) 0%, rgba(255,255,255,0.02) 100%);
+  }
+
+  .execution-library {
+    background: linear-gradient(180deg, rgba(255,107,53,0.03) 0%, transparent 100%);
   }
 
   .book-meta {
