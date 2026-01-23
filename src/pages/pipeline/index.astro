@@ -3,10 +3,8 @@ import Base from '../../layouts/Base.astro';
 import fs from 'node:fs/promises';
 import path from 'node:path';
 
-// Helper to get files from a directory
+// Helper to get files from a directory with status extraction
 async function getPipelineContent(type) {
-  // src/pages/pipeline/index.astro -> project root
-  // Now targeting the tracked 'content' directory in wam-site root
   const projectRoot = process.cwd(); 
   const dirPath = path.join(projectRoot, 'content', 'pipeline', type);
   
@@ -16,12 +14,11 @@ async function getPipelineContent(type) {
     
     const items = await Promise.all(contentFiles.map(async (filename) => {
       const filePath = path.join(dirPath, filename);
-       // handle file read errors individually
       try {
         const content = await fs.readFile(filePath, 'utf-8');
         
         // Extract title
-        let title = filename;
+        let title = filename.replace('.md', '').replace(/-/g, ' ');
         const frontmatterMatch = content.match(/^title:\s*["']?(.*?)["']?$/m);
         const headerMatch = content.match(/^#\s+(.*)$/m);
         
@@ -31,22 +28,39 @@ async function getPipelineContent(type) {
           title = headerMatch[1];
         }
         
+        // Extract status from frontmatter or inline marker
+        let status = 'draft'; // default
+        const statusMatch = content.match(/^(?:\*\*)?status(?:\*\*)?:\s*["']?(.*?)["']?\s*$/im);
+        if (statusMatch) {
+          const s = statusMatch[1].toLowerCase();
+          if (s.includes('ready') || s.includes('final')) status = 'ready';
+          else if (s.includes('review')) status = 'review';
+          else if (s.includes('published')) status = 'published';
+          else status = 'draft';
+        }
+        
+        // Skip published items - they shouldn't be in pipeline
+        if (status === 'published') return null;
+        
         const stats = await fs.stat(filePath);
         
         return {
           slug: filename.replace('.md', ''),
           filename,
           title,
+          status,
           created: stats.birthtime,
+          modified: stats.mtime,
           size: stats.size
         };
       } catch (e) {
         console.warn(`Error reading file ${filename}:`, e);
-        return null; // Filter out later
+        return null;
       }
     }));
     
-    return items.filter(i => i !== null);
+    // Sort by most recently modified first
+    return items.filter(i => i !== null).sort((a, b) => b.modified - a.modified);
   } catch (e) {
     if (e.code === 'ENOENT') {
       console.warn(`[Pipeline] Content directory not found: ${dirPath}.`);
@@ -66,7 +80,7 @@ const podcasts = await getPipelineContent('podcast');
     <div class="content-wrapper">
       <header class="pipeline-header">
         <h1>Content Pipeline</h1>
-        <p>Raw drafts and briefs from the vault.</p>
+        <p>Drafts and briefs in progress. Items marked "ready" are awaiting publication.</p>
       </header>
 
       <div class="pipeline-grid">
@@ -79,7 +93,10 @@ const podcasts = await getPipelineContent('podcast');
           <div class="card-list">
             {podcasts.map(item => (
               <a href={`/pipeline/podcast/${item.slug}`} class="pipeline-card">
-                <h3>{item.title}</h3>
+                <div class="card-header">
+                  <h3>{item.title}</h3>
+                  <span class={`status-badge status-${item.status}`}>{item.status}</span>
+                </div>
                 <div class="meta">
                   <span class="filename">{item.filename}</span>
                 </div>
@@ -97,7 +114,10 @@ const podcasts = await getPipelineContent('podcast');
           <div class="card-list">
             {newsletters.map(item => (
               <a href={`/pipeline/newsletter/${item.slug}`} class="pipeline-card">
-                <h3>{item.title}</h3>
+                <div class="card-header">
+                  <h3>{item.title}</h3>
+                  <span class={`status-badge status-${item.status}`}>{item.status}</span>
+                </div>
                 <div class="meta">
                   <span class="filename">{item.filename}</span>
                 </div>
@@ -112,7 +132,6 @@ const podcasts = await getPipelineContent('podcast');
 
 <style>
   .pipeline-page {
-    /* Ensure content starts well below the fixed header (increased to 160px for safety) */
     padding-top: 160px;
     min-height: 100vh;
     background: #050505;
@@ -186,10 +205,47 @@ const podcasts = await getPipelineContent('podcast');
     background: #161616;
   }
 
+  .card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 1rem;
+    margin-bottom: 0.5rem;
+  }
+
   .pipeline-card h3 {
     font-size: 1.1rem;
-    margin: 0 0 0.5rem 0;
+    margin: 0;
     line-height: 1.4;
+    flex: 1;
+  }
+
+  .status-badge {
+    font-size: 0.7rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    padding: 0.25rem 0.5rem;
+    border-radius: 3px;
+    white-space: nowrap;
+  }
+
+  .status-draft {
+    background: rgba(251, 191, 36, 0.15);
+    color: #fbbf24;
+    border: 1px solid rgba(251, 191, 36, 0.3);
+  }
+
+  .status-review {
+    background: rgba(59, 130, 246, 0.15);
+    color: #3b82f6;
+    border: 1px solid rgba(59, 130, 246, 0.3);
+  }
+
+  .status-ready {
+    background: rgba(34, 197, 94, 0.15);
+    color: #22c55e;
+    border: 1px solid rgba(34, 197, 94, 0.3);
   }
 
   .meta {

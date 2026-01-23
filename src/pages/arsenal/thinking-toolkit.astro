@@ -1,0 +1,288 @@
+---
+import Base from '../../layouts/Base.astro';
+
+// Framework data - organized by category
+const frameworks = {
+  problemFraming: {
+    title: "Problem Framing & Diagnosis",
+    description: "Strip away assumptions, find root causes, reframe the question",
+    items: [
+      { name: "First Principles Thinking", description: "Strip to fundamental truths, then reason up", source: "Aristotle via Elon Musk", usedIn: ["Room 40", "Times Radio"] },
+      { name: "5 Whys", description: "Drill down to root cause iteratively", source: "Sakichi Toyoda", usedIn: ["All Case Studies"] },
+      { name: "Reframe / Flip", description: "What if the opposite were true?", source: "Edward de Bono", usedIn: ["Abbot Suger"] },
+      { name: "Constraints Audit", description: "Which constraints are real vs. assumed?", source: "Theory of Constraints", usedIn: ["Abbot Suger"] },
+      { name: "Jobs To Be Done", description: "What job is this solution hired for?", source: "Clayton Christensen", usedIn: ["High Street", "BeLeaf"] },
+      { name: "Pre-Mortem", description: "If this failed, why would it have failed?", source: "Gary Klein", usedIn: ["AI Rollbacks"] },
+    ]
+  },
+  systemsThinking: {
+    title: "Complexity & Systems Thinking",
+    description: "Navigate complex systems, find leverage points, understand domains",
+    items: [
+      { name: "Cynefin Framework", description: "Categorise: Clear, Complicated, Complex, or Chaotic", source: "Dave Snowden", usedIn: ["Fix The Budget", "AI Rollbacks"] },
+      { name: "Iceberg Model", description: "Events > Patterns > Structures > Mental Models", source: "Systems Thinking", usedIn: ["Fix The Budget", "High Street"] },
+      { name: "12 Leverage Points", description: "Find highest-leverage intervention in a system", source: "Donella Meadows", usedIn: ["High Street"] },
+      { name: "OODA Loop", description: "Observe-Orient-Decide-Act faster than competitors", source: "John Boyd", usedIn: ["Room 40"] },
+      { name: "Double Diamond", description: "Diverge/Converge through problem and solution spaces", source: "Design Council", usedIn: [] },
+    ]
+  },
+  strategy: {
+    title: "Strategic Analysis",
+    description: "Position for growth, prioritise investments, map competitive landscape",
+    items: [
+      { name: "Blue Ocean / ERRC Grid", description: "Create uncontested market space", source: "Kim & Mauborgne", usedIn: [] },
+      { name: "Wardley Mapping", description: "Map value chain evolution from Genesis to Commodity", source: "Simon Wardley", usedIn: [] },
+      { name: "Ansoff Matrix", description: "Penetrate, Develop, Diversify", source: "Igor Ansoff", usedIn: [] },
+      { name: "DuPont Analysis", description: "Decompose ROE: Margin x Turnover x Leverage", source: "DuPont Corporation", usedIn: [] },
+    ]
+  },
+  communication: {
+    title: "Communication & Story",
+    description: "Structure arguments, tell compelling narratives, make ideas stick",
+    items: [
+      { name: "Minto Pyramid Principle", description: "Answer first, then Arguments, then Data", source: "Barbara Minto", usedIn: [] },
+      { name: "Hero's Journey", description: "The monomyth of transformation", source: "Joseph Campbell", usedIn: ["Storyselling"] },
+      { name: "StoryBrand", description: "Customer as hero, brand as guide", source: "Donald Miller", usedIn: ["Storyselling"] },
+      { name: "STAR Framework", description: "Situation, Tension, Action, Resolution", source: "WAM (from Cosmos)", usedIn: ["Storytelling Frameworks"] },
+    ]
+  },
+  razors: {
+    title: "Philosophical Razors",
+    description: "Cognitive hygiene - cut through noise, detect weak arguments",
+    items: [
+      { name: "Occam's Razor", description: "Prefer simpler explanations (fewer assumptions)", source: "William of Ockham", usedIn: [] },
+      { name: "Hanlon's Razor", description: "Don't attribute to malice what stupidity explains", source: "Robert J. Hanlon", usedIn: [] },
+      { name: "Sagan Standard", description: "Extraordinary claims require extraordinary evidence", source: "Carl Sagan", usedIn: [] },
+      { name: "Hitchens' Razor", description: "Asserted without evidence, dismissed without evidence", source: "Christopher Hitchens", usedIn: [] },
+    ]
+  },
+  wamProprietary: {
+    title: "WAM Proprietary",
+    description: "Our original frameworks, battle-tested on real problems",
+    items: [
+      { name: "PROBLEM Framework", description: "Perceive, Reframe, Orient, Build, Launch, Evolve, Measure", source: "Word And Mouth", usedIn: ["All Solved Features"] },
+      { name: "Storyselling", description: "Solution Stack: Problem > Insight > Solution > Evidence > CTA", source: "Dave Thackeray", usedIn: ["All Commercial Content"] },
+      { name: "Analog Advantage", description: "Friction, Curation, Third Place, Sensory Sovereignty", source: "Word And Mouth", usedIn: ["High Street"] },
+      { name: "CRAFT Framework", description: "Create, Refine, Arrange, Flip, Tackle", source: "Dave Thackeray", usedIn: ["AI Content"] },
+    ]
+  }
+};
+---
+
+<Base title="Thinking Toolkit | Word And Mouth Arsenal" description="40+ mental models, frameworks, and first principles for problem solving. Browse our toolkit and see how we apply them.">
+  <section class="toolkit-hero">
+    <div class="hero-content">
+      <a href="/arsenal/" class="back-link">Back to Arsenal</a>
+      <h1>Thinking Toolkit</h1>
+      <p class="hero-subtitle">The mental models, frameworks, and first principles we use to find the problem behind the problem.</p>
+      <p class="hero-note">Each framework links to WAM content showing it in action.</p>
+    </div>
+  </section>
+
+  <section class="toolkit-content">
+    {Object.entries(frameworks).map(([key, category]) => (
+      <div class="category-section" id={key}>
+        <div class="category-header">
+          <h2>{category.title}</h2>
+          <p>{category.description}</p>
+        </div>
+        <div class="framework-grid">
+          {category.items.map(item => (
+            <div class="framework-card">
+              <h3>{item.name}</h3>
+              <p class="framework-description">{item.description}</p>
+              <div class="framework-meta">
+                <span class="source">{item.source}</span>
+                {item.usedIn.length > 0 && (
+                  <div class="used-in">
+                    <span class="used-label">Used in:</span>
+                    {item.usedIn.map((usage, i) => (
+                      <span class="usage-tag">{usage}</span>
+                    ))}
+                  </div>
+                )}
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    ))}
+  </section>
+
+  <section class="toolkit-cta">
+    <h3>Want to apply these to your problems?</h3>
+    <p>We don't just teach frameworks - we use them. Every engagement starts with diagnosis: what game are you actually in?</p>
+    <a href="mailto:dave@wordandmouth.com?subject=Problem Diagnosis" class="cta-button">Start the Conversation</a>
+  </section>
+</Base>
+
+<style>
+  .toolkit-hero {
+    padding: 10rem 2rem 4rem;
+    text-align: center;
+    background: linear-gradient(180deg, #0a0a0a 0%, #0d0d0d 100%);
+  }
+
+  .back-link {
+    display: inline-block;
+    color: var(--muted);
+    font-size: 0.9rem;
+    margin-bottom: 2rem;
+    transition: color 0.2s;
+  }
+
+  .back-link:hover {
+    color: var(--accent);
+  }
+
+  .toolkit-hero h1 {
+    font-size: clamp(2rem, 5vw, 3rem);
+    margin-bottom: 1rem;
+  }
+
+  .hero-subtitle {
+    font-size: 1.2rem;
+    color: var(--muted);
+    max-width: 600px;
+    margin: 0 auto 1rem;
+    line-height: 1.5;
+  }
+
+  .hero-note {
+    font-size: 0.9rem;
+    color: var(--accent);
+  }
+
+  .toolkit-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 3rem 2rem 4rem;
+  }
+
+  .category-section {
+    margin-bottom: 4rem;
+  }
+
+  .category-header {
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .category-header h2 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .category-header p {
+    color: var(--muted);
+    font-size: 0.95rem;
+  }
+
+  .framework-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.25rem;
+  }
+
+  .framework-card {
+    background: #111;
+    border: 1px solid var(--border);
+    padding: 1.5rem;
+    transition: border-color 0.2s;
+  }
+
+  .framework-card:hover {
+    border-color: var(--accent);
+  }
+
+  .framework-card h3 {
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+    color: #fff;
+  }
+
+  .framework-description {
+    font-size: 0.9rem;
+    color: #bbb;
+    line-height: 1.5;
+    margin-bottom: 1rem;
+  }
+
+  .framework-meta {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .source {
+    font-size: 0.75rem;
+    color: var(--muted);
+    font-style: italic;
+  }
+
+  .used-in {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.4rem;
+  }
+
+  .used-label {
+    font-size: 0.7rem;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+  }
+
+  .usage-tag {
+    font-size: 0.7rem;
+    background: rgba(255, 107, 53, 0.15);
+    color: var(--accent);
+    padding: 0.2rem 0.5rem;
+    border-radius: 2px;
+  }
+
+  .toolkit-cta {
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 3rem 2rem 5rem;
+    text-align: center;
+  }
+
+  .toolkit-cta h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .toolkit-cta p {
+    color: var(--muted);
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+  }
+
+  .cta-button {
+    display: inline-block;
+    background: var(--accent);
+    color: #000;
+    padding: 0.85rem 1.75rem;
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: transform 0.2s, background 0.2s;
+  }
+
+  .cta-button:hover {
+    transform: translateY(-2px);
+    background: #ff8c5a;
+  }
+
+  @media (max-width: 768px) {
+    .toolkit-hero {
+      padding: 8rem 1.5rem 3rem;
+    }
+
+    .framework-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
