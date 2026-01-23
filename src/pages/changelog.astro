@@ -1,0 +1,204 @@
+---
+import Base from '../layouts/Base.astro';
+
+const changelog = [
+  {
+    version: "January 2026",
+    date: "2026-01-23",
+    items: [
+      { type: "feature", title: "Enterprise Sandbox", description: "New /solved/ feature exploring Special Projects Teams methodology and the Vanguard Protocol for corporate innovation." },
+      { type: "feature", title: "Thinking Toolkit", description: "Arsenal expanded with 40+ frameworks and mental models, searchable and categorised." },
+      { type: "feature", title: "High Street Resurrection", description: "Feature on the Analog Advantage and why physical retail needs to stop playing digital's game." },
+      { type: "improvement", title: "Pipeline Page", description: "Status badges and filtering for draft/review content. Sorted by modification date." },
+      { type: "feature", title: "Fix The Budget", description: "UK Chancellor simulator - practice fiscal policy without consequences." }
+    ]
+  },
+  {
+    version: "December 2025",
+    date: "2025-12-20",
+    items: [
+      { type: "feature", title: "BeLeaf Launch", description: "Our testing ground for ideas goes live - practising what we preach about safe-to-fail experimentation." },
+      { type: "feature", title: "The Greenhouse", description: "Interactive tools for psychological safety, toxic hire detection, and the Manifesto of Permissions." },
+      { type: "improvement", title: "Services Tiers", description: "Discovery, Sprint, and Embedded engagement models with Matchmaker tool." }
+    ]
+  },
+  {
+    version: "November 2025",
+    date: "2025-11-15",
+    items: [
+      { type: "feature", title: "Solved Section", description: "Launching our signature story format - 4-part problem diagnosis features." },
+      { type: "feature", title: "Arsenal", description: "Tools, frameworks, and resources section for practical takeaways." },
+      { type: "launch", title: "Website Launch", description: "Word And Mouth goes live with dark mode design and the asterisk* visual identity." }
+    ]
+  }
+];
+
+const typeColors: Record<string, string> = {
+  feature: "#4CAF50",
+  improvement: "#2196F3", 
+  fix: "#FF9800",
+  launch: "#9C27B0"
+};
+---
+
+<Base title="Changelog | Word And Mouth" description="What we've been building. A transparent log of new features, improvements, and updates to Word And Mouth.">
+  <article class="changelog-page">
+    <section class="page-header">
+      <h1>Changelog</h1>
+      <p class="page-intro">What we've been building. Transparency about our progress, because we believe in showing our work.</p>
+    </section>
+
+    <section class="changelog-content">
+      {changelog.map((release) => (
+        <div class="release">
+          <div class="release-header">
+            <h2>{release.version}</h2>
+            <span class="release-date">{release.date}</span>
+          </div>
+          <ul class="changes-list">
+            {release.items.map((item) => (
+              <li class="change-item">
+                <span class="change-type" style={`background: ${typeColors[item.type]}20; color: ${typeColors[item.type]}`}>
+                  {item.type}
+                </span>
+                <div class="change-content">
+                  <strong>{item.title}</strong>
+                  <p>{item.description}</p>
+                </div>
+              </li>
+            ))}
+          </ul>
+        </div>
+      ))}
+    </section>
+
+    <section class="changelog-footer">
+      <p>Want to see what's coming next? Check out our <a href="/roadmap">public roadmap</a> and have your say.</p>
+    </section>
+  </article>
+</Base>
+
+<style>
+  .changelog-page {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+
+  .page-header {
+    padding: 10rem 0 3rem;
+  }
+
+  .page-header h1 {
+    font-size: clamp(2rem, 5vw, 3rem);
+    margin-bottom: 1rem;
+  }
+
+  .page-intro {
+    font-size: 1.2rem;
+    color: var(--muted);
+    max-width: 600px;
+  }
+
+  .changelog-content {
+    padding: 2rem 0;
+  }
+
+  .release {
+    margin-bottom: 3rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .release:last-child {
+    border-bottom: none;
+  }
+
+  .release-header {
+    display: flex;
+    align-items: baseline;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .release-header h2 {
+    font-size: 1.5rem;
+    margin: 0;
+  }
+
+  .release-date {
+    font-size: 0.85rem;
+    color: var(--muted);
+  }
+
+  .changes-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .change-item {
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+  }
+
+  .change-type {
+    display: inline-block;
+    padding: 0.2rem 0.6rem;
+    font-size: 0.7rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    border-radius: 2px;
+    min-width: 80px;
+    text-align: center;
+  }
+
+  .change-content {
+    flex: 1;
+  }
+
+  .change-content strong {
+    display: block;
+    margin-bottom: 0.25rem;
+  }
+
+  .change-content p {
+    margin: 0;
+    font-size: 0.9rem;
+    color: var(--muted);
+    line-height: 1.5;
+  }
+
+  .changelog-footer {
+    padding: 2rem 0 4rem;
+    text-align: center;
+  }
+
+  .changelog-footer p {
+    color: var(--muted);
+  }
+
+  .changelog-footer a {
+    color: var(--accent);
+  }
+
+  .changelog-footer a:hover {
+    text-decoration: underline;
+  }
+
+  @media (max-width: 600px) {
+    .change-item {
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .change-type {
+      min-width: auto;
+    }
+  }
+</style>

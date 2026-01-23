@@ -1,0 +1,357 @@
+---
+import Base from '../layouts/Base.astro';
+
+const roadmapItems = [
+  {
+    status: "now",
+    title: "Special Projects Curriculum",
+    description: "Training modules for Heads of Special Projects Teams - from Innovator's Dilemma to Kelly's 14 Rules.",
+    category: "Greenhouse"
+  },
+  {
+    status: "now",
+    title: "Knowledge Graph",
+    description: "Visual map connecting all WAM frameworks, tools, and content. See how everything fits together.",
+    category: "Arsenal"
+  },
+  {
+    status: "now",
+    title: "Pre-Mortem Tool",
+    description: "Interactive tool to run the 4 Causes of Death analysis on your initiatives before they fail.",
+    category: "Greenhouse"
+  },
+  {
+    status: "next",
+    title: "The Sandbox Platform",
+    description: "Business digital twin for testing WAM methodologies on your org before real-world deployment.",
+    category: "Platform"
+  },
+  {
+    status: "next",
+    title: "Team Assembler",
+    description: "Identify which of the 5 Special Projects archetypes you have and which you need to recruit.",
+    category: "Greenhouse"
+  },
+  {
+    status: "next",
+    title: "Epub Mini-Guide",
+    description: "The knockout playbook - a practical guide to ripping your strategy to shreds and rebuilding it.",
+    category: "Content"
+  },
+  {
+    status: "later",
+    title: "Community Platform",
+    description: "Discord-based problem-solving community with monthly hackathons.",
+    category: "Community"
+  },
+  {
+    status: "later",
+    title: "Podcast Season 2",
+    description: "Deep dives into signature stories with guest problem-solvers.",
+    category: "Content"
+  },
+  {
+    status: "later",
+    title: "White-Label Sandbox",
+    description: "Enterprise version of The Sandbox for internal client use.",
+    category: "Platform"
+  }
+];
+
+const statusLabels: Record<string, string> = {
+  now: "Building Now",
+  next: "Up Next",
+  later: "On the Horizon"
+};
+
+const statusColors: Record<string, string> = {
+  now: "#4CAF50",
+  next: "#2196F3",
+  later: "#9C27B0"
+};
+---
+
+<Base title="Roadmap | Word And Mouth" description="Where we're heading. Our public roadmap for tools, features, and content - and a way for you to have your say.">
+  <article class="roadmap-page">
+    <section class="page-header">
+      <h1>Roadmap</h1>
+      <p class="page-intro">Where we're heading. This is a living document - we're building in public and we want your input on what matters most.</p>
+    </section>
+
+    <section class="roadmap-content">
+      {["now", "next", "later"].map((status) => (
+        <div class="roadmap-column">
+          <h2 class="column-header" style={`border-color: ${statusColors[status]}`}>
+            <span class="status-dot" style={`background: ${statusColors[status]}`}></span>
+            {statusLabels[status]}
+          </h2>
+          <div class="items-list">
+            {roadmapItems.filter(item => item.status === status).map((item) => (
+              <div class="roadmap-item">
+                <span class="item-category">{item.category}</span>
+                <h3>{item.title}</h3>
+                <p>{item.description}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      ))}
+    </section>
+
+    <section class="feedback-section">
+      <div class="feedback-content">
+        <h2>Have Your Say</h2>
+        <p>This roadmap isn't set in stone. We're building for people who want better businesses, and that means listening to what you actually need.</p>
+        
+        <div class="feedback-options">
+          <div class="feedback-card">
+            <h3>Vote on Priorities</h3>
+            <p>Which items should we focus on first? Tell us what would make the biggest difference to you.</p>
+            <a href="mailto:dave@wordandmouth.com?subject=Roadmap Feedback&body=I'd love to see you prioritise..." class="feedback-btn">Share Your Vote</a>
+          </div>
+          
+          <div class="feedback-card">
+            <h3>Suggest Something New</h3>
+            <p>Got an idea we haven't thought of? A problem you need solved that isn't on our radar?</p>
+            <a href="mailto:dave@wordandmouth.com?subject=Roadmap Suggestion&body=Here's an idea..." class="feedback-btn">Submit an Idea</a>
+          </div>
+          
+          <div class="feedback-card">
+            <h3>Join the Panel</h3>
+            <p>We're forming a prospective client panel to shape our direction. Want a seat at the table?</p>
+            <a href="mailto:dave@wordandmouth.com?subject=Client Panel Interest&body=I'd like to join the panel..." class="feedback-btn">Express Interest</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="principles-section">
+      <h2>Our Building Principles</h2>
+      <div class="principles-grid">
+        <div class="principle">
+          <h3>Show, Don't Tell</h3>
+          <p>Every tool we build should demonstrate our methodology, not just describe it. If it's not interactive, it's incomplete.</p>
+        </div>
+        <div class="principle">
+          <h3>Safe to Fail</h3>
+          <p>We practice what we preach. BeLeaf exists so we can test ideas before recommending them. The Sandbox extends this to clients.</p>
+        </div>
+        <div class="principle">
+          <h3>Steal Freely</h3>
+          <p>Our frameworks are meant to be used. We'd rather you apply them than admire them. That's how we measure success.</p>
+        </div>
+        <div class="principle">
+          <h3>Build in Public</h3>
+          <p>This roadmap is public. Our changelog is public. We believe transparency builds trust faster than polish.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="roadmap-footer">
+      <p>See what we've already shipped: <a href="/changelog">View Changelog</a></p>
+    </section>
+  </article>
+</Base>
+
+<style>
+  .roadmap-page {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+
+  .page-header {
+    padding: 10rem 0 3rem;
+    max-width: 800px;
+  }
+
+  .page-header h1 {
+    font-size: clamp(2rem, 5vw, 3rem);
+    margin-bottom: 1rem;
+  }
+
+  .page-intro {
+    font-size: 1.2rem;
+    color: var(--muted);
+  }
+
+  .roadmap-content {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    padding: 2rem 0;
+  }
+
+  @media (max-width: 900px) {
+    .roadmap-content {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .roadmap-column {
+    background: #0a0a0a;
+    border: 1px solid var(--border);
+    padding: 1.5rem;
+  }
+
+  .column-header {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: 1rem;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 2px solid;
+  }
+
+  .status-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+  }
+
+  .items-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .roadmap-item {
+    background: #111;
+    border: 1px solid var(--border);
+    padding: 1.25rem;
+  }
+
+  .item-category {
+    display: inline-block;
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--accent);
+    margin-bottom: 0.5rem;
+  }
+
+  .roadmap-item h3 {
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .roadmap-item p {
+    font-size: 0.85rem;
+    color: var(--muted);
+    margin: 0;
+    line-height: 1.5;
+  }
+
+  .feedback-section {
+    background: linear-gradient(135deg, #0f0f0f 0%, #1a1a1a 100%);
+    margin: 4rem -2rem;
+    padding: 4rem 2rem;
+  }
+
+  .feedback-content {
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+
+  .feedback-section h2 {
+    font-size: 1.75rem;
+    margin-bottom: 1rem;
+  }
+
+  .feedback-section > .feedback-content > p {
+    color: var(--muted);
+    max-width: 600px;
+    margin-bottom: 2rem;
+  }
+
+  .feedback-options {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .feedback-card {
+    background: #111;
+    border: 1px solid var(--border);
+    padding: 1.5rem;
+  }
+
+  .feedback-card h3 {
+    font-size: 1.1rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .feedback-card p {
+    font-size: 0.9rem;
+    color: var(--muted);
+    margin-bottom: 1.25rem;
+    line-height: 1.5;
+  }
+
+  .feedback-btn {
+    display: inline-block;
+    background: var(--accent);
+    color: #000;
+    padding: 0.6rem 1.25rem;
+    font-size: 0.85rem;
+    font-weight: 600;
+    transition: all 0.2s;
+  }
+
+  .feedback-btn:hover {
+    background: #ff8a50;
+    transform: translateY(-2px);
+  }
+
+  .principles-section {
+    padding: 4rem 0;
+  }
+
+  .principles-section h2 {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+  }
+
+  .principles-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .principle {
+    padding: 1.5rem;
+    border-left: 3px solid var(--accent);
+    background: rgba(255, 107, 53, 0.03);
+  }
+
+  .principle h3 {
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .principle p {
+    font-size: 0.85rem;
+    color: var(--muted);
+    margin: 0;
+    line-height: 1.5;
+  }
+
+  .roadmap-footer {
+    padding: 2rem 0 4rem;
+    text-align: center;
+    border-top: 1px solid var(--border);
+  }
+
+  .roadmap-footer p {
+    color: var(--muted);
+  }
+
+  .roadmap-footer a {
+    color: var(--accent);
+  }
+
+  .roadmap-footer a:hover {
+    text-decoration: underline;
+  }
+</style>
