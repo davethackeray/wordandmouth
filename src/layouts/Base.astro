@@ -33,6 +33,7 @@ const { title, description = "I help businesses find the big problem they actual
       <nav class="nav-desktop">
         <a href="/problems">Problems</a>
         <a href="/solved">Solved</a>
+        <a href="/mission">Mission</a>
         <a href="/services">Services</a>
         <a href="/arsenal">Arsenal</a>
         <a href="/about">About</a>
@@ -51,6 +52,7 @@ const { title, description = "I help businesses find the big problem they actual
       <nav>
         <a href="/problems">Problems</a>
         <a href="/solved">Solved</a>
+        <a href="/mission">Mission</a>
         <a href="/services">Services</a>
         <a href="/arsenal">Arsenal</a>
         <a href="/about">About</a>
@@ -230,6 +232,9 @@ const { title, description = "I help businesses find the big problem they actual
   
   main {
     min-height: 100vh;
+    padding-top: 0; /* Content pages handle their own padding */
+    position: relative;
+    z-index: 1; /* Below the fixed header (z-index: 100) */
   }
   
   footer {

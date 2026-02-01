@@ -1,0 +1,181 @@
+---
+import Base from '../../layouts/Base.astro';
+import MissionGraph from '../../components/MissionGraph.astro';
+---
+
+<Base title="The Mission: Sanctioned Insurrection | Word And Mouth" description="The intellectual boundaries of our work. Innovation is rebellion.">
+  <div class="mission-container">
+    
+    <header class="mission-header">
+      <span class="system-label">STRATEGIC_DIRECTIVE_001</span>
+      <h1>The Insurrection</h1>
+      <p class="mission-intro">
+        You cannot innovate inside the machine that was built to standardize you.
+        <br>
+        To build the future, **you must leave the building.**
+      </p>
+    </header>
+
+    <div class="mission-grid">
+      <div class="graph-column">
+        <MissionGraph />
+      </div>
+      
+      <div class="manifesto-column">
+        <section class="manifesto-block">
+          <h2>The Corporate Immune System</h2>
+          <p>Every large organisation has an immune system. Its job is to detect "variance" (risk, inefficiency, new ideas) and eliminate it to protect the Core Business.</p>
+          <p>That is why your Innovation Lab failed. That is why your "Transformation" is just new slides for old meetings.</p>
+        </section>
+
+        <section class="manifesto-block">
+          <h2>The Only Way Out</h2>
+          <p>To survive, you must establish a <strong>Special Projects Team (SPT)</strong> that operates outside the immune system. A sanctioned insurrection.</p>
+          <p>This Knowledge Graph defines the conditions required to pull that off.</p>
+          <ul class="node-list">
+            <li><strong>HIRING:</strong> How to recruit Pirates (Intrapreneurs) without spooking HR.</li>
+            <li><strong>COACHING:</strong> Deprogramming executives to lead, not manage, chaos.</li>
+            <li><strong>EXECUTION:</strong> The "100-Day War" protocol for speed and validation.</li>
+            <li><strong>STRUCTURE:</strong> Designing the "Air Gap" and metered funding models.</li>
+            <li><strong>ENVIRONMENT:</strong> Creating the Psychological Safety required for failure.</li>
+          </ul>
+        </section>
+
+        <div class="action-block">
+          <p>This is the configuration for a Special Projects Team.</p>
+          <a href="/mission/hiring" class="cta-button">Configure Your Team →</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</Base>
+
+<style>
+  .mission-container {
+    padding: 6rem 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    min-height: 100vh;
+  }
+
+  .system-label {
+    display: block;
+    font-family: 'Space Grotesk', monospace;
+    color: var(--accent);
+    letter-spacing: 0.15em;
+    font-size: 0.8rem;
+    margin-bottom: 1rem;
+    border-bottom: 1px solid var(--accent);
+    display: inline-block;
+    padding-bottom: 0.25rem;
+  }
+
+  .mission-header {
+    margin-bottom: 4rem;
+    max-width: 800px;
+  }
+
+  h1 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: clamp(3rem, 6vw, 5rem);
+    font-weight: 700;
+    line-height: 1;
+    margin-bottom: 1.5rem;
+    text-transform: uppercase;
+  }
+
+  .mission-intro {
+    font-size: 1.4rem;
+    line-height: 1.4;
+    color: #ccc;
+    max-width: 650px;
+  }
+
+  .mission-intro strong {
+    color: #fff;
+    border-bottom: 2px solid var(--accent);
+  }
+
+  .mission-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 4rem;
+  }
+
+  @media (min-width: 900px) {
+    .mission-grid {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  .manifesto-block {
+    margin-bottom: 3rem;
+  }
+
+  .manifesto-block h2 {
+    font-size: 1.5rem;
+    color: #fff;
+    margin-bottom: 1rem;
+    border-left: 3px solid #333;
+    padding-left: 1rem;
+  }
+
+  .manifesto-block p {
+    font-size: 1.1rem;
+    color: var(--muted);
+    margin-bottom: 1rem;
+    line-height: 1.6;
+  }
+
+  .node-list {
+    list-style: none;
+    margin-top: 1rem;
+    border: 1px solid #222;
+    padding: 1.5rem;
+    background: #0f0f0f;
+  }
+
+  .node-list li {
+    margin-bottom: 1rem;
+    color: #ccc;
+    font-size: 0.95rem;
+  }
+
+  .node-list strong {
+    color: var(--accent);
+    font-family: 'Space Grotesk', monospace;
+  }
+
+  .node-list li:last-child {
+    margin-bottom: 0;
+  }
+
+  .action-block {
+    margin-top: 3rem;
+    padding-top: 2rem;
+    border-top: 1px solid #222;
+  }
+
+  .action-block p {
+    font-family: 'Space Grotesk', sans-serif;
+    color: #fff;
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+  }
+
+  .cta-button {
+    display: inline-block;
+    background: #fff;
+    color: #000;
+    padding: 1rem 2rem;
+    font-weight: 700;
+    transition: all 0.2s;
+  }
+
+  .cta-button:hover {
+    background: var(--accent);
+    transform: translateX(5px);
+  }
+
+</style>

@@ -1,0 +1,192 @@
+---
+const nodes = [
+  {
+    id: "00",
+    slug: "/mission",
+    title: "Mission Configuration",
+    role: "Strategy",
+    desc: "Design. Develop. Deploy.",
+    status: "ACTIVE"
+  },
+  {
+    id: "01",
+    slug: "/mission/hiring",
+    title: "HIRING",
+    role: "Talent Strategy",
+    desc: "Recruiting Intrapreneurs.",
+    status: "REQUIRED"
+  },
+  {
+    id: "02",
+    slug: "/mission/coaching",
+    title: "COACHING",
+    role: "Leadership",
+    desc: "Maverick Deprogramming.",
+    status: "DETECTED"
+  },
+  {
+    id: "03",
+    slug: "/mission/execution",
+    title: "EXECUTION",
+    role: "Operations",
+    desc: "Speed & Validation.",
+    status: "READY"
+  },
+  {
+    id: "04",
+    slug: "/mission/structure",
+    title: "STRUCTURE",
+    role: "Governance",
+    desc: "The Air Gap.",
+    status: "ONLINE"
+  },
+  {
+    id: "05",
+    slug: "/mission/environment",
+    title: "ENVIRONMENT",
+    role: "Culture",
+    desc: "Psychological Safety.",
+    status: "ONLINE"
+  }
+];
+---
+
+<div class="mission-graph">
+  <div class="graph-header">
+    <span class="graph-label">MISSION_GRAPH_V2.1</span>
+    <span class="graph-status">SYSTEM_NORMAL</span>
+  </div>
+  
+  <div class="nodes-container">
+    {nodes.map((node) => (
+      <a href={node.slug} class="node-card">
+        <div class="node-meta">
+          <span class="node-id">{node.id}</span>
+          <span class={`node-status status-${node.status.toLowerCase()}`}>{node.status}</span>
+        </div>
+        <div class="node-content">
+          <span class="node-role">{node.role}</span>
+          <h3 class="node-title">{node.title}</h3>
+          <p class="node-desc">{node.desc}</p>
+        </div>
+        <div class="node-arrow">→</div>
+      </a>
+    ))}
+  </div>
+</div>
+
+<style>
+  .mission-graph {
+    background: #0f0f0f;
+    border: 1px solid #333;
+    padding: 1.5rem;
+    max-width: 600px;
+    margin: 2rem auto;
+    font-family: 'Space Grotesk', monospace;
+  }
+
+  .graph-header {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid #333;
+    padding-bottom: 1rem;
+    margin-bottom: 1.5rem;
+    font-size: 0.75rem;
+    color: #666;
+    letter-spacing: 0.1em;
+  }
+
+  .graph-status {
+    color: var(--accent);
+  }
+
+  .nodes-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .node-card {
+    display: flex;
+    align-items: center;
+    background: #161616;
+    border: 1px solid #222;
+    padding: 1.25rem;
+    transition: all 0.2s ease;
+    text-decoration: none;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .node-card:hover {
+    background: #1a1a1a;
+    border-color: var(--accent);
+    transform: translateX(5px);
+  }
+
+  .node-meta {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-right: 1.5rem;
+    min-width: 80px;
+    font-family: monospace;
+    font-size: 0.7rem;
+  }
+
+  .node-id {
+    color: #444;
+  }
+
+  .node-status {
+    color: var(--accent);
+    opacity: 0.7;
+  }
+
+  .node-content {
+    flex-grow: 1;
+  }
+
+  .node-role {
+    display: block;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: #666;
+    margin-bottom: 0.25rem;
+  }
+
+  .node-title {
+    font-size: 1.2rem;
+    color: #fff;
+    margin : 0;
+    font-weight: 700;
+  }
+
+  .node-desc {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.85rem;
+    color: #888;
+    margin: 0.25rem 0 0 0;
+  }
+
+  .node-arrow {
+    color: #333;
+    font-size: 1.2rem;
+    margin-left: 1rem;
+    transition: color 0.2s, transform 0.2s;
+  }
+
+  .node-card:hover .node-arrow {
+    color: var(--accent);
+    transform: translateX(5px);
+  }
+
+  /* Status variants */
+  .status-active { color: #fff; }
+  .status-required { color: #ff6b35; } 
+  .status-detected { color: #ffeb3b; }
+  .status-ready { color: #4CAF50; }
+  .status-online { color: #2196F3; }
+
+</style>
